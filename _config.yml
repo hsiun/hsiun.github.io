@@ -4,7 +4,7 @@
 
 # Site
 title: GaoSpot
-subtitle: 写写生活，聊聊技术
+subtitle: ————写写生活，聊聊技术
 description: My Person Blog
 author: Gao Xiong
 language: zh-CN
@@ -63,6 +63,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
+plugins:
+- hexo-generator-feed  #插件名
+
 theme: maupassant
 
 # Deployment
