@@ -4,9 +4,9 @@
   <subtitle>————写写生活，聊聊技术</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://gaospot.com/"/>
   <updated>2016-02-13T03:41:30.652Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://gaospot.com/</id>
   
   <author>
     <name>Gao Xiong</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello Hexo —— 我的个人博客搭建记录</title>
-    <link href="http://yoursite.com/2016/02/13/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2016/02/13/Hello Hexo —— 我的个人博客搭建记录/</id>
+    <link href="http://gaospot.com/2016/02/13/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
+    <id>http://gaospot.com/2016/02/13/Hello Hexo —— 我的个人博客搭建记录/</id>
     <published>2016-02-13T03:50:17.546Z</published>
     <updated>2016-02-13T03:41:30.652Z</updated>
     
