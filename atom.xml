@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>GaoSpot</title>
+  <subtitle>写写生活，聊聊技术</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-02-13T03:41:30.652Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Gao Xiong</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello Hexo —— 我的个人博客搭建记录</title>
+    <link href="http://yoursite.com/2016/02/13/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2016/02/13/Hello Hexo —— 我的个人博客搭建记录/</id>
+    <published>2016-02-13T03:50:17.546Z</published>
+    <updated>2016-02-13T03:41:30.652Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。&lt;/p&gt;
+&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Node.js&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/git-scm.com&quot;&gt;Git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装过程非常简单，也就是下载两个软件包安装就可以了。其中node.js的安装，可以先安装nvm，通过nvm来安装node.js。&lt;/p&gt;
+&lt;h3 id=&quot;Hexo_u7684_u5B89_u88C5&quot;&gt;&lt;a href=&quot;#Hexo_u7684_u5B89_u88C5&quot; class=&quot;headerlink&quot; title=&quot;Hexo的安装&quot;&gt;&lt;/a&gt;Hexo的安装&lt;/h3&gt;&lt;p&gt;hexo安装可以在命令行下完成。通过借助使用git bash来执行下列命令，git bash的启动在任意一个目录中右键，找到git bash点击就可运行。这个方法在使用github管理代码的时候，生成本地证书的时候还会用到。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g hexo-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u4F7F_u7528Hexo_u5EFA_u7AD9&quot;&gt;&lt;a href=&quot;#u4F7F_u7528Hexo_u5EFA_u7AD9&quot; class=&quot;headerlink&quot; title=&quot;使用Hexo建站&quot;&gt;&lt;/a&gt;使用Hexo建站&lt;/h3&gt;&lt;p&gt;首先创建好需要存放站点的目录，在这里是&lt;folder&gt;。通过下面命令可以在&lt;folder&gt;目录下生成建站所需的文件&lt;/folder&gt;&lt;/folder&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801&quot;&gt;&lt;a href=&quot;#u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801&quot; class=&quot;headerlink&quot; title=&quot;使用git管理代码&quot;&gt;&lt;/a&gt;使用git管理代码&lt;/h3&gt;&lt;p&gt;修改&lt;folder&gt;目录下的_config.yml文件，添加下面行，表示使用git来管理代码，并把代码托管在github上。当然首先需要您在github上创建yourname.github.io项目。这里的托管方式借鉴网上一些方法，使用master分支来管理静态网站。code分支来管理生成静态文件的代码。&lt;/folder&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&amp;#10;  type: git&amp;#10;  repo: git@github.com:yourname/yourname.github.io.git&amp;#10;  branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u628A_u4EE3_u7801_u90E8_u7F72_u5230github&quot;&gt;&lt;a href=&quot;#u628A_u4EE3_u7801_u90E8_u7F72_u5230github&quot; class=&quot;headerlink&quot; title=&quot;把代码部署到github&quot;&gt;&lt;/a&gt;把代码部署到github&lt;/h3&gt;&lt;p&gt;运行下面命令就可以将代码部署到github了。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C&quot;&gt;&lt;a href=&quot;#u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C&quot; class=&quot;headerlink&quot; title=&quot;访问yourname.github.io观察效果&quot;&gt;&lt;/a&gt;访问yourname.github.io观察效果&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
