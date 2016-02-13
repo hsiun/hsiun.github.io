@@ -5,10 +5,10 @@
 # Site
 title: GaoSpot
 subtitle: 写写生活，聊聊技术
-description:
+description: My Person Blog
 author: Gao Xiong
-language:
-timezone:
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -71,4 +71,6 @@ deploy:
   type: git
   repo: git@github.com:hsiun/hsiun.github.io.git
   branch: master
+
+disqus_shortname: gaospot
 
