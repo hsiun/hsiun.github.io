@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>GaoSpot</title>
-  <subtitle>写写生活，聊聊技术</subtitle>
+  <subtitle>————写写生活，聊聊技术</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
