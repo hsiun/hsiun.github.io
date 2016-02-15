@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaospot.com/"/>
-  <updated>2016-02-13T03:41:30.652Z</updated>
+  <updated>2016-02-15T14:09:12.078Z</updated>
   <id>http://gaospot.com/</id>
   
   <author>
@@ -14,6 +14,148 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdowwn语法测试</title>
+    <link href="http://gaospot.com/2016/02/15/Markdowwn%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/"/>
+    <id>http://gaospot.com/2016/02/15/Markdowwn语法测试/</id>
+    <published>2016-02-15T14:07:40.000Z</published>
+    <updated>2016-02-15T14:09:12.078Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;u6B22_u8FCE_u4F7F_u7528Markdown_u7F16_u8F91_u5668_u5199_u535A_u5BA2&quot;&gt;&lt;a href=&quot;#u6B22_u8FCE_u4F7F_u7528Markdown_u7F16_u8F91_u5668_u5199_u535A_u5BA2&quot; class=&quot;headerlink&quot; title=&quot;欢迎使用Markdown编辑器写博客&quot;&gt;&lt;/a&gt;欢迎使用Markdown编辑器写博客&lt;/h1&gt;&lt;p&gt;本Markdown编辑器使用&lt;a href=&quot;https://github.com/benweet/stackedit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;StackEdit&lt;/a&gt;修改而来，用它写博客，将会带来全新的体验哦：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Markdown和扩展Markdown简洁的语法&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码块高亮&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图片链接和图片上传&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;LaTex&lt;/em&gt;数学公式&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UML序列图和流程图&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;离线写博客&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导入导出Markdown文件&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;丰富的快捷键&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;u5FEB_u6377_u952E&quot;&gt;&lt;a href=&quot;#u5FEB_u6377_u952E&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;加粗    &lt;code&gt;Ctrl + B&lt;/code&gt; &lt;/li&gt;
+&lt;li&gt;斜体    &lt;code&gt;Ctrl + I&lt;/code&gt; &lt;/li&gt;
+&lt;li&gt;引用    &lt;code&gt;Ctrl + Q&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插入链接    &lt;code&gt;Ctrl + L&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插入代码    &lt;code&gt;Ctrl + K&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插入图片    &lt;code&gt;Ctrl + G&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;提升标题    &lt;code&gt;Ctrl + H&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;有序列表    &lt;code&gt;Ctrl + O&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;无序列表    &lt;code&gt;Ctrl + U&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;横线    &lt;code&gt;Ctrl + R&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;撤销    &lt;code&gt;Ctrl + Z&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;重做    &lt;code&gt;Ctrl + Y&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Markdown_u53CA_u6269_u5C55&quot;&gt;&lt;a href=&quot;#Markdown_u53CA_u6269_u5C55&quot; class=&quot;headerlink&quot; title=&quot;Markdown及扩展&quot;&gt;&lt;/a&gt;Markdown及扩展&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— &lt;a href=&quot;https://zh.wikipedia.org/wiki/Markdown&quot; target=&quot;_blank&quot;&gt; [ 维基百科 ]&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用简单的符号标识不同的标题，将某些文字标记为&lt;strong&gt;粗体&lt;/strong&gt;或者&lt;em&gt;斜体&lt;/em&gt;，创建一个&lt;a href=&quot;http://www.csdn.net&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;链接&lt;/a&gt;等，详细语法参考帮助？。&lt;/p&gt;
+&lt;p&gt;本编辑器支持 &lt;strong&gt;Markdown Extra&lt;/strong&gt; , 　扩展了很多好用的功能。具体请参考&lt;a href=&quot;https://github.com/jmcmanus/pagedown-extra&quot; title=&quot;Pagedown Extra&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github&lt;/a&gt;.  &lt;/p&gt;
+&lt;h3 id=&quot;u8868_u683C&quot;&gt;&lt;a href=&quot;#u8868_u683C&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Markdown　Extra&lt;/strong&gt;　表格语法：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;价格&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Computer&lt;/td&gt;
+&lt;td&gt;$1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Phone&lt;/td&gt;
+&lt;td&gt;$12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pipe&lt;/td&gt;
+&lt;td&gt;$1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;可以使用冒号来定义对齐方式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;项目&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;价格&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;数量&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Computer&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;1600 元&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Phone&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;12 元&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Pipe&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;1 元&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;234&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;###定义列表&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Markdown　Extra&lt;/strong&gt;　定义列表语法：&lt;br&gt;项目１&lt;br&gt;项目２&lt;br&gt;:   定义 A&lt;br&gt;:   定义 B&lt;/p&gt;
+&lt;p&gt;项目３&lt;br&gt;:   定义 C&lt;/p&gt;
+&lt;p&gt;:   定义 D&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 定义D内容
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;u4EE3_u7801_u5757&quot;&gt;&lt;a href=&quot;#u4EE3_u7801_u5757&quot; class=&quot;headerlink&quot; title=&quot;代码块&quot;&gt;&lt;/a&gt;代码块&lt;/h3&gt;&lt;p&gt;代码块语法遵循标准markdown代码，例如：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;decorator&quot;&gt;@requires_authorization&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;somefunc&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(param1=&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, param2=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;A docstring&#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; param1 &amp;gt; param2: &lt;span class=&quot;comment&quot;&gt;# interesting&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Greater&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (param2 - param1 + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SomeClass&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;prompt&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;message = &lt;span class=&quot;string&quot;&gt;&#39;&#39;&#39;interpreter&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;prompt&quot;&gt;... &lt;/span&gt;prompt&#39;&#39;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;###脚注&lt;br&gt;生成一个脚注[^footnote].&lt;br&gt;  [^footnote]: 这里是 &lt;strong&gt;脚注&lt;/strong&gt; 的 &lt;em&gt;内容&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;u76EE_u5F55&quot;&gt;&lt;a href=&quot;#u76EE_u5F55&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;p&gt;用 &lt;code&gt;[TOC]&lt;/code&gt;来生成目录：&lt;/p&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h3 id=&quot;u6570_u5B66_u516C_u5F0F&quot;&gt;&lt;a href=&quot;#u6570_u5B66_u516C_u5F0F&quot; class=&quot;headerlink&quot; title=&quot;数学公式&quot;&gt;&lt;/a&gt;数学公式&lt;/h3&gt;&lt;p&gt;使用MathJax渲染&lt;em&gt;LaTex&lt;/em&gt; 数学公式，详见&lt;a href=&quot;http://math.stackexchange.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;math.stackexchange.com&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。&lt;/li&gt;
+&lt;li&gt;块级公式：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$&lt;/p&gt;
+&lt;p&gt;更多LaTex语法请参考 &lt;a href=&quot;http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这儿&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;UML__u56FE_3A&quot;&gt;&lt;a href=&quot;#UML__u56FE_3A&quot; class=&quot;headerlink&quot; title=&quot;UML 图:&quot;&gt;&lt;/a&gt;UML 图:&lt;/h3&gt;&lt;p&gt;可以渲染序列图：&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#24352;&amp;#19977;-&amp;#62;&amp;#26446;&amp;#22235;: &amp;#22079;&amp;#65292;&amp;#23567;&amp;#22235;&amp;#20799;, &amp;#20889;&amp;#21338;&amp;#23458;&amp;#20102;&amp;#27809;?&amp;#10;Note right of &amp;#26446;&amp;#22235;: &amp;#26446;&amp;#22235;&amp;#24867;&amp;#20102;&amp;#19968;&amp;#19979;&amp;#65292;&amp;#35828;&amp;#65306;&amp;#10;&amp;#26446;&amp;#22235;--&amp;#62;&amp;#24352;&amp;#19977;: &amp;#24537;&amp;#24471;&amp;#21520;&amp;#34880;&amp;#65292;&amp;#21738;&amp;#26377;&amp;#26102;&amp;#38388;&amp;#20889;&amp;#12290;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者流程图：&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;st=&amp;#62;start: &amp;#24320;&amp;#22987;&amp;#10;e=&amp;#62;end: &amp;#32467;&amp;#26463;&amp;#10;op=&amp;#62;operation: &amp;#25105;&amp;#30340;&amp;#25805;&amp;#20316;&amp;#10;cond=&amp;#62;condition: &amp;#30830;&amp;#35748;&amp;#65311;&amp;#10;&amp;#10;st-&amp;#62;op-&amp;#62;cond&amp;#10;cond(yes)-&amp;#62;e&amp;#10;cond(no)-&amp;#62;op&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;关于 &lt;strong&gt;序列图&lt;/strong&gt; 语法，参考 &lt;a href=&quot;http://bramp.github.io/js-sequence-diagrams/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这儿&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;关于 &lt;strong&gt;流程图&lt;/strong&gt; 语法，参考 &lt;a href=&quot;http://adrai.github.io/flowchart.js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这儿&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;u79BB_u7EBF_u5199_u535A_u5BA2&quot;&gt;&lt;a href=&quot;#u79BB_u7EBF_u5199_u535A_u5BA2&quot; class=&quot;headerlink&quot; title=&quot;离线写博客&quot;&gt;&lt;/a&gt;离线写博客&lt;/h2&gt;&lt;p&gt;即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入&lt;a href=&quot;http://write.blog.csdn.net/mdeditor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;write.blog.csdn.net/mdeditor&lt;/a&gt;即可。&lt;strong&gt;Markdown编辑器&lt;/strong&gt;使用浏览器离线存储将内容保存在本地。&lt;/p&gt;
+&lt;p&gt;用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。&lt;/p&gt;
+&lt;p&gt;博客发表后，本地缓存将被删除。　&lt;/p&gt;
+&lt;p&gt;用户可以选择 &lt;i class=&quot;icon-disk&quot;&gt;&lt;/i&gt; 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;虽然浏览器存储大部分时候都比较可靠，但为了您的数据安全，在联网后，&lt;strong&gt;请务必及时发表或者保存到服务器草稿箱&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##浏览器兼容&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;目前，本编辑器对Chrome浏览器支持最为完整。建议大家使用较新版本的Chrome。&lt;/li&gt;
+&lt;li&gt;IE９以下不支持&lt;/li&gt;
+&lt;li&gt;IE９，１０，１１存在以下问题&lt;ol&gt;
+&lt;li&gt;不支持离线功能&lt;/li&gt;
+&lt;li&gt;IE9不支持文件导入导出&lt;/li&gt;
+&lt;li&gt;IE10不支持拖拽文件导入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;u6B22_u8FCE_u4F7F_u7528Markdown_u7F16_u8F91_u5668_u5199_u535A_u5BA2&quot;&gt;&lt;a href=&quot;#u6B22_u8FCE_u4F7F_u7528Markdown_u7F16_u8F91_u5668_u51
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello Hexo —— 我的个人博客搭建记录</title>
