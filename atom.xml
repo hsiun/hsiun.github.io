@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaospot.com/"/>
-  <updated>2016-02-17T11:55:03.729Z</updated>
+  <updated>2016-02-17T12:02:43.526Z</updated>
   <id>http://gaospot.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redmine介绍</title>
+    <link href="http://gaospot.com/2016/02/17/Redmine%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://gaospot.com/2016/02/17/Redmine介绍/</id>
+    <published>2016-02-17T12:01:53.000Z</published>
+    <updated>2016-02-17T12:02:43.526Z</updated>
+    
+    <content type="html">&lt;p&gt;每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇&lt;a href=&quot;http://www.jianshu.com/p/cd7a12fa09bb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《最佳工程实践－基于Redmine的项目管理平台》&lt;/a&gt;的文章，于是对Redmine这个东西又起了一些兴趣。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Redmine是一个基于web免费且开源的项目管理和问题追踪工具。它一些用户管理多个项目已经和他相关的子项目。它的特点包括每一个项目的wikis和论坛，时间追踪，和灵活的基于角色的访问控制。它包括日历和甘特图去对项目和他们的期限提供可视化视角。Redmine正好了多种版本控制系统并且包括了一个库浏览工具和diff查看器。——引用自Wikipedia&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过《最佳工程实践－基于Redmine的项目管理平台》这篇文章，认识了一个叫做&lt;a href=&quot;https://bitnami.com/stack/redmine&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bitnami&lt;/a&gt; 的。这上面提供了一个安装Redmine的集成环境，并且还提供了已经安装好Redmine的VMware镜像。不知道什么时候会不会提供docker镜像：）。&lt;/p&gt;
+&lt;p&gt;bitnami上提供了Redmine试用，bitnami会自动在aws上安装好Redmine，然后会提供给你一个连接，直接使用就可以了。如果想自己安装Redmine可以安装bitnami官方提供的教程。&lt;/p&gt;
+&lt;h2 id=&quot;u5B89_u88C5_u8FC7_u7A0B&quot;&gt;&lt;a href=&quot;#u5B89_u88C5_u8FC7_u7A0B&quot; class=&quot;headerlink&quot; title=&quot;安装过程&quot;&gt;&lt;/a&gt;安装过程&lt;/h2&gt;&lt;p&gt;下载Redmine安装包&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://downloads.bitnami.com/files/stacks/redmine/&lt;span class=&quot;number&quot;&gt;3.2&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;/bitnami-redmine-&lt;span class=&quot;number&quot;&gt;3.2&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;-linux-x64-installer.run&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chmod u+x bitnami-redmine-&lt;span class=&quot;number&quot;&gt;3.2&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;-linux-x64-installer.run&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./bitnami-redmine-&lt;span class=&quot;number&quot;&gt;3.2&lt;/span&gt;.&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;-linux-x64-installer.run&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;依照上面的步骤一步一步下来就可以安装Redmine了。安装完之后可以安装插件，更新数据。也可以直接访问。&lt;/p&gt;
+&lt;h2 id=&quot;u8BBF_u95EE&quot;&gt;&lt;a href=&quot;#u8BBF_u95EE&quot; class=&quot;headerlink&quot; title=&quot;访问&quot;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;p&gt;在服务器本地可以在&lt;a href=&quot;http://127.0.0.1:80访问，如果是在公网环境下可以通过服务器的公网ip访问。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://127.0.0.1:80访问，如果是在公网环境下可以通过服务器的公网ip访问。&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇&lt;a href=&quot;http://www.jianshu.com/p/cd7a12fa09bb&quot; target=&quot;_blank&quot; rel=&quot;exter
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello Hexo —— 我的个人博客搭建记录</title>
