@@ -3,18 +3,24 @@
 <head>
     <meta charset="utf-8">
     
-    <title>about | GaoSpot</title>
+    <title>Redmine介绍 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="My Person Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://gaospot.com/about/index.html">
+    <meta name="description" content="每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇《最佳工程实践－基于Redmine的项目管理平台》的文章，于是对Redmine这个东西又起了一些兴趣。
+
+Redmine是一个基于web免费且开源的项目管理和问题追踪工具。它一些用户管理多个项目已经和他相关的子项目。它的特点包括每一个项目的wikis和论坛，时间追踪，和灵活">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redmine介绍">
+<meta property="og:url" content="http://gaospot.com/2016/02/17/Redmine介绍/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="My Person Blog">
-<meta property="og:updated_time" content="2016-02-17T11:55:03.733Z">
+<meta property="og:description" content="每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇《最佳工程实践－基于Redmine的项目管理平台》的文章，于是对Redmine这个东西又起了一些兴趣。
+
+Redmine是一个基于web免费且开源的项目管理和问题追踪工具。它一些用户管理多个项目已经和他相关的子项目。它的特点包括每一个项目的wikis和论坛，时间追踪，和灵活">
+<meta property="og:updated_time" content="2016-02-17T12:02:43.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="My Person Blog">
+<meta name="twitter:title" content="Redmine介绍">
+<meta name="twitter:description" content="每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇《最佳工程实践－基于Redmine的项目管理平台》的文章，于是对Redmine这个东西又起了一些兴趣。
+
+Redmine是一个基于web免费且开源的项目管理和问题追踪工具。它一些用户管理多个项目已经和他相关的子项目。它的特点包括每一个项目的wikis和论坛，时间追踪，和灵活">
     
 
     
@@ -147,7 +153,7 @@
 </aside>
 
             
-            <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Redmine介绍" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -156,7 +162,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            about
+            Redmine介绍
         </h1>
     
 
@@ -164,8 +170,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/about/index.html">
-            <time datetime="2016-02-13T06:58:33.000Z" itemprop="datePublished">2016-02-13</time>
+        <a href="/2016/02/17/Redmine介绍/">
+            <time datetime="2016-02-17T12:01:53.000Z" itemprop="datePublished">2016-02-17</time>
         </a>
     </div>
 
@@ -178,7 +184,17 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            
+            <p>每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇<a href="http://www.jianshu.com/p/cd7a12fa09bb" target="_blank" rel="external">《最佳工程实践－基于Redmine的项目管理平台》</a>的文章，于是对Redmine这个东西又起了一些兴趣。</p>
+<blockquote>
+<p>Redmine是一个基于web免费且开源的项目管理和问题追踪工具。它一些用户管理多个项目已经和他相关的子项目。它的特点包括每一个项目的wikis和论坛，时间追踪，和灵活的基于角色的访问控制。它包括日历和甘特图去对项目和他们的期限提供可视化视角。Redmine正好了多种版本控制系统并且包括了一个库浏览工具和diff查看器。——引用自Wikipedia</p>
+</blockquote>
+<p>通过《最佳工程实践－基于Redmine的项目管理平台》这篇文章，认识了一个叫做<a href="https://bitnami.com/stack/redmine" target="_blank" rel="external">bitnami</a> 的。这上面提供了一个安装Redmine的集成环境，并且还提供了已经安装好Redmine的VMware镜像。不知道什么时候会不会提供docker镜像：）。</p>
+<p>bitnami上提供了Redmine试用，bitnami会自动在aws上安装好Redmine，然后会提供给你一个连接，直接使用就可以了。如果想自己安装Redmine可以安装bitnami官方提供的教程。</p>
+<h2 id="u5B89_u88C5_u8FC7_u7A0B"><a href="#u5B89_u88C5_u8FC7_u7A0B" class="headerlink" title="安装过程"></a>安装过程</h2><p>下载Redmine安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://downloads.bitnami.com/files/stacks/redmine/<span class="number">3.2</span>.<span class="number">0</span>-<span class="number">2</span>/bitnami-redmine-<span class="number">3.2</span>.<span class="number">0</span>-<span class="number">2</span>-linux-x64-installer.run</span><br><span class="line"></span><br><span class="line">chmod u+x bitnami-redmine-<span class="number">3.2</span>.<span class="number">0</span>-<span class="number">2</span>-linux-x64-installer.run</span><br><span class="line"></span><br><span class="line">./bitnami-redmine-<span class="number">3.2</span>.<span class="number">0</span>-<span class="number">2</span>-linux-x64-installer.run</span><br></pre></td></tr></table></figure>
+<p>依照上面的步骤一步一步下来就可以安装Redmine了。安装完之后可以安装插件，更新数据。也可以直接访问。</p>
+<h2 id="u8BBF_u95EE"><a href="#u8BBF_u95EE" class="headerlink" title="访问"></a>访问</h2><p>在服务器本地可以在<a href="http://127.0.0.1:80访问，如果是在公网环境下可以通过服务器的公网ip访问。" target="_blank" rel="external">http://127.0.0.1:80访问，如果是在公网环境下可以通过服务器的公网ip访问。</a></p>
+
         
         </div>
         <footer class="article-footer">
@@ -188,7 +204,7 @@
 
 </div>
 
-    <a data-url="http://gaospot.com/about/index.html" data-id="cilv65mm50001icko0l3yobj5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://gaospot.com/2016/02/17/Redmine介绍/" data-id="cilv65mmb0002icko7owzmumw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -256,13 +272,23 @@
 
             
     
-        <a href="http://gaospot.com/about/index.html#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/about/index.html">评论</a>
+        <a href="http://gaospot.com/2016/02/17/Redmine介绍/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/02/17/Redmine介绍/">评论</a>
     
 
         </footer>
     </div>
     
         
+<nav id="article-nav">
+    
+    
+        <a href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Hello Hexo —— 我的个人博客搭建记录</div>
+        </a>
+    
+</nav>
+
 
     
 </article>
@@ -379,7 +405,7 @@
     var disqus_shortname = 'hexo-theme-icarus';
     
     
-    var disqus_url = 'http://gaospot.com/about/index.html';
+    var disqus_url = 'http://gaospot.com/2016/02/17/Redmine介绍/';
     
     (function() {
     var dsq = document.createElement('script');

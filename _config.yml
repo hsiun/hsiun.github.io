@@ -67,7 +67,7 @@ plugins:
 - hexo-generator-feed  #插件名
 - hexo-generator-cname
 
-theme: maupassant
+theme: icarus
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
