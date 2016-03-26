@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaospot.com/"/>
-  <updated>2016-02-17T12:02:43.526Z</updated>
+  <updated>2016-03-26T16:30:52.271Z</updated>
   <id>http://gaospot.com/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图片测试</title>
+    <link href="http://gaospot.com/2016/03/27/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
+    <id>http://gaospot.com/2016/03/27/图片测试/</id>
+    <published>2016-03-26T16:29:42.000Z</published>
+    <updated>2016-03-26T16:30:52.271Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/images.jpg&quot; alt=&quot;图片测试&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/images.jpg&quot; alt=&quot;图片测试&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Redmine介绍</title>
