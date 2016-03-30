@@ -115,7 +115,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                3
+                4
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -147,6 +147,134 @@
 
             
             <section id="main">
+            <article id="post-UCloud上LAMP小型网站搭建与测试" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/">UCloud上LAMP小型网站搭建与测试</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/">
+            <time datetime="2016-03-30T09:57:23.000Z" itemprop="datePublished">2016-03-30</time>
+        </a>
+    </div>
+
+
+                    
+                    
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>目录
+介绍
+LAMP环境搭建
+打开UCloud防火墙
+WordPress安装
+应用测试
+
+介绍本篇博客旨在通过介绍搭建一个WordPress博客的过程介绍在UCloud的云主机（UHOST）上搭建单机Web服务的过程。WordPress作为一个著名的CMS系统，有着广泛的应用。其作为博客也是非常常见的用法。所以这里使用WordPress作为示例软件来说明。在UHost上安装LAMP环境和在其他的l</p>
+            <p class="article-more-link">
+                <a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/" data-id="cimeok6zf0003fwko6hgjr9be" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-图片测试" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -191,7 +319,7 @@
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/03/27/图片测试/" data-id="cim9cu89g0002fwkogvmjfs5b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://gaospot.com/2016/03/27/图片测试/" data-id="cimeok6yp0002fwkos7bp1q6w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -314,7 +442,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/02/17/Redmine介绍/" data-id="cim9cu89w0003fwko7l2u73bd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://gaospot.com/2016/02/17/Redmine介绍/" data-id="cimeok7010004fwko4ner2c7z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -436,7 +564,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" data-id="cim9cu8a10004fwkoszfbzxc3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" data-id="cimeok7060005fwkoh97d8hiq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -526,6 +654,24 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%951.png)" alt="UCloud上LAMP小型网站搭建与测试" class="thumbnail-image"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/" class="title">UCloud上LAMP小型网站搭建与测试</a></p>
+                            <p class="item-date"><time datetime="2016-03-30T09:57:23.000Z" itemprop="datePublished">2016-03-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/03/27/图片测试/" class="thumbnail">
     
     
@@ -588,7 +734,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
