@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gaospot.com/"/>
-  <updated>2016-03-30T09:58:51.777Z</updated>
+  <updated>2016-03-31T15:38:37.121Z</updated>
   <id>http://gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
     <id>http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/</id>
     <published>2016-03-30T09:57:23.000Z</published>
-    <updated>2016-03-30T09:58:51.777Z</updated>
+    <updated>2016-03-31T15:38:37.121Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u76EE_u5F55&quot;&gt;&lt;a href=&quot;#u76EE_u5F55&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;介绍&lt;/li&gt;
@@ -84,25 +84,7 @@
     </summary>
     
     
-  </entry>
-  
-  <entry>
-    <title>图片测试</title>
-    <link href="http://gaospot.com/2016/03/27/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
-    <id>http://gaospot.com/2016/03/27/图片测试/</id>
-    <published>2016-03-26T16:29:42.000Z</published>
-    <updated>2016-03-31T15:33:31.194Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/images.jpg&quot; alt=&quot;图片测试&quot;&gt;&lt;br&gt;日期测试&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/images.jpg&quot; alt=&quot;图片测试&quot;&gt;&lt;br&gt;日期测试&lt;/p&gt;
-
-    
-    </summary>
-    
+      <category term="系统运维" scheme="http://gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
@@ -111,7 +93,7 @@
     <link href="http://gaospot.com/2016/02/17/Redmine%E4%BB%8B%E7%BB%8D/"/>
     <id>http://gaospot.com/2016/02/17/Redmine介绍/</id>
     <published>2016-02-17T12:01:53.000Z</published>
-    <updated>2016-02-17T12:02:43.526Z</updated>
+    <updated>2016-03-31T15:38:21.930Z</updated>
     
     <content type="html">&lt;p&gt;每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇&lt;a href=&quot;http://www.jianshu.com/p/cd7a12fa09bb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《最佳工程实践－基于Redmine的项目管理平台》&lt;/a&gt;的文章，于是对Redmine这个东西又起了一些兴趣。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -132,14 +114,16 @@
     </summary>
     
     
+      <category term="系统运维" scheme="http://gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
+    
   </entry>
   
   <entry>
     <title>Hello Hexo —— 我的个人博客搭建记录</title>
-    <link href="http://gaospot.com/2016/02/17/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
-    <id>http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/</id>
-    <published>2016-02-17T11:55:03.729Z</published>
-    <updated>2016-02-17T11:55:03.729Z</updated>
+    <link href="http://gaospot.com/2016/01/15/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
+    <id>http://gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/</id>
+    <published>2016-01-15T09:49:42.000Z</published>
+    <updated>2016-03-31T15:37:55.396Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。&lt;/p&gt;
 &lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。&lt;/p&gt;
@@ -161,6 +145,8 @@
     
     </summary>
     
+    
+      <category term="个人笔记" scheme="http://gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
