@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-03-31T18:24:01.200Z</updated>
+  <updated>2016-04-02T10:49:01.426Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zone.gaospot.com/2016/04/01/UCloud%E4%B8%8ALNMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
     <id>http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/</id>
     <published>2016-03-31T18:22:24.000Z</published>
-    <updated>2016-03-31T18:24:01.200Z</updated>
+    <updated>2016-04-02T10:49:01.426Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u76EE_u5F55&quot;&gt;&lt;a href=&quot;#u76EE_u5F55&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;介绍&lt;/li&gt;
@@ -29,7 +29,7 @@
 &lt;li&gt;Discuz!安装&lt;/li&gt;
 &lt;li&gt;应用测试&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;u4ECB_u7ECD&quot;&gt;&lt;a href=&quot;#u4ECB_u7ECD&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;这篇博客是之前&lt;a href=&quot;http://gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UCloud上LAMP小型网站搭建与测试&lt;/a&gt;的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。&lt;/p&gt;
+&lt;h3 id=&quot;u4ECB_u7ECD&quot;&gt;&lt;a href=&quot;#u4ECB_u7ECD&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;这篇博客是之前&lt;a href=&quot;http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/&quot;&gt;UCloud上LAMP小型网站搭建与测试&lt;/a&gt;的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。&lt;/p&gt;
 &lt;h3 id=&quot;LNMP_u73AF_u5883_u642D_u5EFA&quot;&gt;&lt;a href=&quot;#LNMP_u73AF_u5883_u642D_u5EFA&quot; class=&quot;headerlink&quot; title=&quot;LNMP环境搭建&quot;&gt;&lt;/a&gt;LNMP环境搭建&lt;/h3&gt;&lt;p&gt;关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环境，安装步骤如下：&lt;/p&gt;
 &lt;p&gt;1、Uhost环境&lt;br&gt;CentOS-6.5 x86_64&lt;/p&gt;
 &lt;p&gt;2、安装NMP&lt;/p&gt;
@@ -48,7 +48,7 @@
 &lt;p&gt;打开浏览器，输入下面URL(记得解析DNS，或者修改hosts文件)&lt;br&gt;&lt;a href=&quot;http://www.domain.com/phpinfo.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.domain.com/phpinfo.php&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;6、启动MySQL&lt;br&gt;MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# ls /usr/share/mysql/*.cnf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# service mysqld start&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# chkconfig mysqld on&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u6253_u5F00UCloud_u9632_u706B_u5899&quot;&gt;&lt;a href=&quot;#u6253_u5F00UCloud_u9632_u706B_u5899&quot; class=&quot;headerlink&quot; title=&quot;打开UCloud防火墙&quot;&gt;&lt;/a&gt;打开UCloud防火墙&lt;/h3&gt;&lt;p&gt;UCloud平台防火墙的打开可以参考之前那篇博客&lt;a href=&quot;http://gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UCloud上LAMP小型网站搭建与测试&lt;/a&gt;，上面有详细的说明。平台上面默认的防火墙是不允许修改规则的，所以要添加新的规则，需要新建防火墙。&lt;/p&gt;
+&lt;h3 id=&quot;u6253_u5F00UCloud_u9632_u706B_u5899&quot;&gt;&lt;a href=&quot;#u6253_u5F00UCloud_u9632_u706B_u5899&quot; class=&quot;headerlink&quot; title=&quot;打开UCloud防火墙&quot;&gt;&lt;/a&gt;打开UCloud防火墙&lt;/h3&gt;&lt;p&gt;UCloud平台防火墙的打开可以参考之前那篇博客&lt;a href=&quot;http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/&quot;&gt;UCloud上LAMP小型网站搭建与测试&lt;/a&gt;，上面有详细的说明。平台上面默认的防火墙是不允许修改规则的，所以要添加新的规则，需要新建防火墙。&lt;/p&gt;
 &lt;h3 id=&quot;Discuz_21_u5B89_u88C5&quot;&gt;&lt;a href=&quot;#Discuz_21_u5B89_u88C5&quot; class=&quot;headerlink&quot; title=&quot;Discuz!安装&quot;&gt;&lt;/a&gt;Discuz!安装&lt;/h3&gt;&lt;p&gt;1、下载Discuz，并解压。将upload 这个目录下面的所有文件拷贝到网站根目录，或者是其他二级目录也行。&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# wget http://download.comsenz.com/DiscuzX/3.1/Discuz_X3.1_SC_UTF8.zip&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;2、文件成功解压到网站根目录后，通过在浏览器中运行安装向导来安装Discuz系统。然后一步步按提示向下安装。&lt;/p&gt;

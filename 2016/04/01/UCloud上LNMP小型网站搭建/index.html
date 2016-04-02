@@ -27,7 +27,7 @@ Discuz!安装
 
 介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。
 LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环">
-<meta property="og:updated_time" content="2016-03-31T18:24:01.200Z">
+<meta property="og:updated_time" content="2016-04-02T10:49:01.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UCloud上LNMP小型网站搭建">
 <meta name="twitter:description" content="目录
@@ -214,7 +214,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 <li>Discuz!安装</li>
 <li>应用测试</li>
 </ol>
-<h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>这篇博客是之前<a href="http://gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/" target="_blank" rel="external">UCloud上LAMP小型网站搭建与测试</a>的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。</p>
+<h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>这篇博客是之前<a href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/">UCloud上LAMP小型网站搭建与测试</a>的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。</p>
 <h3 id="LNMP_u73AF_u5883_u642D_u5EFA"><a href="#LNMP_u73AF_u5883_u642D_u5EFA" class="headerlink" title="LNMP环境搭建"></a>LNMP环境搭建</h3><p>关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环境，安装步骤如下：</p>
 <p>1、Uhost环境<br>CentOS-6.5 x86_64</p>
 <p>2、安装NMP</p>
@@ -233,7 +233,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 <p>打开浏览器，输入下面URL(记得解析DNS，或者修改hosts文件)<br><a href="http://www.domain.com/phpinfo.php" target="_blank" rel="external">http://www.domain.com/phpinfo.php</a></p>
 <p>6、启动MySQL<br>MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls /usr/share/mysql/*.cnf</span></span><br><span class="line"><span class="comment"># service mysqld start</span></span><br><span class="line"><span class="comment"># chkconfig mysqld on</span></span><br></pre></td></tr></table></figure>
-<h3 id="u6253_u5F00UCloud_u9632_u706B_u5899"><a href="#u6253_u5F00UCloud_u9632_u706B_u5899" class="headerlink" title="打开UCloud防火墙"></a>打开UCloud防火墙</h3><p>UCloud平台防火墙的打开可以参考之前那篇博客<a href="http://gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/" target="_blank" rel="external">UCloud上LAMP小型网站搭建与测试</a>，上面有详细的说明。平台上面默认的防火墙是不允许修改规则的，所以要添加新的规则，需要新建防火墙。</p>
+<h3 id="u6253_u5F00UCloud_u9632_u706B_u5899"><a href="#u6253_u5F00UCloud_u9632_u706B_u5899" class="headerlink" title="打开UCloud防火墙"></a>打开UCloud防火墙</h3><p>UCloud平台防火墙的打开可以参考之前那篇博客<a href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/">UCloud上LAMP小型网站搭建与测试</a>，上面有详细的说明。平台上面默认的防火墙是不允许修改规则的，所以要添加新的规则，需要新建防火墙。</p>
 <h3 id="Discuz_21_u5B89_u88C5"><a href="#Discuz_21_u5B89_u88C5" class="headerlink" title="Discuz!安装"></a>Discuz!安装</h3><p>1、下载Discuz，并解压。将upload 这个目录下面的所有文件拷贝到网站根目录，或者是其他二级目录也行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget http://download.comsenz.com/DiscuzX/3.1/Discuz_X3.1_SC_UTF8.zip</span></span><br></pre></td></tr></table></figure>
 <p>2、文件成功解压到网站根目录后，通过在浏览器中运行安装向导来安装Discuz系统。然后一步步按提示向下安装。</p>
@@ -250,7 +250,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cimj0mnek0002v8koj5u4zktf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cimj0oi610002e8koc5lxwa5w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
