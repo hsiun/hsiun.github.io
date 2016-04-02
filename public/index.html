@@ -8,7 +8,7 @@
     <meta name="description" content="My Person Blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GaoSpot">
-<meta property="og:url" content="http://gaospot.com/index.html">
+<meta property="og:url" content="http://zone.gaospot.com/index.html">
 <meta property="og:site_name" content="GaoSpot">
 <meta property="og:description" content="My Person Blog">
 <meta name="twitter:card" content="summary">
@@ -71,7 +71,7 @@
             
             <div id="search-form-wrap">
 
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://gaospot.com"></form>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://zone.gaospot.com"></form>
 
 </div>
         </div>
@@ -92,7 +92,7 @@
                 
                 <td>
                     
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://gaospot.com"></form>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://zone.gaospot.com"></form>
 
                 </td>
             </tr>
@@ -109,7 +109,7 @@
         <div class="base-info profile-block">
             <img id="avatar" src="/css/images/avatar.png" />
             <h2 id="name">GaoSpot</h2>
-            <h3 id="title">Web Developer &amp; Designer</h3>
+            <h3 id="title">Coder &amp; Support</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
             <a id="follow" target="_blank" href="https://github.com/hsiun">关注我</a>
         </div>
@@ -119,7 +119,7 @@
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                0
+                2
                 <span>标签</span>
             </div>
         </div>
@@ -147,6 +147,140 @@
 
             
             <section id="main">
+            <article id="post-UCloud上LNMP小型网站搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/01/UCloud上LNMP小型网站搭建/">UCloud上LNMP小型网站搭建</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/01/UCloud上LNMP小型网站搭建/">
+            <time datetime="2016-03-31T18:22:24.000Z" itemprop="datePublished">2016-04-01</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>目录
+介绍
+LNMP环境搭建
+打开UCloud防火墙
+Discuz!安装
+应用测试
+
+介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。
+LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环</p>
+            <p class="article-more-link">
+                <a href="/2016/04/01/UCloud上LNMP小型网站搭建/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cimj0oi610002e8koc5lxwa5w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-UCloud上LAMP小型网站搭建与测试" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -172,6 +306,11 @@
 
                     
                     
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+    </div>
+
                 </div>
             </header>
         
@@ -197,7 +336,7 @@ WordPress安装
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/" data-id="cimeok6zf0003fwko6hgjr9be" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/" data-id="cimj0oi690005e8koufdo1158" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -265,129 +404,7 @@ WordPress安装
 
             
     
-        <a href="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-        
-            <article id="post-图片测试" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/03/27/图片测试/">图片测试</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/03/27/图片测试/">
-            <time datetime="2016-03-26T16:29:42.000Z" itemprop="datePublished">2016-03-27</time>
-        </a>
-    </div>
-
-
-                    
-                    
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p>
-</p>
-            <p class="article-more-link">
-                <a href="/2016/03/27/图片测试/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://gaospot.com/2016/03/27/图片测试/" data-id="cimeok6yp0002fwkos7bp1q6w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://gaospot.com/2016/03/27/图片测试/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/03/27/图片测试/">评论</a>
+        <a href="http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/">评论</a>
     
 
         </footer>
@@ -422,6 +439,11 @@ WordPress安装
 
                     
                     
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+    </div>
+
                 </div>
             </header>
         
@@ -442,7 +464,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/02/17/Redmine介绍/" data-id="cimeok7010004fwko4ner2c7z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/02/17/Redmine介绍/" data-id="cimj0oi6c0007e8ko89o68brz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -510,7 +532,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
             
     
-        <a href="http://gaospot.com/2016/02/17/Redmine介绍/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/02/17/Redmine介绍/">评论</a>
+        <a href="http://zone.gaospot.com/2016/02/17/Redmine介绍/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/02/17/Redmine介绍/">评论</a>
     
 
         </footer>
@@ -529,7 +551,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/">Hello Hexo —— 我的个人博客搭建记录</a>
+            <a class="article-title" href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">Hello Hexo —— 我的个人博客搭建记录</a>
         </h1>
     
 
@@ -537,14 +559,19 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/">
-            <time datetime="2016-02-17T11:55:03.729Z" itemprop="datePublished">2016-02-17</time>
+        <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">
+            <time datetime="2016-01-15T09:49:42.000Z" itemprop="datePublished">2016-01-15</time>
         </a>
     </div>
 
 
                     
                     
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/个人笔记/">个人笔记</a>
+    </div>
+
                 </div>
             </header>
         
@@ -553,7 +580,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
             <p>Hexo是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
 前提条件Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。</p>
             <p class="article-more-link">
-                <a href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/#more">查看更多</a>
+                <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/#more">查看更多</a>
             </p>
         
         </div>
@@ -564,7 +591,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" data-id="cimeok7060005fwkoh97d8hiq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" data-id="cimj0oi6d0009e8kov940nfx3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -632,7 +659,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
             
     
-        <a href="http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://gaospot.com/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/">评论</a>
+        <a href="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">评论</a>
     
 
         </footer>
@@ -654,6 +681,24 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/04/01/UCloud上LNMP小型网站搭建/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/04/01/UCloud上LNMP小型网站搭建/" class="title">UCloud上LNMP小型网站搭建</a></p>
+                            <p class="item-date"><time datetime="2016-03-31T18:22:24.000Z" itemprop="datePublished">2016-04-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/" class="thumbnail">
     
     
@@ -666,24 +711,6 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/2016/03/30/UCloud上LAMP小型网站搭建与测试/" class="title">UCloud上LAMP小型网站搭建与测试</a></p>
                             <p class="item-date"><time datetime="2016-03-30T09:57:23.000Z" itemprop="datePublished">2016-03-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/03/27/图片测试/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/images.jpg)" alt="图片测试" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/03/27/图片测试/" class="title">图片测试</a></p>
-                            <p class="item-date"><time datetime="2016-03-26T16:29:42.000Z" itemprop="datePublished">2016-03-27</time></p>
                         </div>
                     </li>
                 
@@ -708,7 +735,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" class="thumbnail">
+                            <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -718,8 +745,8 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/02/17/Hello Hexo —— 我的个人博客搭建记录/" class="title">Hello Hexo —— 我的个人博客搭建记录</a></p>
-                            <p class="item-date"><time datetime="2016-02-17T11:55:03.729Z" itemprop="datePublished">2016-02-17</time></p>
+                            <p class="item-title"><a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" class="title">Hello Hexo —— 我的个人博客搭建记录</a></p>
+                            <p class="item-date"><time datetime="2016-01-15T09:49:42.000Z" itemprop="datePublished">2016-01-15</time></p>
                         </div>
                     </li>
                 
@@ -734,14 +761,28 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
     
         
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
     
         
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a>
+        </div>
+    </div>
+
     
         
     <div class="widget-wrap widget-list">

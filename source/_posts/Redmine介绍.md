@@ -1,7 +1,7 @@
 ---
 title: Redmine介绍
 date: 2016-02-17 20:01:53
-tags:
+tags: 系统运维
 ---
 
 每天记Redmine是我现在的工作内容之一，之前一直没有深入的了解Redmine究竟是用来干嘛的的，直到最近看到有人分享了一篇[《最佳工程实践－基于Redmine的项目管理平台》](http://www.jianshu.com/p/cd7a12fa09bb)的文章，于是对Redmine这个东西又起了一些兴趣。

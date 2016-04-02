@@ -1,5 +1,7 @@
 ---
 title: Hello Hexo —— 我的个人博客搭建记录
+date: 2016-01-15 17:49:42
+tags: 个人笔记
 ---
 [Hexo](http://hexo.io/)是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
 
@@ -50,3 +52,5 @@ $ hexo generate
 $ hexo deploy
 ```
 ### 访问yourname.github.io观察效果
+
+参考：[hexo你的博客](http://ibruce.info/2013/11/22/hexo-your-blog/)
