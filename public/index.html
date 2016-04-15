@@ -115,7 +115,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                5
+                6
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -147,6 +147,135 @@
 
             
             <section id="main">
+            <article id="post-单机Web服务器性能" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/04/16/单机Web服务器性能/">单机Web服务器性能</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/16/单机Web服务器性能/">
+            <time datetime="2016-04-15T17:37:23.000Z" itemprop="datePublished">2016-04-16</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>当网站部署好之后，开始上线运行的时候。一开始可能一切都是正常的，慢慢的随着时间和访问量的增加，可能会出现一些比较明显的性能问题。一旦出现这样的问题，轻则影响用户访问速度，重则可能整个网站就瘫痪了，比如说有后端的应用，数据出现死锁等等情况是，这时一般整个网站一般都是不可用的。
+###1、 影响Web应用访问速度的因素 ###
+
+网络延时任何Web应用的使用者都要通过网络来访问应用，那么网络延时就成为</p>
+            <p class="article-more-link">
+                <a href="/2016/04/16/单机Web服务器性能/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/04/16/单机Web服务器性能/" data-id="cin200cxw0002hoko05iglip3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/04/16/单机Web服务器性能/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/16/单机Web服务器性能/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-Win2008搭建Web和FTP服务" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -196,7 +325,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/" data-id="cimuwusq30002g8kolrzfq9or" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/" data-id="cin200cyd0005hokowl4tkfl7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -330,7 +459,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cimuwusqa0003g8kohj8hwhin" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cin200cyg0007hokocmjeri30" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -463,7 +592,7 @@ WordPress安装
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/" data-id="cimuwusqe0006g8koclbzri2k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/" data-id="cin200cyo0009hokor3irk90z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -591,7 +720,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/02/17/Redmine介绍/" data-id="cimuwusqh0008g8koshibrx8x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/02/17/Redmine介绍/" data-id="cin200cys000bhoko0kki7r4m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -718,7 +847,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" data-id="cimuwusqj000ag8ko0x0g6ggq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" data-id="cin200cyv000dhokovocmtkfd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -808,6 +937,24 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/04/16/单机Web服务器性能/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/04/16/单机Web服务器性能/" class="title">单机Web服务器性能</a></p>
+                            <p class="item-date"><time datetime="2016-04-15T17:37:23.000Z" itemprop="datePublished">2016-04-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/04/11/Win2008搭建Web和FTP服务/" class="thumbnail">
     
     
@@ -877,24 +1024,6 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" class="title">Hello Hexo —— 我的个人博客搭建记录</a></p>
-                            <p class="item-date"><time datetime="2016-01-15T09:49:42.000Z" itemprop="datePublished">2016-01-15</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -906,7 +1035,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -915,7 +1044,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">4</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">5</span></li></ul>
         </div>
     </div>
 
