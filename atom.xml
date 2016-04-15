@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-04-10T18:37:12.812Z</updated>
+  <updated>2016-04-15T17:38:01.311Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>单机Web服务器性能</title>
+    <link href="http://zone.gaospot.com/2016/04/16/%E5%8D%95%E6%9C%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD/"/>
+    <id>http://zone.gaospot.com/2016/04/16/单机Web服务器性能/</id>
+    <published>2016-04-15T17:37:23.000Z</published>
+    <updated>2016-04-15T17:38:01.311Z</updated>
+    
+    <content type="html">&lt;p&gt;当网站部署好之后，开始上线运行的时候。一开始可能一切都是正常的，慢慢的随着时间和访问量的增加，可能会出现一些比较明显的性能问题。一旦出现这样的问题，轻则影响用户访问速度，重则可能整个网站就瘫痪了，比如说有后端的应用，数据出现死锁等等情况是，这时一般整个网站一般都是不可用的。&lt;/p&gt;
+&lt;p&gt;###1、 影响Web应用访问速度的因素 ###&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;网络延时&lt;br&gt;任何Web应用的使用者都要通过网络来访问应用，那么网络延时就成为了一个会影响Web应用访问速度的重要因素。从Web应用服务器到用户之间涉及到两端网络的情况，用户和服务器的网络不理想都会影响最终的访问速度，这里用户和服务器的网络情况主要指的就是用户和服务器网络带宽问题，检查的工具一般是ping。一般来说如果用户端网络有问题，那么用户访问任何网站都是卡的，验证方法是通过ping大型网站来测试，比如说百度，一般这样的网站都是使用了cdn技术的，如果ping延迟非常大，比如说上百毫秒，基本上可以认为是本地网络有问题了。而服务器网络问题的检测可以通过17ce这样的测试网站的分布式ping来实现，因为需要测试是否是服务端问题，我们一般希望能有较多访问点来进行测试，如果全国各地的访问都是慢的，我们可以认为是服务器的网络有问题（首先要排除服务器处理速度没有问题）。当然也有服务器网络和用户网络都是正常的情况。这时我们认为是服务器和用户之间存在单点网络故障。单点网络问题多出在运营商之间，由于国内各运营商互联互通问题导致的单点问题时有发生。检查这样问题的工具一般来说是使用mtr或者traceroute这样的网络链路检查的工具。当然以上一切问题的定位都可以借助神器tcpdump来实现，抓包一般来说对应定位网络问题非常有利。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;请求处理时间&lt;br&gt;这里涉及的就是服务器端的问题，我们假设网络都是正常的，且所有用户访问都会出现卡慢的现象。这里还假设主机是正常的，没有发生如oom，卡死等状况，只是单纯的由于服务器处理时间长导致的卡慢。由于一个web请求过来一般来说不是由于某个单纯的部分来完成这个请求的，而是会涉及到各个组件之间的一个相互配合问题。一般来说定位问题和解决的办法是分析各个组件日志来定位问题。针对服务器问题我们提出下面的解决方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u63D0_u5347_u670D_u52A1_u5668_u6027_u80FD_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u63D0_u5347_u670D_u52A1_u5668_u6027_u80FD_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;提升服务器性能方法&quot;&gt;&lt;/a&gt;提升服务器性能方法&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用缓存系统&lt;br&gt;使用如Redis等等key/value内存数据库可以有效的提升应用的性能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用高性能数据库架构&lt;br&gt;常见的高性能数据库架构如主从复制和读写分离，以及对数据库进行水平和垂直划分等等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用高性能的Web组件&lt;br&gt;这里推荐的是Nginx搭配php-fpm的组合，Nginx的特点就是轻量级，可以维护更多的http长连接。至于这两个软件的安装既可以采用源码安装，也可以使用系统的软件包管理器安装，这个取决于个人需要。这里推荐的测试工具是ab，是Apache自带的一个测试工具。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u76D1_u63A7_u670D_u52A1_u5668_u7684_u5404_u9879_u6307_u6807&quot;&gt;&lt;a href=&quot;#u76D1_u63A7_u670D_u52A1_u5668_u7684_u5404_u9879_u6307_u6807&quot; class=&quot;headerlink&quot; title=&quot;监控服务器的各项指标&quot;&gt;&lt;/a&gt;监控服务器的各项指标&lt;/h3&gt;&lt;p&gt;这里主要是介绍几个Linux下面常用的，用于监控服务器性能的几个工具。&lt;br&gt;top 宏观的获取服务器性能信息&lt;br&gt;vmstat和sar 服务器磁盘读写情况展现&lt;br&gt;netstat 查看网络服务，一般用来查看特点端口是否有监听&lt;/p&gt;
+&lt;p&gt;注：这篇博客是根据《微信公众平台应用开发实践》这边书籍的第11章内容写成的，可以认为是一篇笔记&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当网站部署好之后，开始上线运行的时候。一开始可能一切都是正常的，慢慢的随着时间和访问量的增加，可能会出现一些比较明显的性能问题。一旦出现这样的问题，轻则影响用户访问速度，重则可能整个网站就瘫痪了，比如说有后端的应用，数据出现死锁等等情况是，这时一般整个网站一般都是不可用的。
+    
+    </summary>
+    
+    
+      <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Win2008搭建Web和FTP服务</title>
