@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello Hexo —— 我的个人博客搭建记录 | GaoSpot</title>
+    <title>Linux磁盘管理 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Hexo是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
-前提条件Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。">
+    <meta name="description" content="这篇博客是在系统的层次对Linux下磁盘做一个说明的，磁盘是计算机系统中非常基础的一个硬件，对于磁盘的管理和使用，操作系统完成了管理的大部分工作，而使用部分由于每个人操作磁盘的目的不同，那么使用方法也就自然不同。文章中的大部分内容来自于鸟哥的Linux私房菜，在参考部分给出了这篇文章的连接。
+EXT2文件系统文件系统可以认为是操作系统安装在磁盘上用来对磁盘进行管理的软件，文件系统是会占用磁盘空间的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo —— 我的个人博客搭建记录">
-<meta property="og:url" content="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/index.html">
+<meta property="og:title" content="Linux磁盘管理">
+<meta property="og:url" content="http://zone.gaospot.com/2016/04/21/Linux磁盘管理/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="Hexo是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
-前提条件Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。">
-<meta property="og:updated_time" content="2016-03-31T15:41:41.573Z">
+<meta property="og:description" content="这篇博客是在系统的层次对Linux下磁盘做一个说明的，磁盘是计算机系统中非常基础的一个硬件，对于磁盘的管理和使用，操作系统完成了管理的大部分工作，而使用部分由于每个人操作磁盘的目的不同，那么使用方法也就自然不同。文章中的大部分内容来自于鸟哥的Linux私房菜，在参考部分给出了这篇文章的连接。
+EXT2文件系统文件系统可以认为是操作系统安装在磁盘上用来对磁盘进行管理的软件，文件系统是会占用磁盘空间的">
+<meta property="og:updated_time" content="2016-04-20T23:32:32.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo —— 我的个人博客搭建记录">
-<meta name="twitter:description" content="Hexo是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
-前提条件Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。">
+<meta name="twitter:title" content="Linux磁盘管理">
+<meta name="twitter:description" content="这篇博客是在系统的层次对Linux下磁盘做一个说明的，磁盘是计算机系统中非常基础的一个硬件，对于磁盘的管理和使用，操作系统完成了管理的大部分工作，而使用部分由于每个人操作磁盘的目的不同，那么使用方法也就自然不同。文章中的大部分内容来自于鸟哥的Linux私房菜，在参考部分给出了这篇文章的连接。
+EXT2文件系统文件系统可以认为是操作系统安装在磁盘上用来对磁盘进行管理的软件，文件系统是会占用磁盘空间的">
     
 
     
@@ -150,7 +150,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Hello Hexo —— 我的个人博客搭建记录" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Linux磁盘管理" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -159,7 +159,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Hello Hexo —— 我的个人博客搭建记录
+            Linux磁盘管理
         </h1>
     
 
@@ -167,8 +167,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">
-            <time datetime="2016-01-15T09:49:42.000Z" itemprop="datePublished">2016-01-15</time>
+        <a href="/2016/04/21/Linux磁盘管理/">
+            <time datetime="2016-04-20T23:30:57.000Z" itemprop="datePublished">2016-04-21</time>
         </a>
     </div>
 
@@ -177,7 +177,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/个人笔记/">个人笔记</a>
+        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
     </div>
 
                 </div>
@@ -186,19 +186,32 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。</p>
-<h3 id="u524D_u63D0_u6761_u4EF6"><a href="#u524D_u63D0_u6761_u4EF6" class="headerlink" title="前提条件"></a>前提条件</h3><p>Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。</p>
-<p><a href="https://nodejs.org" target="_blank" rel="external">Node.js</a><br><a href="/git-scm.com">Git</a></p>
-<p>安装过程非常简单，也就是下载两个软件包安装就可以了。其中node.js的安装，可以先安装nvm，通过nvm来安装node.js。</p>
-<h3 id="Hexo_u7684_u5B89_u88C5"><a href="#Hexo_u7684_u5B89_u88C5" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h3><p>hexo安装可以在命令行下完成。通过借助使用git bash来执行下列命令，git bash的启动在任意一个目录中右键，找到git bash点击就可运行。这个方法在使用github管理代码的时候，生成本地证书的时候还会用到。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h3 id="u4F7F_u7528Hexo_u5EFA_u7AD9"><a href="#u4F7F_u7528Hexo_u5EFA_u7AD9" class="headerlink" title="使用Hexo建站"></a>使用Hexo建站</h3><p>首先创建好需要存放站点的目录，在这里是<folder>。通过下面命令可以在<folder>目录下生成建站所需的文件</folder></folder></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<h3 id="u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801"><a href="#u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801" class="headerlink" title="使用git管理代码"></a>使用git管理代码</h3><p>修改<folder>目录下的_config.yml文件，添加下面行，表示使用git来管理代码，并把代码托管在github上。当然首先需要您在github上创建yourname.github.io项目。这里的托管方式借鉴网上一些方法，使用master分支来管理静态网站。code分支来管理生成静态文件的代码。</folder></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:&#10;  type: git&#10;  repo: git@github.com:yourname/yourname.github.io.git&#10;  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="u628A_u4EE3_u7801_u90E8_u7F72_u5230github"><a href="#u628A_u4EE3_u7801_u90E8_u7F72_u5230github" class="headerlink" title="把代码部署到github"></a>把代码部署到github</h3><p>运行下面命令就可以将代码部署到github了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<h3 id="u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C"><a href="#u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C" class="headerlink" title="访问yourname.github.io观察效果"></a>访问yourname.github.io观察效果</h3><p>参考：<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></p>
+            <p>这篇博客是在系统的层次对Linux下磁盘做一个说明的，磁盘是计算机系统中非常基础的一个硬件，对于磁盘的管理和使用，操作系统完成了管理的大部分工作，而使用部分由于每个人操作磁盘的目的不同，那么使用方法也就自然不同。文章中的大部分内容来自于鸟哥的Linux私房菜，在参考部分给出了这篇文章的连接。</p>
+<h3 id="EXT2_u6587_u4EF6_u7CFB_u7EDF"><a href="#EXT2_u6587_u4EF6_u7CFB_u7EDF" class="headerlink" title="EXT2文件系统"></a>EXT2文件系统</h3><p>文件系统可以认为是操作系统安装在磁盘上用来对磁盘进行管理的软件，<strong>文件系统是会占用磁盘空间的。</strong> EXT2文件系统已经是一个比较古老的文件系统了，现在比较常用的已经是EXT4文件系统了，包括最新版的centos和ubunt使用的都是EXT4文件系统了。EXT4文件系统是在EXT2文件系统的基础上进化出来的。EXT2文件系统上的概念在EXT4上也是通用的。比如说data block, inode table, superblock在EXT4上也是存在的。</p>
+<h3 id="u78C1_u76D8_u7BA1_u7406"><a href="#u78C1_u76D8_u7BA1_u7406" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><p>硬盘需要分区，格式化并挂载后方能使用，Linux 下硬盘上的每个分区表示为一个设备文件。在Linux系统中这三个步骤分别对应fdisk，mkfs和mount。一块新的硬盘被加到系统中。必需要经过上面的这3步操作系统才能使用磁盘（指使用磁盘进行读取和写入操作），但其中第一个分区不是必需。物理磁盘在接入到计算机系统中之后其实只要进行格式化和挂载就能使用。</p>
+<p>####分区 ####<br>分区使用命令fdisk来实现，分区其实不是必需的，linux下分区的概念和Windows中把一块磁盘分成C，D，E…各个分区是一个概念。分区的目的是为了将一块完整的磁盘划分出多个独立的分区来，每一个分区相当于是一块新的磁盘。这样的好处就是我们可以在每个磁盘中安装不同的系统。在我们这里应用的时候不要安装其他系统在磁盘上，分区其实就可以省略了，整个磁盘就当做一块磁盘来用这样没有任何问题，例子中就使用了这种方式来使用我们新的磁盘。一般来说在linux下的分区工具就是fdisk，下面是fdisk常见使用方法的说明，在不同系统下用法可能不同。如有不同以使用系统版本的文档为准。<br>列出当前系统下的磁盘和其分区：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+<p>对某块磁盘进行分区操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/vdb</span><br></pre></td></tr></table></figure>
+<p>输入上面命令会使我们进入到fdisk的操作界面，fdisk分区的使用方法还是非常简单的。它会自动打印出命令的说明，跟进自身需求，执行上面的命令就可以了。</p>
+<h4 id="u683C_u5F0F_u5316"><a href="#u683C_u5F0F_u5316" class="headerlink" title="格式化"></a>格式化</h4><p>linux系统支持众多的文件系统，不同的系统版本默认使用的文件系统可能也不一样，比如说centos6默认使用的ext4文件系统，而centos7默认使用的则是xfs。磁盘必须经过格式化才能使用，格式化的过程就相当于是将文件系统安装到磁盘中的过程。<br>常用的格式化命令示例如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs -t ext4 /dev/vdb #&#23558;vdb&#25991;&#20214;&#31995;&#32479;&#26684;&#24335;&#21270;&#20026;ext4&#10;mkfs.xfs /dev/vdb #&#23558;vdb&#25991;&#20214;&#31995;&#32479;&#26684;&#24335;&#21270;&#20026;xfs</span><br></pre></td></tr></table></figure>
+<h4 id="u6302_u8F7D"><a href="#u6302_u8F7D" class="headerlink" title="挂载"></a>挂载</h4><p>格式化好之后文件系统还不能在linux中使用，要使用的话必须要经过挂载才行。linux的文件系统是树状的文件系统，每个目录相当于是树枝的一个分叉点。我们必须把经过格式化的磁盘挂载在现有的文件系统下才能使用。文件系统的挂载使用mount命令，这个命令接受两个参数，磁盘和挂载点，挂载点是进入新磁盘的入口，要使用新磁盘必须在挂载点之下才可以。也就是说只有在挂载点目录之下新建文件，文件占用的才是新挂载上了的磁盘空间。挂载还有和他相对的一个操作卸载，有一些磁盘操作需要对磁盘进行卸载之后才能进行，下面是这两条命令的示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/vdb /data  #&#23558;vdb&#25346;&#36733;&#21040;/data&#10;umount /dev/vdb       #&#21368;&#36733;vdb</span><br></pre></td></tr></table></figure>
+<h4 id="u663E_u793A_u78C1_u76D8_u7A7A_u95F4_u5360_u7528_u60C5_u51B5"><a href="#u663E_u793A_u78C1_u76D8_u7A7A_u95F4_u5360_u7528_u60C5_u51B5" class="headerlink" title="显示磁盘空间占用情况"></a>显示磁盘空间占用情况</h4><p>在 Linux 和 AIX 系统上，都提供了一个 df 命令。df 的功能是检查文件系统的磁盘空间占用情况以及可用性，通常还包挂载点。管理员能利用该命令来获取硬盘被占用了多少空间，目前还剩下多少空间等信息。 下面是df常见几个用法的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -ihT #i&#34920;&#31034;inode&#20449;&#24687;&#65292;h&#24050;&#38405;&#35835;&#21451;&#22909;&#30340;&#26041;&#24335;&#26174;&#31034;&#65292;T&#25991;&#20214;&#31995;&#32479;&#31867;&#22411;</span><br></pre></td></tr></table></figure>
+<p>还有一个用来显示文件占用大小的命令du，带 -a 选项的 du 命令将从当前目录开始沿着目录结构向下直到列出所有目录和文件的容量为止。du可用于找出当前文件系统中占用磁盘空间最多的文件，或者说找出大文件。</p>
+<h4 id="u4F8B_u5B50_uFF1A_u65B0_u52A0_u5165_u4E00_u5757_u78C1_u76D8_u5230linux_u7CFB_u7EDF_u4E2D"><a href="#u4F8B_u5B50_uFF1A_u65B0_u52A0_u5165_u4E00_u5757_u78C1_u76D8_u5230linux_u7CFB_u7EDF_u4E2D" class="headerlink" title="例子：新加入一块磁盘到linux系统中"></a>例子：新加入一块磁盘到linux系统中</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs -t ext4 /dev/vdb #&#23558;vdb&#30340;&#25991;&#20214;&#31995;&#32479;&#26684;&#24335;&#21270;&#20026;ext4&#10;mount /dev/vdb /data/ #&#23558;vdb&#25346;&#36733;&#21040;/data&#30446;&#24405;&#19979;&#10;vim /etc/fstab #&#32534;&#36753;fstab&#23558;&#19979;&#38754;&#30340;&#35821;&#21477;&#20889;&#20837;fstab&#20013;&#10;/dev/vdb   /data  ext4  defaults,noatime 0 0</span><br></pre></td></tr></table></figure>
+<h3 id="u6700_u540E_u8865_u5145_u4E00_u4E2A_u5728UCloud_u5E73_u53F0_u5347_u7EA7_u78C1_u76D8_u5927_u5C0F_u7684_u8BF4_u660E"><a href="#u6700_u540E_u8865_u5145_u4E00_u4E2A_u5728UCloud_u5E73_u53F0_u5347_u7EA7_u78C1_u76D8_u5927_u5C0F_u7684_u8BF4_u660E" class="headerlink" title="最后补充一个在UCloud平台升级磁盘大小的说明"></a>最后补充一个在UCloud平台升级磁盘大小的说明</h3><p>在平台完成升级磁盘操作后，并不能直接在系统中使用。因为磁盘扩容的操作相当于是对物理硬盘进行了扩展，由于是在物理硬件层次的扩展，新增加的磁盘其实是没有进行格式化的，通过前面的说明我们可以知道没有进行格式化的磁盘在操作系统中是无法使用的，因此我们需要在系统中对扩容的磁盘进行一个格式化的操作才能使用。格式化操作一般是会丢失数据的，我们这里使用的resize2fs命令相当于是在不影响之前部分的前提下对新的磁盘空间进行格式化。<br>在Linux的主机上进行扩容大概步骤如下：</p>
+<ol>
+<li>查看文件系统类型</li>
+<li>卸载文件系统</li>
+<li>运行磁盘检查程序</li>
+<li>格式化扩容的分区</li>
+</ol>
+<p>命令如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -ihT #&#26597;&#30475;&#25991;&#20214;&#31995;&#32479;&#20998;&#21306;&#31867;&#22411;&#10;umount /dev/vdb #&#21368;&#36733;vdb&#20998;&#21306;&#10;e2fsck -f /dev/vdb #&#30913;&#30424;&#26816;&#26597;&#65292;&#21518;&#19968;&#26465;&#21629;&#20196;&#20197;&#36825;&#26465;&#21629;&#20196;&#20026;&#21069;&#25552;&#10;resize2fs /dev/vdb #&#26684;&#24335;&#21270;&#25193;&#23637;&#30340;&#20998;&#21306;&#10;mount /dev/vdb #&#25346;&#36733;&#20998;&#21306;</span><br></pre></td></tr></table></figure>
+<p>参考<br><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0230filesystem.php" target="_blank" rel="external">Linux 磁盘与文件系统管理</a><br><a href="http://www.ibm.com/developerworks/cn/aix/library/0907_unixdisk_litt/" target="_blank" rel="external">Unix/Linux 系统自动化管理: 磁盘管理篇（上）</a></p>
 
         
         </div>
@@ -209,7 +222,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" data-id="cin9hvfgg000fc4koygt9afjn" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/21/Linux磁盘管理/" data-id="cin9hvfgd000dc4ko8n5xw7hc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -277,7 +290,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">评论</a>
+        <a href="http://zone.gaospot.com/2016/04/21/Linux磁盘管理/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/21/Linux磁盘管理/">评论</a>
     
 
         </footer>
@@ -286,15 +299,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/02/17/Redmine介绍/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Redmine介绍
-                
-            </div>
-        </a>
     
+        <a href="/2016/04/16/单机Web服务器性能/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">单机Web服务器性能</div>
+        </a>
     
 </nav>
 
@@ -482,7 +491,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/';
+    var disqus_url = 'http://zone.gaospot.com/2016/04/21/Linux磁盘管理/';
     
     (function() {
     var dsq = document.createElement('script');
