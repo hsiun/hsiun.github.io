@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-04-20T23:32:32.771Z</updated>
+  <updated>2016-04-24T09:12:34.862Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker安装</title>
+    <link href="http://zone.gaospot.com/2016/04/24/Docker%E5%AE%89%E8%A3%85/"/>
+    <id>http://zone.gaospot.com/2016/04/24/Docker安装/</id>
+    <published>2016-04-24T09:11:00.000Z</published>
+    <updated>2016-04-24T09:12:34.862Z</updated>
+    
+    <content type="html">&lt;p&gt;记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。&lt;/p&gt;
+&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;必须是64位系统，不论是AMD还是X86_64，总之一定要是64位的；&lt;/li&gt;
+&lt;li&gt;内核版本最起码是3.10，小版本最低的3.10都行；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;u66F4_u65B0APT_u6E90&quot;&gt;&lt;a href=&quot;#u66F4_u65B0APT_u6E90&quot; class=&quot;headerlink&quot; title=&quot;更新APT源&quot;&gt;&lt;/a&gt;更新APT源&lt;/h3&gt;&lt;p&gt;为了安装最新的docker版本，这里并没有使用ubuntu官方的源来安装docker，而是使用了其他的源，添加过程如下所示：&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get update&amp;#10;$ sudo apt-get install apt-transport-https ca-certificates&amp;#10;$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D&amp;#10;$ vim /etc/apt/sources.list.d/docker.list #&amp;#28155;&amp;#21152;&amp;#19979;&amp;#38754;&amp;#30340;&amp;#20869;&amp;#23481;&amp;#65292;&amp;#22240;&amp;#20026;&amp;#25105;&amp;#26159;14.04&amp;#30340;&amp;#10;&amp;#10;deb https://apt.dockerproject.org/repo ubuntu-trusty main&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其他版本的添加的源如下：&lt;br&gt;在Ubuntu Precise 12.04 (LTS)中，添加下面的源&lt;/p&gt;
+&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-precise main&lt;br&gt;在Ubuntu Trusty 14.04 (LTS)中，添加下面的源&lt;/p&gt;
+&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-trusty main&lt;br&gt;Ubuntu Wily 15.10&lt;/p&gt;
+&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-wily main&lt;br&gt;Ubuntu Xenial 16.04 (LTS)&lt;/p&gt;
+&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-xenial main&lt;/p&gt;
+&lt;p&gt;保存并退出之后更新本地源缓存，我记得apt好像是有缓存：）。&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u5B89_u88C5&quot;&gt;&lt;a href=&quot;#u5B89_u88C5&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;在进行完上面的准备工作之后就可安装了，安装过程非常简单就是一条apt命令，安装之后对docker做一个简单检查。还有ufw的问题，ufw是Ubuntu下的防火墙，类似Centos下iptables，在我的主机上，这个防火墙是关闭的，所有可以不用担心它。&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get install docker-engine&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;安装之后启动服务&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo service docker start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过运行一个Docker容器，检查Docker是否正常安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo docker run hello-world&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看Docker信息&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo docker info&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面就是我安装过程的一个记录，安装好Docker之后可以尽情的折腾了，遇到问题解决不了的话，直接重装系统吧：）。然后又可以愉快的玩耍了。有问题可以参考官方文档，链接在下面，官方文档说的特别详细，考虑了很多方面，我这里针对我本地需要和本地环境做了一些简化。哈哈，小偷了一下懒。不过也没什么影响，总的来说Docker安装过程还是非常简单的。&lt;/p&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://docs.docker.com/engine/installation/linux/ubuntulinux/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Installation on Ubuntu&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。&lt;/p&gt;
+&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u676
+    
+    </summary>
+    
+    
+      <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux磁盘管理</title>
