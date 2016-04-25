@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-04-24T09:12:34.862Z</updated>
+  <updated>2016-04-25T14:24:44.089Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无EIP云主机外网访问</title>
+    <link href="http://zone.gaospot.com/2016/04/25/%E6%97%A0EIP%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/"/>
+    <id>http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/</id>
+    <published>2016-04-25T14:23:40.000Z</published>
+    <updated>2016-04-25T14:24:44.089Z</updated>
+    
+    <content type="html">&lt;p&gt;在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一定的设置方式让其他云主机使用这个EIP作为出口，这里介绍两种方法，一种是通过UCloud平台提供的路由器产品（免费），还有一个是使用绑定了EIP的云主机作为网关来实现。&lt;/p&gt;
+&lt;h3 id=&quot;u4E00_u3001_u4F7F_u7528_u5177_u6709EIP_u4E91_u4E3B_u673A_u505A_u7F51_u5173_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE&quot;&gt;&lt;a href=&quot;#u4E00_u3001_u4F7F_u7528_u5177_u6709EIP_u4E91_u4E3B_u673A_u505A_u7F51_u5173_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE&quot; class=&quot;headerlink&quot; title=&quot;一、使用具有EIP云主机做网关实现外网访问&quot;&gt;&lt;/a&gt;一、使用具有EIP云主机做网关实现外网访问&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;测试环境介绍（两台主机都在北京二可用区C，系统均为centos6.5）：&lt;/strong&gt;&lt;br&gt;云主机A（做网关）：内网IP: 10.10.229.85 外网IP: 123.59.150.107 BGP&lt;br&gt;云主机B：内网IP: 10.10.246.62&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;实现目标：&lt;/strong&gt;&lt;br&gt;主机A可以访问外网，但是主机B没有EIP也没有做任何设置不可以访问外网。现在要通过修改主机B网关的方式实现主机B访问外网。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;步骤概述：&lt;/strong&gt;&lt;br&gt;1.网关机器打开内核里面的ip forward参数&lt;br&gt;2.网关机器做iptables，完成nat映射&lt;br&gt;3.后端机器修改网关地址&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体操作步骤：&lt;/strong&gt;&lt;br&gt;1、打开具备外网IP的云主机A（作为转发路由）的转发功能，编辑/etc/sysctl.conf文件，打开配置  net.ipv4.ip_forward=1。 &lt;/p&gt;
+&lt;p&gt;2、执行  sysctl -p 使配置生效&lt;/p&gt;
+&lt;p&gt;3、在路由机器云主机A（具备外网IP）设置iptables转发 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE&lt;/p&gt;
+&lt;p&gt;4、修改需要访问外网的内网机器云主机B， 编辑/etc/sysconfig/network-scripts/ifcfg-eth0文件，修改默认路由为路由机器云主机A（具备外网IP）内网IP，例如：gateway 10.10.229.85。&lt;/p&gt;
+&lt;p&gt;5、执行 service network restart 使配置生效&lt;/p&gt;
+&lt;p&gt;6、通过ping一个外网域名来验证，外网可达性，比如说，ping www.baidu.com&lt;/p&gt;
+&lt;p&gt; &lt;strong&gt;副作用及解决（&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/unetwork/faq.html#id27&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用某台云主机做外网网关后, 是否需要添加其他路由&lt;/a&gt;）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;会影响云主机和其他产品的内网通信，解决办法是添加静态路由。说明如下：云主机的流量可分为纵向流量: 外网流量以及ULB/UDB/UMem访问流量. 横向流量: 云主机间内网通讯. 默认路由修改到做网关的云主机后, 所有流量都会变为横向流量, 不仅影响纵向流量的效率, 也会导致无法和ULB/UDB/UMem通讯(因为内网IP伪造的安全规则会不通过). 解决方法是添加静态路由.&lt;/p&gt;
+&lt;p&gt;Linux添加路由示例&lt;br&gt;华东机房&lt;br&gt;ip ro add 10.255.0.0/16 via 10.4.0.1&lt;br&gt;ip ro add 10.4.0.0/16 via 10.4.0.1&lt;br&gt;echo “ip ro add 10.255.0.0/16 via 10.4.0.1” &amp;gt;&amp;gt; /etc/rc.local&lt;br&gt;echo “ip ro add 10.4.0.0/16 via 10.4.0.1” &amp;gt;&amp;gt; /etc/rc.local&lt;/p&gt;
+&lt;p&gt;北京BGP-A机房&lt;br&gt;ip ro add 10.255.0.0/16 via 10.6.0.1&lt;br&gt;ip ro add 10.6.0.0/16 via 10.6.0.1&lt;br&gt;echo “ip ro add 10.255.0.0/16 via 10.6.0.1” &amp;gt;&amp;gt; /etc/rc.local&lt;br&gt;echo “ip ro add 10.6.0.0/16 via 10.6.0.1” &amp;gt;&amp;gt; /etc/rc.local&lt;/p&gt;
+&lt;p&gt;Windows添加路由示例&lt;br&gt;华东机房&lt;br&gt;route add 10.255.0.0 mask 255.255.0.0 10.4.0.1 /p&lt;br&gt;route add 10.4.0.0 mask 255.255.0.0 10.4.0.1 /p&lt;/p&gt;
+&lt;p&gt;北京BGP-A机房&lt;br&gt;route add 10.255.0.0 mask 255.255.0.0 10.6.0.1 /p&lt;br&gt;route add 10.6.0.0 mask 255.255.0.0 10.6.0.1 /p&lt;/p&gt;
+&lt;h3 id=&quot;u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE_uFF08_u5F85_u9A8C_u8BC1_uFF09&quot;&gt;&lt;a href=&quot;#u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE_uFF08_u5F85_u9A8C_u8BC1_uFF09&quot; class=&quot;headerlink&quot; title=&quot;二、使用路由器实现外网访问（待验证）&quot;&gt;&lt;/a&gt;二、使用路由器实现外网访问（待验证）&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;具体操作步骤：&lt;/strong&gt;&lt;br&gt;1、登录控制台，选择网络Unet下的路由器选项，点击创建路由器； &lt;/p&gt;
+&lt;p&gt;2、在弹出的创建路由器页面中输入路由器名称，点击确认完成路由器创建；&lt;/p&gt;
+&lt;p&gt;3、申请弹性EIP，将EIP绑定已经创建好的路由器；&lt;/p&gt;
+&lt;p&gt;4、此时路由器列表页面中显示了与路由器关联的弹性外网IP和子网信息。如果子网机器需要访问外网，可以根据需要将创建的子网连接到路由器&lt;/p&gt;
+&lt;p&gt;5、点击进入路由器的端口转发,添加转发规则。&lt;/p&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://www.05do.com/blog/content/190&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;解决Ucloud没有弹性IP的内网主机访问外网的问题&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/uhost/guide.html#id9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;实现外网对大数据机型云主机&amp;amp;物理主机的访问&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一
+    
+    </summary>
+    
+    
+      <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker安装</title>
