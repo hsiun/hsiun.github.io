@@ -3,21 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Docker安装 | GaoSpot</title>
+    <title>标签: 个人总结 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/24/Docker安装/index.html">
+    <meta name="description" content="My Person Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GaoSpot">
+<meta property="og:url" content="http://zone.gaospot.com/tags/个人总结/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
-<meta property="og:updated_time" content="2016-04-24T09:12:34.862Z">
+<meta property="og:description" content="My Person Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装">
-<meta name="twitter:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
+<meta name="twitter:title" content="GaoSpot">
+<meta name="twitter:description" content="My Person Blog">
     
 
     
@@ -150,188 +146,64 @@
 </aside>
 
             
-            <section id="main"><article id="post-Docker安装" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main">
+        <section class="archives-wrap">
+        <div class="archive-tag-wrap">
+            <span class="archive-tag">#个人总结</span>
+        </div>
+        <div class="archives">
         
-        
-        
-            <header class="article-header">
-                
+            <article class="archive-article archive-type-summary">
     
-        <h1 class="article-title" itemprop="name">
-            Docker安装
+    <div class="archive-article-thumbnail">
+        <a href="/2014/01/08/Linux学习过程中的问题/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2014/01/08/Linux学习过程中的问题/">Linux学习过程中的问题</a>
         </h1>
     
 
-                <div class="article-meta">
-                    
+            <div class="article-meta">
+                
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/24/Docker安装/">
-            <time datetime="2016-04-24T09:11:00.000Z" itemprop="datePublished">2016-04-24</time>
+        <a href="/2014/01/08/Linux学习过程中的问题/">
+            <time datetime="2014-01-08T09:46:00.000Z" itemprop="datePublished">2014-01-08</time>
         </a>
     </div>
 
 
-                    
-                    
+                
+                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/个人总结/">个人总结</a>
     </div>
 
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。</p>
-<h3 id="u524D_u63D0_u6761_u4EF6"><a href="#u524D_u63D0_u6761_u4EF6" class="headerlink" title="前提条件"></a>前提条件</h3><p>由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出：</p>
-<ol>
-<li>必须是64位系统，不论是AMD还是X86_64，总之一定要是64位的；</li>
-<li>内核版本最起码是3.10，小版本最低的3.10都行；</li>
-</ol>
-<h3 id="u66F4_u65B0APT_u6E90"><a href="#u66F4_u65B0APT_u6E90" class="headerlink" title="更新APT源"></a>更新APT源</h3><p>为了安装最新的docker版本，这里并没有使用ubuntu官方的源来安装docker，而是使用了其他的源，添加过程如下所示：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update&#10;$ sudo apt-get install apt-transport-https ca-certificates&#10;$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D&#10;$ vim /etc/apt/sources.list.d/docker.list #&#28155;&#21152;&#19979;&#38754;&#30340;&#20869;&#23481;&#65292;&#22240;&#20026;&#25105;&#26159;14.04&#30340;&#10;&#10;deb https://apt.dockerproject.org/repo ubuntu-trusty main</span><br></pre></td></tr></table></figure>
-<p>其他版本的添加的源如下：<br>在Ubuntu Precise 12.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-precise main<br>在Ubuntu Trusty 14.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-trusty main<br>Ubuntu Wily 15.10</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-wily main<br>Ubuntu Xenial 16.04 (LTS)</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-xenial main</p>
-<p>保存并退出之后更新本地源缓存，我记得apt好像是有缓存：）。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h3 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h3><p>在进行完上面的准备工作之后就可安装了，安装过程非常简单就是一条apt命令，安装之后对docker做一个简单检查。还有ufw的问题，ufw是Ubuntu下的防火墙，类似Centos下iptables，在我的主机上，这个防火墙是关闭的，所有可以不用担心它。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install docker-engine</span><br></pre></td></tr></table></figure>
-<p>安装之后启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure>
-<p>通过运行一个Docker容器，检查Docker是否正常安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>查看Docker信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker info</span><br></pre></td></tr></table></figure>
-<p>上面就是我安装过程的一个记录，安装好Docker之后可以尽情的折腾了，遇到问题解决不了的话，直接重装系统吧：）。然后又可以愉快的玩耍了。有问题可以参考官方文档，链接在下面，官方文档说的特别详细，考虑了很多方面，我这里针对我本地需要和本地环境做了一些简化。哈哈，小偷了一下懒。不过也没什么影响，总的来说Docker安装过程还是非常简单的。</p>
-<p>参考：<a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" target="_blank" rel="external">Installation on Ubuntu</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2016/04/24/Docker安装/" data-id="cinlcaci5000qqckomv9pmfkl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2016/04/24/Docker安装/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/24/Docker安装/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2016/04/25/无EIP云主机外网访问/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    无EIP云主机外网访问
-                
             </div>
-        </a>
-    
-    
-        <a href="/2016/04/21/Linux磁盘管理/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Linux磁盘管理</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </header>
+        <div class="article-entry">
+            <p>自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。
+1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，</p>
+            <p class="article-more-link">
+                <a href="/2014/01/08/Linux学习过程中的问题/#more">查看更多</a>
+            </p>
+        </div>
     </div>
-
-    
-    </section>
-
-</section>
+</article>
+        
+        </div></section>
+        </section>
             
                 <aside id="sidebar">
     
@@ -499,13 +371,11 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/24/Docker安装/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

@@ -3,21 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Docker安装 | GaoSpot</title>
+    <title>gcc编译C程序的过程 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
+    <meta name="description" content="我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：(1)预处理：（Pre-Processing）(2)编译：（Compiling）(3)汇编：（Assembling）(4)链接：（Linking)       使用gcc，我们可以根据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/24/Docker安装/index.html">
+<meta property="og:title" content="gcc编译C程序的过程">
+<meta property="og:url" content="http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
-<meta property="og:updated_time" content="2016-04-24T09:12:34.862Z">
+<meta property="og:description" content="我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：(1)预处理：（Pre-Processing）(2)编译：（Compiling）(3)汇编：（Assembling）(4)链接：（Linking)       使用gcc，我们可以根据">
+<meta property="og:updated_time" content="2016-04-29T06:27:33.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装">
-<meta name="twitter:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
+<meta name="twitter:title" content="gcc编译C程序的过程">
+<meta name="twitter:description" content="我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：(1)预处理：（Pre-Processing）(2)编译：（Compiling）(3)汇编：（Assembling）(4)链接：（Linking)       使用gcc，我们可以根据">
     
 
     
@@ -150,7 +147,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Docker安装" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-gcc编译C程序的过程" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -159,7 +156,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Docker安装
+            gcc编译C程序的过程
         </h1>
     
 
@@ -167,8 +164,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/24/Docker安装/">
-            <time datetime="2016-04-24T09:11:00.000Z" itemprop="datePublished">2016-04-24</time>
+        <a href="/2014/01/21/gcc编译C程序的过程/">
+            <time datetime="2014-01-21T15:50:00.000Z" itemprop="datePublished">2014-01-21</time>
         </a>
     </div>
 
@@ -177,7 +174,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
     </div>
 
                 </div>
@@ -186,31 +183,19 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。</p>
-<h3 id="u524D_u63D0_u6761_u4EF6"><a href="#u524D_u63D0_u6761_u4EF6" class="headerlink" title="前提条件"></a>前提条件</h3><p>由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出：</p>
-<ol>
-<li>必须是64位系统，不论是AMD还是X86_64，总之一定要是64位的；</li>
-<li>内核版本最起码是3.10，小版本最低的3.10都行；</li>
-</ol>
-<h3 id="u66F4_u65B0APT_u6E90"><a href="#u66F4_u65B0APT_u6E90" class="headerlink" title="更新APT源"></a>更新APT源</h3><p>为了安装最新的docker版本，这里并没有使用ubuntu官方的源来安装docker，而是使用了其他的源，添加过程如下所示：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update&#10;$ sudo apt-get install apt-transport-https ca-certificates&#10;$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D&#10;$ vim /etc/apt/sources.list.d/docker.list #&#28155;&#21152;&#19979;&#38754;&#30340;&#20869;&#23481;&#65292;&#22240;&#20026;&#25105;&#26159;14.04&#30340;&#10;&#10;deb https://apt.dockerproject.org/repo ubuntu-trusty main</span><br></pre></td></tr></table></figure>
-<p>其他版本的添加的源如下：<br>在Ubuntu Precise 12.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-precise main<br>在Ubuntu Trusty 14.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-trusty main<br>Ubuntu Wily 15.10</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-wily main<br>Ubuntu Xenial 16.04 (LTS)</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-xenial main</p>
-<p>保存并退出之后更新本地源缓存，我记得apt好像是有缓存：）。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h3 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h3><p>在进行完上面的准备工作之后就可安装了，安装过程非常简单就是一条apt命令，安装之后对docker做一个简单检查。还有ufw的问题，ufw是Ubuntu下的防火墙，类似Centos下iptables，在我的主机上，这个防火墙是关闭的，所有可以不用担心它。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install docker-engine</span><br></pre></td></tr></table></figure>
-<p>安装之后启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure>
-<p>通过运行一个Docker容器，检查Docker是否正常安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>查看Docker信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker info</span><br></pre></td></tr></table></figure>
-<p>上面就是我安装过程的一个记录，安装好Docker之后可以尽情的折腾了，遇到问题解决不了的话，直接重装系统吧：）。然后又可以愉快的玩耍了。有问题可以参考官方文档，链接在下面，官方文档说的特别详细，考虑了很多方面，我这里针对我本地需要和本地环境做了一些简化。哈哈，小偷了一下懒。不过也没什么影响，总的来说Docker安装过程还是非常简单的。</p>
-<p>参考：<a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" target="_blank" rel="external">Installation on Ubuntu</a></p>
+            <p>我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：<br>(1)预处理：（Pre-Processing）<br>(2)编译：（Compiling）<br>(3)汇编：（Assembling）<br>(4)链接：（Linking)<br>       使用gcc，我们可以根据需要让程序的编译停在任何的阶段。以便检查或使用编译器在该阶段输出的信息，或者对最后生成的文件进行控制，以便通过加入不同数量或种类的调试代码为今后的调试做准备。</p>
+<p>用一个最简单的程序编译程来观察编译器工作。下面是实验的源程序hello.c。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>  </span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span><br><span class="line"></span>&#123;  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello,world!"</span>);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>（1)在预处理阶段，预处理器（cpp）处理。输入的是C语言的源文件。这个阶段主要处理文件中的预处理语句，也就是通常由#开头的语句，如#include，#define，#ifdef等。这个过程会生成一个中间文件，但一般不会专门生成这种文件，所以在我们编译程序的时候不会看到类似的文件。如果必须要生成这样的文件，可以使用下面的Shell命令。
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c -o hello.i</span><br></pre></td></tr></table></figure>
+<pre><code> 使用这个命令生成的是一个仍然可以用vim察看的文件，只不过由一个只有7行代码的程序变成了一个有800多行代码的程序，原因是应为在生成的hello.i文件中把include进的库的相关代码导入了。
+
+（2)在编译阶段，编译器（ccl）处理。编译器将中间文件hello.i，编译后生成汇编语言文件*.s，使用的Shell命令是。
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S hello.i -o hello.s</span><br></pre></td></tr></table></figure>
+<p>在这个过程生成的hello.s文件依然可以用vim或其他任何的文本编辑器打开。hello.s的内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    .file   &#34;hello.c&#34;  &#10;    .section    .rodata  &#10;.LC0:  &#10;    .string &#34;Hello,world!&#34;  &#10;    .text  &#10;    .globl  main  &#10;    .type   main, @function  &#10;main:  &#10;.LFB0:  &#10;    .cfi_startproc  &#10;    pushl   %ebp  &#10;    .cfi_def_cfa_offset 8  &#10;    .cfi_offset 5, -8  &#10;    movl    %esp, %ebp  &#10;    .cfi_def_cfa_register 5  &#10;    andl    $-16, %esp  &#10;    subl    $16, %esp  &#10;    movl    $.LC0, (%esp)  &#10;    call    printf  &#10;    movl    $0, %eax  &#10;    leave  &#10;    .cfi_restore 5  &#10;    .cfi_def_cfa 4, 4  &#10;    ret  &#10;    .cfi_endproc  &#10;.LFE0:  &#10;    .size   main, .-main  &#10;    .ident  &#34;GCC: (Debian 4.7.2-5) 4.7.2&#34;  &#10;    .section    .note.GNU-stack,&#34;&#34;,@progbits &#10;&#10;``` &#10;       &#65288;3)&#22312;&#27719;&#32534;&#38454;&#27573;&#65292;&#27719;&#32534;&#22120;&#65288;as&#65289;&#23558;&#36755;&#20837;&#30340;hello.s&#36716;&#25442;&#25104;&#20108;&#36827;&#21046;&#26426;&#22120;&#20195;&#30721;&#25991;&#20214;*.o&#12290;&#36825;&#20010;&#38454;&#27573;&#25152;&#20351;&#29992;&#30340;&#21629;&#20196;&#26159;&#12290;&#10;```shell&#10;gcc -c hello.s -o hello.o</span><br></pre></td></tr></table></figure></p>
+<p>这个阶段会生成一个二进制的文件hello.o，现在已经不可以使用vim察看了，但是还可以使用od来察看，可以看到文件内容是如下一些的数字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000000 042577 043114 000401 000001 000000 000000 000000 000000  &#10;0000020 000001 000003 000001 000000 000000 000000 000000 000000  &#10;0000040 000424 000000 000000 000000 000064 000000 000000 000050  &#10;0000060 000015 000012 104525 101745 170344 166203 143420 022004  &#10;0000100 000000 000000 176350 177777 134377 000000 000000 141711  &#10;0000120 062510 066154 026157 067567 066162 020544 000000 041507  &#10;0000140 035103 024040 062504 064542 067141 032040 033456 031056  &#10;0000160 032455 020051 027064 027067 000062 000000 000024 000000  &#10;0000200 000000 000000 075001 000122 076001 000410 006033 002004  &#10;0000220 000610 000000 000034 000000 000034 000000 000000 000000  &#10;0000240 000034 000000 040400 004016 001205 006502 054005 006305  &#10;0000260 002004 000000 027000 074563 072155 061141 027000 072163  &#10;0000300 072162 061141 027000 064163 072163 072162 061141 027000  &#10;0000320 062562 027154 062564 072170 027000 060544 060564 027000  &#10;0000340 071542 000163 071056 062157 072141 000141 061456 066557  &#10;0000360 062555 072156 027000 067556 062564 043456 052516 071455  &#10;0000400 060564 065543 027000 062562 027154 064145 063137 060562  &#10;0000420 062555 000000 000000 000000 000000 000000 000000 000000  &#10;0000440 000000 000000 000000 000000 000000 000000 000000 000000  &#10;0000460 000000 000000 000000 000000 000000 000000 000037 000000  &#10;0000500 000001 000000 000006 000000 000000 000000 000064 000000  &#10;0000520 000034 000000 000000 000000 000000 000000 000004 000000  &#10;0000540 000000 000000 000033 000000 000011 000000 000000 000000  &#10;0000560 000000 000000 001744 000000 000020 000000 000013 000000  &#10;0000600 000001 000000 000004 000000 000010 000000 000045 000000  &#10;0000620 000001 000000 000003 000000 000000 000000 000120 000000  &#10;0000640 000000 000000 000000 000000 000000 000000 000004 000000  &#10;0000660 000000 000000 000053 000000 000010 000000 000003 000000  &#10;0000700 000000 000000 000120 000000 000000 000000 000000 000000  &#10;0000720 000000 000000 000004 000000 000000 000000 000060 000000  &#10;0000740 000001 000000 000002 000000 000000 000000 000120 000000  &#10;0000760 000015 000000 000000 000000 000000 000000 000001 000000  &#10;0001000 000000 000000 000070 000000 000001 000000 000060 000000  &#10;0001020 000000 000000 000135 000000 000035 000000 000000 000000  &#10;0001040 000000 000000 000001 000000 000001 000000 000101 000000  &#10;0001060 000001 000000 000000 000000 000000 000000 000172 000000  &#10;0001100 000000 000000 000000 000000 000000 000000 000001 000000  &#10;0001120 000000 000000 000125 000000 000001 000000 000002 000000  &#10;0001140 000000 000000 000174 000000 000070 000000 000000 000000  &#10;0001160 000000 000000 000004 000000 000000 000000 000121 000000  &#10;0001200 000011 000000 000000 000000 000000 000000 001764 000000  &#10;0001220 000010 000000 000013 000000 000010 000000 000004 000000  &#10;0001240 000010 000000 000021 000000 000003 000000 000000 000000  &#10;0001260 000000 000000 000264 000000 000137 000000 000000 000000  &#10;0001300 000000 000000 000001 000000 000000 000000 000001 000000  &#10;0001320 000002 000000 000000 000000 000000 000000 001434 000000  &#10;0001340 000260 000000 000014 000000 000011 000000 000004 000000  &#10;0001360 000020 000000 000011 000000 000003 000000 000000 000000  &#10;0001400 000000 000000 001714 000000 000025 000000 000000 000000  &#10;0001420 000000 000000 000001 000000 000000 000000 000000 000000  &#10;0001440 000000 000000 000000 000000 000000 000000 000001 000000  &#10;0001460 000000 000000 000000 000000 000004 177761 000000 000000  &#10;0001500 000000 000000 000000 000000 000003 000001 000000 000000  &#10;0001520 000000 000000 000000 000000 000003 000003 000000 000000  &#10;0001540 000000 000000 000000 000000 000003 000004 000000 000000  &#10;0001560 000000 000000 000000 000000 000003 000005 000000 000000  &#10;0001600 000000 000000 000000 000000 000003 000007 000000 000000  &#10;0001620 000000 000000 000000 000000 000003 000010 000000 000000  &#10;0001640 000000 000000 000000 000000 000003 000006 000011 000000  &#10;0001660 000000 000000 000034 000000 000022 000001 000016 000000  &#10;0001700 000000 000000 000000 000000 000020 000000 064000 066145  &#10;0001720 067554 061456 066400 064541 000156 071160 067151 063164  &#10;0001740 000000 000000 000014 000000 002401 000000 000021 000000  &#10;0001760 005002 000000 000040 000000 001002 000000  &#10;0001774</span><br></pre></td></tr></table></figure></p>
+<pre><code>（4)最后，连接器（ld）在链接阶段将输入的二进制机器代码文件*.o汇集成一个可执行的二进制代码文件。使用如下的代码。
+</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.o -o hello</span><br></pre></td></tr></table></figure>
+<p>最后在来使用od命令察看最后生成的hello文件，会发现它要比hello.o文件更大一些，原因在与，在最后一步的时候，把其他的二进制代码也链接进来了，如库文件等。</p>
 
         
         </div>
@@ -221,7 +206,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/24/Docker安装/" data-id="cinlcaci5000qqckomv9pmfkl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/" data-id="cinlcachk0007qcko2z9z9u8p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -289,7 +274,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/04/24/Docker安装/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/24/Docker安装/">评论</a>
+        <a href="http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/">评论</a>
     
 
         </footer>
@@ -298,19 +283,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/04/25/无EIP云主机外网访问/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    无EIP云主机外网访问
+                    Hello Hexo —— 我的个人博客搭建记录
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/21/Linux磁盘管理/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/01/11/C语言可变参数函数/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Linux磁盘管理</div>
+            <div class="article-nav-title">C语言可变参数函数</div>
         </a>
     
 </nav>
@@ -499,7 +484,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/24/Docker安装/';
+    var disqus_url = 'http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/';
     
     (function() {
     var dsq = document.createElement('script');

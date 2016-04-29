@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Docker安装 | GaoSpot</title>
+    <title>C语言可变参数函数 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
+    <meta name="description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/24/Docker安装/index.html">
+<meta property="og:title" content="C语言可变参数函数">
+<meta property="og:url" content="http://zone.gaospot.com/2014/01/11/C语言可变参数函数/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
-<meta property="og:updated_time" content="2016-04-24T09:12:34.862Z">
+<meta property="og:description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
+<meta property="og:updated_time" content="2016-04-29T06:17:21.504Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装">
-<meta name="twitter:description" content="记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。
-前提条件由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出">
+<meta name="twitter:title" content="C语言可变参数函数">
+<meta name="twitter:description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
     
 
     
@@ -150,7 +150,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Docker安装" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-C语言可变参数函数" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -159,7 +159,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Docker安装
+            C语言可变参数函数
         </h1>
     
 
@@ -167,8 +167,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/24/Docker安装/">
-            <time datetime="2016-04-24T09:11:00.000Z" itemprop="datePublished">2016-04-24</time>
+        <a href="/2014/01/11/C语言可变参数函数/">
+            <time datetime="2014-01-11T15:43:00.000Z" itemprop="datePublished">2014-01-11</time>
         </a>
     </div>
 
@@ -177,7 +177,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
     </div>
 
                 </div>
@@ -186,31 +186,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。</p>
-<h3 id="u524D_u63D0_u6761_u4EF6"><a href="#u524D_u63D0_u6761_u4EF6" class="headerlink" title="前提条件"></a>前提条件</h3><p>由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出：</p>
-<ol>
-<li>必须是64位系统，不论是AMD还是X86_64，总之一定要是64位的；</li>
-<li>内核版本最起码是3.10，小版本最低的3.10都行；</li>
-</ol>
-<h3 id="u66F4_u65B0APT_u6E90"><a href="#u66F4_u65B0APT_u6E90" class="headerlink" title="更新APT源"></a>更新APT源</h3><p>为了安装最新的docker版本，这里并没有使用ubuntu官方的源来安装docker，而是使用了其他的源，添加过程如下所示：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update&#10;$ sudo apt-get install apt-transport-https ca-certificates&#10;$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D&#10;$ vim /etc/apt/sources.list.d/docker.list #&#28155;&#21152;&#19979;&#38754;&#30340;&#20869;&#23481;&#65292;&#22240;&#20026;&#25105;&#26159;14.04&#30340;&#10;&#10;deb https://apt.dockerproject.org/repo ubuntu-trusty main</span><br></pre></td></tr></table></figure>
-<p>其他版本的添加的源如下：<br>在Ubuntu Precise 12.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-precise main<br>在Ubuntu Trusty 14.04 (LTS)中，添加下面的源</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-trusty main<br>Ubuntu Wily 15.10</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-wily main<br>Ubuntu Xenial 16.04 (LTS)</p>
-<p>deb <a href="https://apt.dockerproject.org/repo" target="_blank" rel="external">https://apt.dockerproject.org/repo</a> ubuntu-xenial main</p>
-<p>保存并退出之后更新本地源缓存，我记得apt好像是有缓存：）。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h3 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h3><p>在进行完上面的准备工作之后就可安装了，安装过程非常简单就是一条apt命令，安装之后对docker做一个简单检查。还有ufw的问题，ufw是Ubuntu下的防火墙，类似Centos下iptables，在我的主机上，这个防火墙是关闭的，所有可以不用担心它。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install docker-engine</span><br></pre></td></tr></table></figure>
-<p>安装之后启动服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure>
-<p>通过运行一个Docker容器，检查Docker是否正常安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>查看Docker信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker info</span><br></pre></td></tr></table></figure>
-<p>上面就是我安装过程的一个记录，安装好Docker之后可以尽情的折腾了，遇到问题解决不了的话，直接重装系统吧：）。然后又可以愉快的玩耍了。有问题可以参考官方文档，链接在下面，官方文档说的特别详细，考虑了很多方面，我这里针对我本地需要和本地环境做了一些简化。哈哈，小偷了一下懒。不过也没什么影响，总的来说Docker安装过程还是非常简单的。</p>
-<p>参考：<a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" target="_blank" rel="external">Installation on Ubuntu</a></p>
+            <p>C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。</p>
+<p>va_list<br>va_start();<br>va_arg();</p>
+<p>va_list，这是个类型定义，我们可以把它理解成一个指针，它指向第一个参数的地址。如果，我们这样定义： va_list ap;则ap就是这样一种变量，它是指向所有参数中的第一个参数的。它不同于一般的指针变量，它是个复合变量。就是说可以通过这个变量找到，在调用这个函数是传入的其他变量。但是我们不可以直接通过移动这个指针来指向下一个变量。剩下的工作就要通过下面的两个方法了。</p>
+<p>va_start(ap,size)，那么ap就指向第一个参数size了，并且可得到size的类型int。这时候如果有下一个参数，就需要使ap指向下一个参数，并且得到它的类型。</p>
+<p>va_arg(ap,类型)，这样ap就指向一个参数，并且可以得到那个参数的类型了。注意！类型非常重要，学过指针的都应该清楚，指针的类型如果弄错的话，位置正确，取出来的数可能也是乱七八糟的。</p>
+<p>下面是使用C语言的这个特征来编写的一个可以释放一系列内存空间的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">frees</span><span class="params">(<span class="keyword">int</span> size, ...)</span></span>&#123;  </span><br><span class="line">    va_list ap;  </span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;  </span><br><span class="line">    va_start(ap, size);  </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;size; i++)&#123;  </span><br><span class="line">        <span class="keyword">void</span>* ptr = va_arg(ap, <span class="keyword">void</span>*);  </span><br><span class="line">        free2(ptr);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用的时候只需指明需要释放的空间的指针的个数，以及他们的值，就可以了。</p>
 
         
         </div>
@@ -221,7 +204,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/24/Docker安装/" data-id="cinlcaci5000qqckomv9pmfkl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/01/11/C语言可变参数函数/" data-id="cinlcaci6000sqckowqtw45we" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -289,7 +272,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/04/24/Docker安装/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/24/Docker安装/">评论</a>
+        <a href="http://zone.gaospot.com/2014/01/11/C语言可变参数函数/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/01/11/C语言可变参数函数/">评论</a>
     
 
         </footer>
@@ -298,19 +281,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/04/25/无EIP云主机外网访问/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2014/01/21/gcc编译C程序的过程/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    无EIP云主机外网访问
+                    gcc编译C程序的过程
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/21/Linux磁盘管理/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2014/01/08/Linux学习过程中的问题/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Linux磁盘管理</div>
+            <div class="article-nav-title">Linux学习过程中的问题</div>
         </a>
     
 </nav>
@@ -499,7 +482,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/24/Docker安装/';
+    var disqus_url = 'http://zone.gaospot.com/2014/01/11/C语言可变参数函数/';
     
     (function() {
     var dsq = document.createElement('script');

@@ -418,9 +418,42 @@
   </entry>
   
   <entry>
+    <title>gcc编译C程序的过程</title>
+    <link href="http://zone.gaospot.com/2014/01/21/gcc%E7%BC%96%E8%AF%91C%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B/"/>
+    <id>http://zone.gaospot.com/2014/01/21/gcc编译C程序的过程/</id>
+    <published>2014-01-21T15:50:00.000Z</published>
+    <updated>2016-04-29T06:27:33.426Z</updated>
+    
+    <content type="html">&lt;p&gt;我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：&lt;br&gt;(1)预处理：（Pre-Processing）&lt;br&gt;(2)编译：（Compiling）&lt;br&gt;(3)汇编：（Assembling）&lt;br&gt;(4)链接：（Linking)&lt;br&gt;       使用gcc，我们可以根据需要让程序的编译停在任何的阶段。以便检查或使用编译器在该阶段输出的信息，或者对最后生成的文件进行控制，以便通过加入不同数量或种类的调试代码为今后的调试做准备。&lt;/p&gt;
+&lt;p&gt;用一个最简单的程序编译程来观察编译器工作。下面是实验的源程序hello.c。&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Hello,world!&quot;&lt;/span&gt;);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;（1)在预处理阶段，预处理器（cpp）处理。输入的是C语言的源文件。这个阶段主要处理文件中的预处理语句，也就是通常由#开头的语句，如#include，#define，#ifdef等。这个过程会生成一个中间文件，但一般不会专门生成这种文件，所以在我们编译程序的时候不会看到类似的文件。如果必须要生成这样的文件，可以使用下面的Shell命令。
+&lt;/code&gt;&lt;/pre&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc -E hello.c -o hello.i&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt; 使用这个命令生成的是一个仍然可以用vim察看的文件，只不过由一个只有7行代码的程序变成了一个有800多行代码的程序，原因是应为在生成的hello.i文件中把include进的库的相关代码导入了。
+
+（2)在编译阶段，编译器（ccl）处理。编译器将中间文件hello.i，编译后生成汇编语言文件*.s，使用的Shell命令是。
+&lt;/code&gt;&lt;/pre&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc -S hello.i -o hello.s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这个过程生成的hello.s文件依然可以用vim或其他任何的文本编辑器打开。hello.s的内容如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    .file   &amp;#34;hello.c&amp;#34;  &amp;#10;    .section    .rodata  &amp;#10;.LC0:  &amp;#10;    .string &amp;#34;Hello,world!&amp;#34;  &amp;#10;    .text  &amp;#10;    .globl  main  &amp;#10;    .type   main, @function  &amp;#10;main:  &amp;#10;.LFB0:  &amp;#10;    .cfi_startproc  &amp;#10;    pushl   %ebp  &amp;#10;    .cfi_def_cfa_offset 8  &amp;#10;    .cfi_offset 5, -8  &amp;#10;    movl    %esp, %ebp  &amp;#10;    .cfi_def_cfa_register 5  &amp;#10;    andl    $-16, %esp  &amp;#10;    subl    $16, %esp  &amp;#10;    movl    $.LC0, (%esp)  &amp;#10;    call    printf  &amp;#10;    movl    $0, %eax  &amp;#10;    leave  &amp;#10;    .cfi_restore 5  &amp;#10;    .cfi_def_cfa 4, 4  &amp;#10;    ret  &amp;#10;    .cfi_endproc  &amp;#10;.LFE0:  &amp;#10;    .size   main, .-main  &amp;#10;    .ident  &amp;#34;GCC: (Debian 4.7.2-5) 4.7.2&amp;#34;  &amp;#10;    .section    .note.GNU-stack,&amp;#34;&amp;#34;,@progbits &amp;#10;&amp;#10;``` &amp;#10;       &amp;#65288;3)&amp;#22312;&amp;#27719;&amp;#32534;&amp;#38454;&amp;#27573;&amp;#65292;&amp;#27719;&amp;#32534;&amp;#22120;&amp;#65288;as&amp;#65289;&amp;#23558;&amp;#36755;&amp;#20837;&amp;#30340;hello.s&amp;#36716;&amp;#25442;&amp;#25104;&amp;#20108;&amp;#36827;&amp;#21046;&amp;#26426;&amp;#22120;&amp;#20195;&amp;#30721;&amp;#25991;&amp;#20214;*.o&amp;#12290;&amp;#36825;&amp;#20010;&amp;#38454;&amp;#27573;&amp;#25152;&amp;#20351;&amp;#29992;&amp;#30340;&amp;#21629;&amp;#20196;&amp;#26159;&amp;#12290;&amp;#10;```shell&amp;#10;gcc -c hello.s -o hello.o&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这个阶段会生成一个二进制的文件hello.o，现在已经不可以使用vim察看了，但是还可以使用od来察看，可以看到文件内容是如下一些的数字。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;0000000 042577 043114 000401 000001 000000 000000 000000 000000  &amp;#10;0000020 000001 000003 000001 000000 000000 000000 000000 000000  &amp;#10;0000040 000424 000000 000000 000000 000064 000000 000000 000050  &amp;#10;0000060 000015 000012 104525 101745 170344 166203 143420 022004  &amp;#10;0000100 000000 000000 176350 177777 134377 000000 000000 141711  &amp;#10;0000120 062510 066154 026157 067567 066162 020544 000000 041507  &amp;#10;0000140 035103 024040 062504 064542 067141 032040 033456 031056  &amp;#10;0000160 032455 020051 027064 027067 000062 000000 000024 000000  &amp;#10;0000200 000000 000000 075001 000122 076001 000410 006033 002004  &amp;#10;0000220 000610 000000 000034 000000 000034 000000 000000 000000  &amp;#10;0000240 000034 000000 040400 004016 001205 006502 054005 006305  &amp;#10;0000260 002004 000000 027000 074563 072155 061141 027000 072163  &amp;#10;0000300 072162 061141 027000 064163 072163 072162 061141 027000  &amp;#10;0000320 062562 027154 062564 072170 027000 060544 060564 027000  &amp;#10;0000340 071542 000163 071056 062157 072141 000141 061456 066557  &amp;#10;0000360 062555 072156 027000 067556 062564 043456 052516 071455  &amp;#10;0000400 060564 065543 027000 062562 027154 064145 063137 060562  &amp;#10;0000420 062555 000000 000000 000000 000000 000000 000000 000000  &amp;#10;0000440 000000 000000 000000 000000 000000 000000 000000 000000  &amp;#10;0000460 000000 000000 000000 000000 000000 000000 000037 000000  &amp;#10;0000500 000001 000000 000006 000000 000000 000000 000064 000000  &amp;#10;0000520 000034 000000 000000 000000 000000 000000 000004 000000  &amp;#10;0000540 000000 000000 000033 000000 000011 000000 000000 000000  &amp;#10;0000560 000000 000000 001744 000000 000020 000000 000013 000000  &amp;#10;0000600 000001 000000 000004 000000 000010 000000 000045 000000  &amp;#10;0000620 000001 000000 000003 000000 000000 000000 000120 000000  &amp;#10;0000640 000000 000000 000000 000000 000000 000000 000004 000000  &amp;#10;0000660 000000 000000 000053 000000 000010 000000 000003 000000  &amp;#10;0000700 000000 000000 000120 000000 000000 000000 000000 000000  &amp;#10;0000720 000000 000000 000004 000000 000000 000000 000060 000000  &amp;#10;0000740 000001 000000 000002 000000 000000 000000 000120 000000  &amp;#10;0000760 000015 000000 000000 000000 000000 000000 000001 000000  &amp;#10;0001000 000000 000000 000070 000000 000001 000000 000060 000000  &amp;#10;0001020 000000 000000 000135 000000 000035 000000 000000 000000  &amp;#10;0001040 000000 000000 000001 000000 000001 000000 000101 000000  &amp;#10;0001060 000001 000000 000000 000000 000000 000000 000172 000000  &amp;#10;0001100 000000 000000 000000 000000 000000 000000 000001 000000  &amp;#10;0001120 000000 000000 000125 000000 000001 000000 000002 000000  &amp;#10;0001140 000000 000000 000174 000000 000070 000000 000000 000000  &amp;#10;0001160 000000 000000 000004 000000 000000 000000 000121 000000  &amp;#10;0001200 000011 000000 000000 000000 000000 000000 001764 000000  &amp;#10;0001220 000010 000000 000013 000000 000010 000000 000004 000000  &amp;#10;0001240 000010 000000 000021 000000 000003 000000 000000 000000  &amp;#10;0001260 000000 000000 000264 000000 000137 000000 000000 000000  &amp;#10;0001300 000000 000000 000001 000000 000000 000000 000001 000000  &amp;#10;0001320 000002 000000 000000 000000 000000 000000 001434 000000  &amp;#10;0001340 000260 000000 000014 000000 000011 000000 000004 000000  &amp;#10;0001360 000020 000000 000011 000000 000003 000000 000000 000000  &amp;#10;0001400 000000 000000 001714 000000 000025 000000 000000 000000  &amp;#10;0001420 000000 000000 000001 000000 000000 000000 000000 000000  &amp;#10;0001440 000000 000000 000000 000000 000000 000000 000001 000000  &amp;#10;0001460 000000 000000 000000 000000 000004 177761 000000 000000  &amp;#10;0001500 000000 000000 000000 000000 000003 000001 000000 000000  &amp;#10;0001520 000000 000000 000000 000000 000003 000003 000000 000000  &amp;#10;0001540 000000 000000 000000 000000 000003 000004 000000 000000  &amp;#10;0001560 000000 000000 000000 000000 000003 000005 000000 000000  &amp;#10;0001600 000000 000000 000000 000000 000003 000007 000000 000000  &amp;#10;0001620 000000 000000 000000 000000 000003 000010 000000 000000  &amp;#10;0001640 000000 000000 000000 000000 000003 000006 000011 000000  &amp;#10;0001660 000000 000000 000034 000000 000022 000001 000016 000000  &amp;#10;0001700 000000 000000 000000 000000 000020 000000 064000 066145  &amp;#10;0001720 067554 061456 066400 064541 000156 071160 067151 063164  &amp;#10;0001740 000000 000000 000014 000000 002401 000000 000021 000000  &amp;#10;0001760 005002 000000 000040 000000 001002 000000  &amp;#10;0001774&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;（4)最后，连接器（ld）在链接阶段将输入的二进制机器代码文件*.o汇集成一个可执行的二进制代码文件。使用如下的代码。
+&lt;/code&gt;&lt;/pre&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc hello.o -o hello&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;最后在来使用od命令察看最后生成的hello文件，会发现它要比hello.o文件更大一些，原因在与，在最后一步的时候，把其他的二进制代码也链接进来了，如库文件等。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：&lt;br&gt;(1)预处理：（Pre-Processing）&lt;b
+    
+    </summary>
+    
+    
+      <category term="C语言学习" scheme="http://zone.gaospot.com/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C语言可变参数函数</title>
-    <link href="http://zone.gaospot.com/2014/01/11/Linux%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/</id>
+    <link href="http://zone.gaospot.com/2014/01/11/C%E8%AF%AD%E8%A8%80%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0/"/>
+    <id>http://zone.gaospot.com/2014/01/11/C语言可变参数函数/</id>
     <published>2014-01-11T15:43:00.000Z</published>
     <updated>2016-04-29T06:17:21.504Z</updated>
     
@@ -442,6 +475,32 @@
     
     
       <category term="C语言学习" scheme="http://zone.gaospot.com/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux学习过程中的问题</title>
+    <link href="http://zone.gaospot.com/2014/01/08/Linux%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/</id>
+    <published>2014-01-08T09:46:00.000Z</published>
+    <updated>2016-04-29T06:23:24.109Z</updated>
+    
+    <content type="html">&lt;p&gt;自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。&lt;/p&gt;
+&lt;p&gt;1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，正是在这玩的过程中，浪费了很多时间，但是学到的东西却十分的有限。虽然说这样也扩展了自己在各个方面的视野，增加了对Linux的兴趣，对于处于入门阶段不知用Linux来做什么，而茫然无措的自己来说是有一定帮助的，但这个过程极易造成追本逐末的后果。慢慢的对Linux有了一些初步的认识以后就可以彻底抛弃这个了，比如说如果自己对Linux作服务器感兴趣，就重点学习Linux系统管理方面的知识，如果对它的内核感兴趣，那就深入的学习他的内核机制，这样有了明确的目标，学起来一定会高效一些。&lt;/p&gt;
+&lt;p&gt;2、只是简单的模仿，思考的太少。一开始只是因为不知从何下手而随便找一些帖子来看。后来遇到问题总是要从网上找的，但是网上的方法又不一定是有效的。所以大多数时候只是抱着试一试的心态，又是照着帖子做，而不去想太多，最后问题能解决，那只是运气，问题解决了自己并不明白这是为什么，下一次再遇到还是一样需要到网上找。在这方面，一开始我觉得是因为能力有限造成的，不理解，导致记不住。可是慢慢的当自己知道的东西多了一点以后，还是出现这样的情况就完全是因为自己的懒惰了，不愿去想，也不愿去记。&lt;/p&gt;
+&lt;p&gt;3、在看书学习的时候，太过走马观花了，很多的时候只是追求速度。且忘了应有的理解，最后看完一无所得的时候也有，还有就是有时候看懂了却懒于实践，最终也不知道自己所理解的正确与否。&lt;/p&gt;
+&lt;p&gt;4、最后最严重的一个问题是，过多的追求一些华而不实的东西，比如说设置一些3D桌面，修改开机启动时候的主题了等等。这些东西知道就可以了，不必太过醉心于此，不懂其原理，随便搞上一套也没有太多的用处。还容易给系统带来这样那样的问题。比如，有一次装3D桌面的时候，莫名其妙的就没有了图标，系统也因此无法使用，因为不知道怎么解决，就只能重装系统了。还有一次编译内核之后无法启动，本来自己编译的内核有点问题是很正常的，但是那一次。在安装完自己编译的内核之后不光自己编译的内核有问题，而且以前的内核也有问题。又不知如何解决，就只能重装了。虽然原因不知道，但我觉得大概和之前安装的grub的主题有关。&lt;/p&gt;
+&lt;p&gt;记录下自己的反思，作为激励。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以
+    
+    </summary>
+    
+    
+      <category term="个人总结" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
