@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux学习过程中的问题 | GaoSpot</title>
+    <title>C语言可变参数函数 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。
-1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，">
+    <meta name="description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux学习过程中的问题">
-<meta property="og:url" content="http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/index.html">
+<meta property="og:title" content="C语言可变参数函数">
+<meta property="og:url" content="http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。
-1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，">
-<meta property="og:updated_time" content="2016-04-29T06:11:13.731Z">
+<meta property="og:description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
+<meta property="og:updated_time" content="2016-04-29T06:17:21.504Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux学习过程中的问题">
-<meta name="twitter:description" content="自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。
-1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，">
+<meta name="twitter:title" content="C语言可变参数函数">
+<meta name="twitter:description" content="C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。
+va_">
     
 
     
@@ -159,7 +159,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Linux学习过程中的问题
+            C语言可变参数函数
         </h1>
     
 
@@ -167,8 +167,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/01/08/Linux学习过程中的问题/">
-            <time datetime="2014-01-08T09:46:00.000Z" itemprop="datePublished">2014-01-08</time>
+        <a href="/2014/01/11/Linux学习过程中的问题/">
+            <time datetime="2014-01-11T15:43:00.000Z" itemprop="datePublished">2014-01-11</time>
         </a>
     </div>
 
@@ -177,7 +177,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/个人总结/">个人总结</a>
+        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
     </div>
 
                 </div>
@@ -186,12 +186,14 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>自己学Linux也有一些时间了，因为自己学Linux完全是出于自己的爱好，没有评价的方法，学的怎样只能靠自己的感觉。学习的过程也完全是随自己的想法，正是因为如此，所以造成自己学习的过程中在方法方面的一些问题，也只能凭感觉。所以把他们总结出来，以警示自己，希望可以加以改正，以后不要再犯。</p>
-<p>1、太过盲目，没有目的，在一开始的时候只是随便的学习一些东西，看到网上有帖子说什么，觉得好玩，自己就跟着做着玩，正是在这玩的过程中，浪费了很多时间，但是学到的东西却十分的有限。虽然说这样也扩展了自己在各个方面的视野，增加了对Linux的兴趣，对于处于入门阶段不知用Linux来做什么，而茫然无措的自己来说是有一定帮助的，但这个过程极易造成追本逐末的后果。慢慢的对Linux有了一些初步的认识以后就可以彻底抛弃这个了，比如说如果自己对Linux作服务器感兴趣，就重点学习Linux系统管理方面的知识，如果对它的内核感兴趣，那就深入的学习他的内核机制，这样有了明确的目标，学起来一定会高效一些。</p>
-<p>2、只是简单的模仿，思考的太少。一开始只是因为不知从何下手而随便找一些帖子来看。后来遇到问题总是要从网上找的，但是网上的方法又不一定是有效的。所以大多数时候只是抱着试一试的心态，又是照着帖子做，而不去想太多，最后问题能解决，那只是运气，问题解决了自己并不明白这是为什么，下一次再遇到还是一样需要到网上找。在这方面，一开始我觉得是因为能力有限造成的，不理解，导致记不住。可是慢慢的当自己知道的东西多了一点以后，还是出现这样的情况就完全是因为自己的懒惰了，不愿去想，也不愿去记。</p>
-<p>3、在看书学习的时候，太过走马观花了，很多的时候只是追求速度。且忘了应有的理解，最后看完一无所得的时候也有，还有就是有时候看懂了却懒于实践，最终也不知道自己所理解的正确与否。</p>
-<p>4、最后最严重的一个问题是，过多的追求一些华而不实的东西，比如说设置一些3D桌面，修改开机启动时候的主题了等等。这些东西知道就可以了，不必太过醉心于此，不懂其原理，随便搞上一套也没有太多的用处。还容易给系统带来这样那样的问题。比如，有一次装3D桌面的时候，莫名其妙的就没有了图标，系统也因此无法使用，因为不知道怎么解决，就只能重装系统了。还有一次编译内核之后无法启动，本来自己编译的内核有点问题是很正常的，但是那一次。在安装完自己编译的内核之后不光自己编译的内核有问题，而且以前的内核也有问题。又不知如何解决，就只能重装了。虽然原因不知道，但我觉得大概和之前安装的grub的主题有关。</p>
-<p>记录下自己的反思，作为激励。</p>
+            <p>C语言有一种实现可变参数的函数的方法就是使用占位符,使用的方法就是采用如下的方式定义函数void frees(int size, …)。其余的地方和一般的函数定义是一样的只是第二个参数上使用了三个点，而没用采用一般的变量类型变量名的方式。只要采用这样的定义方式，便可以使用这个函数来处理可变变量。但是光有这个定义还是不够的，还需要借助如下俩个函数一个类型定义，实际上这些函数是通过宏来实现的。</p>
+<p>va_list<br>va_start();<br>va_arg();</p>
+<p>va_list，这是个类型定义，我们可以把它理解成一个指针，它指向第一个参数的地址。如果，我们这样定义： va_list ap;则ap就是这样一种变量，它是指向所有参数中的第一个参数的。它不同于一般的指针变量，它是个复合变量。就是说可以通过这个变量找到，在调用这个函数是传入的其他变量。但是我们不可以直接通过移动这个指针来指向下一个变量。剩下的工作就要通过下面的两个方法了。</p>
+<p>va_start(ap,size)，那么ap就指向第一个参数size了，并且可得到size的类型int。这时候如果有下一个参数，就需要使ap指向下一个参数，并且得到它的类型。</p>
+<p>va_arg(ap,类型)，这样ap就指向一个参数，并且可以得到那个参数的类型了。注意！类型非常重要，学过指针的都应该清楚，指针的类型如果弄错的话，位置正确，取出来的数可能也是乱七八糟的。</p>
+<p>下面是使用C语言的这个特征来编写的一个可以释放一系列内存空间的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">frees</span><span class="params">(<span class="keyword">int</span> size, ...)</span></span>&#123;  </span><br><span class="line">    va_list ap;  </span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;  </span><br><span class="line">    va_start(ap, size);  </span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;size; i++)&#123;  </span><br><span class="line">        <span class="keyword">void</span>* ptr = va_arg(ap, <span class="keyword">void</span>*);  </span><br><span class="line">        free2(ptr);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用的时候只需指明需要释放的空间的指针的个数，以及他们的值，就可以了。</p>
 
         
         </div>
@@ -202,7 +204,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/" data-id="cinlbo14q000hr0kowbxnrdcc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/" data-id="cinlbutr4000h4gkoo4chea66" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -270,7 +272,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/">评论</a>
+        <a href="http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/">评论</a>
     
 
         </footer>
@@ -427,7 +429,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -436,7 +438,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/个人总结/" style="font-size: 10px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a>
+            <a href="/tags/C语言学习/" style="font-size: 10px;">C语言学习</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a>
         </div>
     </div>
 
@@ -475,7 +477,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2014/01/08/Linux学习过程中的问题/';
+    var disqus_url = 'http://zone.gaospot.com/2014/01/11/Linux学习过程中的问题/';
     
     (function() {
     var dsq = document.createElement('script');
