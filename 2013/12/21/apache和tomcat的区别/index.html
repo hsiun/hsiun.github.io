@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://zone.gaospot.com/2013/12/21/apache和tomcat的区别/index.html">
 <meta property="og:site_name" content="GaoSpot">
 <meta property="og:description" content="前言曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把">
-<meta property="og:updated_time" content="2016-04-29T09:28:14.004Z">
+<meta property="og:updated_time" content="2016-04-29T09:38:02.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="apache和tomcat的区别">
 <meta name="twitter:description" content="前言曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把">
@@ -183,9 +183,9 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><pre><code>曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把网上的内容总结一下，顺带加入一点自己的理解，作一个记录。
-</code></pre><h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><pre><code>首先从一个Web应用说起，Web应用包括的东西可不只是购物车、退出交易页面和那些引人注目的图形，大多数的电子商务应用都使用3层结构。所以当谈论“应用”时，实际上我们指的是一个或多个服务器。这是摘抄一本书上关于Web应用的一段话，我觉得这段话带出了很多问题。下面再摘抄一下他关于构成Web应用的“一个或多个服务器”的分类，这里分了下面三类。
-</code></pre><p>web服务器：这一部分为用户浏览浏览器提供web页面。最常见的例子就是apache和iis。</p>
+            <h3 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h3><p>曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把网上的内容总结一下，顺带加入一点自己的理解，作一个记录。</p>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>首先从一个Web应用说起，Web应用包括的东西可不只是购物车、退出交易页面和那些引人注目的图形，大多数的电子商务应用都使用3层结构。所以当谈论“应用”时，实际上我们指的是一个或多个服务器。这是摘抄一本书上关于Web应用的一段话，我觉得这段话带出了很多问题。下面再摘抄一下他关于构成Web应用的“一个或多个服务器”的分类，这里分了下面三类。</p>
+<p>web服务器：这一部分为用户浏览浏览器提供web页面。最常见的例子就是apache和iis。</p>
 <p>应用服务器：这一部分替用户操作、解释、提供数据。应用服务器可以是web服务器的一部分，例如PHP和Apache，或是ASP.NET就是这样。另一方面，应用服务器可以是物理上独立的服务器，例如Tomcat servlet引擎。</p>
 <p>数据库：这一部分存储应用所需的全部数据。尽管用户能够与Web和应用服务器交互，但他们通常不能直接访问数据库服务器。大多数情况下，应用服务器代理用户和数据库之间的数据，并格式化数据使之正确存储。</p>
 <p>依据我对上面的理解，Apache是Web服务器，Tomcat是应用服务器。那Web服务器和应用服务器的区别在哪里呢，依据我的理解在于他们专注的方向不同，Web服务器专注于和客户交互，通信。将HTML页面返回给用户。而应用服务器则专注于处理服务器上的一些处理，例如将jsp转化为servlet，然后服务器在根据请求执行生成的java类文件动态生成HTML并将这个页面返回给用户。下面是从网上找来的两者的不同。</p>
@@ -210,7 +210,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2013/12/21/apache和tomcat的区别/" data-id="cinliv193000lrgkoct758eij" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2013/12/21/apache和tomcat的区别/" data-id="cinlj1kso000lbwkogu57ro9r" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
