@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>无EIP云主机外网访问 | GaoSpot</title>
+    <title>无EIP云主机访问外网 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一定的设置方式让其他云主机使用这个EIP作为出口，这里介绍两种方法，一种是通过UCloud平台提供的路由器产品（免费），还有一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无EIP云主机外网访问">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/index.html">
+<meta property="og:title" content="无EIP云主机访问外网">
+<meta property="og:url" content="http://zone.gaospot.com/2016/04/25/无EIP云主机访问外网/index.html">
 <meta property="og:site_name" content="GaoSpot">
 <meta property="og:description" content="在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一定的设置方式让其他云主机使用这个EIP作为出口，这里介绍两种方法，一种是通过UCloud平台提供的路由器产品（免费），还有一个">
-<meta property="og:updated_time" content="2016-04-25T14:24:44.089Z">
+<meta property="og:updated_time" content="2016-05-04T03:12:37.299Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无EIP云主机外网访问">
+<meta name="twitter:title" content="无EIP云主机访问外网">
 <meta name="twitter:description" content="在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一定的设置方式让其他云主机使用这个EIP作为出口，这里介绍两种方法，一种是通过UCloud平台提供的路由器产品（免费），还有一个">
     
 
@@ -116,7 +116,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                27
+                28
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -147,7 +147,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-无EIP云主机外网访问" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-无EIP云主机访问外网" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -156,7 +156,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            无EIP云主机外网访问
+            无EIP云主机访问外网
         </h1>
     
 
@@ -164,7 +164,7 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/25/无EIP云主机外网访问/">
+        <a href="/2016/04/25/无EIP云主机访问外网/">
             <time datetime="2016-04-25T14:23:40.000Z" itemprop="datePublished">2016-04-25</time>
         </a>
     </div>
@@ -199,11 +199,13 @@
 <p>北京BGP-A机房<br>ip ro add 10.255.0.0/16 via 10.6.0.1<br>ip ro add 10.6.0.0/16 via 10.6.0.1<br>echo “ip ro add 10.255.0.0/16 via 10.6.0.1” &gt;&gt; /etc/rc.local<br>echo “ip ro add 10.6.0.0/16 via 10.6.0.1” &gt;&gt; /etc/rc.local</p>
 <p>Windows添加路由示例<br>华东机房<br>route add 10.255.0.0 mask 255.255.0.0 10.4.0.1 /p<br>route add 10.4.0.0 mask 255.255.0.0 10.4.0.1 /p</p>
 <p>北京BGP-A机房<br>route add 10.255.0.0 mask 255.255.0.0 10.6.0.1 /p<br>route add 10.6.0.0 mask 255.255.0.0 10.6.0.1 /p</p>
-<h3 id="u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE_uFF08_u5F85_u9A8C_u8BC1_uFF09"><a href="#u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE_uFF08_u5F85_u9A8C_u8BC1_uFF09" class="headerlink" title="二、使用路由器实现外网访问（待验证）"></a>二、使用路由器实现外网访问（待验证）</h3><p><strong>具体操作步骤：</strong><br>1、登录控制台，选择网络Unet下的路由器选项，点击创建路由器； </p>
+<h3 id="u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE"><a href="#u4E8C_u3001_u4F7F_u7528_u8DEF_u7531_u5668_u5B9E_u73B0_u5916_u7F51_u8BBF_u95EE" class="headerlink" title="二、使用路由器实现外网访问"></a>二、使用路由器实现外网访问</h3><p><strong>具体操作步骤：</strong><br>1、登录控制台，选择网络Unet下的路由器选项，点击创建路由器； </p>
 <p>2、在弹出的创建路由器页面中输入路由器名称，点击确认完成路由器创建；</p>
 <p>3、申请弹性EIP，将EIP绑定已经创建好的路由器；</p>
 <p>4、此时路由器列表页面中显示了与路由器关联的弹性外网IP和子网信息。如果子网机器需要访问外网，可以根据需要将创建的子网连接到路由器</p>
 <p>5、点击进入路由器的端口转发,添加转发规则。</p>
+<p>说明：采用第二种方法来实现外网访问可能有一点难以理解的地方，一般人可能会认为转发规则不应该是把外部的请求转发到内部主机吗，为什么这个可以实现由内到外的转发呢？其实是这样的，通过配置转发规则，相当于告诉SDN（UCloud的内网架构使用的就是SDN技术）这些流量是要通过路由出外网的，当流量发往默认网关的时候，SDN发现这些流量是要出外网的，于是通过SDN内部机制这些流量发往外网了。在借助路由器的情况下其实还有另外一种实现方式就是通过修改主机内部的网关，直接把流量引向路由，这样也可以实现我们的需求。</p>
+<p>补充：一台uhost能否同时既绑EIP又通过vrouter访问外网？<br>不能，目前主动出外网的方式分为两种，一个是直接绑定eip,通过nat转发,一个是通过vrouter端口转发，走vrouter。由于下一跳是二选一的，所以二者不能兼容。我们的产品策略是直接绑定eip优先级高于端口转发，所以同时做了端口转发和绑定eip,那么端口转发是不生效的。</p>
 <p>参考：<a href="http://www.05do.com/blog/content/190" target="_blank" rel="external">解决Ucloud没有弹性IP的内网主机访问外网的问题</a><br><a href="https://docs.ucloud.cn/upd-docs/uhost/guide.html#id9" target="_blank" rel="external">实现外网对大数据机型云主机&amp;物理主机的访问</a></p>
 
         
@@ -215,7 +217,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/" data-id="cinlj1ks50005bwko6797sfmo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/25/无EIP云主机访问外网/" data-id="cinsbm4kw0005x0koqqu727ay" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -283,7 +285,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/">评论</a>
+        <a href="http://zone.gaospot.com/2016/04/25/无EIP云主机访问外网/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/25/无EIP云主机访问外网/">评论</a>
     
 
         </footer>
@@ -291,6 +293,15 @@
     
         
 <nav id="article-nav">
+    
+        <a href="/2016/05/04/Mysql常见问题拍错/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Mysql常见问题排查
+                
+            </div>
+        </a>
     
     
         <a href="/2016/04/24/Docker安装/" id="article-nav-older" class="article-nav-link-wrap">
@@ -329,7 +340,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/04/25/无EIP云主机外网访问/" class="thumbnail">
+                            <a href="/2016/05/04/Mysql常见问题拍错/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -339,7 +350,25 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/04/25/无EIP云主机外网访问/" class="title">无EIP云主机外网访问</a></p>
+                            <p class="item-title"><a href="/2016/05/04/Mysql常见问题拍错/" class="title">Mysql常见问题排查</a></p>
+                            <p class="item-date"><time datetime="2016-05-04T03:35:00.000Z" itemprop="datePublished">2016-05-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/25/无EIP云主机访问外网/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/04/25/无EIP云主机访问外网/" class="title">无EIP云主机访问外网</a></p>
                             <p class="item-date"><time datetime="2016-04-25T14:23:40.000Z" itemprop="datePublished">2016-04-25</time></p>
                         </div>
                     </li>
@@ -398,24 +427,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/04/11/Win2008搭建Web和FTP服务/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png)" alt="Win2008搭建Web和FTP服务" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/04/11/Win2008搭建Web和FTP服务/" class="title">Win2008搭建Web和FTP服务</a></p>
-                            <p class="item-date"><time datetime="2016-04-10T18:32:55.000Z" itemprop="datePublished">2016-04-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -427,7 +438,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -436,7 +447,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -445,7 +456,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 13.33px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 10px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
+            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 13.33px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 13.33px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
 
@@ -484,7 +495,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/25/无EIP云主机外网访问/';
+    var disqus_url = 'http://zone.gaospot.com/2016/04/25/无EIP云主机访问外网/';
     
     (function() {
     var dsq = document.createElement('script');

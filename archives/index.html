@@ -115,7 +115,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                27
+                28
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -156,7 +156,7 @@
             <article class="archive-article archive-type-summary">
     
     <div class="archive-article-thumbnail">
-        <a href="/2016/04/25/无EIP云主机外网访问/" class="thumbnail">
+        <a href="/2016/05/04/Mysql常见问题拍错/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -169,7 +169,7 @@
             
     
         <h1 itemprop="name">
-            <a class="archive-article-title" href="/2016/04/25/无EIP云主机外网访问/">无EIP云主机外网访问</a>
+            <a class="archive-article-title" href="/2016/05/04/Mysql常见问题拍错/">Mysql常见问题排查</a>
         </h1>
     
 
@@ -177,7 +177,55 @@
                 
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/25/无EIP云主机外网访问/">
+        <a href="/2016/05/04/Mysql常见问题拍错/">
+            <time datetime="2016-05-04T03:35:00.000Z" itemprop="datePublished">2016-05-04</time>
+        </a>
+    </div>
+
+
+                
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
+    </div>
+
+            </div>
+        </header>
+        <div class="article-entry">
+            <p>解决UDB主从同步不一致1、: “开启super权限：update mysql.user set super_priv = ‘Y’ where user = ‘root’; flush privileges;”,2、: “停止slave: stop slave;”,3、: “设置跳过slave同步语句数： set global sql_slave_skip_counter = 1;”,4、: “启</p>
+            <p class="article-more-link">
+                <a href="/2016/05/04/Mysql常见问题拍错/#more">查看更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+        
+            <article class="archive-article archive-type-summary">
+    
+    <div class="archive-article-thumbnail">
+        <a href="/2016/04/25/无EIP云主机访问外网/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2016/04/25/无EIP云主机访问外网/">无EIP云主机访问外网</a>
+        </h1>
+    
+
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/04/25/无EIP云主机访问外网/">
             <time datetime="2016-04-25T14:23:40.000Z" itemprop="datePublished">2016-04-25</time>
         </a>
     </div>
@@ -195,7 +243,7 @@
         <div class="article-entry">
             <p>在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一定的设置方式让其他云主机使用这个EIP作为出口，这里介绍两种方法，一种是通过UCloud平台提供的路由器产品（免费），还有一个</p>
             <p class="article-more-link">
-                <a href="/2016/04/25/无EIP云主机外网访问/#more">查看更多</a>
+                <a href="/2016/04/25/无EIP云主机访问外网/#more">查看更多</a>
             </p>
         </div>
     </div>
@@ -609,64 +657,6 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     </div>
 </article>
         
-                    </div></section>
-                
-                <div class="archive-year-wrap">
-                    <a href="/archives/2015" class="archive-year">2015</a>
-                </div>
-                <section class="archives-wrap">
-                    <div class="archives">
-            
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2015/11/19/Centos6.5安装mysql5.6/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2015/11/19/Centos6.5安装mysql5.6/">Centos6.5安装mysql5.6</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2015/11/19/Centos6.5安装mysql5.6/">
-            <time datetime="2015-11-18T22:41:00.000Z" itemprop="datePublished">2015-11-19</time>
-        </a>
-    </div>
-
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>centos6.5源默认的MySQL好像是5.1。如果需要安装其他版本的mysql可以通过下载mysql相应版本的rpm包来实现。这篇博客记录的就是使用yum在Centos6.5版本的系统上安装MySQL5.6。安装包是”架构相关的”因此应用需要32位（i386）或者64位（x86_64）的操作系统。
-操作时具体的环境操作系统：Centos6.5架构：X86_64
-依照下面的步骤可以安装Mysql</p>
-            <p class="article-more-link">
-                <a href="/2015/11/19/Centos6.5安装mysql5.6/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-        
         </div></section>
     
     <nav id="page-nav">
@@ -685,7 +675,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/04/25/无EIP云主机外网访问/" class="thumbnail">
+                            <a href="/2016/05/04/Mysql常见问题拍错/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -695,7 +685,25 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/04/25/无EIP云主机外网访问/" class="title">无EIP云主机外网访问</a></p>
+                            <p class="item-title"><a href="/2016/05/04/Mysql常见问题拍错/" class="title">Mysql常见问题排查</a></p>
+                            <p class="item-date"><time datetime="2016-05-04T03:35:00.000Z" itemprop="datePublished">2016-05-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/04/25/无EIP云主机访问外网/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/04/25/无EIP云主机访问外网/" class="title">无EIP云主机访问外网</a></p>
                             <p class="item-date"><time datetime="2016-04-25T14:23:40.000Z" itemprop="datePublished">2016-04-25</time></p>
                         </div>
                     </li>
@@ -754,24 +762,6 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/04/11/Win2008搭建Web和FTP服务/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png)" alt="Win2008搭建Web和FTP服务" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/04/11/Win2008搭建Web和FTP服务/" class="title">Win2008搭建Web和FTP服务</a></p>
-                            <p class="item-date"><time datetime="2016-04-10T18:32:55.000Z" itemprop="datePublished">2016-04-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -783,7 +773,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -792,7 +782,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -801,7 +791,7 @@ Redmine是一个基于web免费且开源的项目管理和问题追踪工具。�
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 13.33px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 10px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
+            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 13.33px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 13.33px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
 
