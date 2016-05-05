@@ -17,8 +17,8 @@
   
   <entry>
     <title>Mysql常见问题排查</title>
-    <link href="http://zone.gaospot.com/2016/05/04/Mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8B%8D%E9%94%99/"/>
-    <id>http://zone.gaospot.com/2016/05/04/Mysql常见问题拍错/</id>
+    <link href="http://zone.gaospot.com/2016/05/04/Mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E9%94%99/"/>
+    <id>http://zone.gaospot.com/2016/05/04/Mysql常见问题排错/</id>
     <published>2016-05-04T03:35:00.000Z</published>
     <updated>2016-05-04T03:40:12.576Z</updated>
     
@@ -39,6 +39,27 @@
     
     
       <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何成为一名优秀的技术支持</title>
+    <link href="http://zone.gaospot.com/2016/05/03/%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E4%B8%80%E5%90%8D%E4%BC%98%E7%A7%80%E7%9A%84%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81/"/>
+    <id>http://zone.gaospot.com/2016/05/03/如何成为一名优秀的技术支持/</id>
+    <published>2016-05-03T15:35:00.000Z</published>
+    <updated>2016-05-05T12:13:47.796Z</updated>
+    
+    <content type="html">&lt;p&gt;我曾经在知乎上搜过这个问题，好像有人问了，却没有人给出好的答案，我自己曾经想过这个问题，倒想回答下这个问题，任何事情做到一定程度就会想从方法论的角度来改进做事方法。按照我一贯的形式方法，这篇文章会写的比较主观，随意，掺杂很多个人主观想法和经历在里面。&lt;br&gt;选择技术支持这一职业其实纯属偶然，一开始并不喜欢这份工作，当然说我现在有多热爱，也是假话，但我想把这件事做好，这就我的行事风格。刚开始经历了一段痛苦期，现在进入到风平浪静的事情，是时候反思下自己的所作所为以此来提升自己。&lt;br&gt;技术支持其实可以分开成为两个词来讲，技术和支持，这两个词，我认为是做好这份工作的两个方面。首先是技术，什么是技术，云计算的背后是云技术在支撑，用户业务的背后是用户程序（代码）和云环境（运行环境）在共同支撑。所以技术支持要学好技术便成了必要因素，在这里技术包含了两个方面，公司产品的技术背景和用户业务的技术背景。首先从公司产品角度来说技术支持，对公司的产品没有足够的了解显然是无法完成这份工作的。在进一步来讲，一个好的技术支持对于本公司所售产品的实现应该是了解的（现在正在学习这方面的知识），不需要熟悉到每一个代码，但对整体设计应该是明白的。在其次是对用户所使用技术的理解，用户可能采用各种各样的解决方案，也许自己并不熟悉，但遇到问题，需要需要我们这边提供支持的时候应该怎么做，这里面又有一个方法论的问题了，虽然并不是每一个问题都是我们所熟悉的，但解决问题的方法是一样的，比如说排除网络问题，有排查网络问题的一个思路和方法。碰到类似问题按照这样的方法来定位就好了，综上来讲技术就两方面，&lt;br&gt;另外一个词是支持，支持是一个动词，强调的是一个动作或过程，它包含有沟通，协助教育等等意思，沟通交流是技术支持的工作方法，工作手段和工具。没有交流，技术支持的工作无法开展，沟通交流是渠道是基础，因此沟通是基础技能。其次是协助，协助是技术支持工作的主意内容，通过独立分析问题，最后协助用户解决问题，协助使技术支持的工作产生价值。最后是教育，是进阶内容，其实是经过上两步认为就完成了一次支持工作，教育不是独立的第三步，其可以认为作为一个指导or something，贯穿在整个过程中，在交流的过程影响用户，这就是教育，大公司都懂得教育用户，通过广告等等方式，比如说某某公司，大家会说它怎么怎么样，它天生就是这样吗？不是的，是它把用户教育成这样认为的，如果它在确实是这样做的，事实上就是这样的，最终用户也就这样认为了，没了。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我曾经在知乎上搜过这个问题，好像有人问了，却没有人给出好的答案，我自己曾经想过这个问题，倒想回答下这个问题，任何事情做到一定程度就会想从方法论的角度来改进做事方法。按照我一贯的形式方法，这篇文章会写的比较主观，随意，掺杂很多个人主观想法和经历在里面。&lt;br&gt;选择技术支持这一
+    
+    </summary>
+    
+    
+      <category term="个人总结" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -418,7 +439,7 @@
     <link href="http://zone.gaospot.com/2016/01/15/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
     <id>http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/</id>
     <published>2016-01-15T09:49:42.000Z</published>
-    <updated>2016-03-31T15:41:41.573Z</updated>
+    <updated>2016-05-05T12:14:31.673Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。&lt;/p&gt;
 &lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。&lt;/p&gt;
@@ -442,7 +463,7 @@
     </summary>
     
     
-      <category term="个人笔记" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+      <category term="个人总结" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -707,38 +728,6 @@
     
     
       <category term="网络编程" scheme="http://zone.gaospot.com/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言中的位域</title>
-    <link href="http://zone.gaospot.com/2014/01/29/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E4%BD%8D%E5%9F%9F/"/>
-    <id>http://zone.gaospot.com/2014/01/29/C语言中的位域/</id>
-    <published>2014-01-28T16:03:00.000Z</published>
-    <updated>2016-04-29T06:42:06.489Z</updated>
-    
-    <content type="html">&lt;p&gt; 在内存中存取数据的最小单位一般是字节，但是有时候并不需要一个字节来存储。例如对于只有真假两个值得一个变量来说，就只须一位就可以了。有比如说在某些情况下内存是极其宝贵的资源，比如说一些嵌入式设备，因此要格外的注意节约。C语言可以在一个结构体中以位来存储数据，这种用位为单位的成员称为位域或位段。&lt;/p&gt;
- &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; bit_data  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a:&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; c:&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt; 虽然位域的机制提供了一种使用非字节数内存的方法，但是位域在使用的时候还是要注意一些问题的，比如说，位域成员的长度不能超过其自身声明类型的长度char不能超过8，下面是两个比较主要的问题：&lt;br&gt;（1）成员值的问题&lt;br&gt;声明一个位域如下&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;希望声明一个这样的位域用他来充当bool型，但是实际的情况却和想象的不一样。赋1，输出得到的切实-1。这是因为在二进制补码中，最高有效位也称为符号位，当被设置为1时，表示负数，而当被设置为0时，值为非负。这里只有一位，那么他自身就是最高有效位，那么赋1他就是负数，在这里是-1，而0则是0这个非负数。下面是一个完整的测试程序。&lt;/p&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; inti&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; a:&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; inti data;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;; i++)  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    data.a = i;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%2d &quot;&lt;/span&gt;,data.a);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;%u\n&quot;&lt;/span&gt;,data.a);  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输出如下：&lt;br&gt; 0 0&lt;br&gt; 1 1&lt;br&gt;-2 4294967294&lt;br&gt;-1 4294967295&lt;br&gt; 所赋数值的表示&lt;br&gt;赋的数值    二进制表示    内存中值（32bit）    有符号数值    无符号数值&lt;br&gt;0    00    0x00000000    0    0&lt;br&gt;1    01    0x00000001    1    1&lt;br&gt;2    10    0xFFFFFFFE    -2    4294967294&lt;br&gt;3    11    0xFFFFFFFF    -1    4294967295&lt;br&gt; 把他们的二进制表示的值按照有符号数的补码对应的值计算出来就是有符号数值。这应该就是输出中第一列的原因，第二列的输出应该还和分配的内存有关。&lt;br&gt;（2）内存分配与对齐&lt;br&gt;    1、只包含一种基本类型的。按位域中说声明的基本类型对齐，比如在32位机（机器字长）上的char，分配1byte。int分配4byte等。不超过一个基本类型长度的，分配一个基本类型长度，超过的取其基本长度的N倍，N与位域实际长度的差不大于一个基本长度。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;struct bit1&amp;#123;  &amp;#10;    int a:2;  &amp;#10;    int b:2;  &amp;#10;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;sizeof(struct bit1)返回4；&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;struct bit2&amp;#123;  &amp;#10;    int a:18;  &amp;#10;    int b:18;  &amp;#10;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;sizeof(struct bit2)返回8；&lt;br&gt;2、包含多种基本类型的。按位域中声明的最长基本类型的长度对其，比如说一个包含char和int两种基本类型的位域，按int的长度对齐。会进行拼凑以节约内存。比如：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;struct bit3&amp;#123;  &amp;#10;    int e:2;  &amp;#10;    long long d:36;  &amp;#10;    int a:32;  &amp;#10;    int b:32;  &amp;#10;    char c:7;  &amp;#10;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;sizeof(struct bit3)返回20。&lt;br&gt;总结（普通32位pc)&lt;br&gt;（1）用位域来实现bool型变量与用一个int型来实现其实是一样的。并不能起到节约内存的作用，所以想要使用单个的位域时并不会节约内存，如果声明一个位域的数组就是另一种情况了。&lt;br&gt;（2）编译器为优化内存结构，会进行对齐，这个过程也不是节约内存的。在内存足够的情况下，编译器更注重访问速度，而不是节约内存。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; 在内存中存取数据的最小单位一般是字节，但是有时候并不需要一个字节来存储。例如对于只有真假两个值得一个变量来说，就只须一位就可以了。有比如说在某些情况下内存是极其宝贵的资源，比如说一些嵌入式设备，因此要格外的注意节约。C语言可以在一个结构体中以位来存储数据，这种用位为单位的
-    
-    </summary>
-    
-    
-      <category term="C语言学习" scheme="http://zone.gaospot.com/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
