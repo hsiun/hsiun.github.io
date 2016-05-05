@@ -115,11 +115,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                28
+                29
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                11
+                10
                 <span>标签</span>
             </div>
         </div>
@@ -147,6 +147,133 @@
 
             
             <section id="main">
+            <article id="post-Hello Hexo —— 我的个人博客搭建记录" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">Hello Hexo —— 我的个人博客搭建记录</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">
+            <time datetime="2016-01-15T09:49:42.000Z" itemprop="datePublished">2016-01-15</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/个人总结/">个人总结</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>Hexo是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。
+前提条件Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。</p>
+            <p class="article-more-link">
+                <a href="/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/" data-id="cinu9720w001ir0kovhtssyp1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-Centos6.5安装mysql5.6" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -197,7 +324,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2015/11/19/Centos6.5安装mysql5.6/" data-id="cinsbm4mx001vx0ko87odegwx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2015/11/19/Centos6.5安装mysql5.6/" data-id="cinu9721g001xr0kos0galihu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -323,7 +450,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2015/10/22/Yavide通过vim实现的C C++现代IDE/" data-id="cinsbm4le000nx0ko5ktsv2xb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2015/10/22/Yavide通过vim实现的C C++现代IDE/" data-id="cinu97200000qr0koukhe1416" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -449,7 +576,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/10/15/Linux和Android启动过程/" data-id="cinsbm4lz0018x0kohublu9dc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/10/15/Linux和Android启动过程/" data-id="cinu9720n001ar0koqd8sy5fy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -576,7 +703,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/" data-id="cinsbm4m2001bx0kogoicd8y3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/" data-id="cinu9720p001dr0koby3xp0zp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -702,7 +829,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/04/29/第一个Java Google engine程序/" data-id="cinsbm4ko0002x0koumh9xs0g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/04/29/第一个Java Google engine程序/" data-id="cinu971y10002r0kojz4tqs57" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -830,7 +957,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/04/22/C语言中strcpy和memcpy/" data-id="cinsbm4mu001tx0kohw5wwb5k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/04/22/C语言中strcpy和memcpy/" data-id="cinu9721d001vr0koctel5yi1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -959,7 +1086,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/04/14/使用git上传已有的代码到github上/" data-id="cinsbm4l1000ax0kolpnrha3d" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/04/14/使用git上传已有的代码到github上/" data-id="cinu971zl000dr0kojvi37xje" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1086,7 +1213,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/04/14/Debian一些软件的安装/" data-id="cinsbm4mi001nx0koyaipo5mt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/04/14/Debian一些软件的安装/" data-id="cinu97213001pr0ko8o4f962x" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1212,7 +1339,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/" data-id="cinsbm4lj000rx0kok22jdxm4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/" data-id="cinu97207000ur0ko2ddtv3k5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1290,133 +1417,6 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
 
 
         
-            <article id="post-C语言中的位域" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2014/01/29/C语言中的位域/">C语言中的位域</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2014/01/29/C语言中的位域/">
-            <time datetime="2014-01-28T16:03:00.000Z" itemprop="datePublished">2014-01-29</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p> 在内存中存取数据的最小单位一般是字节，但是有时候并不需要一个字节来存储。例如对于只有真假两个值得一个变量来说，就只须一位就可以了。有比如说在某些情况下内存是极其宝贵的资源，比如说一些嵌入式设备，因此要格外的注意节约。C语言可以在一个结构体中以位来存储数据，这种用位为单位的成员称为位域或位段。
- 12345 struct bit_data  &#123;    int a:2;    char c</p>
-            <p class="article-more-link">
-                <a href="/2014/01/29/C语言中的位域/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2014/01/29/C语言中的位域/" data-id="cinsbm4mo001rx0kouvm3k7qz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2014/01/29/C语言中的位域/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/01/29/C语言中的位域/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-        
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
     </nav>
@@ -1433,7 +1433,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/05/04/Mysql常见问题拍错/" class="thumbnail">
+                            <a href="/2016/05/04/Mysql常见问题排错/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -1443,8 +1443,26 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/05/04/Mysql常见问题拍错/" class="title">Mysql常见问题排查</a></p>
+                            <p class="item-title"><a href="/2016/05/04/Mysql常见问题排错/" class="title">Mysql常见问题排查</a></p>
                             <p class="item-date"><time datetime="2016-05-04T03:35:00.000Z" itemprop="datePublished">2016-05-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/05/03/如何成为一名优秀的技术支持/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/05/03/如何成为一名优秀的技术支持/" class="title">如何成为一名优秀的技术支持</a></p>
+                            <p class="item-date"><time datetime="2016-05-03T15:35:00.000Z" itemprop="datePublished">2016-05-03</time></p>
                         </div>
                     </li>
                 
@@ -1502,24 +1520,6 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/04/16/单机Web服务器性能/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/04/16/单机Web服务器性能/" class="title">单机Web服务器性能</a></p>
-                            <p class="item-date"><time datetime="2016-04-15T17:37:23.000Z" itemprop="datePublished">2016-04-16</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1531,7 +1531,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1540,7 +1540,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人笔记/">个人笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1549,7 +1549,7 @@ strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且�
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 13.33px;">个人总结</a> <a href="/tags/个人笔记/" style="font-size: 10px;">个人笔记</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 13.33px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
+            <a href="/tags/C语言学习/" style="font-size: 16.67px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 13.33px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 16.67px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 16.67px;">个人总结</a> <a href="/tags/开发工具/" style="font-size: 13.33px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 13.33px;">数据库管理</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a>
         </div>
     </div>
 
