@@ -3,22 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Win2008搭建Web和FTP服务 | GaoSpot</title>
+    <title>归档 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Win2008搭建Web和FTP服务">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/index.html">
+    <meta name="description" content="My Person Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GaoSpot">
+<meta property="og:url" content="http://zone.gaospot.com/archives/page/4/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
-<meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png">
-<meta property="og:updated_time" content="2016-04-10T18:37:12.812Z">
+<meta property="og:description" content="My Person Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win2008搭建Web和FTP服务">
-<meta name="twitter:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
+<meta name="twitter:title" content="GaoSpot">
+<meta name="twitter:description" content="My Person Blog">
     
 
     
@@ -151,180 +146,69 @@
 </aside>
 
             
-            <section id="main"><article id="post-Win2008搭建Web和FTP服务" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
+            <section id="main">
+                <div class="archive-year-wrap">
+                    <a href="/archives/2013" class="archive-year">2013</a>
+                </div>
+                <section class="archives-wrap">
+                    <div class="archives">
+            
+            <article class="archive-article archive-type-summary">
     
-        <h1 class="article-title" itemprop="name">
-            Win2008搭建Web和FTP服务
+    <div class="archive-article-thumbnail">
+        <a href="/2013/11/18/HTML标签总结/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2013/11/18/HTML标签总结/">HTML标签总结</a>
         </h1>
     
 
-                <div class="article-meta">
-                    
+            <div class="article-meta">
+                
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/11/Win2008搭建Web和FTP服务/">
-            <time datetime="2016-04-10T18:32:55.000Z" itemprop="datePublished">2016-04-11</time>
+        <a href="/2013/11/18/HTML标签总结/">
+            <time datetime="2013-11-18T09:46:00.000Z" itemprop="datePublished">2013-11-18</time>
         </a>
     </div>
 
 
-                    
-                    
+                
+                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
     </div>
 
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。</p>
-<p>###创建和连接主机<br><strong>1、创建win2008的主机</strong><br>在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜像。这里使用的是Win2008 R2 64bit的一个镜像系统。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png" alt="Win2008搭建Web和FTP服务"></p>
-<p><strong>2、使用mstsc连接管理主机</strong><br>UCloud平台提供了Web连接主机的方式，这种连接方式并不推荐用来管理主机，而比较适合在应急的情况下登录，检查主机状况，由于控制登录与主机网络状态是无关的，这种登录方式在主机网络异常的情况下，可以非常方便的通过其登录主机检查主机的网络设置。在正常情况下我们还是使用mstsc（远程桌面连接）来管理主机。首先打开远程桌面软件，通过按下win key + r，然后输入mstsc就可以了。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A11.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>打开远程连接界面后，下面有个小三角形，点击打开更大选项，输入相关参数。输入示例如下：<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A12.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>输入都正确以后，会弹出一个关于正式的对话框，点是忽略这个证书问题就可以了，然后就能顺利的连接上主机。</p>
-<p>###创建Web和ftp服务器<br>1、服务器登录上去之后会自动打开服务器管理界面。第一件事先添加一个角色。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A13.png" alt="创建Web和ftp服务器"></p>
-<p>2、点击下一步，勾选Web服务器（IIS）这一项，然后点击下一步。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A14.png" alt="创建Web和ftp服务器"></p>
-<p>3、由于这里还要安装ftp服务，把ftp相关的勾选上。在点击下一步就会开始安装了，安装过程很快，大概一两分钟的样子。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A15.png" alt="创建Web和ftp服务器"></p>
-<p>4、添加完角色之后就可以添加站点了，右键点击箭头标出的地方，然后选择新建站点就可以了。其实这个时候就可以直接访问了，可以访问到默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A16.png" alt="创建Web和ftp服务器"></p>
-<p>5、站点的设置。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A17.png" alt="创建Web和ftp服务器"></p>
-<p>6、本地访问测试默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A18.png" alt="创建Web和ftp服务器"></p>
-<p>7、下面的步骤介绍的是建立ftp服务器的过程，首先新建一个ftp站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A19.png" alt="创建Web和ftp服务器"></p>
-<p>8、ftp站点的基本设置，站点名和站点（物理）路径。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A110.png" alt="创建Web和ftp服务器"></p>
-<p>9、ssl设置，由于我没有证书，没办法使用https模式。所以ssl这个选无。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A111.png" alt="创建Web和ftp服务器"></p>
-<p>10、访问和授权设置。这里不限制用户访问，给所有访问这个ftp站点的用户读取站点文件的权限。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A112.png" alt="创建Web和ftp服务器"></p>
-<p>11、在外网测试ftp服务器，这里假设防火墙端口已经打开。在UCloud平台上，Windows内部的防火墙默认是关闭了的，但是平台提供的防火墙是开着的，而且默认防火墙21端口是没有打开的。如果不清楚防火墙打开过程可以参考下面的说明。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A113.png" alt="创建Web和ftp服务器"></p>
-<p>###打开外网防火墙<br>打开外网防火墙的说明在之前博客中有介绍，这里就不在赘述，过程都是一样的，具体参考前面的博客<a href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/">UCloud上LAMP小型网站搭建与测试</a>。</p>
-<p><em>参考：<a href="http://ce.sysu.edu.cn/hope/Item/91192.aspx" target="_blank" rel="external">Windows server 2008 r2搭建FTP服务器</a></em></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/" data-id="cio26t0n6000v6wkoex3j32cp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2016/04/16/单机Web服务器性能/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    单机Web服务器性能
-                
             </div>
-        </a>
-    
-    
-        <a href="/2016/04/01/UCloud上LNMP小型网站搭建/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">UCloud上LNMP小型网站搭建</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </header>
+        <div class="article-entry">
+            <p>学了HTML感觉有一些标签还不是很熟悉，所以总结一下，做个备忘同时加强记忆：标签：1&#60;head&#62;&#60;/head&#62;
+常把js的内容定义在这里面，和是同一级的标签。1&#60;body&#62;&#60;/body&#62;
+定义整个文档的主体内容。1&#60;h1&#62;&#60;h1&#62;
+定义标题，其中1可以替换为其他的数字，最大为1，最小为6，标题标签并不适</p>
+            <p class="article-more-link">
+                <a href="/2013/11/18/HTML标签总结/#more">查看更多</a>
+            </p>
+        </div>
     </div>
-
+</article>
+        
+        </div></section>
     
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; 上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -493,13 +377,11 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
