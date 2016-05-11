@@ -51,15 +51,18 @@ ENTRYPOINT指定的是一个可执行的脚本或者程序的路径，该指定�
 两种格式:
 ```
 ENTRYPOINT ["executable", "param1", "param2"] (like an exec, the preferred form)  
+
 ENTRYPOINT command param1 param2 (as a shell) 
-``` 
+```
+
 该指令的使用分为两种情况，一种是独自使用，另一种和CMD指令配合使用。
 当独自使用时，如果你还使用了CMD命令且CMD是一个完整的可执行的命令，那么CMD指令和ENTRYPOINT会互相覆盖只有最后一个CMD或者ENTRYPOINT有效。
 ```
 # CMD指令将不会被执行，只有ENTRYPOINT指令被执行  
 CMD echo “Hello, World!”  
 ENTRYPOINT ls -l 
-``` 
+```
+
 另一种用法和CMD指令配合使用来指定ENTRYPOINT的默认参数，这时CMD指令不是一个完整的可执行命令，仅仅是参数部分；ENTRYPOINT指令只能使用JSON方式指定执行命令，而不能指定参数。
 ```
 FROM ubuntu  
@@ -96,6 +99,7 @@ docker run -p port1 -p port2 -p port3 image
 # 还可以指定需要映射到宿主机器上的某个端口号  
 docker run -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image  
 ```
+
 端口映射是docker比较重要的一个功能，原因在于我们每次运行容器的时候容器的IP地址不能指定而是在桥接网卡的地址范围内随机生成的。宿主机器的IP地址是固定的，我们可以将容器的端口的映射到宿主机器上的一个端口，免去每次访问容器中的某个服务时都要查看容器的IP的地址。对于一个运行的容器，可以使用docker port加上容器中需要映射的端口和容器的ID来查看该端口号在宿主机器上的映射端口。
 
 （8）ENV（用于设置环境变量）
@@ -103,7 +107,7 @@ docker run -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image
 格式:
 ```
 ENV <key> <value>
-```  
+```
 
 设置了后，后续的RUN命令都可以使用，container启动后，可以通过docker inspect查看这个环境变量，也可以通过在docker run --env key=value时设置或修改环境变量。
 假如你安装了JAVA程序，需要设置JAVA_HOME，那么可以在Dockerfile中这样写：
@@ -130,10 +134,12 @@ VOLUME ["<mountpoint>"]
 FROM base  
 VOLUME ["/tmp/data"]  
 ```
+
 运行通过该Dockerfile生成image的容器，/tmp/data目录中的数据在容器关闭后，里面的数据还存在。例如另一个容器也有持久化数据的需求，且想使用上面容器共享的/tmp/data目录，那么可以运行下面的命令启动一个容器：
 ```
 docker run -t -i -rm -volumes-from container1 image2 bash  
 ```
+
 container1为第一个容器的ID，image2为第二个容器运行image的名字。
 
 （11）WORKDIR（切换目录）
@@ -148,9 +154,10 @@ WORKDIR /p1 WORKDIR p2 RUN vim a.txt
 ```
 
 （12）ONBUILD（在子镜像中执行）
-``` 
+```
 ONBUILD <Dockerfile关键字>  
 ```
+
 ONBUILD 指定的命令在构建镜像时并不执行，而是在它的子镜像中执行。
 详细资料可参考https://www.dockboard.org/docker-quicktip-3-onbuild
 
