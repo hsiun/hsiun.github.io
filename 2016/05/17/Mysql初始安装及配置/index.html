@@ -3,22 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Win2008搭建Web和FTP服务 | GaoSpot</title>
+    <title>Mysql初始安装与配置 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
+    <meta name="description" content="概述这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。
+环境系统环境：centos6.5 /etc/centos-relese```1&amp;#25968;&amp;#25454;&amp;#24211;&amp;#29256;&amp;#26412;&amp;#65306;mysql5.5(&amp;#36890;&amp;#36807;remi&amp;#28304;&amp;#23433;&amp;#35013;&amp;#65289">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Win2008搭建Web和FTP服务">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/index.html">
+<meta property="og:title" content="Mysql初始安装与配置">
+<meta property="og:url" content="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
-<meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png">
-<meta property="og:updated_time" content="2016-04-10T18:37:12.812Z">
+<meta property="og:description" content="概述这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。
+环境系统环境：centos6.5 /etc/centos-relese```1&amp;#25968;&amp;#25454;&amp;#24211;&amp;#29256;&amp;#26412;&amp;#65306;mysql5.5(&amp;#36890;&amp;#36807;remi&amp;#28304;&amp;#23433;&amp;#35013;&amp;#65289">
+<meta property="og:updated_time" content="2016-05-18T10:58:41.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win2008搭建Web和FTP服务">
-<meta name="twitter:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
+<meta name="twitter:title" content="Mysql初始安装与配置">
+<meta name="twitter:description" content="概述这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。
+环境系统环境：centos6.5 /etc/centos-relese```1&amp;#25968;&amp;#25454;&amp;#24211;&amp;#29256;&amp;#26412;&amp;#65306;mysql5.5(&amp;#36890;&amp;#36807;remi&amp;#28304;&amp;#23433;&amp;#35013;&amp;#65289">
     
 
     
@@ -151,7 +150,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Win2008搭建Web和FTP服务" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Mysql初始安装及配置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -160,7 +159,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Win2008搭建Web和FTP服务
+            Mysql初始安装与配置
         </h1>
     
 
@@ -168,8 +167,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/11/Win2008搭建Web和FTP服务/">
-            <time datetime="2016-04-10T18:32:55.000Z" itemprop="datePublished">2016-04-11</time>
+        <a href="/2016/05/17/Mysql初始安装及配置/">
+            <time datetime="2016-05-17T14:10:00.000Z" itemprop="datePublished">2016-05-17</time>
         </a>
     </div>
 
@@ -178,7 +177,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
     </div>
 
                 </div>
@@ -187,24 +186,23 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。</p>
-<p>###创建和连接主机<br><strong>1、创建win2008的主机</strong><br>在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜像。这里使用的是Win2008 R2 64bit的一个镜像系统。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png" alt="Win2008搭建Web和FTP服务"></p>
-<p><strong>2、使用mstsc连接管理主机</strong><br>UCloud平台提供了Web连接主机的方式，这种连接方式并不推荐用来管理主机，而比较适合在应急的情况下登录，检查主机状况，由于控制登录与主机网络状态是无关的，这种登录方式在主机网络异常的情况下，可以非常方便的通过其登录主机检查主机的网络设置。在正常情况下我们还是使用mstsc（远程桌面连接）来管理主机。首先打开远程桌面软件，通过按下win key + r，然后输入mstsc就可以了。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A11.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>打开远程连接界面后，下面有个小三角形，点击打开更大选项，输入相关参数。输入示例如下：<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A12.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>输入都正确以后，会弹出一个关于正式的对话框，点是忽略这个证书问题就可以了，然后就能顺利的连接上主机。</p>
-<p>###创建Web和ftp服务器<br>1、服务器登录上去之后会自动打开服务器管理界面。第一件事先添加一个角色。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A13.png" alt="创建Web和ftp服务器"></p>
-<p>2、点击下一步，勾选Web服务器（IIS）这一项，然后点击下一步。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A14.png" alt="创建Web和ftp服务器"></p>
-<p>3、由于这里还要安装ftp服务，把ftp相关的勾选上。在点击下一步就会开始安装了，安装过程很快，大概一两分钟的样子。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A15.png" alt="创建Web和ftp服务器"></p>
-<p>4、添加完角色之后就可以添加站点了，右键点击箭头标出的地方，然后选择新建站点就可以了。其实这个时候就可以直接访问了，可以访问到默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A16.png" alt="创建Web和ftp服务器"></p>
-<p>5、站点的设置。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A17.png" alt="创建Web和ftp服务器"></p>
-<p>6、本地访问测试默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A18.png" alt="创建Web和ftp服务器"></p>
-<p>7、下面的步骤介绍的是建立ftp服务器的过程，首先新建一个ftp站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A19.png" alt="创建Web和ftp服务器"></p>
-<p>8、ftp站点的基本设置，站点名和站点（物理）路径。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A110.png" alt="创建Web和ftp服务器"></p>
-<p>9、ssl设置，由于我没有证书，没办法使用https模式。所以ssl这个选无。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A111.png" alt="创建Web和ftp服务器"></p>
-<p>10、访问和授权设置。这里不限制用户访问，给所有访问这个ftp站点的用户读取站点文件的权限。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A112.png" alt="创建Web和ftp服务器"></p>
-<p>11、在外网测试ftp服务器，这里假设防火墙端口已经打开。在UCloud平台上，Windows内部的防火墙默认是关闭了的，但是平台提供的防火墙是开着的，而且默认防火墙21端口是没有打开的。如果不清楚防火墙打开过程可以参考下面的说明。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A113.png" alt="创建Web和ftp服务器"></p>
-<p>###打开外网防火墙<br>打开外网防火墙的说明在之前博客中有介绍，这里就不在赘述，过程都是一样的，具体参考前面的博客<a href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/">UCloud上LAMP小型网站搭建与测试</a>。</p>
-<p><em>参考：<a href="http://ce.sysu.edu.cn/hope/Item/91192.aspx" target="_blank" rel="external">Windows server 2008 r2搭建FTP服务器</a></em></p>
+            <h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。</p>
+<h3 id="u73AF_u5883"><a href="#u73AF_u5883" class="headerlink" title="环境"></a>环境</h3><p>系统环境：centos6.5 <figure class="highlight"><figcaption><span>/etc/centos-relese```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#25968;&#25454;&#24211;&#29256;&#26412;&#65306;mysql5.5(&#36890;&#36807;remi&#28304;&#23433;&#35013;&#65289;&#10;&#10;### &#23433;&#35013; ###&#10;CentOS6.5(&#35797;&#39564;&#29615;&#22659;&#65289;</span><br></pre></td></tr></table></figure></p>
+<p>yum install mysql-server –enablerepo=remi<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu&#65288;&#40664;&#35748;&#29256;&#26412;&#20026;5.5)</span><br></pre></td></tr></table></figure></p>
+<p>apt-get install mysql-server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#28304;&#30721;&#23433;&#35013;&#10;&#23448;&#26041;&#19979;&#36733;&#38142;&#25509;&#10;http://dev.mysql.com/downloads/mysql/5.5.html#downloads</span><br></pre></td></tr></table></figure></p>
+<p>./configure  #进入到下载的源文件中，首先要解压缩<br>make &amp;&amp; make install<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;### &#20462;&#25913;&#37197;&#32622;&#25991;&#20214; ###&#10;&#40664;&#35748;&#30340;&#37197;&#32622;&#25991;&#20214;&#20301;&#32622;&#22312;/etc/my.cnf&#65292;&#40664;&#35748;&#37197;&#32622;&#25991;&#20214;&#36807;&#20110;&#31616;&#21333;&#22312;&#23454;&#38469;&#20351;&#29992;&#20013;&#20808;&#23545;&#20854;&#36827;&#34892;&#19968;&#23450;&#30340;&#20462;&#25913;&#12290;&#10;&#21442;&#25968;&#21517;                 | &#21547;&#20041;&#10;--------            | ---&#10;bind-address               |&#9; &#30417;&#21548;ip&#10;port&#9;                            |  &#30417;&#21548;&#31471;&#21475;&#10;character_set_server&#9;| &#40664;&#35748;&#23383;&#31526;&#38598;(&#24314;&#35758;utf8)&#10;max_connect_errors&#9;| &#26368;&#22823;&#20801;&#35768;&#38169;&#35823;&#27425;&#25968;(&#24182;&#38750;&#25351;&#23494;&#30721;&#38169;&#35823;&#65292;&#32780;&#26159;&#35775;&#38382;&#21327;&#35758;&#19981;&#27491;&#30830;&#20043;&#31867;&#30340;&#65292;&#22914;&#26524;&#26576;&#20010;IP&#38169;&#35823;&#27425;&#25968;&#36798;&#21040;&#35813;&#38408;&#20540;&#65292;&#21017;&#34987;&#23631;&#34109;)&#10;max_connections&#9;       | &#26368;&#22823;&#36830;&#25509;&#25968;(&#33021;&#21516;&#26102;&#35775;&#38382;server&#30340;&#36830;&#25509;&#20010;&#25968;&#65292;&#22914;&#26524;&#36798;&#21040;&#35813;&#38408;&#20540;&#65292;&#21017;&#19981;&#33021;&#20877;&#36830;&#25509;&#21040;server)&#10;datadir&#9;          | &#25968;&#25454;&#20445;&#23384;&#30446;&#24405;&#10;log-error&#9;&#9;| &#9;&#38169;&#35823;&#26085;&#24535;&#20445;&#23384;&#36335;&#24452;&#10;skip_name_resolve         |&#9;&#36339;&#36807;&#22495;&#21517;&#35299;&#26512;(&#21487;&#21152;&#24555;client&#36830;&#25509;&#36895;&#24230;)&#10;back_log            |&#9;&#21019;&#24314;TCP&#36830;&#25509;&#26102;&#65292;&#20801;&#35768;&#30340;&#26368;&#22823;&#21516;&#26102;&#26410;&#23436;&#25104;&#30340;&#36830;&#25509;&#20010;&#25968;(&#20027;&#35201;&#36866;&#29992;&#20110;&#30701;&#36830;&#25509;&#22330;&#26223;)&#10;log-bin&#9;             | Binlog&#30340;&#20445;&#23384;&#36335;&#24452;&#10;binlog-format&#9;      |Binlog&#20889;&#20837;&#26684;&#24335;&#65292;&#20849;&#26377;ROW/STATEMENT/MIXED&#19977;&#31181;&#21487;&#36873;&#12290;&#19968;&#33324;&#20351;&#29992;MIXED&#12290;&#10;expire_logs_days&#9;    |Binlog&#20445;&#30041;&#26102;&#38388;(&#21333;&#20301;:&#22825;)&#10;&#10;&#10;&#36825;&#37324;&#37319;&#29992;&#30340;&#37197;&#32622;&#25991;&#20214;&#65288;&#22312;mysqld&#19979;&#28155;&#21152;&#22914;&#19979;&#20869;&#23481;&#65289;</span><br></pre></td></tr></table></figure></p>
+<p>bind-address = 10.19.96.184<br>port = 3306<br>character_set_server = utf8<br>max_connect_errors = 1000000<br>max_connections = 500<br>datadir = /data/mysql<br>log-error = /var/log/mysql/mysql-error.log<br>skip_name_resolve<br>back_log = 2000<br>log-bin = /data/mysql<br>binlog-format = MIXED<br>expire_logs_days = 3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#22914;&#26524;datadir/log-error/log-bin&#31561;&#23545;&#24212;&#30446;&#24405;&#38656;&#35201;&#30830;&#20445;&#24050;&#21019;&#24314;&#65292;&#24182;&#19988;&#26435;&#38480;&#20026;mysql&#25152;&#26377;&#12290;&#20363;&#22914;&#65292;</span><br></pre></td></tr></table></figure>
+<p>mkdir -p /data/mysql &amp;&amp; chown -R mysql.mysql /data/mysql<br>mkdir -p /var/log/mysql &amp;&amp; chown -R mysql.mysql /var/log/mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#37197;&#32622;&#23436;&#25104;&#65292;&#21551;&#21160;mysql:</span><br></pre></td></tr></table></figure></p>
+<p>/etc/init.d/mysqld start<br>或者<br>service mysqld start<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;### &#26435;&#38480;&#35774;&#32622; ###&#10;&#25191;&#34892;select * from mysql.user; &#21487;&#20197;&#26597;&#30475;&#21040;&#24403;&#21069;&#30340;&#25152;&#26377;&#29992;&#25143;&#12290;&#10;&#10;&#32467;&#26524;&#38598;&#20013;&#30340;&#20960;&#20010;&#20851;&#38190;&#23383;&#27573;&#65306;&#10;Host&#8212;&#8212;&#23545;&#24212;&#30340;&#20801;&#35768;&#35775;&#38382;&#22495;(%&#34920;&#31034;&#20840;&#22495;&#65292;192.168.%.%&#34920;&#31034;&#23545;&#24212;&#36134;&#21495;&#23545;&#35813;&#27573;&#22343;&#21487;&#35775;&#38382;&#65292;192.168.8.100&#34920;&#31034;&#23545;&#24212;&#36134;&#21495;&#20165;&#36825;&#21488;&#26426;&#22120;&#21487;&#35775;&#38382;)&#10;User&#8212;&#8212;&#29992;&#25143;&#21517;&#10;Password&#8212;&#8212;&#23494;&#30721;&#21152;&#23494;&#20018;&#10;xxx_priv&#8212;&#8212;&#21508;&#31181;&#26435;&#38480;&#10;&#10;&#10;&#29992;&#25143;&#26435;&#38480;&#31649;&#29702;&#10;``` bash&#10;mysql -u root -p # 1&#12289;&#20197;&#31649;&#29702;&#21592;&#36523;&#20221;&#30331;&#24405;mysql&#10;&#10;use mysql # 2&#12289;&#36873;&#25321;mysql&#25968;&#25454;&#24211;&#10;&#10;create user &#39;testuser&#39;@&#39;localhost&#39; identified by &#39;testpassword&#39; #3&#12289;&#21019;&#24314;&#29992;&#25143;&#24182;&#35774;&#23450;&#23494;&#30721;&#10;&#10;flush privileges #4&#12289;&#20351;&#25805;&#20316;&#29983;&#25928;&#10;&#10;create database testdb #5&#12289;&#20026;&#29992;&#25143;&#21019;&#24314;&#25968;&#25454;&#24211;&#10;&#10;grant all privileges on testdb.* to test@localhost identified  by &#39;1234&#39; #6&#12289;&#20026;&#29992;&#25143;&#36171;&#20104;&#25805;&#20316;&#25968;&#25454;&#24211;testdb&#30340;&#25152;&#26377;&#26435;&#38480;&#10;&#10;flush privileges #7&#12289;&#20351;&#25805;&#20316;&#29983;&#25928;&#10;&#10;mysql -u test -p #8&#12289;&#29992;&#26032;&#29992;&#25143;&#30331;&#24405;</span><br></pre></td></tr></table></figure></p>
+<p>如果当前账号拥有所有权限，可用最简单的新增用户并授权：</p>
+<figure class="highlight"><figcaption><span>all on *.* to `root`@`%` identified by '123456' with grant option; ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#20854;&#20013;with grant option&#34920;&#31034;&#26032;&#22686;&#30340;&#35813;&#36134;&#21495;&#26159;&#21542;&#26377;grant&#26435;&#38480;&#65292;&#21363;&#26159;&#21542;&#21487;&#20197;&#36890;&#36807;&#20854;&#21019;&#24314;&#26032;&#36134;&#21495;&#12290;&#10;&#38750;&#24120;&#19981;&#24314;&#35758;&#32473;&#29992;&#25143;&#24320;&#25918;&#20840;&#37096;&#26435;&#38480;&#65292;&#26368;&#22909;&#32473;&#26032;&#29992;&#25143;&#20165;&#24320;&#25918;&#25152;&#38656;&#35201;&#30340;&#30456;&#20851;&#26435;&#38480;&#10;&#10;&#10;### &#23548;&#20837;&#27979;&#35797;&#29992;&#25968;&#25454;&#24211; ###&#10;```bash&#10;wget https://launchpadlibrarian.net/24493586/employees_db-full-1.0.6.tar.bz2&#10;&#10;tar -xjf employees_db-full-1.0.6.tar.bz2 &#10;&#10;cd employees_db&#10;&#10;mysql -u root -p &#60; employees.sql</span><br></pre></td></tr></table></figure>
+<h3 id="u7EC3_u4E60"><a href="#u7EC3_u4E60" class="headerlink" title="练习"></a>练习</h3><p>设置权限, 要求如下：</p>
+<ol>
+<li>root账号仅能从本地以及特定机器访问</li>
+<li>创建一个test账号，允许所有机器访问</li>
+</ol>
+<figure class="highlight"><figcaption><span>grant all on *.* to `root`@`localhost` identified by '123456' with grant option; ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;&#10;```mysql&#62; grant all on *.* to `test`@`%` identified by &#39;123456&#39; with grant option;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -215,7 +213,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/" data-id="ciocrb46c000vk0kowj399hen" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/" data-id="ciocrb46s001bk0kojnvw3xtt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -283,7 +281,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/">评论</a>
+        <a href="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/">评论</a>
     
 
         </footer>
@@ -292,19 +290,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/04/16/单机Web服务器性能/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/05/17/Mysql主从配置/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    单机Web服务器性能
+                    Mysql主从配置
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/01/UCloud上LNMP小型网站搭建/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/05/11/Docker镜像创建/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">UCloud上LNMP小型网站搭建</div>
+            <div class="article-nav-title">Docker镜像创建</div>
         </a>
     
 </nav>
@@ -493,7 +491,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/';
+    var disqus_url = 'http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/';
     
     (function() {
     var dsq = document.createElement('script');

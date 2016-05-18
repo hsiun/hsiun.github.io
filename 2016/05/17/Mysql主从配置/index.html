@@ -3,22 +3,28 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Win2008搭建Web和FTP服务 | GaoSpot</title>
+    <title>Mysql主从配置 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
+    <meta name="description" content="常见mysql主从架构1.Master-Slave2.级联3.双Master互为主备
+主从同步原理下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：
+所以要求主库必须要打开binlog集群的所有MySQL必须配置server-id参数，并确保唯一
+Master-Slave 配置准备要做的就是配">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Win2008搭建Web和FTP服务">
-<meta property="og:url" content="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/index.html">
+<meta property="og:title" content="Mysql主从配置">
+<meta property="og:url" content="http://zone.gaospot.com/2016/05/17/Mysql主从配置/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
-<meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png">
-<meta property="og:updated_time" content="2016-04-10T18:37:12.812Z">
+<meta property="og:description" content="常见mysql主从架构1.Master-Slave2.级联3.双Master互为主备
+主从同步原理下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：
+所以要求主库必须要打开binlog集群的所有MySQL必须配置server-id参数，并确保唯一
+Master-Slave 配置准备要做的就是配">
+<meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86.PNG">
+<meta property="og:updated_time" content="2016-05-18T10:58:38.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Win2008搭建Web和FTP服务">
-<meta name="twitter:description" content="介绍本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。
-###创建和连接主机1、创建win2008的主机在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜">
+<meta name="twitter:title" content="Mysql主从配置">
+<meta name="twitter:description" content="常见mysql主从架构1.Master-Slave2.级联3.双Master互为主备
+主从同步原理下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：
+所以要求主库必须要打开binlog集群的所有MySQL必须配置server-id参数，并确保唯一
+Master-Slave 配置准备要做的就是配">
     
 
     
@@ -151,7 +157,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Win2008搭建Web和FTP服务" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Mysql主从配置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -160,7 +166,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Win2008搭建Web和FTP服务
+            Mysql主从配置
         </h1>
     
 
@@ -168,8 +174,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/04/11/Win2008搭建Web和FTP服务/">
-            <time datetime="2016-04-10T18:32:55.000Z" itemprop="datePublished">2016-04-11</time>
+        <a href="/2016/05/17/Mysql主从配置/">
+            <time datetime="2016-05-17T15:36:00.000Z" itemprop="datePublished">2016-05-17</time>
         </a>
     </div>
 
@@ -178,7 +184,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/系统运维/">系统运维</a>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
     </div>
 
                 </div>
@@ -187,24 +193,35 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h3><p>本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。</p>
-<p>###创建和连接主机<br><strong>1、创建win2008的主机</strong><br>在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜像。这里使用的是Win2008 R2 64bit的一个镜像系统。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png" alt="Win2008搭建Web和FTP服务"></p>
-<p><strong>2、使用mstsc连接管理主机</strong><br>UCloud平台提供了Web连接主机的方式，这种连接方式并不推荐用来管理主机，而比较适合在应急的情况下登录，检查主机状况，由于控制登录与主机网络状态是无关的，这种登录方式在主机网络异常的情况下，可以非常方便的通过其登录主机检查主机的网络设置。在正常情况下我们还是使用mstsc（远程桌面连接）来管理主机。首先打开远程桌面软件，通过按下win key + r，然后输入mstsc就可以了。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A11.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>打开远程连接界面后，下面有个小三角形，点击打开更大选项，输入相关参数。输入示例如下：<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A12.png" alt="Win2008搭建Web和FTP服务"></p>
-<p>输入都正确以后，会弹出一个关于正式的对话框，点是忽略这个证书问题就可以了，然后就能顺利的连接上主机。</p>
-<p>###创建Web和ftp服务器<br>1、服务器登录上去之后会自动打开服务器管理界面。第一件事先添加一个角色。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A13.png" alt="创建Web和ftp服务器"></p>
-<p>2、点击下一步，勾选Web服务器（IIS）这一项，然后点击下一步。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A14.png" alt="创建Web和ftp服务器"></p>
-<p>3、由于这里还要安装ftp服务，把ftp相关的勾选上。在点击下一步就会开始安装了，安装过程很快，大概一两分钟的样子。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A15.png" alt="创建Web和ftp服务器"></p>
-<p>4、添加完角色之后就可以添加站点了，右键点击箭头标出的地方，然后选择新建站点就可以了。其实这个时候就可以直接访问了，可以访问到默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A16.png" alt="创建Web和ftp服务器"></p>
-<p>5、站点的设置。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A17.png" alt="创建Web和ftp服务器"></p>
-<p>6、本地访问测试默认站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A18.png" alt="创建Web和ftp服务器"></p>
-<p>7、下面的步骤介绍的是建立ftp服务器的过程，首先新建一个ftp站点。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A19.png" alt="创建Web和ftp服务器"></p>
-<p>8、ftp站点的基本设置，站点名和站点（物理）路径。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A110.png" alt="创建Web和ftp服务器"></p>
-<p>9、ssl设置，由于我没有证书，没办法使用https模式。所以ssl这个选无。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A111.png" alt="创建Web和ftp服务器"></p>
-<p>10、访问和授权设置。这里不限制用户访问，给所有访问这个ftp站点的用户读取站点文件的权限。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A112.png" alt="创建Web和ftp服务器"></p>
-<p>11、在外网测试ftp服务器，这里假设防火墙端口已经打开。在UCloud平台上，Windows内部的防火墙默认是关闭了的，但是平台提供的防火墙是开着的，而且默认防火墙21端口是没有打开的。如果不清楚防火墙打开过程可以参考下面的说明。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A113.png" alt="创建Web和ftp服务器"></p>
-<p>###打开外网防火墙<br>打开外网防火墙的说明在之前博客中有介绍，这里就不在赘述，过程都是一样的，具体参考前面的博客<a href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/">UCloud上LAMP小型网站搭建与测试</a>。</p>
-<p><em>参考：<a href="http://ce.sysu.edu.cn/hope/Item/91192.aspx" target="_blank" rel="external">Windows server 2008 r2搭建FTP服务器</a></em></p>
+            <h3 id="u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784"><a href="#u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784" class="headerlink" title="常见mysql主从架构"></a>常见mysql主从架构</h3><p>1.Master-Slave<br>2.级联<br>3.双Master互为主备</p>
+<h3 id="u4E3B_u4ECE_u540C_u6B65_u539F_u7406"><a href="#u4E3B_u4ECE_u540C_u6B65_u539F_u7406" class="headerlink" title="主从同步原理"></a>主从同步原理</h3><p>下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86.PNG" alt="主从同步原理"></p>
+<p>所以要求主库必须要打开binlog<br>集群的所有MySQL必须配置server-id参数，并确保唯一</p>
+<h3 id="Master-Slave__u914D_u7F6E"><a href="#Master-Slave__u914D_u7F6E" class="headerlink" title="Master-Slave 配置"></a>Master-Slave 配置</h3><p>准备要做的就是配置server-id参数，这个参数是在mysql的配置文件中配置的，在这里是/etc/my.cnf。这里假设Master的server-id设置为1，Slave的server-id设置为2。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>首先，主库要创建好专门用于同步的账号，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; grant replication slave, replication client on *.* to  replication@&#39;%&#39; identified by &#39;123456&#39;;</span><br></pre></td></tr></table></figure></p>
+<p>然后，利用mysqldump从主库导出数据，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysqldump -h10.6.29.129 -uroot -p --all-databases --master-data=2 --routines --events --quick&#62; 10.6.29.129.sql</span><br></pre></td></tr></table></figure>
+<p>–master-data=2 表示需要记录导出数据当时主库的binlog位置<br>–routines 表示导出存储过程（可视实际库表决定是否使用）<br>–events 表示导出事件（可根据实际库表决定是否使用）<br>–quick 表示让服务端不将结果集一次发送，而是分批发送，可减轻压力<br>另外，加上–master-data后默认是锁库的，可确保数据一致性，即导出数据和binlog位置的一致。<br>对于Innodb引擎，可增加–single-transaction取消锁库并利用Innodb事务特性确保数据一致</p>
+<p>将备份sql从主库传到从库来，这里也可以直接在主库所在主机上操作，如果不在主库所在主机操作的话，可以使用scp传下。将导出的数据灌入到从库，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysql -uroot &#60; 10.6.29.129.sql</span><br></pre></td></tr></table></figure>
+<p>从导出的数据文件的开头位置找到同步点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim 10.6.29.129.sql</span><br></pre></td></tr></table></figure>
+<p>找到类似下面的一段内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- CHANGE MASTER TO MASTER_LOG_FILE=&#39;mysql.000003&#39;, MASTER_LOG_POS=600&#65307;</span><br></pre></td></tr></table></figure>
+<p>依据上面的语句构造sql语句，使用有SUPER权限的账号登陆到从库，设置同步信息，例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; CHANGE MASTER TO MASTER_LOG_FILE=&#39;mysql.000003&#39;, MASTER_LOG_POS=600, master_host=&#39;10.6.29.129&#39;, master_port=3306, master_user=&#39;replication&#39;, master_password=&#39;123456&#39;;</span><br></pre></td></tr></table></figure>
+<p><code>mysql&gt; show slave status \G</code>  检查同步信息是否正确，这里主要是检查Master相关的一些配置，如Master_Host等等，主要是检查我们上面执行命令是否生效。如果配置和我们执行的命令一致，则说明修改生效。</p>
+<p>执行<code>mysql&gt; start slave;</code> 启动同步，并检查同步状态。我在这里的时候遇到了一个错误，报错内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1200 (HY000): The server is not configured as slave; fix in config file or with CHANGE MASTER TO</span><br></pre></td></tr></table></figure>
+<p>网上搜了下，google到了一篇大神的文章，文章上将出现这个报错的原因一般是server-id的设置有问题，文章总结了解决这个问题的三个步骤：<br>第一，<code>show slave status \G</code> 检查下从库的状态，对应我们上面的，看看change master to的修改是否生效了。</p>
+<p>第二，<code>SHOW VARIABLES LIKE &#39;server_id&#39;</code> server_id是否是0或者1，1是默认值，作为从库无效的，改成其他的吧。我在执行这一步得时候就发现我的server_id是1。。。后来想想修改配置之后我们重启mysqld可能是这个导致的，我赶紧重启了下，好了。</p>
+<p>第三，主从都看下server_id的值，看看是否是一样的，是一样的也会导致问题，作者建议将server_id的值改为ip地址的最后几位，这样便于记忆而且不会重复。</p>
+<p>经过排查解决了上面的问题之后在<code>start slave;</code> 没有报错了。最后在<code>show slave status \G</code> 。这里主要是检查Slave_IO_Running和Slave_SQL_Running的情况，Slave_IO_Running/Slave_SQL_Running均为Yes，表示同步成功。</p>
+<h3 id="u7EA7_u8054_u67B6_u6784"><a href="#u7EA7_u8054_u67B6_u6784" class="headerlink" title="级联架构"></a>级联架构</h3><p>每个作为Slave的MySQLDB只需要根据其对应主库设置同步信息即可，步骤与上一小节相同。</p>
+<p>但需要注意的是，默认情况下，从库执行relay-log中的SQL语句不会记录到BINLOG。<br>所以，处于中间层的MySQL配置项需要额外开启log_slave_updates=1。</p>
+<p>级联架构的示意图如下：<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/%E7%BA%A7%E8%81%94%E5%8E%9F%E7%90%86.PNG" alt="级联架构图"></p>
+<h3 id="Master-Master"><a href="#Master-Master" class="headerlink" title="Master-Master"></a>Master-Master</h3><p>首先，按普通的主从配置步骤将MasterB配置成MasterA的从库；然后，确保MasterB没有写入，通过show master status命令在MasterB上得到其同步点，再将MasterA配置成MasterB的从库。</p>
+<p>通常，为了简化逻辑，其中一个Master会设置为只读，正常只通过另外一个Master进行读写。<br>若要两边都写，为了避免自增id冲突，一般会设置奇偶错开，即一台的自增ID均为奇数，另一台均为偶数。这个要在业务中通过设置表属性设置的。</p>
 
         
         </div>
@@ -215,7 +232,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/" data-id="ciocrb46c000vk0kowj399hen" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/" data-id="ciocrb46u001dk0ko7a62fvzi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -283,7 +300,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/">评论</a>
+        <a href="http://zone.gaospot.com/2016/05/17/Mysql主从配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/">评论</a>
     
 
         </footer>
@@ -292,19 +309,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2016/04/16/单机Web服务器性能/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/05/18/Mysql慢查询分析与优化/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    单机Web服务器性能
+                    Mysql慢查询分析与优化
                 
             </div>
         </a>
     
     
-        <a href="/2016/04/01/UCloud上LNMP小型网站搭建/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/05/17/Mysql初始安装及配置/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">UCloud上LNMP小型网站搭建</div>
+            <div class="article-nav-title">Mysql初始安装与配置</div>
         </a>
     
 </nav>
@@ -493,7 +510,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/';
+    var disqus_url = 'http://zone.gaospot.com/2016/05/17/Mysql主从配置/';
     
     (function() {
     var dsq = document.createElement('script');

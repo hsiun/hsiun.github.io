@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-11T01:53:23.615Z</updated>
+  <updated>2016-05-18T10:57:16.554Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,179 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql慢查询分析与优化</title>
+    <link href="http://zone.gaospot.com/2016/05/18/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96/"/>
+    <id>http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/</id>
+    <published>2016-05-18T10:57:00.000Z</published>
+    <updated>2016-05-18T10:57:16.554Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u4E0E_u5371_u5BB3_uFF09&quot;&gt;&lt;a href=&quot;#u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u4E0E_u5371_u5BB3_uFF09&quot; class=&quot;headerlink&quot; title=&quot;概述（慢查询定义与危害）&quot;&gt;&lt;/a&gt;概述（慢查询定义与危害）&lt;/h3&gt;&lt;p&gt;慢查询——顾名思义，耗时很长、响应很慢的查询&lt;/p&gt;
+&lt;p&gt;危害——&lt;br&gt;导致整个数据库响应变慢（过多消耗cpu或者io）&lt;br&gt;短连接场景下还可能引起耗尽连接数&lt;/p&gt;
+&lt;h3 id=&quot;u6162_u67E5_u8BE2_u65E5_u5FD7_u76F8_u5173_u53C2_u6570_uFF08_u5F00_u542F_u6162_u67E5_u8BE2_uFF09&quot;&gt;&lt;a href=&quot;#u6162_u67E5_u8BE2_u65E5_u5FD7_u76F8_u5173_u53C2_u6570_uFF08_u5F00_u542F_u6162_u67E5_u8BE2_uFF09&quot; class=&quot;headerlink&quot; title=&quot;慢查询日志相关参数（开启慢查询）&quot;&gt;&lt;/a&gt;慢查询日志相关参数（开启慢查询）&lt;/h3&gt;&lt;p&gt;以下参数均是是在Mysql的配置文件/etc/my.cnf中配置的，配置在[mysqld]下。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数名&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;slow_query_log&lt;/td&gt;
+&lt;td&gt;是否开启慢查询&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;long_query_time&lt;/td&gt;
+&lt;td&gt;查询消耗超过多少时间认为是慢查询，单位秒&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;log_output&lt;/td&gt;
+&lt;td&gt;日志的输出形式(FILE或者TABLE)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;slow-query-log-file&lt;/td&gt;
+&lt;td&gt;慢查询的保存文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;log-queries-not-using-indexes&lt;/td&gt;
+&lt;td&gt;记录没有使用索引的查询&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;示例参数配置&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# &amp;#24930;&amp;#26597;&amp;#35810;&amp;#30456;&amp;#20851;&amp;#10;slow_query_log = 1&amp;#10;long_query_time = 1&amp;#10;&amp;#10;# &amp;#26085;&amp;#24535;&amp;#30340;&amp;#36755;&amp;#20986;&amp;#24418;&amp;#24335;&amp;#10;log_output = FILE&amp;#10;slow-query-log-file = /var/log/mysql/mysql-slow.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改参数之后记得重启mysqld服务，可以在mysql命令行验证修改是否生效。命令如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; show global variables like &amp;#39;slow%&amp;#39; ;&amp;#10;mysql&amp;#62; show global variables like &amp;#39;long%&amp;#39; ;&amp;#10;mysql&amp;#62; show global variables like &amp;#39;log%&amp;#39; ;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;经过上面的配置mysql的慢日志就打开了，然后mysql就会记录各条查询相关信息了，下面是一个人为构造的演示例子。&lt;/p&gt;
+&lt;h3 id=&quot;u6F14_u793A_u4F8B_u5B50_uFF08_u81EA_u9020_u6162_u67E5_u8BE2_uFF1A_uFF09&quot;&gt;&lt;a href=&quot;#u6F14_u793A_u4F8B_u5B50_uFF08_u81EA_u9020_u6162_u67E5_u8BE2_uFF1A_uFF09&quot; class=&quot;headerlink&quot; title=&quot;演示例子（自造慢查询：）&quot;&gt;&lt;/a&gt;演示例子（自造慢查询：）&lt;/h3&gt;&lt;p&gt;下面是用来新建测试用的表和查询语句的sql命令。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; use test;&amp;#10;mysql&amp;#62; create table b (id int not null primary key, name varchar(100) not null);&amp;#10;mysql&amp;#62; select sleep(1);&amp;#10;mysql&amp;#62; select * from b where name = &amp;#39;a&amp;#39;;&amp;#10;mysql&amp;#62; select * from b where name = &amp;#39;b&amp;#39;;&amp;#10;mysql&amp;#62; select * from b where name = &amp;#39;c&amp;#39;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;我们可以直接看下mysql-slow.log中的内容，cat或vim都行，只是看一眼：）&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# cat /var/log/mysql/mysql-slow.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;下面是文件中个参数意义的介绍：&lt;/p&gt;
+&lt;p&gt;Querytime: sql的请求执行时间&lt;br&gt;Locktime: sql 等锁的时间&lt;br&gt;Rows_examined: sql处理过程中扫描的行数；通常，该值越大，对cpu/io消耗也就越大&lt;/p&gt;
+&lt;h3 id=&quot;u6162_u67E5_u8BE2_u5206_u6790&quot;&gt;&lt;a href=&quot;#u6162_u67E5_u8BE2_u5206_u6790&quot; class=&quot;headerlink&quot; title=&quot;慢查询分析&quot;&gt;&lt;/a&gt;慢查询分析&lt;/h3&gt;&lt;p&gt;首先是慢查询分析工具——mysqldumpslow，示例用法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# mysqldumpslow -t 10 -s t /path/to/slow.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;参数说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;-t：返回前面多少条的数据，即top几；&lt;/li&gt;
+&lt;li&gt;-s：排序方式。c , t , l , r 分别表示记录次数、时间、查询时间的多少、返回的记录数排序；ac , at , al , ar 表示相应的倒叙；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;TABLE类型慢日志处理&lt;br&gt;直接做工具处理相对比较麻烦，但我们可以变相处理。&lt;br&gt;处理思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将mysql.slow_log表的数据转成日志文件形式&lt;/li&gt;
+&lt;li&gt;然后再用mysqldumpslow进行分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这里提供一个工具(python脚本，需要先安装MySQL-python依赖库)，可以将mysql.slow_log表导出成日志格式&lt;br&gt;&lt;a href=&quot;https://gist.github.com/sennajox/fdff82cc02b161d0141d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://gist.github.com/sennajox/fdff82cc02b161d0141d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;例如，要列出2016-5-1至2016-5-18期间的慢查询&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# python slow_log_dump.py 10.6.29.129 3306 root 123456 &amp;#39;2016-5-1&amp;#39; &amp;#39;2016-5-18&amp;#39;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u4F18_u5316_u5206_u6790&quot;&gt;&lt;a href=&quot;#u4F18_u5316_u5206_u6790&quot; class=&quot;headerlink&quot; title=&quot;优化分析&quot;&gt;&lt;/a&gt;优化分析&lt;/h3&gt;&lt;p&gt;记录slowlog仅仅是第一步，更重要的是找到慢查询的根源。&lt;br&gt;而这里，我们可以利用explain命令，对慢查询sql执行explain得到对应的执行计划进行分析，从而确定如何优化。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; explain select * from b where name = &amp;#39;a&amp;#39;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;各个参数说明&lt;br&gt;关键列名         |          含义&lt;br&gt;——————| ——————-&lt;br&gt;type          |    使用了什么查询方式，由好到差，依次为const &amp;gt; eq_ref &amp;gt; ref &amp;gt; range &amp;gt; index &amp;gt; ALL注意: index表示遍历索引；而ref表示使用非唯一的索引&lt;br&gt;key                 |   最终使用到的索引&lt;br&gt;ref        |      使用了索引的那一列，可能为列名或者const&lt;br&gt;rows  |       扫描的行数&lt;br&gt;extra    |  附加信息，比如”Using Where”、“Using Index”、“Using filesort”、“Using temporary”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%901.png&quot; alt=&quot;explain示例1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%902.png&quot; alt=&quot;explain示例2&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u4F18_u5316_u8981_u70B9&quot;&gt;&lt;a href=&quot;#u4F18_u5316_u8981_u70B9&quot; class=&quot;headerlink&quot; title=&quot;优化要点&quot;&gt;&lt;/a&gt;优化要点&lt;/h3&gt;&lt;p&gt;1.严禁在MySQL执行复杂的计算，以免过多消耗CPU，把复杂的事情交给程序处理&lt;/p&gt;
+&lt;p&gt;2.尽可能少用关联查询，如果不得不使用，最好不超过2个表，以免笛卡尔积过大，一方面增加读取磁盘几率，一方面有可能生成文件临时表，极大影响IO&lt;/p&gt;
+&lt;p&gt;3.适当的使用索引，且仅对离散程度比较高的列使用，让索引的效果可以最大化；索引是牺牲了写性能来换取读性能，因此也不能过多&lt;/p&gt;
+&lt;p&gt;4.控制单表的数据量，多作分库分表&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u4E0E_u5371_u5BB3_uFF09&quot;&gt;&lt;a href=&quot;#u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u
+    
+    </summary>
+    
+    
+      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql主从配置</title>
+    <link href="http://zone.gaospot.com/2016/05/17/Mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://zone.gaospot.com/2016/05/17/Mysql主从配置/</id>
+    <published>2016-05-17T15:36:00.000Z</published>
+    <updated>2016-05-18T10:58:38.911Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784&quot;&gt;&lt;a href=&quot;#u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784&quot; class=&quot;headerlink&quot; title=&quot;常见mysql主从架构&quot;&gt;&lt;/a&gt;常见mysql主从架构&lt;/h3&gt;&lt;p&gt;1.Master-Slave&lt;br&gt;2.级联&lt;br&gt;3.双Master互为主备&lt;/p&gt;
+&lt;h3 id=&quot;u4E3B_u4ECE_u540C_u6B65_u539F_u7406&quot;&gt;&lt;a href=&quot;#u4E3B_u4ECE_u540C_u6B65_u539F_u7406&quot; class=&quot;headerlink&quot; title=&quot;主从同步原理&quot;&gt;&lt;/a&gt;主从同步原理&lt;/h3&gt;&lt;p&gt;下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86.PNG&quot; alt=&quot;主从同步原理&quot;&gt;&lt;/p&gt;
+&lt;p&gt;所以要求主库必须要打开binlog&lt;br&gt;集群的所有MySQL必须配置server-id参数，并确保唯一&lt;/p&gt;
+&lt;h3 id=&quot;Master-Slave__u914D_u7F6E&quot;&gt;&lt;a href=&quot;#Master-Slave__u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;Master-Slave 配置&quot;&gt;&lt;/a&gt;Master-Slave 配置&lt;/h3&gt;&lt;p&gt;准备要做的就是配置server-id参数，这个参数是在mysql的配置文件中配置的，在这里是/etc/my.cnf。这里假设Master的server-id设置为1，Slave的server-id设置为2。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# vim /etc/my.cnf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;首先，主库要创建好专门用于同步的账号，例如：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; grant replication slave, replication client on *.* to  replication@&amp;#39;%&amp;#39; identified by &amp;#39;123456&amp;#39;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后，利用mysqldump从主库导出数据，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# mysqldump -h10.6.29.129 -uroot -p --all-databases --master-data=2 --routines --events --quick&amp;#62; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;–master-data=2 表示需要记录导出数据当时主库的binlog位置&lt;br&gt;–routines 表示导出存储过程（可视实际库表决定是否使用）&lt;br&gt;–events 表示导出事件（可根据实际库表决定是否使用）&lt;br&gt;–quick 表示让服务端不将结果集一次发送，而是分批发送，可减轻压力&lt;br&gt;另外，加上–master-data后默认是锁库的，可确保数据一致性，即导出数据和binlog位置的一致。&lt;br&gt;对于Innodb引擎，可增加–single-transaction取消锁库并利用Innodb事务特性确保数据一致&lt;/p&gt;
+&lt;p&gt;将备份sql从主库传到从库来，这里也可以直接在主库所在主机上操作，如果不在主库所在主机操作的话，可以使用scp传下。将导出的数据灌入到从库，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# mysql -uroot &amp;#60; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;从导出的数据文件的开头位置找到同步点&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# vim 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;找到类似下面的一段内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;-- CHANGE MASTER TO MASTER_LOG_FILE=&amp;#39;mysql.000003&amp;#39;, MASTER_LOG_POS=600&amp;#65307;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;依据上面的语句构造sql语句，使用有SUPER权限的账号登陆到从库，设置同步信息，例如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; CHANGE MASTER TO MASTER_LOG_FILE=&amp;#39;mysql.000003&amp;#39;, MASTER_LOG_POS=600, master_host=&amp;#39;10.6.29.129&amp;#39;, master_port=3306, master_user=&amp;#39;replication&amp;#39;, master_password=&amp;#39;123456&amp;#39;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;mysql&amp;gt; show slave status \G&lt;/code&gt;  检查同步信息是否正确，这里主要是检查Master相关的一些配置，如Master_Host等等，主要是检查我们上面执行命令是否生效。如果配置和我们执行的命令一致，则说明修改生效。&lt;/p&gt;
+&lt;p&gt;执行&lt;code&gt;mysql&amp;gt; start slave;&lt;/code&gt; 启动同步，并检查同步状态。我在这里的时候遇到了一个错误，报错内容如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ERROR 1200 (HY000): The server is not configured as slave; fix in config file or with CHANGE MASTER TO&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;网上搜了下，google到了一篇大神的文章，文章上将出现这个报错的原因一般是server-id的设置有问题，文章总结了解决这个问题的三个步骤：&lt;br&gt;第一，&lt;code&gt;show slave status \G&lt;/code&gt; 检查下从库的状态，对应我们上面的，看看change master to的修改是否生效了。&lt;/p&gt;
+&lt;p&gt;第二，&lt;code&gt;SHOW VARIABLES LIKE &amp;#39;server_id&amp;#39;&lt;/code&gt; server_id是否是0或者1，1是默认值，作为从库无效的，改成其他的吧。我在执行这一步得时候就发现我的server_id是1。。。后来想想修改配置之后我们重启mysqld可能是这个导致的，我赶紧重启了下，好了。&lt;/p&gt;
+&lt;p&gt;第三，主从都看下server_id的值，看看是否是一样的，是一样的也会导致问题，作者建议将server_id的值改为ip地址的最后几位，这样便于记忆而且不会重复。&lt;/p&gt;
+&lt;p&gt;经过排查解决了上面的问题之后在&lt;code&gt;start slave;&lt;/code&gt; 没有报错了。最后在&lt;code&gt;show slave status \G&lt;/code&gt; 。这里主要是检查Slave_IO_Running和Slave_SQL_Running的情况，Slave_IO_Running/Slave_SQL_Running均为Yes，表示同步成功。&lt;/p&gt;
+&lt;h3 id=&quot;u7EA7_u8054_u67B6_u6784&quot;&gt;&lt;a href=&quot;#u7EA7_u8054_u67B6_u6784&quot; class=&quot;headerlink&quot; title=&quot;级联架构&quot;&gt;&lt;/a&gt;级联架构&lt;/h3&gt;&lt;p&gt;每个作为Slave的MySQLDB只需要根据其对应主库设置同步信息即可，步骤与上一小节相同。&lt;/p&gt;
+&lt;p&gt;但需要注意的是，默认情况下，从库执行relay-log中的SQL语句不会记录到BINLOG。&lt;br&gt;所以，处于中间层的MySQL配置项需要额外开启log_slave_updates=1。&lt;/p&gt;
+&lt;p&gt;级联架构的示意图如下：&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E7%BA%A7%E8%81%94%E5%8E%9F%E7%90%86.PNG&quot; alt=&quot;级联架构图&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Master-Master&quot;&gt;&lt;a href=&quot;#Master-Master&quot; class=&quot;headerlink&quot; title=&quot;Master-Master&quot;&gt;&lt;/a&gt;Master-Master&lt;/h3&gt;&lt;p&gt;首先，按普通的主从配置步骤将MasterB配置成MasterA的从库；然后，确保MasterB没有写入，通过show master status命令在MasterB上得到其同步点，再将MasterA配置成MasterB的从库。&lt;/p&gt;
+&lt;p&gt;通常，为了简化逻辑，其中一个Master会设置为只读，正常只通过另外一个Master进行读写。&lt;br&gt;若要两边都写，为了避免自增id冲突，一般会设置奇偶错开，即一台的自增ID均为奇数，另一台均为偶数。这个要在业务中通过设置表属性设置的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784&quot;&gt;&lt;a href=&quot;#u5E38_u89C1mysql_u4E3B_u4ECE_u67B6_u6784&quot; class=&quot;headerlink&quot; title=&quot;常见mysql主从架构&quot;
+    
+    </summary>
+    
+    
+      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql初始安装与配置</title>
+    <link href="http://zone.gaospot.com/2016/05/17/Mysql%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
+    <id>http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/</id>
+    <published>2016-05-17T14:10:00.000Z</published>
+    <updated>2016-05-18T10:58:41.664Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。&lt;/p&gt;
+&lt;h3 id=&quot;u73AF_u5883&quot;&gt;&lt;a href=&quot;#u73AF_u5883&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;p&gt;系统环境：centos6.5 &lt;figure class=&quot;highlight&quot;&gt;&lt;figcaption&gt;&lt;span&gt;/etc/centos-relese```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#25968;&amp;#25454;&amp;#24211;&amp;#29256;&amp;#26412;&amp;#65306;mysql5.5(&amp;#36890;&amp;#36807;remi&amp;#28304;&amp;#23433;&amp;#35013;&amp;#65289;&amp;#10;&amp;#10;### &amp;#23433;&amp;#35013; ###&amp;#10;CentOS6.5(&amp;#35797;&amp;#39564;&amp;#29615;&amp;#22659;&amp;#65289;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;yum install mysql-server –enablerepo=remi&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Ubuntu&amp;#65288;&amp;#40664;&amp;#35748;&amp;#29256;&amp;#26412;&amp;#20026;5.5)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;apt-get install mysql-server&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#28304;&amp;#30721;&amp;#23433;&amp;#35013;&amp;#10;&amp;#23448;&amp;#26041;&amp;#19979;&amp;#36733;&amp;#38142;&amp;#25509;&amp;#10;http://dev.mysql.com/downloads/mysql/5.5.html#downloads&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;./configure  #进入到下载的源文件中，首先要解压缩&lt;br&gt;make &amp;amp;&amp;amp; make install&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### &amp;#20462;&amp;#25913;&amp;#37197;&amp;#32622;&amp;#25991;&amp;#20214; ###&amp;#10;&amp;#40664;&amp;#35748;&amp;#30340;&amp;#37197;&amp;#32622;&amp;#25991;&amp;#20214;&amp;#20301;&amp;#32622;&amp;#22312;/etc/my.cnf&amp;#65292;&amp;#40664;&amp;#35748;&amp;#37197;&amp;#32622;&amp;#25991;&amp;#20214;&amp;#36807;&amp;#20110;&amp;#31616;&amp;#21333;&amp;#22312;&amp;#23454;&amp;#38469;&amp;#20351;&amp;#29992;&amp;#20013;&amp;#20808;&amp;#23545;&amp;#20854;&amp;#36827;&amp;#34892;&amp;#19968;&amp;#23450;&amp;#30340;&amp;#20462;&amp;#25913;&amp;#12290;&amp;#10;&amp;#21442;&amp;#25968;&amp;#21517;                 | &amp;#21547;&amp;#20041;&amp;#10;--------            | ---&amp;#10;bind-address               |&amp;#9; &amp;#30417;&amp;#21548;ip&amp;#10;port&amp;#9;                            |  &amp;#30417;&amp;#21548;&amp;#31471;&amp;#21475;&amp;#10;character_set_server&amp;#9;| &amp;#40664;&amp;#35748;&amp;#23383;&amp;#31526;&amp;#38598;(&amp;#24314;&amp;#35758;utf8)&amp;#10;max_connect_errors&amp;#9;| &amp;#26368;&amp;#22823;&amp;#20801;&amp;#35768;&amp;#38169;&amp;#35823;&amp;#27425;&amp;#25968;(&amp;#24182;&amp;#38750;&amp;#25351;&amp;#23494;&amp;#30721;&amp;#38169;&amp;#35823;&amp;#65292;&amp;#32780;&amp;#26159;&amp;#35775;&amp;#38382;&amp;#21327;&amp;#35758;&amp;#19981;&amp;#27491;&amp;#30830;&amp;#20043;&amp;#31867;&amp;#30340;&amp;#65292;&amp;#22914;&amp;#26524;&amp;#26576;&amp;#20010;IP&amp;#38169;&amp;#35823;&amp;#27425;&amp;#25968;&amp;#36798;&amp;#21040;&amp;#35813;&amp;#38408;&amp;#20540;&amp;#65292;&amp;#21017;&amp;#34987;&amp;#23631;&amp;#34109;)&amp;#10;max_connections&amp;#9;       | &amp;#26368;&amp;#22823;&amp;#36830;&amp;#25509;&amp;#25968;(&amp;#33021;&amp;#21516;&amp;#26102;&amp;#35775;&amp;#38382;server&amp;#30340;&amp;#36830;&amp;#25509;&amp;#20010;&amp;#25968;&amp;#65292;&amp;#22914;&amp;#26524;&amp;#36798;&amp;#21040;&amp;#35813;&amp;#38408;&amp;#20540;&amp;#65292;&amp;#21017;&amp;#19981;&amp;#33021;&amp;#20877;&amp;#36830;&amp;#25509;&amp;#21040;server)&amp;#10;datadir&amp;#9;          | &amp;#25968;&amp;#25454;&amp;#20445;&amp;#23384;&amp;#30446;&amp;#24405;&amp;#10;log-error&amp;#9;&amp;#9;| &amp;#9;&amp;#38169;&amp;#35823;&amp;#26085;&amp;#24535;&amp;#20445;&amp;#23384;&amp;#36335;&amp;#24452;&amp;#10;skip_name_resolve         |&amp;#9;&amp;#36339;&amp;#36807;&amp;#22495;&amp;#21517;&amp;#35299;&amp;#26512;(&amp;#21487;&amp;#21152;&amp;#24555;client&amp;#36830;&amp;#25509;&amp;#36895;&amp;#24230;)&amp;#10;back_log            |&amp;#9;&amp;#21019;&amp;#24314;TCP&amp;#36830;&amp;#25509;&amp;#26102;&amp;#65292;&amp;#20801;&amp;#35768;&amp;#30340;&amp;#26368;&amp;#22823;&amp;#21516;&amp;#26102;&amp;#26410;&amp;#23436;&amp;#25104;&amp;#30340;&amp;#36830;&amp;#25509;&amp;#20010;&amp;#25968;(&amp;#20027;&amp;#35201;&amp;#36866;&amp;#29992;&amp;#20110;&amp;#30701;&amp;#36830;&amp;#25509;&amp;#22330;&amp;#26223;)&amp;#10;log-bin&amp;#9;             | Binlog&amp;#30340;&amp;#20445;&amp;#23384;&amp;#36335;&amp;#24452;&amp;#10;binlog-format&amp;#9;      |Binlog&amp;#20889;&amp;#20837;&amp;#26684;&amp;#24335;&amp;#65292;&amp;#20849;&amp;#26377;ROW/STATEMENT/MIXED&amp;#19977;&amp;#31181;&amp;#21487;&amp;#36873;&amp;#12290;&amp;#19968;&amp;#33324;&amp;#20351;&amp;#29992;MIXED&amp;#12290;&amp;#10;expire_logs_days&amp;#9;    |Binlog&amp;#20445;&amp;#30041;&amp;#26102;&amp;#38388;(&amp;#21333;&amp;#20301;:&amp;#22825;)&amp;#10;&amp;#10;&amp;#10;&amp;#36825;&amp;#37324;&amp;#37319;&amp;#29992;&amp;#30340;&amp;#37197;&amp;#32622;&amp;#25991;&amp;#20214;&amp;#65288;&amp;#22312;mysqld&amp;#19979;&amp;#28155;&amp;#21152;&amp;#22914;&amp;#19979;&amp;#20869;&amp;#23481;&amp;#65289;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;bind-address = 10.19.96.184&lt;br&gt;port = 3306&lt;br&gt;character_set_server = utf8&lt;br&gt;max_connect_errors = 1000000&lt;br&gt;max_connections = 500&lt;br&gt;datadir = /data/mysql&lt;br&gt;log-error = /var/log/mysql/mysql-error.log&lt;br&gt;skip_name_resolve&lt;br&gt;back_log = 2000&lt;br&gt;log-bin = /data/mysql&lt;br&gt;binlog-format = MIXED&lt;br&gt;expire_logs_days = 3&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#22914;&amp;#26524;datadir/log-error/log-bin&amp;#31561;&amp;#23545;&amp;#24212;&amp;#30446;&amp;#24405;&amp;#38656;&amp;#35201;&amp;#30830;&amp;#20445;&amp;#24050;&amp;#21019;&amp;#24314;&amp;#65292;&amp;#24182;&amp;#19988;&amp;#26435;&amp;#38480;&amp;#20026;mysql&amp;#25152;&amp;#26377;&amp;#12290;&amp;#20363;&amp;#22914;&amp;#65292;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;mkdir -p /data/mysql &amp;amp;&amp;amp; chown -R mysql.mysql /data/mysql&lt;br&gt;mkdir -p /var/log/mysql &amp;amp;&amp;amp; chown -R mysql.mysql /var/log/mysql&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#37197;&amp;#32622;&amp;#23436;&amp;#25104;&amp;#65292;&amp;#21551;&amp;#21160;mysql:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;/etc/init.d/mysqld start&lt;br&gt;或者&lt;br&gt;service mysqld start&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;### &amp;#26435;&amp;#38480;&amp;#35774;&amp;#32622; ###&amp;#10;&amp;#25191;&amp;#34892;select * from mysql.user; &amp;#21487;&amp;#20197;&amp;#26597;&amp;#30475;&amp;#21040;&amp;#24403;&amp;#21069;&amp;#30340;&amp;#25152;&amp;#26377;&amp;#29992;&amp;#25143;&amp;#12290;&amp;#10;&amp;#10;&amp;#32467;&amp;#26524;&amp;#38598;&amp;#20013;&amp;#30340;&amp;#20960;&amp;#20010;&amp;#20851;&amp;#38190;&amp;#23383;&amp;#27573;&amp;#65306;&amp;#10;Host&amp;#8212;&amp;#8212;&amp;#23545;&amp;#24212;&amp;#30340;&amp;#20801;&amp;#35768;&amp;#35775;&amp;#38382;&amp;#22495;(%&amp;#34920;&amp;#31034;&amp;#20840;&amp;#22495;&amp;#65292;192.168.%.%&amp;#34920;&amp;#31034;&amp;#23545;&amp;#24212;&amp;#36134;&amp;#21495;&amp;#23545;&amp;#35813;&amp;#27573;&amp;#22343;&amp;#21487;&amp;#35775;&amp;#38382;&amp;#65292;192.168.8.100&amp;#34920;&amp;#31034;&amp;#23545;&amp;#24212;&amp;#36134;&amp;#21495;&amp;#20165;&amp;#36825;&amp;#21488;&amp;#26426;&amp;#22120;&amp;#21487;&amp;#35775;&amp;#38382;)&amp;#10;User&amp;#8212;&amp;#8212;&amp;#29992;&amp;#25143;&amp;#21517;&amp;#10;Password&amp;#8212;&amp;#8212;&amp;#23494;&amp;#30721;&amp;#21152;&amp;#23494;&amp;#20018;&amp;#10;xxx_priv&amp;#8212;&amp;#8212;&amp;#21508;&amp;#31181;&amp;#26435;&amp;#38480;&amp;#10;&amp;#10;&amp;#10;&amp;#29992;&amp;#25143;&amp;#26435;&amp;#38480;&amp;#31649;&amp;#29702;&amp;#10;``` bash&amp;#10;mysql -u root -p # 1&amp;#12289;&amp;#20197;&amp;#31649;&amp;#29702;&amp;#21592;&amp;#36523;&amp;#20221;&amp;#30331;&amp;#24405;mysql&amp;#10;&amp;#10;use mysql # 2&amp;#12289;&amp;#36873;&amp;#25321;mysql&amp;#25968;&amp;#25454;&amp;#24211;&amp;#10;&amp;#10;create user &amp;#39;testuser&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;testpassword&amp;#39; #3&amp;#12289;&amp;#21019;&amp;#24314;&amp;#29992;&amp;#25143;&amp;#24182;&amp;#35774;&amp;#23450;&amp;#23494;&amp;#30721;&amp;#10;&amp;#10;flush privileges #4&amp;#12289;&amp;#20351;&amp;#25805;&amp;#20316;&amp;#29983;&amp;#25928;&amp;#10;&amp;#10;create database testdb #5&amp;#12289;&amp;#20026;&amp;#29992;&amp;#25143;&amp;#21019;&amp;#24314;&amp;#25968;&amp;#25454;&amp;#24211;&amp;#10;&amp;#10;grant all privileges on testdb.* to test@localhost identified  by &amp;#39;1234&amp;#39; #6&amp;#12289;&amp;#20026;&amp;#29992;&amp;#25143;&amp;#36171;&amp;#20104;&amp;#25805;&amp;#20316;&amp;#25968;&amp;#25454;&amp;#24211;testdb&amp;#30340;&amp;#25152;&amp;#26377;&amp;#26435;&amp;#38480;&amp;#10;&amp;#10;flush privileges #7&amp;#12289;&amp;#20351;&amp;#25805;&amp;#20316;&amp;#29983;&amp;#25928;&amp;#10;&amp;#10;mysql -u test -p #8&amp;#12289;&amp;#29992;&amp;#26032;&amp;#29992;&amp;#25143;&amp;#30331;&amp;#24405;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果当前账号拥有所有权限，可用最简单的新增用户并授权：&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;figcaption&gt;&lt;span&gt;all on *.* to `root`@`%` identified by &#39;123456&#39; with grant option; ```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;&amp;#20854;&amp;#20013;with grant option&amp;#34920;&amp;#31034;&amp;#26032;&amp;#22686;&amp;#30340;&amp;#35813;&amp;#36134;&amp;#21495;&amp;#26159;&amp;#21542;&amp;#26377;grant&amp;#26435;&amp;#38480;&amp;#65292;&amp;#21363;&amp;#26159;&amp;#21542;&amp;#21487;&amp;#20197;&amp;#36890;&amp;#36807;&amp;#20854;&amp;#21019;&amp;#24314;&amp;#26032;&amp;#36134;&amp;#21495;&amp;#12290;&amp;#10;&amp;#38750;&amp;#24120;&amp;#19981;&amp;#24314;&amp;#35758;&amp;#32473;&amp;#29992;&amp;#25143;&amp;#24320;&amp;#25918;&amp;#20840;&amp;#37096;&amp;#26435;&amp;#38480;&amp;#65292;&amp;#26368;&amp;#22909;&amp;#32473;&amp;#26032;&amp;#29992;&amp;#25143;&amp;#20165;&amp;#24320;&amp;#25918;&amp;#25152;&amp;#38656;&amp;#35201;&amp;#30340;&amp;#30456;&amp;#20851;&amp;#26435;&amp;#38480;&amp;#10;&amp;#10;&amp;#10;### &amp;#23548;&amp;#20837;&amp;#27979;&amp;#35797;&amp;#29992;&amp;#25968;&amp;#25454;&amp;#24211; ###&amp;#10;```bash&amp;#10;wget https://launchpadlibrarian.net/24493586/employees_db-full-1.0.6.tar.bz2&amp;#10;&amp;#10;tar -xjf employees_db-full-1.0.6.tar.bz2 &amp;#10;&amp;#10;cd employees_db&amp;#10;&amp;#10;mysql -u root -p &amp;#60; employees.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u7EC3_u4E60&quot;&gt;&lt;a href=&quot;#u7EC3_u4E60&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h3&gt;&lt;p&gt;设置权限, 要求如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;root账号仅能从本地以及特定机器访问&lt;/li&gt;
+&lt;li&gt;创建一个test账号，允许所有机器访问&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;figcaption&gt;&lt;span&gt;grant all on *.* to `root`@`localhost` identified by &#39;123456&#39; with grant option; ```&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#10;&amp;#10;```mysql&amp;#62; grant all on *.* to `test`@`%` identified by &amp;#39;123456&amp;#39; with grant option;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里是同事分享的mysql课程的笔记，中间加入了一些自己网上找来的东西，按照自己的想法弄了这篇博客。&lt;/
+    
+    </summary>
+    
+    
+      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker镜像创建</title>
@@ -664,86 +837,6 @@
     
     
       <category term="计算机网络" scheme="http://zone.gaospot.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一个Java Google engine程序</title>
-    <link href="http://zone.gaospot.com/2014/04/29/%E7%AC%AC%E4%B8%80%E4%B8%AAJava%20Google%20engine%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://zone.gaospot.com/2014/04/29/第一个Java Google engine程序/</id>
-    <published>2014-04-29T01:08:00.000Z</published>
-    <updated>2016-04-29T07:09:07.327Z</updated>
-    
-    <content type="html">&lt;p&gt;1、搭建相应的开发环境，添加Eclipse的google app engine plugin。&lt;br&gt;方法1：在线添加，方法如下。（试了多次不行，自己解决不了）&lt;br&gt;打开Eclipse，选择Help〉Install new software..在work with中添加站点地址是&lt;a href=&quot;http://dl.google.com/eclipse/plugin/3.6&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dl.google.com/eclipse/plugin/3.6&lt;/a&gt;&lt;br&gt;方法2：离线安装，分别下载GAE SDK和Plugin for Eclipse。&lt;br&gt;具体的安装方法详见这里。&lt;/p&gt;
-&lt;p&gt;2、新建一个google web application。&lt;br&gt;和创建普通的web工程一样，设置好相应的参数，一个google web application就建好了。&lt;/p&gt;
-&lt;p&gt;3、部署你的app到Google app engine&lt;br&gt;右击 你的应用&amp;gt; Google &amp;gt; Deploy to app engine.输入google帐号名，和密码，点击部署即可。&lt;/p&gt;
-&lt;p&gt;参考：&lt;a href=&quot;http://blog.csdn.net/xiaojianpitt/article/details/4193064&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何开发你的第一个Java Google App Engine 程序&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、搭建相应的开发环境，添加Eclipse的google app engine plugin。&lt;br&gt;方法1：在线添加，方法如下。（试了多次不行，自己解决不了）&lt;br&gt;打开Eclipse，选择Help〉Install new software..在work with中添加站
-    
-    </summary>
-    
-    
-      <category term="Java编程学习" scheme="http://zone.gaospot.com/tags/Java%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言中strcpy和memcpy</title>
-    <link href="http://zone.gaospot.com/2014/04/22/C%E8%AF%AD%E8%A8%80%E4%B8%ADstrcpy%E5%92%8Cmemcpy/"/>
-    <id>http://zone.gaospot.com/2014/04/22/C语言中strcpy和memcpy/</id>
-    <published>2014-04-22T00:31:00.000Z</published>
-    <updated>2016-04-29T07:03:31.475Z</updated>
-    
-    <content type="html">&lt;p&gt;strcpy和memcpy都是标准C库函数，且都可用于字符串复制。&lt;/p&gt;
-&lt;p&gt;strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且它不仅复制字符串内容之外，还会复制字符串的结束符。strcpy的复制正是在遇到字符串的结束符时终止的。&lt;br&gt;memcpy提供了一般内存的复制。即memcpy对于需要复制的内容没有限制，因此用途更广。其结束以参数n的大小为准。&lt;/p&gt;
-&lt;p&gt;其所包含的头文件，和函数声明如下&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;#60;string.h&amp;#62;  &amp;#10;  &amp;#10;char *strcpy(char *dest, const char *src);  &amp;#10;char *strncpy(char *dest, const char *src, size_t n);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;#60;string.h&amp;#62;  &amp;#10;  &amp;#10;void *memcpy(void *dest, const void *src, size_t n);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;strcpy和memcpy主要有以下3方面的区别。&lt;br&gt;1、复制的内容不同。strcpy只能复制字符串，而memcpy可以复制任意内容，例如字符数组、整型、结构体、类等。&lt;br&gt;2、复制的方法不同。strcpy不需要指定长度，它遇到被复制字符的串结束符”\0”才结束，所以容易溢出。memcpy则是根据其第3个参数决定复制的长度。&lt;br&gt;3、用途不同。通常在复制字符串时用strcpy，而需要复制其他类型数据时则一般用memcpy&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;strcpy和memcpy都是标准C库函数，且都可用于字符串复制。&lt;/p&gt;
-&lt;p&gt;strcpy提供了字符串的复制。即strcpy只用于字符串复制，并且它不仅复制字符串内容之外，还会复制字符串的结束符。strcpy的复制正是在遇到字符串的结束符时终止的。&lt;br&gt;memcpy提
-    
-    </summary>
-    
-    
-      <category term="C语言学习" scheme="http://zone.gaospot.com/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用git上传已有的代码到github上</title>
-    <link href="http://zone.gaospot.com/2014/04/14/%E4%BD%BF%E7%94%A8git%E4%B8%8A%E4%BC%A0%E5%B7%B2%E6%9C%89%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%B0github%E4%B8%8A/"/>
-    <id>http://zone.gaospot.com/2014/04/14/使用git上传已有的代码到github上/</id>
-    <published>2014-04-14T14:42:00.000Z</published>
-    <updated>2016-04-29T06:59:52.710Z</updated>
-    
-    <content type="html">&lt;p&gt;1、使用已有的github账户，在上面创建一个项目。进入github官网后在右下角，有一个名为New repository的绿色按钮，点击便可创建一个github项目。&lt;/p&gt;
-&lt;p&gt;2、然后就是填写一些相关的信息了。按照自己的想法填就是了。&lt;/p&gt;
-&lt;p&gt;3、创建SSH密匙&lt;br&gt;在shell下，输入以下命令。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh-keygen -C &amp;#39;your@email.address&amp;#39; -t rsa&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;确认使用默认路径，然后输入两次你要是用的密码就行（一般直接敲几个回车不使用密码）&lt;/p&gt;
-&lt;p&gt;4、提交密匙&lt;br&gt;现在又要回到github的页面上，在右上方工具栏里找到Account Settings。在这个页面上有一个SSH Keys标签，选择Add SSH key。Title随便取，Key就是开始生成的一段东西。找到id_rsa.pub文件（一般是在用户的主目录下），把它打开可以看到一堆文字，拷贝下来黏贴到github页面key的空白处。然后Apply，就好了。&lt;/p&gt;
-&lt;p&gt;可以使用以下命令测试连接&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ssh -v git@github.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;5、上传代码&lt;br&gt;最后就是上传你的代码了~ bash切换到你的项目目录下，输入以下命令。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin git@github.com:&amp;#20320;&amp;#30340;github&amp;#29992;&amp;#25143;&amp;#21517;/&amp;#20320;&amp;#30340;github&amp;#39033;&amp;#30446;&amp;#21517;.git  &amp;#10;git push origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;现在再去&lt;a href=&quot;http://github.com/你的github用户名/你的github项目&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://github.com/你的github用户名/你的github项目&lt;/a&gt; 就可以看到你的项目了~ Good luck&lt;br&gt;当然这是从无到有，如果你有一个Git的repo，想添加到github上，那就直接使用第8步的命令就可以了（不要忘记密匙的相关工作）。话说很多初学者应该会和我一样，在初期搞不清git和github的关系，git是和CVS,SVN并列的一个概念，而github是和Google Code, sourceforge并列的一个概念，在具体点说，git是一个代码管理工具，而github是一个代码托管平台，这样说就明白了吧。所以，git的学习的话，参见这里。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、使用已有的github账户，在上面创建一个项目。进入github官网后在右下角，有一个名为New repository的绿色按钮，点击便可创建一个github项目。&lt;/p&gt;
-&lt;p&gt;2、然后就是填写一些相关的信息了。按照自己的想法填就是了。&lt;/p&gt;
-&lt;p&gt;3、创建SSH密
-    
-    </summary>
-    
-    
-      <category term="开发工具" scheme="http://zone.gaospot.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
