@@ -3,17 +3,70 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2013/12 | GaoSpot</title>
+    <title>Mysql慢查询分析与优化 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="My Person Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GaoSpot">
-<meta property="og:url" content="http://zone.gaospot.com/archives/2013/12/index.html">
+    <meta name="description" content="概述（慢查询定义与危害）慢查询——顾名思义，耗时很长、响应很慢的查询
+危害——导致整个数据库响应变慢（过多消耗cpu或者io）短连接场景下还可能引起耗尽连接数
+慢查询日志相关参数（开启慢查询）以下参数均是是在Mysql的配置文件/etc/my.cnf中配置的，配置在[mysqld]下。
+
+
+
+参数名
+含义
+
+
+
+
+slow_query_log
+是否开启慢查询
+
+
+long_query_time
+查">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql慢查询分析与优化">
+<meta property="og:url" content="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="My Person Blog">
+<meta property="og:description" content="概述（慢查询定义与危害）慢查询——顾名思义，耗时很长、响应很慢的查询
+危害——导致整个数据库响应变慢（过多消耗cpu或者io）短连接场景下还可能引起耗尽连接数
+慢查询日志相关参数（开启慢查询）以下参数均是是在Mysql的配置文件/etc/my.cnf中配置的，配置在[mysqld]下。
+
+
+
+参数名
+含义
+
+
+
+
+slow_query_log
+是否开启慢查询
+
+
+long_query_time
+查">
+<meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%901.png">
+<meta property="og:updated_time" content="2016-05-18T10:57:16.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GaoSpot">
-<meta name="twitter:description" content="My Person Blog">
+<meta name="twitter:title" content="Mysql慢查询分析与优化">
+<meta name="twitter:description" content="概述（慢查询定义与危害）慢查询——顾名思义，耗时很长、响应很慢的查询
+危害——导致整个数据库响应变慢（过多消耗cpu或者io）短连接场景下还可能引起耗尽连接数
+慢查询日志相关参数（开启慢查询）以下参数均是是在Mysql的配置文件/etc/my.cnf中配置的，配置在[mysqld]下。
+
+
+
+参数名
+含义
+
+
+
+
+slow_query_log
+是否开启慢查询
+
+
+long_query_time
+查">
     
 
     
@@ -146,210 +199,230 @@
 </aside>
 
             
-            <section id="main">
-                <div class="archive-year-wrap">
-                    <a href="/archives/2013" class="archive-year">2013</a>
+            <section id="main"><article id="post-Mysql慢查询分析与优化" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Mysql慢查询分析与优化
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/18/Mysql慢查询分析与优化/">
+            <time datetime="2016-05-18T10:57:00.000Z" itemprop="datePublished">2016-05-18</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
+    </div>
+
                 </div>
-                <section class="archives-wrap">
-                    <div class="archives">
-            
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/27/jsp中文编码/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/27/jsp中文编码/">jsp中文编码</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/27/jsp中文编码/">
-            <time datetime="2013-12-27T13:11:00.000Z" itemprop="datePublished">2013-12-27</time>
-        </a>
-    </div>
-
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>字符编码       计算机中的信息包括数据信息和控制信息，数据信息又可分为数值和非数值信息。非数值信息和控制信息包括了字母、各种控制符号、图形符号等，它们都以二进制编码方式存入计算机并得以处理，这种对字母和符号进行编码的二进制代码称为字符代码（Character Code）。计算机中常用的字符编码有ASCII码和EBCDIC码（扩展的BCD交换码）。
-字符集ASCII码：于1961年提出，用于在</p>
-            <p class="article-more-link">
-                <a href="/2013/12/27/jsp中文编码/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
+            </header>
         
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/21/apache和tomcat的区别/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u4E0E_u5371_u5BB3_uFF09"><a href="#u6982_u8FF0_uFF08_u6162_u67E5_u8BE2_u5B9A_u4E49_u4E0E_u5371_u5BB3_uFF09" class="headerlink" title="概述（慢查询定义与危害）"></a>概述（慢查询定义与危害）</h3><p>慢查询——顾名思义，耗时很长、响应很慢的查询</p>
+<p>危害——<br>导致整个数据库响应变慢（过多消耗cpu或者io）<br>短连接场景下还可能引起耗尽连接数</p>
+<h3 id="u6162_u67E5_u8BE2_u65E5_u5FD7_u76F8_u5173_u53C2_u6570_uFF08_u5F00_u542F_u6162_u67E5_u8BE2_uFF09"><a href="#u6162_u67E5_u8BE2_u65E5_u5FD7_u76F8_u5173_u53C2_u6570_uFF08_u5F00_u542F_u6162_u67E5_u8BE2_uFF09" class="headerlink" title="慢查询日志相关参数（开启慢查询）"></a>慢查询日志相关参数（开启慢查询）</h3><p>以下参数均是是在Mysql的配置文件/etc/my.cnf中配置的，配置在[mysqld]下。</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>slow_query_log</td>
+<td>是否开启慢查询</td>
+</tr>
+<tr>
+<td>long_query_time</td>
+<td>查询消耗超过多少时间认为是慢查询，单位秒</td>
+</tr>
+<tr>
+<td>log_output</td>
+<td>日志的输出形式(FILE或者TABLE)</td>
+</tr>
+<tr>
+<td>slow-query-log-file</td>
+<td>慢查询的保存文件</td>
+</tr>
+<tr>
+<td>log-queries-not-using-indexes</td>
+<td>记录没有使用索引的查询</td>
+</tr>
+</tbody>
+</table>
+<p>示例参数配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#24930;&#26597;&#35810;&#30456;&#20851;&#10;slow_query_log = 1&#10;long_query_time = 1&#10;&#10;# &#26085;&#24535;&#30340;&#36755;&#20986;&#24418;&#24335;&#10;log_output = FILE&#10;slow-query-log-file = /var/log/mysql/mysql-slow.log</span><br></pre></td></tr></table></figure>
+<p>修改参数之后记得重启mysqld服务，可以在mysql命令行验证修改是否生效。命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; show global variables like &#39;slow%&#39; ;&#10;mysql&#62; show global variables like &#39;long%&#39; ;&#10;mysql&#62; show global variables like &#39;log%&#39; ;</span><br></pre></td></tr></table></figure>
+<p>经过上面的配置mysql的慢日志就打开了，然后mysql就会记录各条查询相关信息了，下面是一个人为构造的演示例子。</p>
+<h3 id="u6F14_u793A_u4F8B_u5B50_uFF08_u81EA_u9020_u6162_u67E5_u8BE2_uFF1A_uFF09"><a href="#u6F14_u793A_u4F8B_u5B50_uFF08_u81EA_u9020_u6162_u67E5_u8BE2_uFF1A_uFF09" class="headerlink" title="演示例子（自造慢查询：）"></a>演示例子（自造慢查询：）</h3><p>下面是用来新建测试用的表和查询语句的sql命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; use test;&#10;mysql&#62; create table b (id int not null primary key, name varchar(100) not null);&#10;mysql&#62; select sleep(1);&#10;mysql&#62; select * from b where name = &#39;a&#39;;&#10;mysql&#62; select * from b where name = &#39;b&#39;;&#10;mysql&#62; select * from b where name = &#39;c&#39;;</span><br></pre></td></tr></table></figure></p>
+<p>我们可以直接看下mysql-slow.log中的内容，cat或vim都行，只是看一眼：）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cat /var/log/mysql/mysql-slow.log</span><br></pre></td></tr></table></figure>
+<p>下面是文件中个参数意义的介绍：</p>
+<p>Querytime: sql的请求执行时间<br>Locktime: sql 等锁的时间<br>Rows_examined: sql处理过程中扫描的行数；通常，该值越大，对cpu/io消耗也就越大</p>
+<h3 id="u6162_u67E5_u8BE2_u5206_u6790"><a href="#u6162_u67E5_u8BE2_u5206_u6790" class="headerlink" title="慢查询分析"></a>慢查询分析</h3><p>首先是慢查询分析工具——mysqldumpslow，示例用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mysqldumpslow -t 10 -s t /path/to/slow.log</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ol>
+<li>-t：返回前面多少条的数据，即top几；</li>
+<li>-s：排序方式。c , t , l , r 分别表示记录次数、时间、查询时间的多少、返回的记录数排序；ac , at , al , ar 表示相应的倒叙；</li>
+</ol>
+<p>TABLE类型慢日志处理<br>直接做工具处理相对比较麻烦，但我们可以变相处理。<br>处理思路：</p>
+<ol>
+<li>将mysql.slow_log表的数据转成日志文件形式</li>
+<li>然后再用mysqldumpslow进行分析</li>
+</ol>
+<p>这里提供一个工具(python脚本，需要先安装MySQL-python依赖库)，可以将mysql.slow_log表导出成日志格式<br><a href="https://gist.github.com/sennajox/fdff82cc02b161d0141d" target="_blank" rel="external">https://gist.github.com/sennajox/fdff82cc02b161d0141d</a></p>
+<p>例如，要列出2016-5-1至2016-5-18期间的慢查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># python slow_log_dump.py 10.6.29.129 3306 root 123456 &#39;2016-5-1&#39; &#39;2016-5-18&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="u4F18_u5316_u5206_u6790"><a href="#u4F18_u5316_u5206_u6790" class="headerlink" title="优化分析"></a>优化分析</h3><p>记录slowlog仅仅是第一步，更重要的是找到慢查询的根源。<br>而这里，我们可以利用explain命令，对慢查询sql执行explain得到对应的执行计划进行分析，从而确定如何优化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; explain select * from b where name = &#39;a&#39;;</span><br></pre></td></tr></table></figure>
+<p>各个参数说明<br>关键列名         |          含义<br>——————| ——————-<br>type          |    使用了什么查询方式，由好到差，依次为const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; ALL注意: index表示遍历索引；而ref表示使用非唯一的索引<br>key                 |   最终使用到的索引<br>ref        |      使用了索引的那一列，可能为列名或者const<br>rows  |       扫描的行数<br>extra    |  附加信息，比如”Using Where”、“Using Index”、“Using filesort”、“Using temporary”</p>
+<p><img src="http://7xr7kh.com1.z0.glb.clouddn.com/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%901.png" alt="explain示例1"></p>
+<p><img src="http://7xr7kh.com1.z0.glb.clouddn.com/mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%88%86%E6%9E%902.png" alt="explain示例2"></p>
+<h3 id="u4F18_u5316_u8981_u70B9"><a href="#u4F18_u5316_u8981_u70B9" class="headerlink" title="优化要点"></a>优化要点</h3><p>1.严禁在MySQL执行复杂的计算，以免过多消耗CPU，把复杂的事情交给程序处理</p>
+<p>2.尽可能少用关联查询，如果不得不使用，最好不超过2个表，以免笛卡尔积过大，一方面增加读取磁盘几率，一方面有可能生成文件临时表，极大影响IO</p>
+<p>3.适当的使用索引，且仅对离散程度比较高的列使用，让索引的效果可以最大化；索引是牺牲了写性能来换取读性能，因此也不能过多</p>
+<p>4.控制单表的数据量，多作分库分表</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/" data-id="cioe2disx00191okoki27xxco" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
             
     
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/21/apache和tomcat的区别/">apache和tomcat的区别</a>
-        </h1>
+        <a href="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/">评论</a>
     
 
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/21/apache和tomcat的区别/">
-            <time datetime="2013-12-21T13:11:00.000Z" itemprop="datePublished">2013-12-21</time>
-        </a>
+        </footer>
     </div>
-
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>前言曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把</p>
-            <p class="article-more-link">
-                <a href="/2013/12/21/apache和tomcat的区别/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
+    
         
-            <article class="archive-article archive-type-summary">
+<nav id="article-nav">
     
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/11/jsp 中定义函数/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/11/jsp 中定义函数/">jsp 中定义函数</a>
-        </h1>
-    
-
-            <div class="article-meta">
+        <a href="/2016/05/19/Mysql问题分析工具/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
                 
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/jsp 中定义函数/">
-            <time datetime="2013-12-11T15:16:00.000Z" itemprop="datePublished">2013-12-11</time>
-        </a>
-    </div>
-
-
+                    Mysql问题分析工具
                 
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
             </div>
-        </header>
-        <div class="article-entry">
-            <p>jsp 中定义函数
-在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。方法一第一种是使用&lt;%! %&gt;。即在普通jsp标记之中使用一个另外的&lt;%! %&gt;便可以了。12345&lt;% !   public String function()&#123;   return "true";  &#125;%&gt;
-方法二第二种是定义一个类,在类里定义方法,再调用</p>
-            <p class="article-more-link">
-                <a href="/2013/12/11/jsp 中定义函数/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-        
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/11/Java中的String与StringBuffer/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/11/Java中的String与StringBuffer/">Java中的String与StringBuffer</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/Java中的String与StringBuffer/">
-            <time datetime="2013-12-11T03:32:00.000Z" itemprop="datePublished">2013-12-11</time>
         </a>
-    </div>
+    
+    
+        <a href="/2016/05/17/Mysql主从配置/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Mysql主从配置</div>
+        </a>
+    
+</nav>
 
 
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java编程学习/">Java编程学习</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：123String s；s="How are you";s=</p>
-            <p class="article-more-link">
-                <a href="/2013/12/11/Java中的String与StringBuffer/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
+    
 </article>
+
+
+    
+    <section id="comments">
+    
         
-        </div></section>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
     </section>
+
+</section>
             
                 <aside id="sidebar">
     
@@ -517,11 +590,13 @@
     var disqus_shortname = 'GaoSpot';
     
     
+    var disqus_url = 'http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
