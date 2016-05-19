@@ -3,17 +3,27 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档: 2013/12 | GaoSpot</title>
+    <title>Mysql问题分析工具 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="My Person Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GaoSpot">
-<meta property="og:url" content="http://zone.gaospot.com/archives/2013/12/index.html">
+    <meta name="description" content="常用工具top、iostat查看CPU/IO情况慢查询日志+explain获取数据库的各种运行状态，如”show  engine innodb status”， 查询information_schema库里的INNODB_TRX、PROCESSLIST等状态表tcpdumpstrace
+1# top -d0.5 -c
+以0.5秒频率刷新，查看mysql的CPU使用情况，主要是看下cpu占用率。
+1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql问题分析工具">
+<meta property="og:url" content="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="My Person Blog">
+<meta property="og:description" content="常用工具top、iostat查看CPU/IO情况慢查询日志+explain获取数据库的各种运行状态，如”show  engine innodb status”， 查询information_schema库里的INNODB_TRX、PROCESSLIST等状态表tcpdumpstrace
+1# top -d0.5 -c
+以0.5秒频率刷新，查看mysql的CPU使用情况，主要是看下cpu占用率。
+1">
+<meta property="og:updated_time" content="2016-05-19T08:56:24.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GaoSpot">
-<meta name="twitter:description" content="My Person Blog">
+<meta name="twitter:title" content="Mysql问题分析工具">
+<meta name="twitter:description" content="常用工具top、iostat查看CPU/IO情况慢查询日志+explain获取数据库的各种运行状态，如”show  engine innodb status”， 查询information_schema库里的INNODB_TRX、PROCESSLIST等状态表tcpdumpstrace
+1# top -d0.5 -c
+以0.5秒频率刷新，查看mysql的CPU使用情况，主要是看下cpu占用率。
+1">
     
 
     
@@ -146,210 +156,172 @@
 </aside>
 
             
-            <section id="main">
-                <div class="archive-year-wrap">
-                    <a href="/archives/2013" class="archive-year">2013</a>
+            <section id="main"><article id="post-Mysql问题分析工具" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Mysql问题分析工具
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/19/Mysql问题分析工具/">
+            <time datetime="2016-05-19T08:55:00.000Z" itemprop="datePublished">2016-05-19</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
+    </div>
+
                 </div>
-                <section class="archives-wrap">
-                    <div class="archives">
-            
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/27/jsp中文编码/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/27/jsp中文编码/">jsp中文编码</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/27/jsp中文编码/">
-            <time datetime="2013-12-27T13:11:00.000Z" itemprop="datePublished">2013-12-27</time>
-        </a>
-    </div>
-
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>字符编码       计算机中的信息包括数据信息和控制信息，数据信息又可分为数值和非数值信息。非数值信息和控制信息包括了字母、各种控制符号、图形符号等，它们都以二进制编码方式存入计算机并得以处理，这种对字母和符号进行编码的二进制代码称为字符代码（Character Code）。计算机中常用的字符编码有ASCII码和EBCDIC码（扩展的BCD交换码）。
-字符集ASCII码：于1961年提出，用于在</p>
-            <p class="article-more-link">
-                <a href="/2013/12/27/jsp中文编码/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
+            </header>
         
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/21/apache和tomcat的区别/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="u5E38_u7528_u5DE5_u5177"><a href="#u5E38_u7528_u5DE5_u5177" class="headerlink" title="常用工具"></a>常用工具</h3><p>top、iostat查看CPU/IO情况<br>慢查询日志+explain<br>获取数据库的各种运行状态，如”show  engine innodb status”， 查询information_schema库里的INNODB_TRX、PROCESSLIST等状态表<br>tcpdump<br>strace</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># top -d0.5 -c</span><br></pre></td></tr></table></figure>
+<p>以0.5秒频率刷新，查看mysql的CPU使用情况，主要是看下cpu占用率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># iostat -txm 1</span><br></pre></td></tr></table></figure>
+<p>观察磁盘使用情况，util使用率越高，表示磁盘越繁忙</p>
+<h3 id="u6162_u67E5_u8BE2"><a href="#u6162_u67E5_u8BE2" class="headerlink" title="慢查询"></a>慢查询</h3><p>慢查询日志slowlog，使用mysqldumpslow可以统计分析出最消耗时间的TopN。<br>得到具体语句后，使用explain进行分析，进而得到优化方法。</p>
+<h3 id="u6570_u636E_u5E93_u72B6_u6001"><a href="#u6570_u636E_u5E93_u72B6_u6001" class="headerlink" title="数据库状态"></a>数据库状态</h3><p>查看所有连接的运行情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; show full processlist;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; select * from information_schema.processlist;</span><br></pre></td></tr></table></figure>
+<p>查看innodb的实时状态，关注cache命中率、读写次数、有无死锁等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; show  engine innodb status \G</span><br></pre></td></tr></table></figure>
+<p>查看事务运行情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; select * from information_schema.innodb_trx;</span><br></pre></td></tr></table></figure>
+<h3 id="u7F51_u7EDC_u53CA_u7CFB_u7EDF_u5206_u6790"><a href="#u7F51_u7EDC_u53CA_u7CFB_u7EDF_u5206_u6790" class="headerlink" title="网络及系统分析"></a>网络及系统分析</h3><p>tcpdump —— 抓取相关网络包<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump host 10.4.12.8 and port 3306 -i eth0 -w 10.4.12.8.pcap</span><br></pre></td></tr></table></figure>
+<p>strace —— 查看进程的系统调用<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># strace -p 12345    # 12345&#20026;&#30446;&#26631;&#36827;&#31243;pid</span><br></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/" data-id="cioe2disv00161okocn6be5se" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
             
     
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/21/apache和tomcat的区别/">apache和tomcat的区别</a>
-        </h1>
+        <a href="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/">评论</a>
     
 
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/21/apache和tomcat的区别/">
-            <time datetime="2013-12-21T13:11:00.000Z" itemprop="datePublished">2013-12-21</time>
-        </a>
+        </footer>
     </div>
-
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>前言曾经有人问我，Apache和Tomcat的区别，其实我也想过这个问题，但是没有仔细想，只觉得他们的不同大概在于可以执行的脚本语言不同。曾经安装过Apache是用来解释PHP所以我想都没有仔细想就回答说Apache是用来解释PHP的而Tomcat是用来解释jsp的。今天又突然有了这个疑问，终于想搞清这个问题了，于是在网上找了一下这个问题，发现这还真是一个问题，网上有很多关于这个问题的内容。于是把</p>
-            <p class="article-more-link">
-                <a href="/2013/12/21/apache和tomcat的区别/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
+    
         
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/11/jsp 中定义函数/" class="thumbnail">
+<nav id="article-nav">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/11/jsp 中定义函数/">jsp 中定义函数</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/jsp 中定义函数/">
-            <time datetime="2013-12-11T15:16:00.000Z" itemprop="datePublished">2013-12-11</time>
+        <a href="/2016/05/18/Mysql慢查询分析与优化/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Mysql慢查询分析与优化</div>
         </a>
-    </div>
+    
+</nav>
 
 
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>jsp 中定义函数
-在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。方法一第一种是使用&lt;%! %&gt;。即在普通jsp标记之中使用一个另外的&lt;%! %&gt;便可以了。12345&lt;% !   public String function()&#123;   return "true";  &#125;%&gt;
-方法二第二种是定义一个类,在类里定义方法,再调用</p>
-            <p class="article-more-link">
-                <a href="/2013/12/11/jsp 中定义函数/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
+    
 </article>
+
+
+    
+    <section id="comments">
+    
         
-            <article class="archive-article archive-type-summary">
-    
-    <div class="archive-article-thumbnail">
-        <a href="/2013/12/11/Java中的String与StringBuffer/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-    </div>
-    
-    <div class="archive-article-content">
-        <header class="archive-article-header">
-            
-    
-        <h1 itemprop="name">
-            <a class="archive-article-title" href="/2013/12/11/Java中的String与StringBuffer/">Java中的String与StringBuffer</a>
-        </h1>
-    
-
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/Java中的String与StringBuffer/">
-            <time datetime="2013-12-11T03:32:00.000Z" itemprop="datePublished">2013-12-11</time>
-        </a>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
-
-                
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java编程学习/">Java编程学习</a>
-    </div>
-
-            </div>
-        </header>
-        <div class="article-entry">
-            <p>以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：123String s；s="How are you";s=</p>
-            <p class="article-more-link">
-                <a href="/2013/12/11/Java中的String与StringBuffer/#more">查看更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-        
-        </div></section>
+    
     </section>
+
+</section>
             
                 <aside id="sidebar">
     
@@ -517,11 +489,13 @@
     var disqus_shortname = 'GaoSpot';
     
     
+    var disqus_url = 'http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

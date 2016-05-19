@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-18T10:57:16.554Z</updated>
+  <updated>2016-05-19T08:56:24.035Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql问题分析工具</title>
+    <link href="http://zone.gaospot.com/2016/05/19/Mysql%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/"/>
+    <id>http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/</id>
+    <published>2016-05-19T08:55:00.000Z</published>
+    <updated>2016-05-19T08:56:24.035Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u5E38_u7528_u5DE5_u5177&quot;&gt;&lt;a href=&quot;#u5E38_u7528_u5DE5_u5177&quot; class=&quot;headerlink&quot; title=&quot;常用工具&quot;&gt;&lt;/a&gt;常用工具&lt;/h3&gt;&lt;p&gt;top、iostat查看CPU/IO情况&lt;br&gt;慢查询日志+explain&lt;br&gt;获取数据库的各种运行状态，如”show  engine innodb status”， 查询information_schema库里的INNODB_TRX、PROCESSLIST等状态表&lt;br&gt;tcpdump&lt;br&gt;strace&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# top -d0.5 -c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以0.5秒频率刷新，查看mysql的CPU使用情况，主要是看下cpu占用率。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# iostat -txm 1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;观察磁盘使用情况，util使用率越高，表示磁盘越繁忙&lt;/p&gt;
+&lt;h3 id=&quot;u6162_u67E5_u8BE2&quot;&gt;&lt;a href=&quot;#u6162_u67E5_u8BE2&quot; class=&quot;headerlink&quot; title=&quot;慢查询&quot;&gt;&lt;/a&gt;慢查询&lt;/h3&gt;&lt;p&gt;慢查询日志slowlog，使用mysqldumpslow可以统计分析出最消耗时间的TopN。&lt;br&gt;得到具体语句后，使用explain进行分析，进而得到优化方法。&lt;/p&gt;
+&lt;h3 id=&quot;u6570_u636E_u5E93_u72B6_u6001&quot;&gt;&lt;a href=&quot;#u6570_u636E_u5E93_u72B6_u6001&quot; class=&quot;headerlink&quot; title=&quot;数据库状态&quot;&gt;&lt;/a&gt;数据库状态&lt;/h3&gt;&lt;p&gt;查看所有连接的运行情况&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; show full processlist;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; select * from information_schema.processlist;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看innodb的实时状态，关注cache命中率、读写次数、有无死锁等&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; show  engine innodb status \G&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;查看事务运行情况&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; select * from information_schema.innodb_trx;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;u7F51_u7EDC_u53CA_u7CFB_u7EDF_u5206_u6790&quot;&gt;&lt;a href=&quot;#u7F51_u7EDC_u53CA_u7CFB_u7EDF_u5206_u6790&quot; class=&quot;headerlink&quot; title=&quot;网络及系统分析&quot;&gt;&lt;/a&gt;网络及系统分析&lt;/h3&gt;&lt;p&gt;tcpdump —— 抓取相关网络包&lt;br&gt;例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# tcpdump host 10.4.12.8 and port 3306 -i eth0 -w 10.4.12.8.pcap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;strace —— 查看进程的系统调用&lt;br&gt;例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# strace -p 12345    # 12345&amp;#20026;&amp;#30446;&amp;#26631;&amp;#36827;&amp;#31243;pid&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u5E38_u7528_u5DE5_u5177&quot;&gt;&lt;a href=&quot;#u5E38_u7528_u5DE5_u5177&quot; class=&quot;headerlink&quot; title=&quot;常用工具&quot;&gt;&lt;/a&gt;常用工具&lt;/h3&gt;&lt;p&gt;top、iostat查看CPU/IO情况&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql慢查询分析与优化</title>
@@ -808,35 +846,6 @@
     
     
       <category term="Linux学习" scheme="http://zone.gaospot.com/tags/Linux%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下的局域网小工具</title>
-    <link href="http://zone.gaospot.com/2014/10/06/Linux%E4%B8%8B%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
-    <id>http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/</id>
-    <published>2014-10-06T07:36:00.000Z</published>
-    <updated>2016-04-29T07:15:52.881Z</updated>
-    
-    <content type="html">&lt;p&gt;1、Sniffer工作原理&lt;br&gt;在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧。所以Sniffer所能监听的信息仅限于同一个物理网络内传输的数据。&lt;/p&gt;
-&lt;p&gt;2、Sniffit的安装&lt;br&gt;在Debian可以使用软件源安装。命令如下：&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo aptitude install sniffit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;当然也可以下载源文件进行编译安装。&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo tar -zxvf sniffit.version.tar.gz&amp;#10;cd sniffti.version&amp;#10;./configure &amp;#38;&amp;#38; make&amp;#10;./sniffit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;3、TcpDump&lt;br&gt;安装过程类似于上面安装sniffit的过程。&lt;br&gt;不添加任何参数直接运行TcpDump，系统将监视网络中所有流过的数据包，这是TcpDump最简单的应用。&lt;/p&gt;
-&lt;p&gt;tcpdump/libpcap的包过滤规则也支持更多通用分组表达式，在这些表达式中，包中的任意字节范围都可以使用关系或二进制操作符进行检查。对于字节范围表达，你可以使用以下格式：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;proto [ expr : size ]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;“proto”可以是熟知的协议之一（如ip，arp，tcp，udp，icmp，ipv6），“expr”表示与指定的协议头开头相关的字节偏移量。有我们熟知的直接偏移量如tcpflags，也有取值常量如tcp-syn，tcp-ack或者tcp-fin。“size”是可选的，表示从字节偏移量开始检查的字节数量。&lt;/p&gt;
-&lt;p&gt;只捕获TCP SYN包：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# tcpdump -i &amp;#60;interface&amp;#62; &amp;#34;tcp[tcpflags] &amp;#38; (tcp-syn) != 0&amp;#34;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;4、EtherApe&lt;br&gt;安装过程也类似于上面可以采用软件源安装和源码安装两种方式。&lt;br&gt;EtherApe是一个图形化的网络嗅探器。主要是用在验证主机与主机之间的连接，EtherApe能够图形化的显示网络目前所处的状态，且使用不同颜色的线来表示位于不同主机之间的连接，二通过连线的粗细可以判断主机数据量的大小。&lt;/p&gt;
-&lt;p&gt;5、netstat&lt;br&gt;netstat是系统只带的工具，可以用于显示于IP，TCP，UDP和ICMP协议相关的统计数据，一般用于检验本地2计算机各端口的网络连接情况。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、Sniffer工作原理&lt;br&gt;在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="http://zone.gaospot.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
