@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-19T08:56:24.035Z</updated>
+  <updated>2016-05-21T04:57:00.200Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mysql备份与恢复</title>
+    <link href="http://zone.gaospot.com/2016/05/21/Mysql%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/"/>
+    <id>http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/</id>
+    <published>2016-05-21T03:35:00.000Z</published>
+    <updated>2016-05-21T04:57:00.200Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里主要介绍通过mysqldump来导出数据和通过binlog导入数据的Mysql导入导出问题。&lt;/p&gt;
+&lt;h3 id=&quot;u5907_u4EFD&quot;&gt;&lt;a href=&quot;#u5907_u4EFD&quot; class=&quot;headerlink&quot; title=&quot;备份&quot;&gt;&lt;/a&gt;备份&lt;/h3&gt;&lt;p&gt;常用工具：mysqldump,  xtrabackup&lt;/p&gt;
+&lt;p&gt;mysqldump: 原生数据导出工具，以sql的形式导出保存&lt;br&gt;xtrabackup: percona团队提供的备份工具，基于文件系统的备份&lt;/p&gt;
+&lt;h4 id=&quot;u5907_u4EFD_u5168_u5E93_u2014_u2014_u6700_u7B80_u5355_u7248_u672C&quot;&gt;&lt;a href=&quot;#u5907_u4EFD_u5168_u5E93_u2014_u2014_u6700_u7B80_u5355_u7248_u672C&quot; class=&quot;headerlink&quot; title=&quot;备份全库——最简单版本&quot;&gt;&lt;/a&gt;备份全库——最简单版本&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqldump -h10.6.29.129 -uroot -p --all-databases &amp;#62; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;mysqldump是直接屏幕输出，所以重定向后即可得到对应的备份文件。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;这个备份命令很简单，但存在问题：&lt;/li&gt;
+&lt;li&gt;会锁全库，影响业务&lt;/li&gt;
+&lt;li&gt;有可能缺失常规表以外的内容，如存储过程&lt;/li&gt;
+&lt;li&gt;未记录binlog同步点，不能用于主从同步以及利用binlog增量恢复&lt;br&gt;对于数据集较大的表，可能会吃掉server端大量内存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;u5907_u4EFD_u5168_u5E93_u2014_u2014_u8FDB_u9636_u7248&quot;&gt;&lt;a href=&quot;#u5907_u4EFD_u5168_u5E93_u2014_u2014_u8FDB_u9636_u7248&quot; class=&quot;headerlink&quot; title=&quot;备份全库——进阶版&quot;&gt;&lt;/a&gt;备份全库——进阶版&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqldump -h10.6.29.129 -uroot -p --all-databases --master-data=2 --routines --events --quick --single-transaction &amp;#62; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;–master-data=2 表示需要记录导出数据当时主库的binlog位置&lt;/li&gt;
+&lt;li&gt;–routines 表示导出存储过程（可视实际库表决定是否使用）&lt;/li&gt;
+&lt;li&gt;–events 表示导出事件（可根据实际库表决定是否使用）&lt;/li&gt;
+&lt;li&gt;–quick 表示让服务端不将结果集一次发送，而是分批发送，可减轻压力。另外，加上–master-data后默认是锁库的，可确保数据一致性，即导出数据和binlog位置的一致。&lt;/li&gt;
+&lt;li&gt;–single-transaction 取消锁库并利用Innodb事务特性确保数据一致，但对MyISAM引擎不能确保一致性(即备份期间的写入，仍有可能被导出到备份文件中)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;u5907_u4EFD_u90E8_u5206database&quot;&gt;&lt;a href=&quot;#u5907_u4EFD_u90E8_u5206database&quot; class=&quot;headerlink&quot; title=&quot;备份部分database&quot;&gt;&lt;/a&gt;备份部分database&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqldump -h10.6.29.129 -uroot -p --master-data=2 --routines &amp;#8211;events --quick --single-transaction --databases db1 db2 db3 &amp;#62; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;(将需要导出的库名，依次填写在databases参数后)&lt;/p&gt;
+&lt;h4 id=&quot;u5907_u4EFD_u6307_u5B9Adatabase_u7684_u90E8_u5206_u8868&quot;&gt;&lt;a href=&quot;#u5907_u4EFD_u6307_u5B9Adatabase_u7684_u90E8_u5206_u8868&quot; class=&quot;headerlink&quot; title=&quot;备份指定database的部分表&quot;&gt;&lt;/a&gt;备份指定database的部分表&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqldump -h10.6.29.129 -uroot &amp;#8211;p --master-data=2 --routines &amp;#8211;events --quick --single-transaction mydb table1 table2 &amp;#62; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;(先写明指定的database，然后紧跟需要备份的表名)&lt;/p&gt;
+&lt;h3 id=&quot;u6570_u636E_u6062_u590D&quot;&gt;&lt;a href=&quot;#u6570_u636E_u6062_u590D&quot; class=&quot;headerlink&quot; title=&quot;数据恢复&quot;&gt;&lt;/a&gt;数据恢复&lt;/h3&gt;&lt;p&gt;直接利用mysqlclient以及冷备文件进行导入&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql -h10.6.29.129 -uroot -p &amp;#60; 10.6.29.129.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;（简单易行，但要确保导入的库表，不会同时有业务在写入）&lt;/p&gt;
+&lt;h4 id=&quot;u501F_u52A9binlog_u6062_u590D_u6570_u636E_u5E93&quot;&gt;&lt;a href=&quot;#u501F_u52A9binlog_u6062_u590D_u6570_u636E_u5E93&quot; class=&quot;headerlink&quot; title=&quot;借助binlog恢复数据库&quot;&gt;&lt;/a&gt;借助binlog恢复数据库&lt;/h4&gt;&lt;p&gt;在冷备数据的基础上，借助binlog可以恢复到冷备时间点至最新binlog之间的任意时刻。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/binlog%E6%81%A2%E5%A4%8D.png&quot; alt=&quot;利用binlog恢复到任意时间点&quot;&gt;&lt;/p&gt;
+&lt;p&gt;首先由于binlog二进制文件，要使用binlog必须先对binlog进行解析，解析的工具就是mysqlbinlog。&lt;br&gt;使用mysqlbinlog工具，对binlog文件进行解析&lt;br&gt;简单用法——&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqlbinlog mysql.000004 &amp;#62; binlog.000004&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用mysqlbinlog工具，对binlog文件进行解析&lt;br&gt;进阶用法——&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysqlbinlog mysql.000004 --start-position=549212174 --stop-datetime=&amp;#39;2014-9-10 10:00&amp;#39; &amp;#62; binlog.000004.sql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;–start-position 表示从binlog的那个位置开始解析，而这个起始点可以通过备份时的master-data参数得到&lt;br&gt;–stop-datetime 表示只解析到哪个时间点的语句为止，可用于回档到某个指定时间点&lt;/p&gt;
+&lt;p&gt;–start-datetime 从那个时间点开始，但通常还是尽量使用start-position，更为准确&lt;br&gt;–verbose, -v 使用方式：-vv, -vvv，常用于ROW模式的详细输出&lt;/p&gt;
+&lt;p&gt;恢复的具体操作方法，就是先通过冷备份将数据库还原到备份点，然后在通过binlog生成从冷备点恢复的sql。分别执行下两个sql文件就可以了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里主要介绍通过mysqldump来导出数据和通过binlog导入数据的Mysql导入导出问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Mysql问题分析工具</title>
@@ -818,34 +872,6 @@
     
     
       <category term="开发工具" scheme="http://zone.gaospot.com/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux和Android启动过程</title>
-    <link href="http://zone.gaospot.com/2014/10/15/Linux%E5%92%8CAndroid%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B/"/>
-    <id>http://zone.gaospot.com/2014/10/15/Linux和Android启动过程/</id>
-    <published>2014-10-15T11:36:00.000Z</published>
-    <updated>2016-04-29T07:28:15.715Z</updated>
-    
-    <content type="html">&lt;p&gt;X86架构的PC机的启动过程&lt;br&gt;按下电源按钮的直到欢迎页出来之后，linux总共做的事可以分为五步来完成。&lt;br&gt;　　1、  BIOS加电自检：&lt;br&gt;　　加电自检，检测硬件设备。然后按照cmos上面的顺序来搜索处在活动状态下的可以引导的设备。可以是光驱、软盘、USB等。&lt;br&gt;　　2、  加载主引导加载程序（MBR）：&lt;br&gt;　　主引导程序是一个512字节的映像。包含一点机器码还有一个小的分区。&lt;br&gt;　　主引导程序的任务就是查找并且加载处在硬盘分区上的次引导程序。通过分区表查找活动分区，并将处在活动分区的次引导加载程序读取到内存里面运行。&lt;br&gt;　　3、  加载次引导记载程序（GRUB）&lt;br&gt;　　次引导加载程序只要就是加载linux内核。&lt;br&gt;　　上一阶段结束之后次引导加载程序就会在内存里面跑起来。就会出现GRUB图形界面，让用户选择加载什么样的内核。&lt;br&gt;　　4、  linux内核映像：&lt;br&gt;　　用户选择要加载的内核之后，次引导加载程序（GRUB）就会根据/boot/grub.conf配置文件中所设置的信息，从/boot/所在的分区上读取Linux内核映像，然后把内核映像加载到内存中并把控制权交给Linux内核。&lt;br&gt;　　linux内核获得控制权之后开始干自己的事&lt;br&gt;　　1、  检测硬件&lt;br&gt;　　2、  解压缩自己并安装必要驱动&lt;br&gt;　　3、  初始化与文件系统相关的虚拟设备，LVM或RAID&lt;br&gt;　　4、  装载根文件系统，挂在根目录下面&lt;br&gt;　　5、  完成之后，linux在进程空间里面加载init程序，下面轮到init干活&lt;br&gt;　　5、  init进程&lt;br&gt;　　init是所有进程的发起者和控制者，所有的进程都由此衍生。&lt;br&gt;　　init进程获得控制权之后，它会执行/etc/rc.d/rc.sysinit脚本，根据里面的代码设置环境变量、网络、启动swap、检查并挂载文件系统、执行其他初始化工作。&lt;/p&gt;
-&lt;p&gt;　　至此，linux启动完成。&lt;/p&gt;
-&lt;p&gt;ARM架构的Android启动过程&lt;br&gt;当按下开机键后，Android的启动过程可以大致分为以下四步。&lt;br&gt;1、引导ROM加载第一级引导加载程序：&lt;br&gt;位于引导ROM（read-only-memory）中的的特定代码会找到第一级的引导加载程序（即主引导加载程序），并将其加载到存储器中。引导ROM是一个ASIC芯片，其中含有固化在芯片中的代码。&lt;/p&gt;
-&lt;p&gt;2、第一级引导加载程序利用存储器初始化程序启动第二级引导加载程序：&lt;br&gt;引导加载程序会检查安全标记是否开启（S-ON）。如果已经开启，那么引导程序只会加载被标记（官方）内核。如果安全标记是关闭的（S-OFF），那么引导加载程序就不在检查标记了。将安全标记设置为S-&lt;/p&gt;
-&lt;p&gt;3、引导加载程序将Linux内核和定制化内容加载到存储器&lt;br&gt;引导加载程序将对硬件的控制权转给了Linux内核。Linux内核以及定制的软件和固件通常都打包在一起。这就是我们刷机的时候说的ROM。但其实刷入的地方（NAND存储器）并非是只读的。&lt;/p&gt;
-&lt;p&gt; 4、最后一步是初始化（INIT）进程。INIT进程是设备上运行的其他所有进程的前提。他会初始化基础硬件房屋i设备功能所需的所有进程。他还会启动用来执行大多数应用程序的Dalvik虚拟机。&lt;/p&gt;
-&lt;p&gt;总结：Linux和Android启动的区别&lt;br&gt;整个的来看Android的启动过程和Linux的启动过程大同小异，比毕竟他们大体上是一样的只是运行在不同架构的硬件上而已吧。&lt;/p&gt;
-&lt;p&gt;补充:Recovery程序&lt;br&gt;Recovery程序是一段独立代码，它存在于一个引导分区中（正常的启动过程并不会启动到Recovery程序，我的理解），用来更新Android和维护设备。几乎所有的Android设备都有一个用来引导的Recovery程序。Recovery程序可以做很多有用的事情，比如讲设备恢复为出厂、清楚数据缓存以及安装Android操作系统的官方更新。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;X86架构的PC机的启动过程&lt;br&gt;按下电源按钮的直到欢迎页出来之后，linux总共做的事可以分为五步来完成。&lt;br&gt;　　1、  BIOS加电自检：&lt;br&gt;　　加电自检，检测硬件设备。然后按照cmos上面的顺序来搜索处在活动状态下的可以引导的设备。可以是光驱、软盘、USB等
-    
-    </summary>
-    
-    
-      <category term="Linux学习" scheme="http://zone.gaospot.com/tags/Linux%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
