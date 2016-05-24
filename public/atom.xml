@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-24T11:08:22.615Z</updated>
+  <updated>2016-05-24T11:17:56.972Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zone.gaospot.com/2016/05/24/%E7%9B%B4%E6%92%AD%EF%BC%88ulive%EF%BC%89%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/"/>
     <id>http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/</id>
     <published>2016-05-24T11:06:00.000Z</published>
-    <updated>2016-05-24T11:08:22.615Z</updated>
+    <updated>2016-05-24T11:17:56.972Z</updated>
     
     <content type="html">&lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/&quot;&gt;ulive初次使用&lt;/a&gt;的，文中通过介绍使用ucloud提供的测试推拉流域名来进行直播平台的使用。这篇博客则是完整的介绍从推流域名的创建到播放的完整过程。其中推拉流域名都使用我们自己配置的域名。&lt;/p&gt;
 &lt;h3 id=&quot;u62C9_u6D41_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u62C9_u6D41_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;拉流配置&quot;&gt;&lt;/a&gt;拉流配置&lt;/h3&gt;&lt;p&gt;首先到ULive条目下，点击创建加速按钮，选择直播推流加速。然后可以按照界面中示例的进行配置。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%8E%A8%E6%B5%81%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;创建推流&quot;&gt;&lt;br&gt;下面对其中各项做个说明：&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;li&gt;播放域名：这两个域名是用来播放直播的，可以都勾选上。rtmp协议主要用在pc web等等环境中，而hls主要用在移动端，如手机web中。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;创建加速的申请提交之后大概半个小时到一个小时之间应该就能配好。在配置中时，也会提供一个推流域名的cname记录给您配置下这个cname记录，在配置好以后会提供播放的cname记录。配置好的加速大概是这个样子的。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E8%AF%A6%E6%83%85.png&quot; alt=&quot;直播配置好的样子&quot;&gt;&lt;/p&gt;
-&lt;p&gt;直播加申请好以后，获得了上面的cname记录之后就可以进行cname的配置。cname在域名提供商哪里进行配置，下面是我的配置示例。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E8%AF%A6%E6%83%85.png&quot; alt=&quot;直播cname配置&quot;&gt;&lt;/p&gt;
+&lt;p&gt;直播加申请好以后，获得了上面的cname记录之后就可以进行cname的配置。cname在域名提供商哪里进行配置，下面是我的配置示例。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/cname%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;直播cname配置&quot;&gt;&lt;/p&gt;
 &lt;p&gt;进过上面的一系列配置，使用直播过程中在ucloud平台这边的配置也就完成了，下面可以通过配置的推流域名和拉流域名来进行相应的视频上传下播放操作了。&lt;/p&gt;
 &lt;h3 id=&quot;u89C6_u9891_u63A8_u6D41_u548C_u64AD_u653E&quot;&gt;&lt;a href=&quot;#u89C6_u9891_u63A8_u6D41_u548C_u64AD_u653E&quot; class=&quot;headerlink&quot; title=&quot;视频推流和播放&quot;&gt;&lt;/a&gt;视频推流和播放&lt;/h3&gt;&lt;p&gt;下面安装推流和播放的顺序来说明在进行相应操作的时候应该使用的工具和具体的场合。&lt;/p&gt;
 &lt;h4 id=&quot;u63A8_u6D41&quot;&gt;&lt;a href=&quot;#u63A8_u6D41&quot; class=&quot;headerlink&quot; title=&quot;推流&quot;&gt;&lt;/a&gt;推流&lt;/h4&gt;&lt;p&gt;推流主要是移动端，移动端主要是是sdk来自行开发相应的软件实现直播上传的工作。pc端这里只说有一个obs。&lt;br&gt;pc端：这里主要介绍obs，其他情况不做说明。&lt;br&gt;Android app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&lt;/a&gt;&lt;br&gt;ISO app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&lt;/a&gt;&lt;/p&gt;

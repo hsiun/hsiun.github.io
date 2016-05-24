@@ -19,7 +19,7 @@ tags: 产品说明
 ![直播配置好的样子](http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E8%AF%A6%E6%83%85.png)
 
 直播加申请好以后，获得了上面的cname记录之后就可以进行cname的配置。cname在域名提供商哪里进行配置，下面是我的配置示例。
-![直播cname配置](http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E8%AF%A6%E6%83%85.png)
+![直播cname配置](http://7xr7kh.com1.z0.glb.clouddn.com/cname%E9%85%8D%E7%BD%AE.png)
 
 进过上面的一系列配置，使用直播过程中在ucloud平台这边的配置也就完成了，下面可以通过配置的推流域名和拉流域名来进行相应的视频上传下播放操作了。
 
