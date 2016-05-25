@@ -45,7 +45,7 @@ iso and Android web：使用html5的video标签来实现，具体参见下面的
 <html>
 <body>
 
-<video src="http://hls.gaospot.com/lol/1/playlist.m3u8" controls="controls" width="100%" height="100%">
+<video src="http://hls.gaospot.com/***（接入点）/1/playlist.m3u8" controls="controls" width="100%" height="100%">
 your browser does not support the video tag
 </video>
 
