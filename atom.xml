@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-24T11:17:56.972Z</updated>
+  <updated>2016-05-25T13:30:11.105Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>直播（ULive）架构</title>
+    <link href="http://zone.gaospot.com/2016/05/25/%E7%9B%B4%E6%92%AD%EF%BC%88Ulive%EF%BC%89%E6%9E%B6%E6%9E%84/"/>
+    <id>http://zone.gaospot.com/2016/05/25/直播（Ulive）架构/</id>
+    <published>2016-05-25T13:29:00.000Z</published>
+    <updated>2016-05-25T13:30:11.105Z</updated>
+    
+    <content type="html">&lt;p&gt;前面有两篇博客介绍了云直播的使用，这篇博客介绍ulive的架构是如何做的，这里主要是通过整理公开资料写的这篇博客。主要内容都引用自UCloud流媒体研发总监曾凯源分享内容。这篇文章在参考中给出了。&lt;/p&gt;
+&lt;p&gt;文章首先介绍的是直播的应用场景，根据不同的场景来提出不同的需求，再跟进需求来开发产品我觉得这是一个很重要的思想。直播的架构经历了多次的演变，从简单到复杂，从不可靠到可靠的一个变化过程。这里主要就介绍下最后的架构。最后的架构由oc，区域三通机房和合作cdn共同解决。他们的引入无法为了解决两个问题，降低主播推流的延时和用户播放的延时。同时oc的引入降低了BGP机房的压力。同时区域三通点的引入，为BGP机房做容灾，对于同一区域如都在华东的推流和分发，直接走区域三通机房，BGP机房和三通机房部署多个，故障是只要调整路由即可。下面给出一张图做为说明：&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E6%9E%B6%E6%9E%84&quot; alt=&quot;直播架构&quot;&gt;&lt;br&gt;参考：&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzAxOTAzMDEwMA==&amp;amp;mid=2652499688&amp;amp;idx=1&amp;amp;sn=d8ce74eed7ca7e2e9de0e66a6aef0494&amp;amp;scene=2&amp;amp;srcid=0505OgZbZXhyuaRxdGSNJVon&amp;amp;from=timeline&amp;amp;isappinstalled=0&amp;amp;pass_ticket=YoVPy4HOG/PZEe5kIFWtZK10BedpyT9k7etx3R03J7s=#rd&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;直播云平台架构如何构建？【 有料】&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5NDE0MjI4MA==&amp;amp;mid=2656298621&amp;amp;idx=1&amp;amp;sn=5088b182777331106786b55d7f3f657d&amp;amp;scene=21#wechat_redirect&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于直播，所有的技术细节都在这里了（一）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://mp.weixin.qq.com/s?__biz=MjM5NDE0MjI4MA==&amp;amp;mid=2656298657&amp;amp;idx=1&amp;amp;sn=d3e649f5809421b09a97b863809825a1&amp;amp;scene=21#wechat_redirect&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于直播，所有的技术细节都在这里了（二）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MjM5NDE0MjI4MA==&amp;amp;mid=2656298664&amp;amp;idx=1&amp;amp;sn=e5844d067c1a04673bcdeb007ad6b05c&amp;amp;scene=1&amp;amp;srcid=0516uvDRnn3CUBHxCGjPPsOK&amp;amp;pass_ticket=YoVPy4HOG/PZEe5kIFWtZK10BedpyT9k7etx3R03J7s=#rd&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于直播，所有的技术细节都在这里了（三）&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面有两篇博客介绍了云直播的使用，这篇博客介绍ulive的架构是如何做的，这里主要是通过整理公开资料写的这篇博客。主要内容都引用自UCloud流媒体研发总监曾凯源分享内容。这篇文章在参考中给出了。&lt;/p&gt;
+&lt;p&gt;文章首先介绍的是直播的应用场景，根据不同的场景来提出不同的需求
+    
+    </summary>
+    
+    
+      <category term="产品说明" scheme="http://zone.gaospot.com/tags/%E4%BA%A7%E5%93%81%E8%AF%B4%E6%98%8E/"/>
+    
+  </entry>
+  
+  <entry>
     <title>云直播（ULive）进阶使用</title>
     <link href="http://zone.gaospot.com/2016/05/24/%E7%9B%B4%E6%92%AD%EF%BC%88ulive%EF%BC%89%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/"/>
     <id>http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/</id>
     <published>2016-05-24T11:06:00.000Z</published>
-    <updated>2016-05-24T11:17:56.972Z</updated>
+    <updated>2016-05-25T11:29:57.510Z</updated>
     
     <content type="html">&lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/&quot;&gt;ulive初次使用&lt;/a&gt;的，文中通过介绍使用ucloud提供的测试推拉流域名来进行直播平台的使用。这篇博客则是完整的介绍从推流域名的创建到播放的完整过程。其中推拉流域名都使用我们自己配置的域名。&lt;/p&gt;
 &lt;h3 id=&quot;u62C9_u6D41_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u62C9_u6D41_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;拉流配置&quot;&gt;&lt;/a&gt;拉流配置&lt;/h3&gt;&lt;p&gt;首先到ULive条目下，点击创建加速按钮，选择直播推流加速。然后可以按照界面中示例的进行配置。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%8E%A8%E6%B5%81%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;创建推流&quot;&gt;&lt;br&gt;下面对其中各项做个说明：&lt;/p&gt;
@@ -35,7 +58,7 @@
 &lt;h3 id=&quot;u89C6_u9891_u63A8_u6D41_u548C_u64AD_u653E&quot;&gt;&lt;a href=&quot;#u89C6_u9891_u63A8_u6D41_u548C_u64AD_u653E&quot; class=&quot;headerlink&quot; title=&quot;视频推流和播放&quot;&gt;&lt;/a&gt;视频推流和播放&lt;/h3&gt;&lt;p&gt;下面安装推流和播放的顺序来说明在进行相应操作的时候应该使用的工具和具体的场合。&lt;/p&gt;
 &lt;h4 id=&quot;u63A8_u6D41&quot;&gt;&lt;a href=&quot;#u63A8_u6D41&quot; class=&quot;headerlink&quot; title=&quot;推流&quot;&gt;&lt;/a&gt;推流&lt;/h4&gt;&lt;p&gt;推流主要是移动端，移动端主要是是sdk来自行开发相应的软件实现直播上传的工作。pc端这里只说有一个obs。&lt;br&gt;pc端：这里主要介绍obs，其他情况不做说明。&lt;br&gt;Android app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&lt;/a&gt;&lt;br&gt;ISO app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;u64AD_u653E&quot;&gt;&lt;a href=&quot;#u64AD_u653E&quot; class=&quot;headerlink&quot; title=&quot;播放&quot;&gt;&lt;/a&gt;播放&lt;/h4&gt;&lt;p&gt;首先如果不愿安装任何软件的话，可以使用web端的rtmp拉流测试工具&lt;a href=&quot;http://www.cutv.com/demo/live_test.swf。或者安装了vlc的话，可以直接使用vlc来播放。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cutv.com/demo/live_test.swf。或者安装了vlc的话，可以直接使用vlc来播放。&lt;/a&gt;&lt;br&gt;pc web：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/uvideo/web_sdk.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/uvideo/web_sdk.html&lt;/a&gt;&lt;br&gt;pc app：任何支持rtmp协议的软件都可以。&lt;br&gt;iso app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_IOS_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_IOS_SDK.html&lt;/a&gt;&lt;br&gt;Android app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_Android_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_Android_SDK.html&lt;/a&gt;&lt;br&gt;iso and Android web：使用html5的video标签来实现，具体参见下面的代码。&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://hls.gaospot.com/lol/1/playlist.m3u8&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;controls&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;your browser does not support the video tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://hls.gaospot.com/***（接入点）/1/playlist.m3u8&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;controls&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;your browser does not support the video tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 </content>
     
     <summary type="html">
@@ -844,40 +867,6 @@
     
     
       <category term="个人总结" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Centos6.5安装mysql5.6</title>
-    <link href="http://zone.gaospot.com/2015/11/19/Centos6.5%E5%AE%89%E8%A3%85mysql5.6/"/>
-    <id>http://zone.gaospot.com/2015/11/19/Centos6.5安装mysql5.6/</id>
-    <published>2015-11-18T22:41:00.000Z</published>
-    <updated>2016-04-29T07:32:08.535Z</updated>
-    
-    <content type="html">&lt;p&gt;centos6.5源默认的MySQL好像是5.1。如果需要安装其他版本的mysql可以通过下载mysql相应版本的rpm包来实现。这篇博客记录的就是使用yum在Centos6.5版本的系统上安装MySQL5.6。安装包是”架构相关的”因此应用需要32位（i386）或者64位（x86_64）的操作系统。&lt;/p&gt;
-&lt;p&gt;操作时具体的环境&lt;br&gt;操作系统：Centos6.5&lt;br&gt;架构：X86_64&lt;/p&gt;
-&lt;p&gt;依照下面的步骤可以安装Mysql5.6&lt;br&gt;第一步：登入到服务器中，并且下载yum的rpm包。（URL：&lt;a href=&quot;http://dev.mysql.com/downloads/repo/）&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dev.mysql.com/downloads/repo/）&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install wget  &amp;#10;wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;第二步：安装下载的rpm包&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rpm -ivh mysql-community-release-el6-5.noarch.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;第三步：在命令行中安装mysql5.6，使用yum的方式安装，依赖的软件包会一并安装。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install mysql-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;第四步：安装完mysql服务器之后使用命令把服务启动起来&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/etc/init.d/mysqld start  &amp;#10;&amp;#25110;&amp;#32773;&amp;#10;&amp;#10;service mysqld start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;第五步：因为mysql服务器默认安装时没有密码的，必须从新设置mysql的密码&lt;br&gt;可以使用下面的命令来完成一系列的安全设置&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql_secure_installation  &amp;#10;&amp;#20063;&amp;#21487;&amp;#20197;&amp;#20351;&amp;#29992;&amp;#19979;&amp;#38754;&amp;#30340;&amp;#26041;&amp;#27861;&amp;#10;&amp;#10;mysql -u root  &amp;#10;&amp;#10;mysql&amp;#62; use mysql;  &amp;#10;mysql&amp;#62; update user set password=PASSWORD(&amp;#34;GIVE-NEW-ROOT-PASSWORD&amp;#34;) where User=&amp;#39;root&amp;#39;;  &amp;#10;mysql&amp;#62; flush privileges;  &amp;#10;mysql&amp;#62; quit&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;自此，mysql便安装完成了。过程还是非常简单的，做个记录供以后回顾。下面是mysql的一些基础知识。&lt;/p&gt;
-&lt;p&gt;首先一点要说的是数据库和数据库实例的区别，他们两者之间的区别让我想到了程序和进程之间的区别，其实他们之间的区别是一样的。数据库就是指静态的在文件系统上存在的文件，而数据库实例指的则是运行在内存中的数据库后台线程和数据的内存区。这就像程序一般我们是讲静态的程序文件，而进程则是讲程序在内存中运行的状态。关于数据库和实例的定义这里借用《MySQL技术内幕》这本书中的相关说明：&lt;/p&gt;
-&lt;p&gt;数据库：物理操作系统文件或其他形式文件类型的集合。在Mysql数据库中，数据库文件可以是frm，MYD，MYI，ibd结尾的文件。当使用NDB引擎时，数据库的文件可能不是操作系统上的文件，而是存放于内存之中的文件，但是定义仍然不变。&lt;br&gt;实例：Mysql数据库由后台线程以及一个共享内存区组成。共享内存可以被运行的后台线程所共享。需要牢记的是，数据库才是真正操作数据库文件的。&lt;/p&gt;
-&lt;p&gt;Mysql进程：mysql被设计为一个但进程多线程架构的数据库。在linux系统中，创建进程所需的花销要远大于创建线程。进程的创建需要复制整个进程的所有数据，而新建线程的数据如文件描述符等是共享的。mysql在linux系统只会有一个进程，可以使用ps命令确认。&lt;/p&gt;
-&lt;p&gt;ps -ef | grep mysqld&lt;br&gt;1&lt;br&gt;1&lt;br&gt;配置文件：当Mysql启动时，会去配置文件，然后根据配置文件中的参数来启动数据库，Mysql有系列的配置文件，他会根据一定的顺序依次读取。后面读取的配置后覆盖前面相同的配置。可以使用下面的命令确认。&lt;/p&gt;
-&lt;p&gt;mysql –help | grep my.cnf&lt;br&gt;1&lt;br&gt;1&lt;br&gt;数据文件：在配置文件中有数据所在位置的参数，具体参数名叫做datadir的。在linux中默认是/usr/local/mysql/data。这个参数是可以修改的，默认是一个链接。可以使用下面命令验证，在mysql命令行中使用bash命令，可以通过在命令前加system关键字的方式实现。&lt;/p&gt;
-&lt;p&gt;SHOW VARIABLES LIKE ‘datadir’\G;&lt;br&gt;1&lt;br&gt;1&lt;br&gt;其他&lt;a href=&quot;http://dev.mysql.com/doc/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://dev.mysql.com/doc/&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;centos6.5源默认的MySQL好像是5.1。如果需要安装其他版本的mysql可以通过下载mysql相应版本的rpm包来实现。这篇博客记录的就是使用yum在Centos6.5版本的系统上安装MySQL5.6。安装包是”架构相关的”因此应用需要32位（i386）或者64位
-    
-    </summary>
-    
-    
-      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
