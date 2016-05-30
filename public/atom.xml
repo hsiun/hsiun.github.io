@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-30T17:33:22.682Z</updated>
+  <updated>2016-05-30T17:42:57.558Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zone.gaospot.com/2016/05/31/UCDN%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/"/>
     <id>http://zone.gaospot.com/2016/05/31/UCDN配置过程/</id>
     <published>2016-05-30T16:06:00.000Z</published>
-    <updated>2016-05-30T17:33:22.682Z</updated>
+    <updated>2016-05-30T17:42:57.558Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。&lt;/p&gt;
 &lt;h3 id=&quot;u8FC7_u7A0B_u8BF4_u660E&quot;&gt;&lt;a href=&quot;#u8FC7_u7A0B_u8BF4_u660E&quot; class=&quot;headerlink&quot; title=&quot;过程说明&quot;&gt;&lt;/a&gt;过程说明&lt;/h3&gt;&lt;p&gt;1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十分钟就能配置好，配置好后在在域名供应商那边配置下cname记录就可以通过加速域名访问了。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;CDN配置&quot;&gt;&lt;/p&gt;
