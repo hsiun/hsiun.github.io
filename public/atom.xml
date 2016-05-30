@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-25T13:30:11.105Z</updated>
+  <updated>2016-05-30T16:05:45.777Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://zone.gaospot.com/2016/05/31/UCDN%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/"/>
+    <id>http://zone.gaospot.com/2016/05/31/UCDN配置过程/</id>
+    <published>2016-05-30T16:05:58.222Z</published>
+    <updated>2016-05-30T16:05:45.777Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>直播（ULive）架构</title>
@@ -43,9 +59,10 @@
     <link href="http://zone.gaospot.com/2016/05/24/%E7%9B%B4%E6%92%AD%EF%BC%88ulive%EF%BC%89%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/"/>
     <id>http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/</id>
     <published>2016-05-24T11:06:00.000Z</published>
-    <updated>2016-05-25T11:29:57.510Z</updated>
+    <updated>2016-05-30T16:33:32.593Z</updated>
     
-    <content type="html">&lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/&quot;&gt;ulive初次使用&lt;/a&gt;的，文中通过介绍使用ucloud提供的测试推拉流域名来进行直播平台的使用。这篇博客则是完整的介绍从推流域名的创建到播放的完整过程。其中推拉流域名都使用我们自己配置的域名。&lt;/p&gt;
+    <content type="html">&lt;h4 id=&quot;u66F4_u65B0&quot;&gt;&lt;a href=&quot;#u66F4_u65B0&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h4&gt;&lt;p&gt;2016年5月30 增加产品功能说明&lt;/p&gt;
+&lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/&quot;&gt;ulive初次使用&lt;/a&gt;的，文中通过介绍使用ucloud提供的测试推拉流域名来进行直播平台的使用。这篇博客则是完整的介绍从推流域名的创建到播放的完整过程。其中推拉流域名都使用我们自己配置的域名。&lt;/p&gt;
 &lt;h3 id=&quot;u62C9_u6D41_u914D_u7F6E&quot;&gt;&lt;a href=&quot;#u62C9_u6D41_u914D_u7F6E&quot; class=&quot;headerlink&quot; title=&quot;拉流配置&quot;&gt;&lt;/a&gt;拉流配置&lt;/h3&gt;&lt;p&gt;首先到ULive条目下，点击创建加速按钮，选择直播推流加速。然后可以按照界面中示例的进行配置。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%8E%A8%E6%B5%81%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;创建推流&quot;&gt;&lt;br&gt;下面对其中各项做个说明：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;推流域名：指流上传的域名，这个主要是配置在需要上传端的工具中的，如使用sdk推流则在sdk中配置，如使用obs则在obs中配置。&lt;/li&gt;
@@ -59,11 +76,16 @@
 &lt;h4 id=&quot;u63A8_u6D41&quot;&gt;&lt;a href=&quot;#u63A8_u6D41&quot; class=&quot;headerlink&quot; title=&quot;推流&quot;&gt;&lt;/a&gt;推流&lt;/h4&gt;&lt;p&gt;推流主要是移动端，移动端主要是是sdk来自行开发相应的软件实现直播上传的工作。pc端这里只说有一个obs。&lt;br&gt;pc端：这里主要介绍obs，其他情况不做说明。&lt;br&gt;Android app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Android_SDK.html&lt;/a&gt;&lt;br&gt;ISO app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_IOS_SDK.html&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;u64AD_u653E&quot;&gt;&lt;a href=&quot;#u64AD_u653E&quot; class=&quot;headerlink&quot; title=&quot;播放&quot;&gt;&lt;/a&gt;播放&lt;/h4&gt;&lt;p&gt;首先如果不愿安装任何软件的话，可以使用web端的rtmp拉流测试工具&lt;a href=&quot;http://www.cutv.com/demo/live_test.swf。或者安装了vlc的话，可以直接使用vlc来播放。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cutv.com/demo/live_test.swf。或者安装了vlc的话，可以直接使用vlc来播放。&lt;/a&gt;&lt;br&gt;pc web：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/uvideo/web_sdk.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/uvideo/web_sdk.html&lt;/a&gt;&lt;br&gt;pc app：任何支持rtmp协议的软件都可以。&lt;br&gt;iso app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_IOS_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_IOS_SDK.html&lt;/a&gt;&lt;br&gt;Android app：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_Android_SDK.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/ULive_Player_Android_SDK.html&lt;/a&gt;&lt;br&gt;iso and Android web：使用html5的video标签来实现，具体参见下面的代码。&lt;/p&gt;
 &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE HTML&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://hls.gaospot.com/***（接入点）/1/playlist.m3u8&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;controls&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;100%&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;your browser does not support the video tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;u4EA7_u54C1_u529F_u80FD_u8BF4_u660E&quot;&gt;&lt;a href=&quot;#u4EA7_u54C1_u529F_u80FD_u8BF4_u660E&quot; class=&quot;headerlink&quot; title=&quot;产品功能说明&quot;&gt;&lt;/a&gt;产品功能说明&lt;/h4&gt;&lt;p&gt;1、提供了API接口，支持API访问，访问的方法是其他API调用方式相同。需要先进行身份验证。详细说明请参考官方文档。&lt;/p&gt;
+&lt;p&gt;2、支持推流鉴权。ULive通过采用对某些字段进行md5加密的方法来检验url是否合法。推流/播放的鉴权都可以做。只不过播放叫防盗链：）。此操作无法在控制完成，需要联系技术支持处理。&lt;/p&gt;
+&lt;p&gt;3、支持回调功能。可以通过配置回调功能在推流开始、结束或者出现偶然性断开是通知用户。此操作无法在控制完成，需要联系技术支持处理。&lt;/p&gt;
+&lt;p&gt;4、支持直播录制功能。录制好的视频直接保存在UVideo中。此功能直接支持，详细说明可以参考文档说明。&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/live_stream.html#id5&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/live_stream.html#id5&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/&quot;&gt;uliv
+      &lt;h4 id=&quot;u66F4_u65B0&quot;&gt;&lt;a href=&quot;#u66F4_u65B0&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h4&gt;&lt;p&gt;2016年5月30 增加产品功能说明&lt;/p&gt;
+&lt;p&gt;之前有一篇博客介绍&lt;a href=&quot;http://z
     
     </summary>
     
@@ -739,7 +761,7 @@
     <link href="http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/"/>
     <id>http://zone.gaospot.com/2016/03/30/UCloud上LAMP小型网站搭建与测试/</id>
     <published>2016-03-30T09:57:23.000Z</published>
-    <updated>2016-03-31T15:38:37.121Z</updated>
+    <updated>2016-05-30T15:30:45.296Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u76EE_u5F55&quot;&gt;&lt;a href=&quot;#u76EE_u5F55&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;介绍&lt;/li&gt;
@@ -768,7 +790,7 @@
 &lt;p&gt;启动Apache&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# service httpd restart&amp;#10;# chkconfig httpd on&amp;#10;# echo &amp;#8220;&amp;#60;?php phpinfo();&amp;#8221; &amp;#62; /var/www/html/phpinfo.php&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;打开浏览器，输入下面URL(记得解析DNS，或者修改hosts文件)&lt;br&gt;&lt;a href=&quot;http://www.domain.com/phpinfo.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.domain.com/phpinfo.php&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;启动MySQL&lt;br&gt;MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf&lt;/p&gt;
+&lt;p&gt;启动MySQL&lt;br&gt;MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf。当然也可以保留/etc/my.cnf，根据自己的需要进行配置。&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# ls /usr/share/mysql/*.cnf&amp;#10;# service mysqld start&amp;#10;# chkconfig mysqld on&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;u6253_u5F00UCloud_u9632_u706B_u5899&quot;&gt;&lt;a href=&quot;#u6253_u5F00UCloud_u9632_u706B_u5899&quot; class=&quot;headerlink&quot; title=&quot;打开UCloud防火墙&quot;&gt;&lt;/a&gt;打开UCloud防火墙&lt;/h3&gt;&lt;p&gt;UCloud平台提供了一个防火墙，在控制台打开，初次使用的很容易忽略这个问题，导致业务无法再外网访问。基本的方法是创建一个新的防火墙，然后绑定到主机上。防火墙字网络UNET下，找到外网防火墙。点创建防火墙按钮，创建一个新的防火墙。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%953.png&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
 &lt;p&gt;创建防火墙规则&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%954.png&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
@@ -834,39 +856,6 @@
     
     
       <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello Hexo —— 我的个人博客搭建记录</title>
-    <link href="http://zone.gaospot.com/2016/01/15/Hello%20Hexo%20%E2%80%94%E2%80%94%20%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
-    <id>http://zone.gaospot.com/2016/01/15/Hello Hexo —— 我的个人博客搭建记录/</id>
-    <published>2016-01-15T09:49:42.000Z</published>
-    <updated>2016-05-05T12:14:31.673Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程的记录。Hexo搭建过程非常简单，官方文档写的非常清楚。这篇 博客的写作原因仅仅在于记录自己的安装过程。作为一个记录。&lt;/p&gt;
-&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;Hexo的安装过程依赖Node.js和Git，所以安装Hexo前需要先安装着两个软件。他们的下载地址可以参考下面的链接。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://nodejs.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Node.js&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;/git-scm.com&quot;&gt;Git&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;安装过程非常简单，也就是下载两个软件包安装就可以了。其中node.js的安装，可以先安装nvm，通过nvm来安装node.js。&lt;/p&gt;
-&lt;h3 id=&quot;Hexo_u7684_u5B89_u88C5&quot;&gt;&lt;a href=&quot;#Hexo_u7684_u5B89_u88C5&quot; class=&quot;headerlink&quot; title=&quot;Hexo的安装&quot;&gt;&lt;/a&gt;Hexo的安装&lt;/h3&gt;&lt;p&gt;hexo安装可以在命令行下完成。通过借助使用git bash来执行下列命令，git bash的启动在任意一个目录中右键，找到git bash点击就可运行。这个方法在使用github管理代码的时候，生成本地证书的时候还会用到。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ npm install -g hexo-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u4F7F_u7528Hexo_u5EFA_u7AD9&quot;&gt;&lt;a href=&quot;#u4F7F_u7528Hexo_u5EFA_u7AD9&quot; class=&quot;headerlink&quot; title=&quot;使用Hexo建站&quot;&gt;&lt;/a&gt;使用Hexo建站&lt;/h3&gt;&lt;p&gt;首先创建好需要存放站点的目录，在这里是&lt;folder&gt;。通过下面命令可以在&lt;folder&gt;目录下生成建站所需的文件&lt;/folder&gt;&lt;/folder&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo init &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801&quot;&gt;&lt;a href=&quot;#u4F7F_u7528git_u7BA1_u7406_u4EE3_u7801&quot; class=&quot;headerlink&quot; title=&quot;使用git管理代码&quot;&gt;&lt;/a&gt;使用git管理代码&lt;/h3&gt;&lt;p&gt;修改&lt;folder&gt;目录下的_config.yml文件，添加下面行，表示使用git来管理代码，并把代码托管在github上。当然首先需要您在github上创建yourname.github.io项目。这里的托管方式借鉴网上一些方法，使用master分支来管理静态网站。code分支来管理生成静态文件的代码。&lt;/folder&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&amp;#10;  type: git&amp;#10;  repo: git@github.com:yourname/yourname.github.io.git&amp;#10;  branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u628A_u4EE3_u7801_u90E8_u7F72_u5230github&quot;&gt;&lt;a href=&quot;#u628A_u4EE3_u7801_u90E8_u7F72_u5230github&quot; class=&quot;headerlink&quot; title=&quot;把代码部署到github&quot;&gt;&lt;/a&gt;把代码部署到github&lt;/h3&gt;&lt;p&gt;运行下面命令就可以将代码部署到github了。&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C&quot;&gt;&lt;a href=&quot;#u8BBF_u95EEyourname-github-io_u89C2_u5BDF_u6548_u679C&quot; class=&quot;headerlink&quot; title=&quot;访问yourname.github.io观察效果&quot;&gt;&lt;/a&gt;访问yourname.github.io观察效果&lt;/h3&gt;&lt;p&gt;参考：&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo你的博客&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;是一个Node编写的，可以根据Markdown语法生成静态文件的博客系统，这篇博客是根据网上教程，使用Hexo + Github搭建个人博客过程
-    
-    </summary>
-    
-    
-      <category term="个人总结" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

@@ -65,7 +65,7 @@ DocumentRoot /var/www/html/
 http://www.domain.com/phpinfo.php
 
 启动MySQL
-MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf
+MySQL默认有生成几个配置文件，可以根据自己的硬件情况把文件复制到/etc/my.cnf。当然也可以保留/etc/my.cnf，根据自己的需要进行配置。
 
 ``` shell
 # ls /usr/share/mysql/*.cnf
