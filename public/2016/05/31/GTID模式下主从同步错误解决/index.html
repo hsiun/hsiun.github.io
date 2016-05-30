@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="GaoSpot">
 <meta property="og:description" content="GTID简介什么是GTIDGTID(Global Transaction ID)是对于一个已提交事务的编号，并且是一个全局唯一的编号。GTID实际上是由UUID+TID组成的。其中UUID是一个MySQL实例的唯一标识。TID代表了该实例上已经提交的事务数量，并且随着事务提交单调递增。下面是一个GTID的具体形式
 3E11FA47-71CA-11E1-9E33-C80AA9429562:23更详细">
-<meta property="og:updated_time" content="2016-05-30T19:21:54.732Z">
+<meta property="og:updated_time" content="2016-05-30T19:26:07.803Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql备份与恢复">
 <meta name="twitter:description" content="GTID简介什么是GTIDGTID(Global Transaction ID)是对于一个已提交事务的编号，并且是一个全局唯一的编号。GTID实际上是由UUID+TID组成的。其中UUID是一个MySQL实例的唯一标识。TID代表了该实例上已经提交的事务数量，并且随着事务提交单调递增。下面是一个GTID的具体形式
@@ -197,7 +197,7 @@
 <h3 id="u4E3B_u4ECE_u540C_u6B65_u9519_u8BEF_u7684_u4E00_u822C_u5904_u7406_u529E_u6CD5"><a href="#u4E3B_u4ECE_u540C_u6B65_u9519_u8BEF_u7684_u4E00_u822C_u5904_u7406_u529E_u6CD5" class="headerlink" title="主从同步错误的一般处理办法"></a>主从同步错误的一般处理办法</h3><p>一般来说遇到主从同步错误都会先执行下 <code>mysql&gt; show slave status\G</code> 检查下从库上两个IO线程的情况，在判断接下来改如何处理。一般的处理步骤在从库设置sql_slave_skip_counter。<br>1、 停止slave: stop slave;”,<br>2、 设置跳过slave同步语句数： set global sql_slave_skip_counter = 1;”,<br>3、 启动slave： start slave;”,<br>4、 确认同步是否正确： show slave status G 确认”,</p>
 <p>但是当从库开启了GTID时，执行set global sql_slave_skip_counter = 1;时会报错。报错如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1858 (HY000): sql_slave_skip_counter can not be set when the server is run&#10;ning with @@GLOBAL.GTID_MODE = ON. Instead, for each transaction that you want t&#10;o skip, generate an empty transaction with the same GTID as the transaction</span><br></pre></td></tr></table></figure></p>
 <p>这个意思是说开启了GTID_MODE不能跳过。<br>在我们执行show slave status\G;时，有下面两行是关于这个GTID的需要注意。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Retrieved_Gtid_Set: a99ac96f-18de-11e6-b507-525400da7a6f:172-1620&#10;Executed_Gtid_Set: 3e5bec07-1ced-11e6-8f7c-525400bf7a4d:1-7,&#10;a99ac96f-18de-11e6-b507-525400da7a6f:1-1581</span><br></pre></td></tr></table></figure></p>
-<p>这次主从同步在执行a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的事务时候失败。<br>这个事务向数据库里面插了一条记录，而这条记录在从库上已经被插入过了。插入的GTID是：3e5bec07-1ced-11e6-8f7c-525400bf7a4d:3</p>
+<p>这次主从同步在执行a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的事务时候失败。<br>这个事务向数据库里面插了一条记录，而这条记录在从库上已经被插入过了。插入的GTID是：3e5bec07-1ced-11e6-8f7c-525400bf7a4d:3。从库已经从主库拿到172-1620了，但是实际executed的只有到1581，那说明执行卡在1582了</p>
 <p>解决方法是在从库上跳过a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的执行。可以在从库执行如下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&#62; STOP SLAVE;&#10;&#10;Query OK, 0 rows affected (0.00 sec)&#10;mysql&#62; SET SESSION GTID_NEXT = &#8217;a99ac96f-18de-11e6-b507-525400da7a6f:1582&#8242;;&#10;Query OK, 0 rows affected (0.00 sec)&#10;mysql&#62; BEGIN; COMMIT;&#10;Query OK, 0 rows affected (0.00 sec)&#10;Query OK, 0 rows affected (0.00 sec)&#10;&#10; &#10;&#10;mysql&#62; SET SESSION GTID_NEXT = AUTOMATIC;&#10;&#10;Query OK, 0 rows affected (0.00 sec)&#10;&#10;mysql&#62; START SLAVE;</span><br></pre></td></tr></table></figure>
 <p>然后他就会跳过这个事务继续往下执行了</p>
@@ -211,7 +211,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/" data-id="ciouekfvi0025fokoc9qrpo7z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/" data-id="ciouepaol00259kkocx65ibrp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

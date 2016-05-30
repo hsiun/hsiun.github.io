@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-30T19:21:54.732Z</updated>
+  <updated>2016-05-30T19:26:07.803Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zone.gaospot.com/2016/05/31/GTID%E6%A8%A1%E5%BC%8F%E4%B8%8B%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/"/>
     <id>http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/</id>
     <published>2016-05-30T18:35:00.000Z</published>
-    <updated>2016-05-30T19:21:54.732Z</updated>
+    <updated>2016-05-30T19:26:07.803Z</updated>
     
     <content type="html">&lt;h3 id=&quot;GTID_u7B80_u4ECB&quot;&gt;&lt;a href=&quot;#GTID_u7B80_u4ECB&quot; class=&quot;headerlink&quot; title=&quot;GTID简介&quot;&gt;&lt;/a&gt;GTID简介&lt;/h3&gt;&lt;h4 id=&quot;u4EC0_u4E48_u662FGTID&quot;&gt;&lt;a href=&quot;#u4EC0_u4E48_u662FGTID&quot; class=&quot;headerlink&quot; title=&quot;什么是GTID&quot;&gt;&lt;/a&gt;什么是GTID&lt;/h4&gt;&lt;p&gt;GTID(Global Transaction ID)是对于一个已提交事务的编号，并且是一个全局唯一的编号。&lt;br&gt;GTID实际上是由UUID+TID组成的。其中UUID是一个MySQL实例的唯一标识。TID代表了该实例上已经提交的事务数量，并且随着事务提交单调递增。下面是一个GTID的具体形式&lt;/p&gt;
 &lt;p&gt;3E11FA47-71CA-11E1-9E33-C80AA9429562:23&lt;br&gt;更详细的介绍可以参见：官方文档&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;h3 id=&quot;u4E3B_u4ECE_u540C_u6B65_u9519_u8BEF_u7684_u4E00_u822C_u5904_u7406_u529E_u6CD5&quot;&gt;&lt;a href=&quot;#u4E3B_u4ECE_u540C_u6B65_u9519_u8BEF_u7684_u4E00_u822C_u5904_u7406_u529E_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;主从同步错误的一般处理办法&quot;&gt;&lt;/a&gt;主从同步错误的一般处理办法&lt;/h3&gt;&lt;p&gt;一般来说遇到主从同步错误都会先执行下 &lt;code&gt;mysql&amp;gt; show slave status\G&lt;/code&gt; 检查下从库上两个IO线程的情况，在判断接下来改如何处理。一般的处理步骤在从库设置sql_slave_skip_counter。&lt;br&gt;1、 停止slave: stop slave;”,&lt;br&gt;2、 设置跳过slave同步语句数： set global sql_slave_skip_counter = 1;”,&lt;br&gt;3、 启动slave： start slave;”,&lt;br&gt;4、 确认同步是否正确： show slave status G 确认”,&lt;/p&gt;
 &lt;p&gt;但是当从库开启了GTID时，执行set global sql_slave_skip_counter = 1;时会报错。报错如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ERROR 1858 (HY000): sql_slave_skip_counter can not be set when the server is run&amp;#10;ning with @@GLOBAL.GTID_MODE = ON. Instead, for each transaction that you want t&amp;#10;o skip, generate an empty transaction with the same GTID as the transaction&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;这个意思是说开启了GTID_MODE不能跳过。&lt;br&gt;在我们执行show slave status\G;时，有下面两行是关于这个GTID的需要注意。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Retrieved_Gtid_Set: a99ac96f-18de-11e6-b507-525400da7a6f:172-1620&amp;#10;Executed_Gtid_Set: 3e5bec07-1ced-11e6-8f7c-525400bf7a4d:1-7,&amp;#10;a99ac96f-18de-11e6-b507-525400da7a6f:1-1581&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这次主从同步在执行a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的事务时候失败。&lt;br&gt;这个事务向数据库里面插了一条记录，而这条记录在从库上已经被插入过了。插入的GTID是：3e5bec07-1ced-11e6-8f7c-525400bf7a4d:3&lt;/p&gt;
+&lt;p&gt;这次主从同步在执行a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的事务时候失败。&lt;br&gt;这个事务向数据库里面插了一条记录，而这条记录在从库上已经被插入过了。插入的GTID是：3e5bec07-1ced-11e6-8f7c-525400bf7a4d:3。从库已经从主库拿到172-1620了，但是实际executed的只有到1581，那说明执行卡在1582了&lt;/p&gt;
 &lt;p&gt;解决方法是在从库上跳过a99ac96f-18de-11e6-b507-525400da7a6f:1582这个GTID的执行。可以在从库执行如下命令：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql&amp;#62; STOP SLAVE;&amp;#10;&amp;#10;Query OK, 0 rows affected (0.00 sec)&amp;#10;mysql&amp;#62; SET SESSION GTID_NEXT = &amp;#8217;a99ac96f-18de-11e6-b507-525400da7a6f:1582&amp;#8242;;&amp;#10;Query OK, 0 rows affected (0.00 sec)&amp;#10;mysql&amp;#62; BEGIN; COMMIT;&amp;#10;Query OK, 0 rows affected (0.00 sec)&amp;#10;Query OK, 0 rows affected (0.00 sec)&amp;#10;&amp;#10; &amp;#10;&amp;#10;mysql&amp;#62; SET SESSION GTID_NEXT = AUTOMATIC;&amp;#10;&amp;#10;Query OK, 0 rows affected (0.00 sec)&amp;#10;&amp;#10;mysql&amp;#62; START SLAVE;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然后他就会跳过这个事务继续往下执行了&lt;/p&gt;
