@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-05-30T16:05:45.777Z</updated>
+  <updated>2016-05-30T17:33:22.682Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -16,18 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>UCDN配置过程</title>
     <link href="http://zone.gaospot.com/2016/05/31/UCDN%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/"/>
     <id>http://zone.gaospot.com/2016/05/31/UCDN配置过程/</id>
-    <published>2016-05-30T16:05:58.222Z</published>
-    <updated>2016-05-30T16:05:45.777Z</updated>
+    <published>2016-05-30T16:06:00.000Z</published>
+    <updated>2016-05-30T17:33:22.682Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。&lt;/p&gt;
+&lt;h3 id=&quot;u8FC7_u7A0B_u8BF4_u660E&quot;&gt;&lt;a href=&quot;#u8FC7_u7A0B_u8BF4_u660E&quot; class=&quot;headerlink&quot; title=&quot;过程说明&quot;&gt;&lt;/a&gt;过程说明&lt;/h3&gt;&lt;p&gt;1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十分钟就能配置好，配置好后在在域名供应商那边配置下cname记录就可以通过加速域名访问了。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;CDN配置&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;加速域名，指需要使用cdn加速的域名，比如：example.com，不能以http或者https开头&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加速区域，目前支持国内和国外加速，默认为国内加速。流量计费模式下，只有购买了国外流量才能选择国外加速区域，带宽计费模式没有限制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;测试url，请输入一个文件的url地址，用于测试网址的连通性和可用性，域名要与前面填写的加速域名一致。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;源站，指创建加速域名对应的ip。支持多个回源ip或者一个回源域名。如果是多个回源ip是以访问最快策略去调用多个ip，如果是回源域名，cdn会先从回源域名获取访问ip，再回源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、在控制配置好后还需要在域名供应商那边做一次配置。做cname的过程可以参考下面的配置。注意每个加速的cname都是不一样的。请从您的CDN控制复制CDN域名。&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;CDN配置&quot;&gt;&lt;/p&gt;
+&lt;p&gt;3、验证方法就是通过访问上面的测试连接，看http头部是否是hit的来判断。具体参考这里：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3&lt;/a&gt;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上
+    
     </summary>
     
+    
+      <category term="产品说明" scheme="http://zone.gaospot.com/tags/%E4%BA%A7%E5%93%81%E8%AF%B4%E6%98%8E/"/>
     
   </entry>
   
