@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux下的局域网小工具 | GaoSpot</title>
+    <title>nginx配合rtmp模块搭建流服务器 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1、Sniffer工作原理在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧。所以Sniffer所能监听的信息仅限于同一个物理网络内传输的数据。
-2、Sniffit的安装在Debian可以使用软件源安装。命令如">
+    <meta name="description" content="本篇博客通过介绍使用nginx的rtmp模块来使nginx服务支持rtmp协议，可以完成推流和播放的功能。博客的内容完全出自参考1，参考2比较完整还介绍了除了介绍rtmp还介绍了hls。这篇博客主要介绍rtmp相关的内容。
+准备首先你需要一台安装了linux系统的主机，无论是云主机啊什么的都可以，甚至是树莓派也没问题。window应该也是可以的，但不是这里使用的环境，如果是想在window下测试，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux下的局域网小工具">
-<meta property="og:url" content="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/index.html">
+<meta property="og:title" content="nginx配合rtmp模块搭建流服务器">
+<meta property="og:url" content="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="1、Sniffer工作原理在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧。所以Sniffer所能监听的信息仅限于同一个物理网络内传输的数据。
-2、Sniffit的安装在Debian可以使用软件源安装。命令如">
-<meta property="og:updated_time" content="2016-04-29T07:15:52.881Z">
+<meta property="og:description" content="本篇博客通过介绍使用nginx的rtmp模块来使nginx服务支持rtmp协议，可以完成推流和播放的功能。博客的内容完全出自参考1，参考2比较完整还介绍了除了介绍rtmp还介绍了hls。这篇博客主要介绍rtmp相关的内容。
+准备首先你需要一台安装了linux系统的主机，无论是云主机啊什么的都可以，甚至是树莓派也没问题。window应该也是可以的，但不是这里使用的环境，如果是想在window下测试，">
+<meta property="og:updated_time" content="2016-06-03T03:24:32.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux下的局域网小工具">
-<meta name="twitter:description" content="1、Sniffer工作原理在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧。所以Sniffer所能监听的信息仅限于同一个物理网络内传输的数据。
-2、Sniffit的安装在Debian可以使用软件源安装。命令如">
+<meta name="twitter:title" content="nginx配合rtmp模块搭建流服务器">
+<meta name="twitter:description" content="本篇博客通过介绍使用nginx的rtmp模块来使nginx服务支持rtmp协议，可以完成推流和播放的功能。博客的内容完全出自参考1，参考2比较完整还介绍了除了介绍rtmp还介绍了hls。这篇博客主要介绍rtmp相关的内容。
+准备首先你需要一台安装了linux系统的主机，无论是云主机啊什么的都可以，甚至是树莓派也没问题。window应该也是可以的，但不是这里使用的环境，如果是想在window下测试，">
     
 
     
@@ -150,7 +150,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Linux下的局域网小工具" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-nginx配合rtmp模块搭建流服务器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -159,7 +159,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Linux下的局域网小工具
+            nginx配合rtmp模块搭建流服务器
         </h1>
     
 
@@ -167,8 +167,8 @@
                     
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2014/10/06/Linux下的局域网小工具/">
-            <time datetime="2014-10-06T07:36:00.000Z" itemprop="datePublished">2014-10-06</time>
+        <a href="/2016/06/03/nginx配合rtmp模块搭建流服务器/">
+            <time datetime="2016-06-03T03:35:00.000Z" itemprop="datePublished">2016-06-03</time>
         </a>
     </div>
 
@@ -177,7 +177,7 @@
                     
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/计算机网络/">计算机网络</a>
+        <a class="tag-link" href="/tags/运维相关/">运维相关</a>
     </div>
 
                 </div>
@@ -186,15 +186,28 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>1、Sniffer工作原理<br>在本地网卡设置成“混杂”模式时，网卡会接收所有在网络中的所有的帧，这就构成了监听。如果局域网中的某一台主机被设置成了这种监听模式，它就成了一个Sniffer。根据Sniffer的原理，如果一个帧没有被发送到指定的网卡上，那么就无法监听到该帧。所以Sniffer所能监听的信息仅限于同一个物理网络内传输的数据。</p>
-<p>2、Sniffit的安装<br>在Debian可以使用软件源安装。命令如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install sniffit</span><br></pre></td></tr></table></figure></p>
-<p>当然也可以下载源文件进行编译安装。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf sniffit.version.tar.gz&#10;cd sniffti.version&#10;./configure &#38;&#38; make&#10;./sniffit</span><br></pre></td></tr></table></figure></p>
-<p>3、TcpDump<br>安装过程类似于上面安装sniffit的过程。<br>不添加任何参数直接运行TcpDump，系统将监视网络中所有流过的数据包，这是TcpDump最简单的应用。</p>
-<p>tcpdump/libpcap的包过滤规则也支持更多通用分组表达式，在这些表达式中，包中的任意字节范围都可以使用关系或二进制操作符进行检查。对于字节范围表达，你可以使用以下格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proto [ expr : size ]</span><br></pre></td></tr></table></figure></p>
-<p>“proto”可以是熟知的协议之一（如ip，arp，tcp，udp，icmp，ipv6），“expr”表示与指定的协议头开头相关的字节偏移量。有我们熟知的直接偏移量如tcpflags，也有取值常量如tcp-syn，tcp-ack或者tcp-fin。“size”是可选的，表示从字节偏移量开始检查的字节数量。</p>
-<p>只捕获TCP SYN包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># tcpdump -i &#60;interface&#62; &#34;tcp[tcpflags] &#38; (tcp-syn) != 0&#34;</span><br></pre></td></tr></table></figure></p>
-<p>4、EtherApe<br>安装过程也类似于上面可以采用软件源安装和源码安装两种方式。<br>EtherApe是一个图形化的网络嗅探器。主要是用在验证主机与主机之间的连接，EtherApe能够图形化的显示网络目前所处的状态，且使用不同颜色的线来表示位于不同主机之间的连接，二通过连线的粗细可以判断主机数据量的大小。</p>
-<p>5、netstat<br>netstat是系统只带的工具，可以用于显示于IP，TCP，UDP和ICMP协议相关的统计数据，一般用于检验本地2计算机各端口的网络连接情况。</p>
+            <p>本篇博客通过介绍使用nginx的rtmp模块来使nginx服务支持rtmp协议，可以完成推流和播放的功能。博客的内容完全出自参考1，参考2比较完整还介绍了除了介绍rtmp还介绍了hls。这篇博客主要介绍rtmp相关的内容。</p>
+<h3 id="u51C6_u5907"><a href="#u51C6_u5907" class="headerlink" title="准备"></a>准备</h3><p>首先你需要一台安装了linux系统的主机，无论是云主机啊什么的都可以，甚至是树莓派也没问题。window应该也是可以的，但不是这里使用的环境，如果是想在window下测试，可以再Google下看看。另外这里使用的linux发行版是ubuntu，实际使用的是ubuntu14.04。</p>
+<h3 id="u5B89_u88C5nginx_u548Crtmp_u6A21_u5757"><a href="#u5B89_u88C5nginx_u548Crtmp_u6A21_u5757" class="headerlink" title="安装nginx和rtmp模块"></a>安装nginx和rtmp模块</h3><p>安装必要的库和工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev</span><br></pre></td></tr></table></figure>
+<p>由于要安装rtmp模块，这里nginx的安装使用源码安装的方式。下面先下载nginx和rtmp模块源码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://nginx.org/download/nginx-1.9.15.tar.gz&#10;$ wget https://github.com/arut/nginx-rtmp-module/archive/master.zip</span><br></pre></td></tr></table></figure>
+<p>解压nginx源码和rtmp模块源码，准备编译安装nginx和rtmp模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf nginx-1.9.15.tar.gz&#10;$ unzip master.zip</span><br></pre></td></tr></table></figure>
+<p>进入nginx解压后的目录，指定rtmp模块的路径。编译安装nginx。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd nginx-1.9.15&#10;$ ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master&#10;$ make&#10;$ sudo make install</span><br></pre></td></tr></table></figure>
+<p>现在nginx已经编译安装好了，启动nginx。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /usr/local/nginx/sbin/nginx</span><br></pre></td></tr></table></figure>
+<p>访问下nginx服务器看看，将浏览器地址指向http://&lt; your server ip &gt;/这时候应该可以nginx的欢迎页面。</p>
+<h4 id="u914D_u7F6Enginx_u4F7F_u7528rtmp_u6A21_u5757"><a href="#u914D_u7F6Enginx_u4F7F_u7528rtmp_u6A21_u5757" class="headerlink" title="配置nginx使用rtmp模块"></a>配置nginx使用rtmp模块</h4><p>使用编辑器打开/usr/local/nginx/conf/nginx.conf文件并在最后加上，下面配置内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtmp &#123;&#10;        server &#123;&#10;                listen 1935;&#10;                chunk_size 4096;&#10;&#10;                application live &#123;&#10;                        live on;&#10;                        record off;&#10;                &#125;&#10;        &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>简单说明下这里的意思，这里就是配置了一个rtmp服务器，监听1935端口。接入点的名字叫做live。如果需要使用其他平台来进行拉流加速（播放加速，可以理解为给直播播放过程加个cdn，起到提高并发，加快速度的目的）的时候这个可能用的到。rtmp模块的完整配置说明参考：<a href="https://github.com/arut/nginx-rtmp-module/wiki/Directives" target="_blank" rel="external">这里</a>。</p>
+<p>最后重启下nginx，让nginx加载新的配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /usr/local/nginx/sbin/nginx -s stop&#10;$ sudo /usr/local/nginx/sbin/nginx</span><br></pre></td></tr></table></figure>
+<p>最后的最后，测试。测试使用的软件还是obs。obs的使用可以参考前面的博客。大概的配置内容如下。</p>
+<p>Streaming Service: Custom<br>Server: rtmp://&lt; your server ip &gt;/live<br>Play Path/Stream Key: test</p>
+<p>这里的流id，test其实是可以随便填的。配置到这里我们自己的rtmp服务器就搭建完成了，这时候，如果需要的话，可以在配置一个拉流加速，配置的过程可以参考前面的博客，之前有一篇介绍推流加速的配置的，过程是类似的。</p>
+<p>参考：<br><a href="https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/" target="_blank" rel="external"><br>How to set up your own private RTMP server using nginx</a><br><a href="http://blog.chinaunix.net/uid-26000296-id-4335063.html" target="_blank" rel="external">nginx搭建支持http和rtmp协议的流媒体服务器之一 </a></p>
 
         
         </div>
@@ -205,7 +218,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/" data-id="ciouepao6001w9kkojiddgb16" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/" data-id="cioz64fs600005kkori8gcjtf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -273,7 +286,7 @@
 
             
     
-        <a href="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/">评论</a>
+        <a href="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/">评论</a>
     
 
         </footer>
@@ -282,19 +295,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2014/10/15/Linux和Android启动过程/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Linux和Android启动过程
-                
-            </div>
-        </a>
     
-    
-        <a href="/2014/04/29/第一个Java Google engine程序/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/05/31/GTID模式下主从同步错误解决/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">第一个Java Google engine程序</div>
+            <div class="article-nav-title">GTID模式下主从同步错误解决</div>
         </a>
     
 </nav>
@@ -483,7 +487,7 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2014/10/06/Linux下的局域网小工具/';
+    var disqus_url = 'http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/';
     
     (function() {
     var dsq = document.createElement('script');
