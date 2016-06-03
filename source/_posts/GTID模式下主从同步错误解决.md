@@ -1,5 +1,5 @@
 ---
-title:  Mysql备份与恢复
+title: GTID模式下主从同步错误解决
 date: 2016-5-31 02:35
 tags: 数据库管理
 ---
