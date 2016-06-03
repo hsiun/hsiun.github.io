@@ -3,24 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>jsp 中定义函数 | GaoSpot</title>
+    <title>标签: 智能硬件 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="jsp 中定义函数
-在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。方法一第一种是使用&amp;lt;%! %&amp;gt;。即在普通jsp标记之中使用一个另外的&amp;lt;%! %&amp;gt;便可以了。12345&amp;lt;% !   public String function()&amp;#123;   return &quot;true&quot;;  &amp;#125;%&amp;gt;
-方法二第二种是定义一个类,在类里定义方法,再调用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jsp 中定义函数">
-<meta property="og:url" content="http://zone.gaospot.com/2013/12/11/jsp 中定义函数/index.html">
+    <meta name="description" content="My Person Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GaoSpot">
+<meta property="og:url" content="http://zone.gaospot.com/tags/智能硬件/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="jsp 中定义函数
-在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。方法一第一种是使用&amp;lt;%! %&amp;gt;。即在普通jsp标记之中使用一个另外的&amp;lt;%! %&amp;gt;便可以了。12345&amp;lt;% !   public String function()&amp;#123;   return &quot;true&quot;;  &amp;#125;%&amp;gt;
-方法二第二种是定义一个类,在类里定义方法,再调用">
-<meta property="og:updated_time" content="2016-04-29T08:57:35.847Z">
+<meta property="og:description" content="My Person Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jsp 中定义函数">
-<meta name="twitter:description" content="jsp 中定义函数
-在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。方法一第一种是使用&amp;lt;%! %&amp;gt;。即在普通jsp标记之中使用一个另外的&amp;lt;%! %&amp;gt;便可以了。12345&amp;lt;% !   public String function()&amp;#123;   return &quot;true&quot;;  &amp;#125;%&amp;gt;
-方法二第二种是定义一个类,在类里定义方法,再调用">
+<meta name="twitter:title" content="GaoSpot">
+<meta name="twitter:description" content="My Person Blog">
     
 
     
@@ -153,167 +146,63 @@
 </aside>
 
             
-            <section id="main"><article id="post-jsp 中定义函数" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main">
+        <section class="archives-wrap">
+        <div class="archive-tag-wrap">
+            <span class="archive-tag">#智能硬件</span>
+        </div>
+        <div class="archives">
         
-        
-        
-            <header class="article-header">
-                
+            <article class="archive-article archive-type-summary">
     
-        <h1 class="article-title" itemprop="name">
-            jsp 中定义函数
+    <div class="archive-article-thumbnail">
+        <a href="/2016/06/03/初次连接我的树莓派/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2016/06/03/初次连接我的树莓派/">初次连接到我的树莓派</a>
         </h1>
     
 
-                <div class="article-meta">
-                    
+            <div class="article-meta">
+                
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/jsp 中定义函数/">
-            <time datetime="2013-12-11T15:16:00.000Z" itemprop="datePublished">2013-12-11</time>
+        <a href="/2016/06/03/初次连接我的树莓派/">
+            <time datetime="2016-06-03T11:35:00.000Z" itemprop="datePublished">2016-06-03</time>
         </a>
     </div>
 
 
-                    
-                    
+                
+                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Web基础/">Web基础</a>
+        <a class="tag-link" href="/tags/智能硬件/">智能硬件</a>
     </div>
 
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>jsp 中定义函数</p>
-<p>在一个jsp文件中定义一个java函数的方法，我知道的是有两种的。<br>方法一<br>第一种是使用&lt;%! %&gt;。即在普通jsp标记之中使用一个另外的&lt;%! %&gt;便可以了。<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;% !</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">"true"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></p>
-<p>方法二<br>第二种是定义一个类,在类里定义方法,再调用方法就可以了。其实这样相当于是定义了外部的类再引用外部的类中的方法而已。<br>结构如下,不过这些代码最好还是写在.java的文件里,写在jsp中不好<br><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">"true"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">test t = <span class="keyword">new</span> test();</span><br><span class="line">String a = t.a();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=a%&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这两种方法我只用过第一种，第二种没用过，但总结一下记一下，以后学到或用到在来看。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2013/12/11/jsp 中定义函数/" data-id="cioznc9wo000w9ckogbidjzki" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2013/12/11/jsp 中定义函数/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2013/12/11/jsp 中定义函数/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2013/12/21/apache和tomcat的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    apache和tomcat的区别
-                
             </div>
-        </a>
-    
-    
-        <a href="/2013/12/11/Java中的String与StringBuffer/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Java中的String与StringBuffer</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </header>
+        <div class="article-entry">
+            <p>几天前买了一个树莓派3，把一些相关的配件都装了上去之后。昨天有时间就连了下进入系统看了下。树莓派3是自带无线网卡和蓝牙的。然后我是没有显示器的。只能通过网络连接来管理树莓派了。我想到的办法就是先把树莓派通过网线连接到路由器上，然后通过路由器来查看树莓派的密码，然后连接到树莓派，再在树莓派中配置无线网卡信息，让其自动使用无线网卡连接，这样就可以不用一直连着网线了。然后将ip地址设置为静态密码，以后每</p>
+            <p class="article-more-link">
+                <a href="/2016/06/03/初次连接我的树莓派/#more">查看更多</a>
+            </p>
+        </div>
     </div>
-
-    
-    </section>
-
-</section>
+</article>
+        
+        </div></section>
+        </section>
             
                 <aside id="sidebar">
     
@@ -481,13 +370,11 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2013/12/11/jsp 中定义函数/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
