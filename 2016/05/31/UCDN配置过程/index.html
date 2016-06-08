@@ -5,20 +5,29 @@
     
     <title>UCDN配置过程 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
-过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十">
+    <meta name="description" content="更新
+2016/6/8 添加CDN排错过程
+
+概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
+过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UCDN配置过程">
 <meta property="og:url" content="http://zone.gaospot.com/2016/05/31/UCDN配置过程/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
-过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十">
+<meta property="og:description" content="更新
+2016/6/8 添加CDN排错过程
+
+概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
+过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个">
 <meta property="og:image" content="http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE.png">
-<meta property="og:updated_time" content="2016-05-30T17:42:57.558Z">
+<meta property="og:updated_time" content="2016-06-08T05:45:27.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UCDN配置过程">
-<meta name="twitter:description" content="概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
-过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十">
+<meta name="twitter:description" content="更新
+2016/6/8 添加CDN排错过程
+
+概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
+过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个">
     
 
     
@@ -187,7 +196,10 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。</p>
+            <h4 id="u66F4_u65B0"><a href="#u66F4_u65B0" class="headerlink" title="更新"></a>更新</h4><ul>
+<li><a href="/#1">2016/6/8 添加CDN排错过程</a></li>
+</ul>
+<h3 id="u6982_u8FF0"><a href="#u6982_u8FF0" class="headerlink" title="概述"></a>概述</h3><p>原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。</p>
 <h3 id="u8FC7_u7A0B_u8BF4_u660E"><a href="#u8FC7_u7A0B_u8BF4_u660E" class="headerlink" title="过程说明"></a>过程说明</h3><p>1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十分钟就能配置好，配置好后在在域名供应商那边配置下cname记录就可以通过加速域名访问了。<br><img src="http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE.png" alt="CDN配置"></p>
 <ul>
 <li><p>加速域名，指需要使用cdn加速的域名，比如：example.com，不能以http或者https开头</p>
@@ -201,6 +213,12 @@
 </ul>
 <p>2、在控制配置好后还需要在域名供应商那边做一次配置。做cname的过程可以参考下面的配置。注意每个加速的cname都是不一样的。请从您的CDN控制复制CDN域名。<img src="http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.png" alt="CDN配置"></p>
 <p>3、验证方法就是通过访问上面的测试连接，看http头部是否是hit的来判断。具体参考这里：<a href="https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3" target="_blank" rel="external">https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3</a></p>
+<p></p><h3 id="1">CDN排错过程</h3><br>使用CDN的时候可能会遇到各种各样的问题，这里不是针对每个特定的问题，或者是特定类型的问题来说的，这里是概述一个大概的过程。<p></p>
+<p>假设加速域名为www.a.com。<br>1、检查是否使用了CDN加速。ping www.a.com看看解析出来的ip是否为cdn的节点ip。获取到节点ip之后，使用ip查询工具，如ipip.net查询对应的ip是否离访问者近，近不近这个不好具体说。最起码来说不应该出现访问到其他相距较远的省份去。</p>
+<p>2、回源测试。在访问者的电脑上将加速域名绑定到源站ip，在win上是通过修改hosts文件来做的。lin上可以修改host文件，但是不用这么麻烦，可以直接使用curl的命令来实现回源访问。下面两个命令都可以。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I &#39;http://www.domain.com/&#39; -x 10.10.10.10:80&#10;curl -I &#39;http://10.10.10.10/&#39; -x &#39;Host:www.domain.com&#39;</span><br></pre></td></tr></table></figure></p>
+<p>将浏览器缓存清除并重新打开，再次访问则是回源访问效果，若依然访问异常，说明源站访问异常，请直接排查源站服务。</p>
+<p>3、检查CDN配置，对着产品文档看看具体配置是否有错。</p>
+<p>4、检查源站服务器是否有安全限制。</p>
 
         
         </div>
@@ -211,7 +229,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/" data-id="cioznc9x7001e9ckolwcjk60t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/" data-id="cip6gdsen001ee4ko3983mnxu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

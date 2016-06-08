@@ -5,40 +5,52 @@
     
     <title>UCloud上LNMP小型网站搭建 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="目录
+    <meta name="description" content="更新
+2016/6/8 添加虚拟主机的说明 
+2016/6/8 添加禁止ip访问的说明 
+2016/6/8 添加缓存策略的配置说明 
+
+目录
 介绍
 LNMP环境搭建
 打开UCloud防火墙
 Discuz!安装
 应用测试
 
-介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。
-LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环">
+介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UCloud上LNMP小型网站搭建">
 <meta property="og:url" content="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="目录
+<meta property="og:description" content="更新
+2016/6/8 添加虚拟主机的说明 
+2016/6/8 添加禁止ip访问的说明 
+2016/6/8 添加缓存策略的配置说明 
+
+目录
 介绍
 LNMP环境搭建
 打开UCloud防火墙
 Discuz!安装
 应用测试
 
-介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。
-LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环">
-<meta property="og:updated_time" content="2016-04-02T10:49:01.426Z">
+介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任">
+<meta property="og:updated_time" content="2016-06-08T05:45:27.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UCloud上LNMP小型网站搭建">
-<meta name="twitter:description" content="目录
+<meta name="twitter:description" content="更新
+2016/6/8 添加虚拟主机的说明 
+2016/6/8 添加禁止ip访问的说明 
+2016/6/8 添加缓存策略的配置说明 
+
+目录
 介绍
 LNMP环境搭建
 打开UCloud防火墙
 Discuz!安装
 应用测试
 
-介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任何用户自己的应用，过程都是类似的。
-LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那篇博客，这里直接就介绍在主机上安装NMP环">
+介绍这篇博客是之前UCloud上LAMP小型网站搭建与测试的姐妹篇，重点在于通过介绍在UCloud云主机上安装Discuz!来介绍LNMP环境的搭建，这里Discuz!可以换成任">
     
 
     
@@ -207,7 +219,12 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="u76EE_u5F55"><a href="#u76EE_u5F55" class="headerlink" title="目录"></a>目录</h3><ol>
+            <h4 id="u66F4_u65B0"><a href="#u66F4_u65B0" class="headerlink" title="更新"></a>更新</h4><ul>
+<li><a href="/#1">2016/6/8 添加虚拟主机的说明</a> </li>
+<li><a href="/#2">2016/6/8 添加禁止ip访问的说明</a> </li>
+<li><a href="/#3">2016/6/8 添加缓存策略的配置说明</a> </li>
+</ul>
+<h3 id="u76EE_u5F55"><a href="#u76EE_u5F55" class="headerlink" title="目录"></a>目录</h3><ol>
 <li>介绍</li>
 <li>LNMP环境搭建</li>
 <li>打开UCloud防火墙</li>
@@ -223,7 +240,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure>
 <p>修改如下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user nginx;&#10;worker_processes  1;&#10;error_log /var/log/nginx/error.log;&#10;pid /var/run/nginx.pid;&#10;&#10;events &#123;&#10;    use epoll;&#10;    worker_connections 1024;&#10;&#125;&#10;&#10;http &#123;&#10;    include /etc/nginx/mime.types;&#10;    default_type application/octet-stream;&#10;    sendfile on;&#10;    tcp_nopush on;&#10;    keepalive_timeout 65;&#10;    gzip on;&#10;    include /etc/nginx/conf.d/*.conf;&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>添加虚拟主机</p>
+<p><span id="vs">添加虚拟主机</span><br>这里添加了一个名为www.domain.com的服务器，如果有需要的话，可以按照自己的需要添加更多server。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim/etc/nginx/conf.d/virtual.conf</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server &#123;&#10;    listen       80;&#10;    server_name  www.domain.com;&#10;    root /var/www/html;&#10;    index index.html index.htm index.php;&#10;    access_log  /var/log/nginx/domain-acess.log;&#10;&#10;    location ~ .*\.php?$ &#123;&#10;        include fastcgi.conf;&#10;        fastcgi_pass 127.0.0.1:9000;&#10;        fastcgi_index index.php;&#10;        access_log off;&#10;    &#125;&#10;&#10;    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|js|css)$ &#123;&#10;        expires 15d;&#10;    &#125;&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
 <p>4、配置PHP</p>
@@ -240,6 +257,30 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 <p>3、安装好后就可以在浏览器访问您的论坛了！</p>
 <p>参考：<a href="http://www.discuz.net/thread-3456887-1-1.html" target="_blank" rel="external">Discuz!X3.1 全新安装图文教程 </a></p>
 <h3 id="u5E94_u7528_u6D4B_u8BD5"><a href="#u5E94_u7528_u6D4B_u8BD5" class="headerlink" title="应用测试"></a>应用测试</h3><p>测试不是必要的过程，但为了更好的掌握应用的负载能力还是建议进行测试的，以对应用状况有比较好的了解。测试工具和测试方法网上有很多，可以自行Google，也可以参考上面一篇博客介绍的方法。最后说一点是没有完全正确的测试，测试只能模拟高并发是的情况，但与真实访问时候还是有差距的。</p>
+<p></p><h3 id="1">虚拟主机</h3><br>上面的这个nginx其实是配置了虚拟主机的，虚拟主机是用来实现在一台主机上实现多个站点的方式，在使用主机的时候，这里是直接将域名解析到ip了，当这个ip对应的主机上有多个站点的时候要如何区分这些站点呢，这就是通过虚拟主机实现的。虚拟主机可以配置在不同的端口，使用不同的域名等等方式来配置。上面有对应 <a href="/#vs">虚拟主机的说明</a>。<p></p>
+<p></p><h3 id="2">禁止ip访问</h3><br>禁止ip访问的目的在在于防止恶意解析，一般来说将域名解析到网站分成两步。第一步，将域名解析到网站所在的主机，第二步，在web服务器中将域名与相应的网站绑定。但是，如果通过主机IP能直接访问某网站，那么把域名解析到这个IP也将能访问到该网站，而无需在主机上绑定，也就是说任何人将任何域名解析到这个IP就能访问到这个网站。可能您并不介意通过别人的域名访问到您的网站，但有些情况对方可能是恶意这样做的，那我们就可以通过限制直接通过ip访问来防止恶意解析。最简单配置如下，在server中添加下面一行就可以。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 80 default;</span><br></pre></td></tr></table></figure><p></p>
+<p>后面的default参数表示这个是默认虚拟主机。<br>下面是一些有用的技巧。<br>比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  &#10;      listen 80 default;  &#10;      return 500;  &#10;   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以把这些流量收集起来，导入到自己的网站，只要做以下跳转设置就可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  &#10;       listen 80 default;  &#10;       rewrite ^(.*) http://www.123.cn permanent;  &#10;   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>按照如上设置后，确实不能通过IP访问服务器了，但是在应该用中出现当server_name后跟多个域名时，其中一个域名怎么都无法访问，设置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server  &#123;  &#10;        listen 80;  &#10;        server_name www.123.cn example.com    &#10;   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>没更改之前，通过server_name 中的www.123.cn 123.cn均可访问服务器，加入Nginx 禁止IP访问的设置后，通过123.cn无法访问服务器了，www.123.cn可以访问，用 Nginx -t 检测配置文件会提示warning：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[warn]: conflicting server name &#8220;467.cn&#8221; on 0.0.0.0:80, &#10;   ignored  &#10;the configuration file /usr/local/Nginx/conf/&#10;   Nginx.conf syntax is ok  &#10;configuration file /usr/local/Nginx/conf/Nginx.&#10;   conf test is successful</span><br></pre></td></tr></table></figure></p>
+<p>最后通过在listen 80 default;后再加server<em>name </em>;解决，形式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#&#31105;&#27490;IP&#35775;&#38382;  &#10; server  &#123;  &#10;     listen 80 default;  &#10;     server_name _;  &#10;     server_name www.123.cn example.com &#10;     return 500;  &#10; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样，通过123.cn就能访问服务器了。</p>
+<p>参考：<a href="http://blog.sohu.com/s/MzcwNDkxMzM/301722120.html" target="_blank" rel="external">Nginx服务器如何禁止通过IP地址访问网站 </a></p>
+<p></p><h3 id="3">缓存控制</h3><br>缓存控制主要是在使用了cdn的时候会用到，通过配置源站webserver的header来控制cdn节点的缓存机制。nginx的缓存配置主要是通过add_header和expires这两个模块来控制的。<p></p>
+<p>1） add_header</p>
+<p>语法：add_header name value<br>默认值：none<br>使用字段：http, server, location</p>
+<p>2） expires</p>
+<p>语法：expires [time|epoch|max|off]<br>默认值：expires off<br>使用字段：http, server, location </p>
+<p>这个指令控制是否在应答中标记一个过期时间，如果是，如何标记。<br>off 将禁止修改头部中的 Expires和Cache-Control字段。<br>Time控制“Cache-Control”的值，负数表示no-cache<br>epoch 将Expires头设置为1 January, 1970 00:00:01 GMT。<br>max 将Expires头设置为31 December 2037 23:59:59 GMT，将Cache-Control最大化到10 年。</p>
+<p>例如设置php的文件类型过期时间设置为1个小时：<br>1） add_header</p>
+<p>语法：add_header name value<br>默认值：none<br>使用字段：http, server, location</p>
+<p>2） expires</p>
+<p>语法：expires [time|epoch|max|off]<br>默认值：expires off<br>使用字段：http, server, location </p>
+<p>这个指令控制是否在应答中标记一个过期时间，如果是，如何标记。<br>off 将禁止修改头部中的 Expires和Cache-Control字段。<br>Time控制“Cache-Control”的值，负数表示no-cache<br>epoch 将Expires头设置为1 January, 1970 00:00:01 GMT。<br>max 将Expires头设置为31 December 2037 23:59:59 GMT，将Cache-Control最大化到10 年。</p>
+<p>例如设置php的文件类型过期时间设置为1个小时，在nginx的配置文件中加入下面一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expires 1h;</span><br></pre></td></tr></table></figure></p>
+<p>不缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expries -1h;</span><br></pre></td></tr></table></figure></p>
+<p>另外可以通过add_header设置相对应的缓存策略，对于动态的php文件设置为不缓存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location ~ .*\.php$ &#123;&#10;    if ($request_uri !~ ^/dynamicimg/) &#123;&#10;        add_header              Cache-Control &#34;no-cache&#34;;&#10;        add_header              Pragma no-cache;&#10;    &#125;&#10;  &#125;</span><br></pre></td></tr></table></figure>
 
         
         </div>
@@ -250,7 +291,7 @@ LNMP环境搭建关于主机的创建，登录和管理可以参考之前的那�
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cioznc9x2001a9cko58z33l6b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/04/01/UCloud上LNMP小型网站搭建/" data-id="cip6gdse7001ae4kor58pobi9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

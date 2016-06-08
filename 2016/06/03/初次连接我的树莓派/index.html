@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/index.html">
 <meta property="og:site_name" content="GaoSpot">
 <meta property="og:description" content="几天前买了一个树莓派3，把一些相关的配件都装了上去之后。昨天有时间就连了下进入系统看了下。树莓派3是自带无线网卡和蓝牙的。然后我是没有显示器的。只能通过网络连接来管理树莓派了。我想到的办法就是先把树莓派通过网线连接到路由器上，然后通过路由器来查看树莓派的密码，然后连接到树莓派，再在树莓派中配置无线网卡信息，让其自动使用无线网卡连接，这样就可以不用一直连着网线了。然后将ip地址设置为静态密码，以后每">
-<meta property="og:updated_time" content="2016-06-03T11:26:34.694Z">
+<meta property="og:updated_time" content="2016-06-08T05:45:27.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初次连接到我的树莓派">
 <meta name="twitter:description" content="几天前买了一个树莓派3，把一些相关的配件都装了上去之后。昨天有时间就连了下进入系统看了下。树莓派3是自带无线网卡和蓝牙的。然后我是没有显示器的。只能通过网络连接来管理树莓派了。我想到的办法就是先把树莓派通过网线连接到路由器上，然后通过路由器来查看树莓派的密码，然后连接到树莓派，再在树莓派中配置无线网卡信息，让其自动使用无线网卡连接，这样就可以不用一直连着网线了。然后将ip地址设置为静态密码，以后每">
@@ -191,6 +191,8 @@
 <p>3、登录之后修改网卡信息。修改之前可以先看下网卡信息，使用 <code>$ iftop</code> 来查看。可以看到一个wlan0就是我的无线网卡了。后面通过vim配置网卡的信息。我的树莓派安装的是Raspbian。基于debian的，所以他的网卡路径和debian一样的。修改/etc/network/interfaces文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto lo&#10;iface lo inet loopback&#10;iface eth0 inet dhcp&#10;allow-hotplug wlan0&#10;iface wlan0 inet static&#10;wpa-ssid  netgear          #&#20320;&#35201;&#36830;&#25509;&#30340;wifi ssid&#10;wpa-psk  1234567890     #&#20320;&#30340;wpa&#36830;&#25509;&#23494;&#30721; &#10;address 192.168.1.110     # &#35774;&#23450;&#30340;&#38745;&#24577;IP&#22320;&#22336;&#10;netmask 255.255.255.0     # &#32593;&#32476;&#25513;&#30721;&#10;gateway 192.168.1.1      # &#32593;&#20851;&#10;network 192.168.1.1      # &#32593;&#32476;&#22320;&#22336;&#10;#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf       #&#27880;&#37322;&#25481;&#36825;&#19968;&#34892;&#10;iface default inet dhcp</span><br></pre></td></tr></table></figure>
 <p>然后重启下就可以了，就可以进入到系统了。</p>
+<p>4、修改软件源，在我使用的时候，raspberry默认的官方源基本上没法用，非常的慢的。可以改成国内的源试试。下面的示例将源改为中科大的源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/source.list</span><br></pre></td></tr></table></figure></p>
+<p>添加下面的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi</span><br></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -201,7 +203,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/" data-id="cioznc9w8000i9cko0b0gzq9p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/" data-id="cip6gdscw000ie4ko3domu186" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

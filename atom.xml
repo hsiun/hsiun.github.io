@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-06-03T11:26:34.694Z</updated>
+  <updated>2016-06-08T05:45:27.690Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zone.gaospot.com/2016/06/03/%E5%88%9D%E6%AC%A1%E8%BF%9E%E6%8E%A5%E6%88%91%E7%9A%84%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     <id>http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/</id>
     <published>2016-06-03T11:35:00.000Z</published>
-    <updated>2016-06-03T11:26:34.694Z</updated>
+    <updated>2016-06-08T05:45:27.690Z</updated>
     
     <content type="html">&lt;p&gt;几天前买了一个树莓派3，把一些相关的配件都装了上去之后。昨天有时间就连了下进入系统看了下。树莓派3是自带无线网卡和蓝牙的。然后我是没有显示器的。只能通过网络连接来管理树莓派了。我想到的办法就是先把树莓派通过网线连接到路由器上，然后通过路由器来查看树莓派的密码，然后连接到树莓派，再在树莓派中配置无线网卡信息，让其自动使用无线网卡连接，这样就可以不用一直连着网线了。然后将ip地址设置为静态密码，以后每次启动时，路由器都会自动将这个ip分配给树莓派。&lt;/p&gt;
 &lt;p&gt;0、 安装系统，安装系统的过程非常简单的，直接使用Win32 Disk Imager安装下就好了。镜像下载可以在官网上下载。&lt;/p&gt;
@@ -30,6 +30,8 @@
 &lt;p&gt;3、登录之后修改网卡信息。修改之前可以先看下网卡信息，使用 &lt;code&gt;$ iftop&lt;/code&gt; 来查看。可以看到一个wlan0就是我的无线网卡了。后面通过vim配置网卡的信息。我的树莓派安装的是Raspbian。基于debian的，所以他的网卡路径和debian一样的。修改/etc/network/interfaces文件。&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;auto lo&amp;#10;iface lo inet loopback&amp;#10;iface eth0 inet dhcp&amp;#10;allow-hotplug wlan0&amp;#10;iface wlan0 inet static&amp;#10;wpa-ssid  netgear          #&amp;#20320;&amp;#35201;&amp;#36830;&amp;#25509;&amp;#30340;wifi ssid&amp;#10;wpa-psk  1234567890     #&amp;#20320;&amp;#30340;wpa&amp;#36830;&amp;#25509;&amp;#23494;&amp;#30721; &amp;#10;address 192.168.1.110     # &amp;#35774;&amp;#23450;&amp;#30340;&amp;#38745;&amp;#24577;IP&amp;#22320;&amp;#22336;&amp;#10;netmask 255.255.255.0     # &amp;#32593;&amp;#32476;&amp;#25513;&amp;#30721;&amp;#10;gateway 192.168.1.1      # &amp;#32593;&amp;#20851;&amp;#10;network 192.168.1.1      # &amp;#32593;&amp;#32476;&amp;#22320;&amp;#22336;&amp;#10;#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf       #&amp;#27880;&amp;#37322;&amp;#25481;&amp;#36825;&amp;#19968;&amp;#34892;&amp;#10;iface default inet dhcp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;然后重启下就可以了，就可以进入到系统了。&lt;/p&gt;
+&lt;p&gt;4、修改软件源，在我使用的时候，raspberry默认的官方源基本上没法用，非常的慢的。可以改成国内的源试试。下面的示例将源改为中科大的源。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/apt/source.list&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;添加下面的内容。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deb http://mirrors.ustc.edu.cn/raspbian/raspbian wheezy main contrib non-free rpi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -126,9 +128,12 @@
     <link href="http://zone.gaospot.com/2016/05/31/UCDN%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/"/>
     <id>http://zone.gaospot.com/2016/05/31/UCDN配置过程/</id>
     <published>2016-05-30T16:06:00.000Z</published>
-    <updated>2016-05-30T17:42:57.558Z</updated>
+    <updated>2016-06-08T05:45:27.658Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。&lt;/p&gt;
+    <content type="html">&lt;h4 id=&quot;u66F4_u65B0&quot;&gt;&lt;a href=&quot;#u66F4_u65B0&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/#1&quot;&gt;2016/6/8 添加CDN排错过程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。&lt;/p&gt;
 &lt;h3 id=&quot;u8FC7_u7A0B_u8BF4_u660E&quot;&gt;&lt;a href=&quot;#u8FC7_u7A0B_u8BF4_u660E&quot; class=&quot;headerlink&quot; title=&quot;过程说明&quot;&gt;&lt;/a&gt;过程说明&lt;/h3&gt;&lt;p&gt;1、控制配置加速域名。一共下面这些框框是要填的，关于各个框中内容的说明参考下面的。提交申请之后大概几十分钟就能配置好，配置好后在在域名供应商那边配置下cname记录就可以通过加速域名访问了。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;CDN配置&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;加速域名，指需要使用cdn加速的域名，比如：example.com，不能以http或者https开头&lt;/p&gt;
@@ -142,11 +147,19 @@
 &lt;/ul&gt;
 &lt;p&gt;2、在控制配置好后还需要在域名供应商那边做一次配置。做cname的过程可以参考下面的配置。注意每个加速的cname都是不一样的。请从您的CDN控制复制CDN域名。&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/CDN%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.png&quot; alt=&quot;CDN配置&quot;&gt;&lt;/p&gt;
 &lt;p&gt;3、验证方法就是通过访问上面的测试连接，看http头部是否是hit的来判断。具体参考这里：&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ucdn/faq.html#id3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;h3 id=&quot;1&quot;&gt;CDN排错过程&lt;/h3&gt;&lt;br&gt;使用CDN的时候可能会遇到各种各样的问题，这里不是针对每个特定的问题，或者是特定类型的问题来说的，这里是概述一个大概的过程。&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;假设加速域名为www.a.com。&lt;br&gt;1、检查是否使用了CDN加速。ping www.a.com看看解析出来的ip是否为cdn的节点ip。获取到节点ip之后，使用ip查询工具，如ipip.net查询对应的ip是否离访问者近，近不近这个不好具体说。最起码来说不应该出现访问到其他相距较远的省份去。&lt;/p&gt;
+&lt;p&gt;2、回源测试。在访问者的电脑上将加速域名绑定到源站ip，在win上是通过修改hosts文件来做的。lin上可以修改host文件，但是不用这么麻烦，可以直接使用curl的命令来实现回源访问。下面两个命令都可以。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -I &amp;#39;http://www.domain.com/&amp;#39; -x 10.10.10.10:80&amp;#10;curl -I &amp;#39;http://10.10.10.10/&amp;#39; -x &amp;#39;Host:www.domain.com&amp;#39;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;将浏览器缓存清除并重新打开，再次访问则是回源访问效果，若依然访问异常，说明源站访问异常，请直接排查源站服务。&lt;/p&gt;
+&lt;p&gt;3、检查CDN配置，对着产品文档看看具体配置是否有错。&lt;/p&gt;
+&lt;p&gt;4、检查源站服务器是否有安全限制。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上
+      &lt;h4 id=&quot;u66F4_u65B0&quot;&gt;&lt;a href=&quot;#u66F4_u65B0&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/#1&quot;&gt;2016/6/8 添加CDN排错过程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul
     
     </summary>
     
