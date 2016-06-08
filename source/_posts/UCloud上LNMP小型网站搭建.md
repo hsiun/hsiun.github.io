@@ -4,6 +4,11 @@ date: 2016-04-01 02:22:24
 tags: 系统运维
 ---
 
+#### 更新 ####
+* [2016/6/8 添加虚拟主机的说明](#1) 
+* [2016/6/8 添加禁止ip访问的说明](#2) 
+
+
 ### 目录 ###
  1. 介绍
  2. LNMP环境搭建
@@ -59,7 +64,8 @@ http {
 }
 ```
 
-添加虚拟主机
+<span id='vs'>添加虚拟主机</span>
+这里添加了一个名为www.domain.com的服务器，如果有需要的话，可以按照自己的需要添加更多server。
 
 ```bash
 # vim/etc/nginx/conf.d/virtual.conf
@@ -139,3 +145,58 @@ UCloud平台防火墙的打开可以参考之前那篇博客[UCloud上LAMP小型
 测试不是必要的过程，但为了更好的掌握应用的负载能力还是建议进行测试的，以对应用状况有比较好的了解。测试工具和测试方法网上有很多，可以自行Google，也可以参考上面一篇博客介绍的方法。最后说一点是没有完全正确的测试，测试只能模拟高并发是的情况，但与真实访问时候还是有差距的。
 
 
+<h3 id="1">虚拟主机</h3>
+上面的这个nginx其实是配置了虚拟主机的，虚拟主机是用来实现在一台主机上实现多个站点的方式，在使用主机的时候，这里是直接将域名解析到ip了，当这个ip对应的主机上有多个站点的时候要如何区分这些站点呢，这就是通过虚拟主机实现的。虚拟主机可以配置在不同的端口，使用不同的域名等等方式来配置。上面有对应 [虚拟主机的说明](#vs)。
+
+<h3 id="2">禁止ip访问</h3>
+禁止ip访问的目的在在于防止恶意解析，一般来说将域名解析到网站分成两步。第一步，将域名解析到网站所在的主机，第二步，在web服务器中将域名与相应的网站绑定。但是，如果通过主机IP能直接访问某网站，那么把域名解析到这个IP也将能访问到该网站，而无需在主机上绑定，也就是说任何人将任何域名解析到这个IP就能访问到这个网站。可能您并不介意通过别人的域名访问到您的网站，但有些情况对方可能是恶意这样做的，那我们就可以通过限制直接通过ip访问来防止恶意解析。最简单配置如下，在server中添加下面一行就可以。
+```
+listen 80 default; 
+```
+后面的default参数表示这个是默认虚拟主机。
+下面是一些有用的技巧。
+比如别人通过ip或者未知域名访问你的网站的时候，你希望禁止显示任何有效内容，可以给他返回500。
+```
+server {  
+      listen 80 default;  
+      return 500;  
+   } 
+```
+
+也可以把这些流量收集起来，导入到自己的网站，只要做以下跳转设置就可以：
+```
+server {  
+       listen 80 default;  
+       rewrite ^(.*) http://www.123.cn permanent;  
+   } 
+```
+
+按照如上设置后，确实不能通过IP访问服务器了，但是在应该用中出现当server_name后跟多个域名时，其中一个域名怎么都无法访问，设置如下：
+```
+server  {  
+        listen 80;  
+        server_name www.123.cn example.com    
+   }
+```
+没更改之前，通过server_name 中的www.123.cn 123.cn均可访问服务器，加入Nginx 禁止IP访问的设置后，通过123.cn无法访问服务器了，www.123.cn可以访问，用 Nginx -t 检测配置文件会提示warning：
+```
+   [warn]: conflicting server name “467.cn” on 0.0.0.0:80, 
+      ignored  
+   the configuration file /usr/local/Nginx/conf/
+      Nginx.conf syntax is ok  
+   configuration file /usr/local/Nginx/conf/Nginx.
+      conf test is successful
+```
+最后通过在listen 80 default;后再加server_name _;解决，形式如下：
+```
+  #禁止IP访问  
+   server  {  
+       listen 80 default;  
+       server_name _;  
+       server_name www.123.cn example.com 
+       return 500;  
+   } 
+```
+这样，通过123.cn就能访问服务器了。
+
+参考：[Nginx服务器如何禁止通过IP地址访问网站 ](http://blog.sohu.com/s/MzcwNDkxMzM/301722120.html)
