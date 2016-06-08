@@ -7,6 +7,7 @@ tags: 系统运维
 #### 更新 ####
 * [2016/6/8 添加虚拟主机的说明](#1) 
 * [2016/6/8 添加禁止ip访问的说明](#2) 
+* [2016/6/8 添加缓存策略的配置说明(#3) 
 
 
 ### 目录 ###
@@ -200,3 +201,73 @@ server  {
 这样，通过123.cn就能访问服务器了。
 
 参考：[Nginx服务器如何禁止通过IP地址访问网站 ](http://blog.sohu.com/s/MzcwNDkxMzM/301722120.html)
+
+<h3 id=3>缓存控制</h3>
+缓存控制主要是在使用了cdn的时候会用到，通过配置源站webserver的header来控制cdn节点的缓存机制。nginx的缓存配置主要是通过add_header和expires这两个模块来控制的。
+
+1） add_header
+
+语法：add_header name value 
+默认值：none 
+使用字段：http, server, location
+
+ 
+2） expires
+
+语法：expires [time|epoch|max|off] 
+默认值：expires off 
+使用字段：http, server, location 
+
+
+这个指令控制是否在应答中标记一个过期时间，如果是，如何标记。
+off 将禁止修改头部中的 Expires和Cache-Control字段。
+Time控制“Cache-Control”的值，负数表示no-cache
+epoch 将Expires头设置为1 January, 1970 00:00:01 GMT。
+max 将Expires头设置为31 December 2037 23:59:59 GMT，将Cache-Control最大化到10 年。
+ 
+
+例如设置php的文件类型过期时间设置为1个小时：
+1） add_header
+
+语法：add_header name value 
+默认值：none 
+使用字段：http, server, location
+ 
+
+2） expires
+
+语法：expires [time|epoch|max|off] 
+默认值：expires off 
+使用字段：http, server, location 
+
+ 
+
+这个指令控制是否在应答中标记一个过期时间，如果是，如何标记。
+off 将禁止修改头部中的 Expires和Cache-Control字段。
+Time控制“Cache-Control”的值，负数表示no-cache
+epoch 将Expires头设置为1 January, 1970 00:00:01 GMT。
+max 将Expires头设置为31 December 2037 23:59:59 GMT，将Cache-Control最大化到10 年。
+
+ 
+
+例如设置php的文件类型过期时间设置为1个小时，在nginx的配置文件中加入下面一行：
+```
+expires 1h;
+```
+
+不缓存
+```
+expries -1h;
+```
+
+另外可以通过add_header设置相对应的缓存策略，对于动态的php文件设置为不缓存：
+
+ 
+```
+location ~ .*\.php$ {
+    if ($request_uri !~ ^/dynamicimg/) {
+        add_header              Cache-Control "no-cache";
+        add_header              Pragma no-cache;
+    }
+  }
+```
