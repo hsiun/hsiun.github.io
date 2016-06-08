@@ -4,6 +4,9 @@ date: 2016-03-30 17:57:23
 tags: 系统运维
 ---
 
+#### 更新 ####
+* [2016/6/8 防止恶意解析的说明](#1)
+
 ### 目录 ###
  1. 介绍
  2. LAMP环境搭建
@@ -46,7 +49,9 @@ tags: 系统运维
 # rm -rf /etc/httpd/conf.d/README
 # rm -rf /etc/httpd/conf.d/welcome.conf
 # vim /etc/httpd/conf.d/vhost.conf
+```
 添加如下内容：
+```
 <VirtualHost *:80>
 ServerName www.domain.com
 DocumentRoot /var/www/html/
@@ -153,3 +158,41 @@ ApacheBench用法详解：
 -n后面的4000代表总共发出4000个请求；-c后面的1000表示采用1000个并发（模拟1000个人同时访问），后面的网址表示测试的目标URL。
 
 参考：[Web性能压力测试工具之ApacheBench（ab）详解](http://www.ha97.com/4617.html)
+
+
+<h3 id=1>通过禁止ip访问防止恶意解析</h3>
+在用apache搭建的WEB服务器的时候，如何想只能通过设定的域名访问，而不能直接通过服务器的IP地址访问呢，有以下两种方法可以实现（当然肯定还会有其他方法可以实现），都是修改httpd.conf文件来实现的，下面举例说明。 
+
+方法一：在httpd.conf文件最后面，加入以下代码 
+```
+NameVirtualHost 221.*.*.* 
+<VirtualHost 221.*.*.*> 
+  ServerName 221.*.*.* 
+  <Location /> 
+    Order Allow,Deny 
+    Deny from all 
+  </Location> 
+</VirtualHost>
+
+<VirtualHost 221.*.*.*> 
+  DocumentRoot "/www/web" 
+  ServerName www.123.cn 
+</VirtualHost>
+```
+
+前面的部分是实现拒绝直接通过221.*.*.*这个IP的任何访问请求，这时如果你用221.*.*.*访问，会提示拒绝访问。后面的部分就是允许通过www.123.cn这个域名访问，主目录指向/www/web（这里假设你的网站的根目录是/www/web） 
+
+方法二：在httpd.conf文件最后面，加入以下代码 
+```
+NameVirtualHost 221.*.*.* 
+<VirtualHost 221.*.*.*> 
+  DocumentRoot "/www/test" 
+  ServerName 221.*.*.* 
+</VirtualHost>　　　　　 
+<VirtualHost 221.*.*.*> 
+  DocumentRoot "/www/web" 
+  ServerName www.123.cn 
+</VirtualHost> 
+```
+说明：前面色部分Virtual Host是把通过221.*.*.*这个IP直接访问的请求指向/www/test目录下，这可以是个空目录，也可以在里面建一个首页文件，如index.hmtl，首面文件内容可以是一个声明，说明不能通过IP直接访问。后面部分的意思跟方法一是一样的。 
+注：修改后需要重启apache
