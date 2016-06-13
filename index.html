@@ -115,11 +115,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                42
+                43
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                13
+                14
                 <span>标签</span>
             </div>
         </div>
@@ -147,6 +147,132 @@
 
             
             <section id="main">
+            <article id="post-raspberry内核编译和模块开发" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/06/11/raspberry内核编译和模块开发/">raspberry内核编译和模块开发</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/06/11/raspberry内核编译和模块开发/">
+            <time datetime="2016-06-11T14:41:00.000Z" itemprop="datePublished">2016-06-11</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/linux驱动编程/">linux驱动编程</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>因为打算学一学linux驱动编程了，特意买了一块raspberry来作为开发环境。直接通过镜像按照的内核并不能直接用来做模块开发，因为发行版自身是不带内核源码树的，但是模块开发这个是必要的。所有要进行内核模块开发第一步就是要编译内核。具体到不同版本的raspberry，编译方法有细微的差别，这个raspberry官方有一篇文档专门将这个。我这个内核的编译过程主要就是参考这篇 KERNEL BUIL</p>
+            <p class="article-more-link">
+                <a href="/2016/06/11/raspberry内核编译和模块开发/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/06/11/raspberry内核编译和模块开发/" data-id="cipddp4cz000qb4koa708rf1p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/06/11/raspberry内核编译和模块开发/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/06/11/raspberry内核编译和模块开发/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-初次连接我的树莓派" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -195,7 +321,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/" data-id="cip6gdscw000ie4ko3domu186" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/06/03/初次连接我的树莓派/" data-id="cipddp4cn000ib4koxsa6uzug" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -322,7 +448,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/" data-id="cip6gdsdc000qe4kovqrzazao" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/06/03/nginx配合rtmp模块搭建流服务器/" data-id="cipddp4d2000tb4kouc9hkizx" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -449,7 +575,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/" data-id="cip6gdsgk002be4kobybbji9q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/" data-id="cipddp4f3002eb4ko6ocxxzn4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -579,7 +705,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/" data-id="cip6gdsen001ee4ko3983mnxu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/" data-id="cipddp4dv001hb4koypmauesb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -706,7 +832,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/25/直播（Ulive）架构/" data-id="cip6gdsbu0008e4koc2m18978" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/25/直播（Ulive）架构/" data-id="cipddp4ca0008b4ko6wla9s2p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -836,7 +962,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/" data-id="cip6gdqn90005e4kotarg49up" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/" data-id="cipddp4c60005b4ko3gxl4me1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -965,7 +1091,7 @@ mysqldump: 原生数据导出工具，以sql的形式导出保存xtrabackup: per
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/" data-id="cip6gdsf6001pe4koxo5chm2y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/" data-id="cipddp4e5001sb4koh4wzkpek" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1094,7 +1220,7 @@ mysqldump: 原生数据导出工具，以sql的形式导出保存xtrabackup: per
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/" data-id="cip6gdsen001ie4kom2ac413l" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/" data-id="cipddp4dy001lb4kocweovngi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1237,7 +1363,7 @@ long_query_time
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/" data-id="cip6gdsen001le4ko8idh8kd7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/" data-id="cipddp4e0001ob4koifn9olr3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1315,135 +1441,6 @@ long_query_time
 
 
         
-            <article id="post-Mysql主从配置" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/05/17/Mysql主从配置/">Mysql主从配置</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/05/17/Mysql主从配置/">
-            <time datetime="2016-05-17T15:36:00.000Z" itemprop="datePublished">2016-05-17</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p>常见mysql主从架构1.Master-Slave2.级联3.双Master互为主备
-主从同步原理下面的图说明了主从库之间是如何进行数据同步的，概括来讲就是主库通过把他的binlog推送给从库，从库通过binlog构建数据库来实现的，下面附上一张原理图：
-所以要求主库必须要打开binlog集群的所有MySQL必须配置server-id参数，并确保唯一
-Master-Slave 配置准备要做的就是配</p>
-            <p class="article-more-link">
-                <a href="/2016/05/17/Mysql主从配置/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/" data-id="cip6gdsf9001te4ko7htyugr6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2016/05/17/Mysql主从配置/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-        
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
     </nav>
@@ -1456,6 +1453,24 @@ Master-Slave 配置准备要做的就是配</p>
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/06/11/raspberry内核编译和模块开发/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/06/11/raspberry内核编译和模块开发/" class="title">raspberry内核编译和模块开发</a></p>
+                            <p class="item-date"><time datetime="2016-06-11T14:41:00.000Z" itemprop="datePublished">2016-06-11</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1529,24 +1544,6 @@ Master-Slave 配置准备要做的就是配</p>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/05/25/直播（Ulive）架构/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/%E7%9B%B4%E6%92%AD%E6%9E%B6%E6%9E%84)" alt="直播（ULive）架构" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/05/25/直播（Ulive）架构/" class="title">直播（ULive）架构</a></p>
-                            <p class="item-date"><time datetime="2016-05-25T13:29:00.000Z" itemprop="datePublished">2016-05-25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1558,7 +1555,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1567,7 +1564,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux驱动编程/">linux驱动编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1576,7 +1573,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 15px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 12.5px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 15px;">Web基础</a> <a href="/tags/个人总结/" style="font-size: 15px;">个人总结</a> <a href="/tags/产品说明/" style="font-size: 15px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 12.5px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 17.5px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
+            <a href="/tags/C语言学习/" style="font-size: 15px;">C语言学习</a> <a href="/tags/Java编程学习/" style="font-size: 12.5px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 15px;">Web基础</a> <a href="/tags/linux驱动编程/" style="font-size: 10px;">linux驱动编程</a> <a href="/tags/个人总结/" style="font-size: 15px;">个人总结</a> <a href="/tags/产品说明/" style="font-size: 15px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 12.5px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 17.5px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
         </div>
     </div>
 
