@@ -3,18 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Java中的String与StringBuffer | GaoSpot</title>
+    <title>标签: linux驱动编程 | GaoSpot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：123String s；s=&quot;How are you&quot;;s=">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java中的String与StringBuffer">
-<meta property="og:url" content="http://zone.gaospot.com/2013/12/11/Java中的String与StringBuffer/index.html">
+    <meta name="description" content="My Person Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GaoSpot">
+<meta property="og:url" content="http://zone.gaospot.com/tags/linux驱动编程/index.html">
 <meta property="og:site_name" content="GaoSpot">
-<meta property="og:description" content="以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：123String s；s=&quot;How are you&quot;;s=">
-<meta property="og:updated_time" content="2016-04-29T09:05:45.368Z">
+<meta property="og:description" content="My Person Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中的String与StringBuffer">
-<meta name="twitter:description" content="以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：123String s；s=&quot;How are you&quot;;s=">
+<meta name="twitter:title" content="GaoSpot">
+<meta name="twitter:description" content="My Person Blog">
     
 
     
@@ -147,166 +146,63 @@
 </aside>
 
             
-            <section id="main"><article id="post-Java中的String与StringBuffer" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main">
+        <section class="archives-wrap">
+        <div class="archive-tag-wrap">
+            <span class="archive-tag">#linux驱动编程</span>
+        </div>
+        <div class="archives">
         
-        
-        
-            <header class="article-header">
-                
+            <article class="archive-article archive-type-summary">
     
-        <h1 class="article-title" itemprop="name">
-            Java中的String与StringBuffer
+    <div class="archive-article-thumbnail">
+        <a href="/2016/06/11/raspberry内核编译和模块开发/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2016/06/11/raspberry内核编译和模块开发/">raspberry内核编译和模块开发</a>
         </h1>
     
 
-                <div class="article-meta">
-                    
+            <div class="article-meta">
+                
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2013/12/11/Java中的String与StringBuffer/">
-            <time datetime="2013-12-11T03:32:00.000Z" itemprop="datePublished">2013-12-11</time>
+        <a href="/2016/06/11/raspberry内核编译和模块开发/">
+            <time datetime="2016-06-11T14:41:00.000Z" itemprop="datePublished">2016-06-11</time>
         </a>
     </div>
 
 
-                    
-                    
+                
+                
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java编程学习/">Java编程学习</a>
+        <a class="tag-link" href="/tags/linux驱动编程/">linux驱动编程</a>
     </div>
 
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>以前学java的时候竟然不知道有一个StringBuffer，终于有一天需要用函数来改变String的值得时候。才找到一些资料提到StringBuffer，这是前言。<br>String是使用java.lang包中的String类来创建的，因此字符串变量是类类型的，是一个对象。字符串常量是对象，因此可以把字符串常量的引用付给一个字符串变量。所以：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s；</span><br><span class="line">s=<span class="string">"How are you"</span>;</span><br><span class="line">s=<span class="string">"How do you do"</span>;</span><br></pre></td></tr></table></figure></p>
-<p>执行结果打印：s=”How do you do”;<br>但是s[3]=a;这样的赋值方式是错误的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFun2</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testStr</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">   str=<span class="string">"hello"</span>;<span class="comment">//型参指向字符串 “hello” </span></span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">   String s=<span class="string">"1"</span> ; </span><br><span class="line">   TestFun2.testStr(s);</span><br><span class="line">   System.out.println(<span class="string">"s="</span>+s); <span class="comment">//实参s引用没变，值也不变 </span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>执行结果打印：s=1<br>前面的例子表明String类创建的字符串对象是不可修改的。也就是说String字符串不能修改。删除或替换字符串中的某个字符，即String对象一旦创建，实体是不可再发生变化的，但StringBuffer类可以。该类能创建可修改的字符串序列，即该对象的实体的内存是可以自动改变大小的。<br>例如，StringBuffer有append()方法。又如上例如果传入的参数是StringBuffer类型的则其内容是可修改，可返回的。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2013/12/11/Java中的String与StringBuffer/" data-id="cipddp4et0028b4kovblu7vu6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2013/12/11/Java中的String与StringBuffer/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2013/12/11/Java中的String与StringBuffer/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2013/12/11/jsp 中定义函数/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    jsp 中定义函数
-                
             </div>
-        </a>
-    
-    
-        <a href="/2013/11/18/HTML标签总结/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">HTML标签总结</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </header>
+        <div class="article-entry">
+            <p>因为打算学一学linux驱动编程了，特意买了一块raspberry来作为开发环境。直接通过镜像按照的内核并不能直接用来做模块开发，因为发行版自身是不带内核源码树的，但是模块开发这个是必要的。所有要进行内核模块开发第一步就是要编译内核。具体到不同版本的raspberry，编译方法有细微的差别，这个raspberry官方有一篇文档专门将这个。我这个内核的编译过程主要就是参考这篇 KERNEL BUIL</p>
+            <p class="article-more-link">
+                <a href="/2016/06/11/raspberry内核编译和模块开发/#more">查看更多</a>
+            </p>
+        </div>
     </div>
-
-    
-    </section>
-
-</section>
+</article>
+        
+        </div></section>
+        </section>
             
                 <aside id="sidebar">
     
@@ -474,13 +370,11 @@
     var disqus_shortname = 'GaoSpot';
     
     
-    var disqus_url = 'http://zone.gaospot.com/2013/12/11/Java中的String与StringBuffer/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

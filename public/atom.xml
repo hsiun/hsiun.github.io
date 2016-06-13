@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-06-08T05:45:27.690Z</updated>
+  <updated>2016-06-13T02:04:55.950Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>raspberry内核编译和模块开发</title>
+    <link href="http://zone.gaospot.com/2016/06/11/raspberry%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E5%92%8C%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/"/>
+    <id>http://zone.gaospot.com/2016/06/11/raspberry内核编译和模块开发/</id>
+    <published>2016-06-11T14:41:00.000Z</published>
+    <updated>2016-06-13T02:04:55.950Z</updated>
+    
+    <content type="html">&lt;p&gt;因为打算学一学linux驱动编程了，特意买了一块raspberry来作为开发环境。直接通过镜像按照的内核并不能直接用来做模块开发，因为发行版自身是不带内核源码树的，但是模块开发这个是必要的。所有要进行内核模块开发第一步就是要编译内核。具体到不同版本的raspberry，编译方法有细微的差别，这个raspberry官方有一篇文档专门将这个。我这个内核的编译过程主要就是参考这篇 &lt;a href=&quot;https://www.raspberrypi.org/documentation/linux/kernel/building.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;KERNEL BUILDING&lt;/a&gt; 文章的。内核编译有两种方法，一种是在raspberry本地编译，另一种是在另外一台机器上编译好然后考到raspberry的内存卡上。直接在raspberry上编译编译比较简单但是比较花时间，我编译花了大概一个多小时，我个人认为这速度还可以：）。另一种是在pc上交叉编译，得益于官方提供的交叉编译工具，raspberry kernel在pc上的编译过程也比较简单。我这里记录下我在raspberry上编译的过程。&lt;/p&gt;
+&lt;h3 id=&quot;u5185_u6838_u7F16_u8BD1&quot;&gt;&lt;a href=&quot;#u5185_u6838_u7F16_u8BD1&quot; class=&quot;headerlink&quot; title=&quot;内核编译&quot;&gt;&lt;/a&gt;内核编译&lt;/h3&gt;&lt;p&gt;1、下载linux内核源码，我直接放在用户主目录了，这个在编译模块的时候是会用到的。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone --depth=1 https://github.com/raspberrypi/linux&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;2、 安装缺少的依赖。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install bc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;3、 内核配置，pi1和pi2,3不一样。我这里的是pi3，所以我只说明pi3的，pi1参考官方文档。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd linux&amp;#10;KERNEL=kernel7&amp;#10;make bcm2709_defconfig&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;4、 编译安装内核和模块。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;make -j4 zImage modules dtbs&amp;#10;sudo make modules_install&amp;#10;sudo cp arch/arm/boot/dts/*.dtb /boot/&amp;#10;sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/&amp;#10;sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/&amp;#10;sudo scripts/mkknlimg arch/arm/boot/zImage /boot/$KERNEL.img&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;5、 reboot或者开机重启下，使用uname看下内核版本是否发生了变化。&lt;/p&gt;
+&lt;h3 id=&quot;u6A21_u5757_u5F00_u53D1&quot;&gt;&lt;a href=&quot;#u6A21_u5757_u5F00_u53D1&quot; class=&quot;headerlink&quot; title=&quot;模块开发&quot;&gt;&lt;/a&gt;模块开发&lt;/h3&gt;&lt;p&gt;我这里使用的是《LINUX设备驱动程序》这本书上的例子来做的。下面是一个过程的 记录。&lt;br&gt;1、 使用编辑软件编辑模块源代码，我的是hello.c&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;#60;linux/init.h&amp;#62;&amp;#10;#include &amp;#60;linux/module.h&amp;#62;&amp;#10;&amp;#10;MODULE_LICENSE(&amp;#34;Dual BSD/GPL&amp;#34;);&amp;#10;&amp;#10;static int hello_init(void)&amp;#10;&amp;#123;&amp;#10;    printk(KERN_ALERT &amp;#34;Hello, world\n&amp;#34;);&amp;#10;    return 0;&amp;#10;&amp;#125;&amp;#10;&amp;#10;static void hello_exit(void)&amp;#10;&amp;#123;&amp;#10;    printk(KERN_ALERT &amp;#34;Goodbye, cruel world\n&amp;#34;);&amp;#10;&amp;#125;&amp;#10;&amp;#10;module_init(hello_init);&amp;#10;module_exit(hello_exit);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;2、 编辑Makefile文件，我这个比较简单只是用来测试用的。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;obj-m := hello.o&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;3、 在命令行中编译模块。-C参数指定内核源码树位置，M为模块源码所在目录。modules没搞明白是干嘛的。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;make -C ~/linux M=/home/pi/workspace modules&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;4、 模块的安装卸载及其输出的查看。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;insmod ./hello.ko&amp;#10;rmmod hello&amp;#10;tail -2 /var/log/syslog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;第一个简单的模块就这样编译完了，有了这些准备为我们后面的模块开发做准备。另外一些模块开发环境的配置方法可以参考&lt;a href=&quot;http://stackoverflow.com/questions/20167411/how-to-compile-a-kernel-module-for-raspberry-pi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为打算学一学linux驱动编程了，特意买了一块raspberry来作为开发环境。直接通过镜像按照的内核并不能直接用来做模块开发，因为发行版自身是不带内核源码树的，但是模块开发这个是必要的。所有要进行内核模块开发第一步就是要编译内核。具体到不同版本的raspberry，编译
+    
+    </summary>
+    
+    
+      <category term="linux驱动编程" scheme="http://zone.gaospot.com/tags/linux%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>初次连接到我的树莓派</title>
@@ -791,44 +823,6 @@
     <summary type="html">
     
       &lt;p&gt;当网站部署好之后，开始上线运行的时候。一开始可能一切都是正常的，慢慢的随着时间和访问量的增加，可能会出现一些比较明显的性能问题。一旦出现这样的问题，轻则影响用户访问速度，重则可能整个网站就瘫痪了，比如说有后端的应用，数据出现死锁等等情况是，这时一般整个网站一般都是不可用的。
-    
-    </summary>
-    
-    
-      <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Win2008搭建Web和FTP服务</title>
-    <link href="http://zone.gaospot.com/2016/04/11/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFTP%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://zone.gaospot.com/2016/04/11/Win2008搭建Web和FTP服务/</id>
-    <published>2016-04-10T18:32:55.000Z</published>
-    <updated>2016-04-10T18:37:12.812Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;u4ECB_u7ECD&quot;&gt;&lt;a href=&quot;#u4ECB_u7ECD&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支持最简单的html页面，如果需要其他支持，请自行安装所需软件。&lt;/p&gt;
-&lt;p&gt;###创建和连接主机&lt;br&gt;&lt;strong&gt;1、创建win2008的主机&lt;/strong&gt;&lt;br&gt;在UCloud平台上创建win2008主机的过程和创建其他系统主机过程一样，但是要注意的是，默认的镜像不是Windows系统的，所以在安装过程中需要注意选择下Windows系统的镜像。这里使用的是Win2008 R2 64bit的一个镜像系统。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A1.png&quot; alt=&quot;Win2008搭建Web和FTP服务&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2、使用mstsc连接管理主机&lt;/strong&gt;&lt;br&gt;UCloud平台提供了Web连接主机的方式，这种连接方式并不推荐用来管理主机，而比较适合在应急的情况下登录，检查主机状况，由于控制登录与主机网络状态是无关的，这种登录方式在主机网络异常的情况下，可以非常方便的通过其登录主机检查主机的网络设置。在正常情况下我们还是使用mstsc（远程桌面连接）来管理主机。首先打开远程桌面软件，通过按下win key + r，然后输入mstsc就可以了。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A11.png&quot; alt=&quot;Win2008搭建Web和FTP服务&quot;&gt;&lt;/p&gt;
-&lt;p&gt;打开远程连接界面后，下面有个小三角形，点击打开更大选项，输入相关参数。输入示例如下：&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A12.png&quot; alt=&quot;Win2008搭建Web和FTP服务&quot;&gt;&lt;/p&gt;
-&lt;p&gt;输入都正确以后，会弹出一个关于正式的对话框，点是忽略这个证书问题就可以了，然后就能顺利的连接上主机。&lt;/p&gt;
-&lt;p&gt;###创建Web和ftp服务器&lt;br&gt;1、服务器登录上去之后会自动打开服务器管理界面。第一件事先添加一个角色。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A13.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2、点击下一步，勾选Web服务器（IIS）这一项，然后点击下一步。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A14.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;3、由于这里还要安装ftp服务，把ftp相关的勾选上。在点击下一步就会开始安装了，安装过程很快，大概一两分钟的样子。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A15.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;4、添加完角色之后就可以添加站点了，右键点击箭头标出的地方，然后选择新建站点就可以了。其实这个时候就可以直接访问了，可以访问到默认站点。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A16.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;5、站点的设置。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A17.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;6、本地访问测试默认站点。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A18.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;7、下面的步骤介绍的是建立ftp服务器的过程，首先新建一个ftp站点。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A19.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;8、ftp站点的基本设置，站点名和站点（物理）路径。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A110.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;9、ssl设置，由于我没有证书，没办法使用https模式。所以ssl这个选无。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A111.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;10、访问和授权设置。这里不限制用户访问，给所有访问这个ftp站点的用户读取站点文件的权限。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A112.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;11、在外网测试ftp服务器，这里假设防火墙端口已经打开。在UCloud平台上，Windows内部的防火墙默认是关闭了的，但是平台提供的防火墙是开着的，而且默认防火墙21端口是没有打开的。如果不清楚防火墙打开过程可以参考下面的说明。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/Win2008%E6%90%AD%E5%BB%BAWeb%E5%92%8CFtp%E6%9C%8D%E5%8A%A113.png&quot; alt=&quot;创建Web和ftp服务器&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###打开外网防火墙&lt;br&gt;打开外网防火墙的说明在之前博客中有介绍，这里就不在赘述，过程都是一样的，具体参考前面的博客&lt;a href=&quot;http://zone.gaospot.com/2016/03/30/UCloud%E4%B8%8ALAMP%E5%B0%8F%E5%9E%8B%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%B5%8B%E8%AF%95/&quot;&gt;UCloud上LAMP小型网站搭建与测试&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;参考：&lt;a href=&quot;http://ce.sysu.edu.cn/hope/Item/91192.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows server 2008 r2搭建FTP服务器&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u4ECB_u7ECD&quot;&gt;&lt;a href=&quot;#u4ECB_u7ECD&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;本篇博客介绍的是在UCloud的云主机上通过IIS搭建Web和FTP服务器的过程，这里的Web服务器只支
     
     </summary>
     
