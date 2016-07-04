@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-06-24T15:06:20.110Z</updated>
+  <updated>2016-06-28T04:40:46.544Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Spring处理一个RESTful请求</title>
+    <link href="http://zone.gaospot.com/2016/06/28/%E4%BD%BF%E7%94%A8Spring%E5%A4%84%E7%90%86%E4%B8%80%E4%B8%AARESTful%E8%AF%B7%E6%B1%82/"/>
+    <id>http://zone.gaospot.com/2016/06/28/使用Spring处理一个RESTful请求/</id>
+    <published>2016-06-28T04:11:00.000Z</published>
+    <updated>2016-06-28T04:40:46.544Z</updated>
+    
+    <content type="html">&lt;p&gt;这里介绍的是用Spring来发起一个http请求，请求的对方响应一个json数据，这里主要介绍对这个请求的发起和处理的过程。&lt;/p&gt;
+&lt;p&gt;环境&lt;br&gt;java1.8&lt;br&gt;Ecplise&lt;br&gt;Maven3&lt;/p&gt;
+&lt;p&gt;下面是主要的代码，首先是Maven的配置文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#60;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;#62;&amp;#10;  &amp;#60;modelVersion&amp;#62;4.0.0&amp;#60;/modelVersion&amp;#62;&amp;#10;  &amp;#60;groupId&amp;#62;com.gaospot&amp;#60;/groupId&amp;#62;&amp;#10;  &amp;#60;artifactId&amp;#62;consum&amp;#60;/artifactId&amp;#62;&amp;#10;  &amp;#60;version&amp;#62;0.0.1-SNAPSHOT&amp;#60;/version&amp;#62;&amp;#10;  &amp;#10;  &amp;#60;parent&amp;#62;&amp;#10;    &amp;#60;groupId&amp;#62;org.springframework.boot&amp;#60;/groupId&amp;#62;&amp;#10;    &amp;#60;artifactId&amp;#62;spring-boot-starter-parent&amp;#60;/artifactId&amp;#62;&amp;#10;    &amp;#60;version&amp;#62;1.3.5.RELEASE&amp;#60;/version&amp;#62;&amp;#10;  &amp;#60;/parent&amp;#62;&amp;#10;  &amp;#10;  &amp;#60;properties&amp;#62;&amp;#10;    &amp;#60;java.version&amp;#62;1.8&amp;#60;/java.version&amp;#62;&amp;#10;  &amp;#60;/properties&amp;#62;&amp;#10;  &amp;#10;  &amp;#60;dependencies&amp;#62;&amp;#10;    &amp;#60;dependency&amp;#62;&amp;#10;      &amp;#60;groupId&amp;#62;org.springframework.boot&amp;#60;/groupId&amp;#62;&amp;#10;      &amp;#60;artifactId&amp;#62;spring-boot-starter&amp;#60;/artifactId&amp;#62;&amp;#10;    &amp;#60;/dependency&amp;#62;&amp;#10;    &amp;#10;    &amp;#60;dependency&amp;#62;&amp;#10;      &amp;#60;groupId&amp;#62;org.springframework&amp;#60;/groupId&amp;#62;&amp;#10;      &amp;#60;artifactId&amp;#62;spring-web&amp;#60;/artifactId&amp;#62;&amp;#10;    &amp;#60;/dependency&amp;#62;&amp;#10;    &amp;#10;    &amp;#60;dependency&amp;#62;&amp;#10;      &amp;#60;groupId&amp;#62;com.fasterxml.jackson.core&amp;#60;/groupId&amp;#62;&amp;#10;      &amp;#60;artifactId&amp;#62;jackson-databind&amp;#60;/artifactId&amp;#62;&amp;#10;    &amp;#60;/dependency&amp;#62;&amp;#10;  &amp;#60;/dependencies&amp;#62;&amp;#10;  &amp;#10;  &amp;#60;build&amp;#62;&amp;#10;    &amp;#60;plugins&amp;#62;&amp;#10;      &amp;#60;plugin&amp;#62;&amp;#10;        &amp;#60;groupId&amp;#62;org.springframework.boot&amp;#60;/groupId&amp;#62;&amp;#10;        &amp;#60;artifactId&amp;#62;spring-boot-maven-plugin&amp;#60;/artifactId&amp;#62;&amp;#10;      &amp;#60;/plugin&amp;#62;&amp;#10;    &amp;#60;/plugins&amp;#62;&amp;#10;  &amp;#60;/build&amp;#62;&amp;#10;&amp;#60;/project&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后新建两个bean类，用来响应json请求。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;package consum;&amp;#10;&amp;#10;import com.fasterxml.jackson.annotation.JsonIgnoreProperties;&amp;#10;&amp;#10;@JsonIgnoreProperties(ignoreUnknown = true) //&amp;#21482;&amp;#22788;&amp;#29702;json&amp;#26684;&amp;#24335;&amp;#30340;&amp;#65292;&amp;#19981;&amp;#31526;&amp;#21512;&amp;#27492;&amp;#26684;&amp;#24335;&amp;#30340;&amp;#24573;&amp;#30053;&amp;#10;public class Quote &amp;#123;&amp;#10;  &amp;#10;  private String type;&amp;#10;  private Value value;&amp;#10;  &amp;#10;  public Quote() &amp;#123;&amp;#125;&amp;#10;  &amp;#10;  public String getType() &amp;#123;&amp;#10;    return type;&amp;#10;  &amp;#125;&amp;#10;&amp;#10;  public void setType(String type) &amp;#123;&amp;#10;    this.type = type;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  public Value getValue() &amp;#123;&amp;#10;    return value;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  public void setValue(Value value) &amp;#123;&amp;#10;    this.value = value;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  @Override&amp;#10;  public String toString() &amp;#123;&amp;#10;    return &amp;#34;Quote&amp;#123;&amp;#34; +&amp;#10;        &amp;#34;type=&amp;#39;&amp;#34; + type + &amp;#39;\&amp;#39;&amp;#39; +&amp;#10;        &amp;#34;, value=&amp;#34; + value +&amp;#10;        &amp;#39;&amp;#125;&amp;#39;;&amp;#10;  &amp;#125;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;package consum;&amp;#10;&amp;#10;import com.fasterxml.jackson.annotation.JsonIgnoreProperties;&amp;#10;&amp;#10;@JsonIgnoreProperties(ignoreUnknown = true)&amp;#10;public class Value &amp;#123;&amp;#10;  &amp;#10;  private Long id;&amp;#10;  private String quote;&amp;#10;  &amp;#10;  public Value() &amp;#123;&amp;#125;&amp;#10;  &amp;#10;  public Long getId() &amp;#123;&amp;#10;    return id;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  public String getQuote() &amp;#123;&amp;#10;    return quote;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  public void setId(Long id) &amp;#123;&amp;#10;    this.id = id;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  public void setQuote(String quote) &amp;#123;&amp;#10;    this.quote = quote;&amp;#10;  &amp;#125;&amp;#10;  &amp;#10;  @Override&amp;#10;  public String toString() &amp;#123;&amp;#10;    return &amp;#34;Value&amp;#123;&amp;#34; +&amp;#10;        &amp;#34;id=&amp;#34; + id +&amp;#10;        &amp;#34;, quote=&amp;#39;&amp;#34; + quote + &amp;#39;\&amp;#39;&amp;#39; +&amp;#10;        &amp;#39;&amp;#125;&amp;#39;;&amp;#10;  &amp;#125;&amp;#10;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在Application类中调用我们的请求类。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;package consum;&amp;#10;&amp;#10;import org.slf4j.Logger;&amp;#10;import org.slf4j.LoggerFactory;&amp;#10;import org.springframework.boot.CommandLineRunner;&amp;#10;import org.springframework.boot.SpringApplication;&amp;#10;import org.springframework.boot.autoconfigure.SpringBootApplication;&amp;#10;import org.springframework.web.client.RestTemplate;&amp;#10;&amp;#10;@SpringBootApplication&amp;#10;public class Application implements CommandLineRunner &amp;#123;&amp;#10;  &amp;#10;  private static final Logger log = LoggerFactory.getLogger(Application.class);&amp;#10;  &amp;#10;  public static void main(String args[]) &amp;#123;&amp;#10;    SpringApplication.run(Application.class);&amp;#10;  &amp;#125;&amp;#10;&amp;#10;  @Override&amp;#10;  public void run(String... arg0) throws Exception &amp;#123;&amp;#10;    RestTemplate restTemplate = new RestTemplate();&amp;#10;    Quote quote = restTemplate.getForObject(&amp;#34;http://gturnquist-quoters.cfapps.io/api/random&amp;#34;, &amp;#10;          Quote.class);   //restTemplate&amp;#26041;&amp;#27861;&amp;#20250;&amp;#20351;&amp;#29992;jackson&amp;#30340;json&amp;#24211;&amp;#23558;json&amp;#36716;&amp;#25442;&amp;#20026;quote&amp;#23545;&amp;#35937;&amp;#10;    log.info(quote.toString()); //&amp;#23558;&amp;#36716;&amp;#25442;&amp;#21518;&amp;#30340;&amp;#20869;&amp;#23481;&amp;#35760;&amp;#24405;&amp;#21040;&amp;#26085;&amp;#24535;&amp;#65292;info&amp;#32423;&amp;#21035;&amp;#30340;&amp;#26085;&amp;#24535;&amp;#23558;&amp;#22312;&amp;#25511;&amp;#21046;&amp;#21488;&amp;#36755;&amp;#20986;&amp;#10;    &amp;#10;  &amp;#125;&amp;#10;  &amp;#10;&amp;#10;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里介绍的是用Spring来发起一个http请求，请求的对方响应一个json数据，这里主要介绍对这个请求的发起和处理的过程。&lt;/p&gt;
+&lt;p&gt;环境&lt;br&gt;java1.8&lt;br&gt;Ecplise&lt;br&gt;Maven3&lt;/p&gt;
+&lt;p&gt;下面是主要的代码，首先是Maven的配置文件：&lt;/
+    
+    </summary>
+    
+    
+      <category term="Java开发" scheme="http://zone.gaospot.com/tags/Java%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Spring构建第一个RESTful服务</title>
@@ -754,52 +784,6 @@
     <summary type="html">
     
       &lt;p&gt;在UCloud平台使用云主机的时候，如果需要访问外网，一种比较直接的方式就是绑定EIP，但是在某些情况下我们并不希望给没给云主机都绑定一个EIP，比如说安装需要从外网下载软件的时候。这个时候我们该如何实现这个需求呢，在这种情况下，我们要求最少需要有一个EIP，这样可以通过一
-    
-    </summary>
-    
-    
-      <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker安装</title>
-    <link href="http://zone.gaospot.com/2016/04/24/Docker%E5%AE%89%E8%A3%85/"/>
-    <id>http://zone.gaospot.com/2016/04/24/Docker安装/</id>
-    <published>2016-04-24T09:11:00.000Z</published>
-    <updated>2016-04-24T09:12:34.862Z</updated>
-    
-    <content type="html">&lt;p&gt;记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。&lt;/p&gt;
-&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h3&gt;&lt;p&gt;由于Docker对操作系统的一些底层功能有依赖，所有并不是所有的Linux发行版都可以用来安装Docker的，我这里选择的是Ubuntu14.04 64bit，因为Ubuntu本身使用用户量比较大，而且也是我自己常用的系统。具体要求在列表中给出：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;必须是64位系统，不论是AMD还是X86_64，总之一定要是64位的；&lt;/li&gt;
-&lt;li&gt;内核版本最起码是3.10，小版本最低的3.10都行；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;u66F4_u65B0APT_u6E90&quot;&gt;&lt;a href=&quot;#u66F4_u65B0APT_u6E90&quot; class=&quot;headerlink&quot; title=&quot;更新APT源&quot;&gt;&lt;/a&gt;更新APT源&lt;/h3&gt;&lt;p&gt;为了安装最新的docker版本，这里并没有使用ubuntu官方的源来安装docker，而是使用了其他的源，添加过程如下所示：&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get update&amp;#10;$ sudo apt-get install apt-transport-https ca-certificates&amp;#10;$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D&amp;#10;$ vim /etc/apt/sources.list.d/docker.list #&amp;#28155;&amp;#21152;&amp;#19979;&amp;#38754;&amp;#30340;&amp;#20869;&amp;#23481;&amp;#65292;&amp;#22240;&amp;#20026;&amp;#25105;&amp;#26159;14.04&amp;#30340;&amp;#10;&amp;#10;deb https://apt.dockerproject.org/repo ubuntu-trusty main&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其他版本的添加的源如下：&lt;br&gt;在Ubuntu Precise 12.04 (LTS)中，添加下面的源&lt;/p&gt;
-&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-precise main&lt;br&gt;在Ubuntu Trusty 14.04 (LTS)中，添加下面的源&lt;/p&gt;
-&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-trusty main&lt;br&gt;Ubuntu Wily 15.10&lt;/p&gt;
-&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-wily main&lt;br&gt;Ubuntu Xenial 16.04 (LTS)&lt;/p&gt;
-&lt;p&gt;deb &lt;a href=&quot;https://apt.dockerproject.org/repo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://apt.dockerproject.org/repo&lt;/a&gt; ubuntu-xenial main&lt;/p&gt;
-&lt;p&gt;保存并退出之后更新本地源缓存，我记得apt好像是有缓存：）。&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;u5B89_u88C5&quot;&gt;&lt;a href=&quot;#u5B89_u88C5&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;在进行完上面的准备工作之后就可安装了，安装过程非常简单就是一条apt命令，安装之后对docker做一个简单检查。还有ufw的问题，ufw是Ubuntu下的防火墙，类似Centos下iptables，在我的主机上，这个防火墙是关闭的，所有可以不用担心它。&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt-get install docker-engine&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;安装之后启动服务&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo service docker start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;通过运行一个Docker容器，检查Docker是否正常安装&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo docker run hello-world&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;查看Docker信息&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo docker info&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;上面就是我安装过程的一个记录，安装好Docker之后可以尽情的折腾了，遇到问题解决不了的话，直接重装系统吧：）。然后又可以愉快的玩耍了。有问题可以参考官方文档，链接在下面，官方文档说的特别详细，考虑了很多方面，我这里针对我本地需要和本地环境做了一些简化。哈哈，小偷了一下懒。不过也没什么影响，总的来说Docker安装过程还是非常简单的。&lt;/p&gt;
-&lt;p&gt;参考：&lt;a href=&quot;https://docs.docker.com/engine/installation/linux/ubuntulinux/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Installation on Ubuntu&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录在我的云主机上安装Docker的过程，安装过程是通过软件包管理器来安装的，所有安装过程比较简单，过程参考了Docker官方文档和其他一些内容。&lt;/p&gt;
-&lt;h3 id=&quot;u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u524D_u63D0_u676
     
     </summary>
     
