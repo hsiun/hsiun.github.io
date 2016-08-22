@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-08-17T05:08:02.356Z</updated>
+  <updated>2016-08-22T02:30:04.811Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://zone.gaospot.com/2016/08/17/%E5%A6%82%E4%BD%95%E5%A4%9A%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://zone.gaospot.com/2016/08/17/如何多使用快捷键/</id>
     <published>2016-08-17T02:58:53.000Z</published>
-    <updated>2016-08-17T05:08:02.356Z</updated>
+    <updated>2016-08-22T02:30:04.811Z</updated>
     
     <content type="html">&lt;p&gt;决定以后使用快捷键来代替鼠标了，这样乔帮主会不会不高兴：）。最起码从个人来讲使用使用快捷键可以获得以下好处：&lt;br&gt;1、不用在鼠标和键盘之间来回的切换，提高了操作的效率；&lt;br&gt;2、只使用键盘的话，就可以避免鼠标手了；&lt;br&gt;3、使用键盘的话，左右手的输入是均匀的，这样无形之中提高了左手的使用，这样两个大脑的使用就均衡了；&lt;br&gt;4、这样更帅啊，不用鼠标多帅啊！&lt;/p&gt;
 &lt;p&gt;计划的执行步骤：&lt;br&gt;之前也定过这样的计划，但是一直没有执行起来，我感觉最严重的问题是没有列好计划，或者列好了计划没有很好的执行起来，现在把计划列好，这样就有例可循了。&lt;/p&gt;
 &lt;p&gt;1、先把触控板和鼠标都给拔下来（实际发现个问题，有些操作根本无法用快捷来操作，比如一些很小众的软件根本就没提供快捷键:(）&lt;br&gt;2、学习基本的快键键，这些快捷键包括下面这些：&lt;br&gt;（1）操作系统级的快捷键，例如：&lt;br&gt;     在应用间切换（ctrl+tab)&lt;br&gt;     打开一个应用&lt;br&gt;     关闭一个应用&lt;/p&gt;
 &lt;p&gt;（2）浏览器相关的快捷键，由于现在大部分的操作都是在浏览器中进行的，所以这个重要，另外浏览器又以使用chrome为主，所以这条主要俩说就是chrome的快捷使用&lt;br&gt;     打开一个新的tab（ctrl+t）&lt;br&gt;     关闭当前tab（Ctrl+w）&lt;br&gt;     在tab之间转换（Ctrl+tab，Ctrl+Shift+tab）&lt;br&gt;     在google的搜索结果中跳转（好像没有直接使用的快捷键，可以使用Ctrl+f寻找，找到需要的连接然后按Ctrl，是其变成可跳转的，回车就可了）&lt;/p&gt;
-&lt;p&gt;（3）其他需要使用到的工具的快捷键，比如说开发java web的时候需要用到的eclipse。&lt;/p&gt;
+&lt;p&gt;（3）Eclipse快捷键&lt;br&gt;     注释  （ctrl+/)&lt;br&gt;     调整到下一个空行   （ctrl+enter）&lt;br&gt;     快速修复  （ctrl+1）&lt;br&gt;     删除当前行 （ctrl+d）&lt;br&gt;     格式化代码 （ctrl+shift+f）&lt;br&gt;     编辑窗口最大化 (crtl+m)&lt;br&gt;     显示代码大纲 (crtl+o)&lt;/p&gt;
 &lt;p&gt;后记&lt;br&gt;现在执行了一会儿这个计划，感觉手好酸啊！！！&lt;/p&gt;
 </content>
     
