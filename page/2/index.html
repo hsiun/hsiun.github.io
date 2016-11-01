@@ -115,11 +115,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                48
+                50
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                15
+                16
                 <span>标签</span>
             </div>
         </div>
@@ -147,6 +147,263 @@
 
             
             <section id="main">
+            <article id="post-GTID模式下主从同步错误解决" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/31/GTID模式下主从同步错误解决/">GTID模式下主从同步错误解决</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/31/GTID模式下主从同步错误解决/">
+            <time datetime="2016-05-30T18:35:00.000Z" itemprop="datePublished">2016-05-31</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>GTID简介什么是GTIDGTID(Global Transaction ID)是对于一个已提交事务的编号，并且是一个全局唯一的编号。GTID实际上是由UUID+TID组成的。其中UUID是一个MySQL实例的唯一标识。TID代表了该实例上已经提交的事务数量，并且随着事务提交单调递增。下面是一个GTID的具体形式
+3E11FA47-71CA-11E1-9E33-C80AA9429562:23更详细</p>
+            <p class="article-more-link">
+                <a href="/2016/05/31/GTID模式下主从同步错误解决/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/" data-id="ciuz6ey8b002ujwkogv190r2m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/31/GTID模式下主从同步错误解决/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
+            <article id="post-UCDN配置过程" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2016/05/31/UCDN配置过程/">UCDN配置过程</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/05/31/UCDN配置过程/">
+            <time datetime="2016-05-30T16:06:00.000Z" itemprop="datePublished">2016-05-31</time>
+        </a>
+    </div>
+
+
+                    
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/产品说明/">产品说明</a>
+    </div>
+
+                </div>
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p>更新
+2016/6/8 添加CDN排错过程
+
+概述原本的需求是这样的，我本来打算给我的博客套一层cdn的，但是不行。我的博客是放在github page上的，原因可能是github有限制。这个以后再来研究下。后来我干脆改变了思路，配置个加速看看，走走这个过程。了解下配置的细节。我这里配置的过程就是一般加速的配置过程，没有什么特殊的。
+过程说明1、控制配置加速域名。一共下面这些框框是要填的，关于各个</p>
+            <p class="article-more-link">
+                <a href="/2016/05/31/UCDN配置过程/#more">查看更多</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/" data-id="ciuz6ey74001vjwkoawvblyg3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://zone.gaospot.com/2016/05/31/UCDN配置过程/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/31/UCDN配置过程/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+        
             <article id="post-直播（Ulive）架构" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -196,7 +453,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/25/直播（Ulive）架构/" data-id="cis5fhd00000axkkox8azwr2o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/25/直播（Ulive）架构/" data-id="ciuz6ey5i000ajwkonliwgx6c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -326,7 +583,7 @@
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/" data-id="cis5fhczw0008xkkorvb12lmz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/24/直播（ulive）进阶使用/" data-id="ciuz6ey5g0008jwkogq5q9pjw" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -455,7 +712,7 @@ mysqldump: 原生数据导出工具，以sql的形式导出保存xtrabackup: per
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/" data-id="cis5fhd320023xkkota6dm24z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/" data-id="ciuz6ey7l0026jwko5phuw168" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -584,7 +841,7 @@ mysqldump: 原生数据导出工具，以sql的形式导出保存xtrabackup: per
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/" data-id="cis5fhd2q001wxkkohvae9h9c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/19/Mysql问题分析工具/" data-id="ciuz6ey7a001zjwkoufj0z0uz" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -727,7 +984,7 @@ long_query_time
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/" data-id="cis5fhd2v001zxkkoxew4iv11" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/18/Mysql慢查询分析与优化/" data-id="ciuz6ey7e0022jwkoqclcrrzk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -856,7 +1113,7 @@ Master-Slave 配置准备要做的就是配</p>
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/" data-id="cis5fhd380027xkkox03x72vp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql主从配置/" data-id="ciuz6ey7q002ajwko5j14yuqo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -983,7 +1240,7 @@ Master-Slave 配置准备要做的就是配</p>
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/" data-id="cis5fhd360025xkkoov98x0gs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/17/Mysql初始安装及配置/" data-id="ciuz6ey7n0028jwkos0jw0a95" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1109,7 +1366,7 @@ Master-Slave 配置准备要做的就是配</p>
 
 </div>
 
-    <a data-url="http://zone.gaospot.com/2016/05/11/Docker镜像创建/" data-id="cis5fhd44002rxkkojshfvvk2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://zone.gaospot.com/2016/05/11/Docker镜像创建/" data-id="ciuz6ey8c002wjwkok8qb13se" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1187,259 +1444,6 @@ Master-Slave 配置准备要做的就是配</p>
 
 
         
-            <article id="post-云直播（ULive）初体验" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/05/09/云直播（ULive）初体验/">云直播（ULive）初体验</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/05/09/云直播（ULive）初体验/">
-            <time datetime="2016-05-09T09:45:00.000Z" itemprop="datePublished">2016-05-09</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/产品说明/">产品说明</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p>这篇博客旨在通过一个简单是使用例子来初步说明ULive这个产品的使用方法，产品文档的说明主要是针对产品的，而这篇博客则主要是从用户业务的角度来做说明。
-概述这里通过obs（一个开源的直播软件）来录视频（产生直播流），当然也可以通过sdk来开发推流客户端。直播流推流到UCloud提供专门用于测试的推流地址，播放是通过支持rtmp协议串流播放的vlc（开源播放器）来做的。有其他更多需求比如说弹幕啊什么</p>
-            <p class="article-more-link">
-                <a href="/2016/05/09/云直播（ULive）初体验/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2016/05/09/云直播（ULive）初体验/" data-id="cis5fhd10000xxkkoix6gmky7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2016/05/09/云直播（ULive）初体验/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/09/云直播（ULive）初体验/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-        
-            <article id="post-Mysql常见问题排错" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/05/04/Mysql常见问题排错/">Mysql常见问题排查</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/05/04/Mysql常见问题排错/">
-            <time datetime="2016-05-04T03:35:00.000Z" itemprop="datePublished">2016-05-04</time>
-        </a>
-    </div>
-
-
-                    
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/数据库管理/">数据库管理</a>
-    </div>
-
-                </div>
-            </header>
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p>解决UDB主从同步不一致1、: “开启super权限：update mysql.user set super_priv = ‘Y’ where user = ‘root’; flush privileges;”,2、: “停止slave: stop slave;”,3、: “设置跳过slave同步语句数： set global sql_slave_skip_counter = 1;”,4、: “启</p>
-            <p class="article-more-link">
-                <a href="/2016/05/04/Mysql常见问题排错/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://zone.gaospot.com/2016/05/04/Mysql常见问题排错/" data-id="cis5fhd2y0021xkkolz3kyb64" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://zone.gaospot.com/2016/05/04/Mysql常见问题排错/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zone.gaospot.com/2016/05/04/Mysql常见问题排错/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-        
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
     </nav>
@@ -1452,6 +1456,42 @@ Master-Slave 配置准备要做的就是配</p>
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/01/用Python写一个命令行工具调用UCloud Api/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/11/01/用Python写一个命令行工具调用UCloud Api/" class="title">用Python写一个命令行工具调用UCloud Api</a></p>
+                            <p class="item-date"><time datetime="2016-11-01T06:18:00.000Z" itemprop="datePublished">2016-11-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/01/Gitbook写书记录/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/11/01/Gitbook写书记录/" class="title">Gitbook写书</a></p>
+                            <p class="item-date"><time datetime="2016-11-01T05:35:00.000Z" itemprop="datePublished">2016-11-01</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1507,42 +1547,6 @@ Master-Slave 配置准备要做的就是配</p>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/24/使用Spring构建第一个RESTful服务/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/24/使用Spring构建第一个RESTful服务/" class="title">使用Spring构建第一个RESTful服务</a></p>
-                            <p class="item-date"><time datetime="2016-06-24T15:11:00.000Z" itemprop="datePublished">2016-06-24</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/13/阿里云CDN架构/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/aliyun-architecture-single.png)" alt="阿里云CDN架构" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/13/阿里云CDN架构/" class="title">阿里云CDN架构</a></p>
-                            <p class="item-date"><time datetime="2016-06-13T07:16:00.000Z" itemprop="datePublished">2016-06-13</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1554,7 +1558,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1563,7 +1567,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java开发/">Java开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux驱动编程/">linux驱动编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java开发/">Java开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux驱动编程/">linux驱动编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人项目/">个人项目</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1572,7 +1576,7 @@ Master-Slave 配置准备要做的就是配</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 13.33px;">C语言学习</a> <a href="/tags/Java开发/" style="font-size: 11.67px;">Java开发</a> <a href="/tags/Java编程学习/" style="font-size: 11.67px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 13.33px;">Web基础</a> <a href="/tags/linux驱动编程/" style="font-size: 10px;">linux驱动编程</a> <a href="/tags/个人总结/" style="font-size: 16.67px;">个人总结</a> <a href="/tags/产品说明/" style="font-size: 15px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 11.67px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 18.33px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
+            <a href="/tags/C语言学习/" style="font-size: 13.33px;">C语言学习</a> <a href="/tags/Java开发/" style="font-size: 11.67px;">Java开发</a> <a href="/tags/Java编程学习/" style="font-size: 11.67px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 13.33px;">Web基础</a> <a href="/tags/linux驱动编程/" style="font-size: 10px;">linux驱动编程</a> <a href="/tags/个人总结/" style="font-size: 16.67px;">个人总结</a> <a href="/tags/个人项目/" style="font-size: 11.67px;">个人项目</a> <a href="/tags/产品说明/" style="font-size: 15px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 11.67px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 18.33px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
         </div>
     </div>
 

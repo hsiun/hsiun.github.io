@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zone.gaospot.com/"/>
-  <updated>2016-08-22T02:30:04.811Z</updated>
+  <updated>2016-11-01T07:10:11.684Z</updated>
   <id>http://zone.gaospot.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用Python写一个命令行工具调用UCloud Api</title>
+    <link href="http://zone.gaospot.com/2016/11/01/%E7%94%A8Python%E5%86%99%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8UCloud%20Api/"/>
+    <id>http://zone.gaospot.com/2016/11/01/用Python写一个命令行工具调用UCloud Api/</id>
+    <published>2016-11-01T06:18:00.000Z</published>
+    <updated>2016-11-01T07:10:11.684Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;u60F3_u6CD5_u6765_u6E90&quot;&gt;&lt;a href=&quot;#u60F3_u6CD5_u6765_u6E90&quot; class=&quot;headerlink&quot; title=&quot;想法来源&quot;&gt;&lt;/a&gt;想法来源&lt;/h3&gt;&lt;p&gt;之前一直想通过UCloud的Api做点事情，但又没有太好的想法，直到我遇到阿里命令行工具的时候豁然开朗，我或许可以写一个这样的工具啊，然后在发布到pypi上，多么美妙的一件事，说写就写起来，先查好资料。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/eb27d5cb5e1d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何发布一个Python命令行工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://help.aliyun.com/document_detail/43039.html?spm=5176.doc30001.2.1.mYdznw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;命令行工具 CLI_用户指南&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.ibm.com/developerworks/cn/aix/library/au-pythocli/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用 Python 创建 UNIX 命令行工具&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/aliyun/aliyun-cli/blob/master/aliyuncli/aliyunCliHelp.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;aliyun-cli&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.xiayf.cn/2013/03/30/argparse/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;argparse - 命令行选项与参数解析（译）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lingxiankong.github.io/blog/2014/01/14/command-line-parser/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python中的命令行解析工具介绍&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.xiaoh.me/2015/12/11/python-egg/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python Egg&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u-cli_u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u-cli_u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;u-cli概述&quot;&gt;&lt;/a&gt;u-cli概述&lt;/h3&gt;&lt;p&gt;我打算编写的这个工具名字就叫u-cli吧，之前打算叫ucli的但是这个名字在pypi中已经被占用了，于是只能使用这个名字了。现在已经做好一个叫uclime的。这个名字的灵感来源是sublime。感觉挺不错。&lt;/p&gt;
+&lt;h3 id=&quot;u-cli_u4F7F_u7528_u7684_u6280_u672F&quot;&gt;&lt;a href=&quot;#u-cli_u4F7F_u7528_u7684_u6280_u672F&quot; class=&quot;headerlink&quot; title=&quot;u-cli使用的技术&quot;&gt;&lt;/a&gt;u-cli使用的技术&lt;/h3&gt;&lt;p&gt;u-cli使用了argparse来做命令行参数解析，使用了ConfigParser 来做配置文件的解析。后端通过UCloud SDK来调用UCloud API。&lt;/p&gt;
+&lt;h3 id=&quot;u4F7F_u7528_u65B9_u6CD5&quot;&gt;&lt;a href=&quot;#u4F7F_u7528_u65B9_u6CD5&quot; class=&quot;headerlink&quot; title=&quot;使用方法&quot;&gt;&lt;/a&gt;使用方法&lt;/h3&gt;&lt;p&gt;使用可以直接通过下面命令安装。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install u-cli&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;执行配置，输入用户公私钥。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;u-cli config&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;执行产品命令&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;u-cli uhost DesciberImage limit=4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;u9879_u76EE_u5730_u5740&quot;&gt;&lt;a href=&quot;#u9879_u76EE_u5730_u5740&quot; class=&quot;headerlink&quot; title=&quot;项目地址&quot;&gt;&lt;/a&gt;项目地址&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/hsiun/ucli&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/hsiun/ucli&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u60F3_u6CD5_u6765_u6E90&quot;&gt;&lt;a href=&quot;#u60F3_u6CD5_u6765_u6E90&quot; class=&quot;headerlink&quot; title=&quot;想法来源&quot;&gt;&lt;/a&gt;想法来源&lt;/h3&gt;&lt;p&gt;之前一直想通过UCloud的Api做点事情，但又
+    
+    </summary>
+    
+    
+      <category term="个人项目" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gitbook写书</title>
+    <link href="http://zone.gaospot.com/2016/11/01/Gitbook%E5%86%99%E4%B9%A6%E8%AE%B0%E5%BD%95/"/>
+    <id>http://zone.gaospot.com/2016/11/01/Gitbook写书记录/</id>
+    <published>2016-11-01T05:35:00.000Z</published>
+    <updated>2016-11-01T06:13:50.720Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Gitbook_u7B80_u4ECB&quot;&gt;&lt;a href=&quot;#Gitbook_u7B80_u4ECB&quot; class=&quot;headerlink&quot; title=&quot;Gitbook简介&quot;&gt;&lt;/a&gt;Gitbook简介&lt;/h3&gt;&lt;p&gt;这两年Markdown和Github可以说非常的火，Gitbook是一个基于这两种技术编写开源书籍的平台，这段时间也可以说是非常的火，在Gitbook下写书，你只需要编写一个summary文件，这个summary文件相当于是目录。Gitbook会自动根据这个summary文件生成对应的md文件，然后再填充相应的文件就可以了。Gitbook提供了Web页面也提供了响应的客户端。但是页面在国内访问速度不理想，建议还是用客户端，客户端是nodejs开发的因此需要nodejs环境。&lt;/p&gt;
+&lt;h3 id=&quot;Gitbook_u4F7F_u7528&quot;&gt;&lt;a href=&quot;#Gitbook_u4F7F_u7528&quot; class=&quot;headerlink&quot; title=&quot;Gitbook使用&quot;&gt;&lt;/a&gt;Gitbook使用&lt;/h3&gt;&lt;p&gt;首先是先需要注册gitbook的账号，可以在gitbook官网注册，注册的时候可以使用github账号注册，使用github账号注册的好处在于后面使用github来管理源文件比较方便。然后设置好关联，我的用法是在gitbook上创建好书籍，然后在github上创建对应的项目，再将二者管理起来。然后从github上把相关项目clone一份到本地，然后在本地编辑这个repository。这样每次把写好的内容更新到github上，gitbook上就能获取到更新，然后可以通过gitbook来浏览相应的书籍了。&lt;/p&gt;
+&lt;h3 id=&quot;u8BBE_u7F6E_u81EA_u5B9A_u4E49_u57DF_u540D&quot;&gt;&lt;a href=&quot;#u8BBE_u7F6E_u81EA_u5B9A_u4E49_u57DF_u540D&quot; class=&quot;headerlink&quot; title=&quot;设置自定义域名&quot;&gt;&lt;/a&gt;设置自定义域名&lt;/h3&gt;&lt;p&gt;gitbook支持自定义域名设置，具体的设置方法可以查询他的官网文档。大概的做法就是先在gitbook网站上写上要解析的域名，这个之前他是分内容和封面可以设置不同的域名的，现在不做区分了都是一个域名。写好之后，在在域名商那边做解析，cname解析，解析到gitbook.com这一点比较奇怪。gitbook相当于是做了一个中间代理的角色，你把域名解析到它那边，它会自动根据你做的解析来完成解析。&lt;/p&gt;
+&lt;p&gt;最后是我按照这样的过程翻译的一本书籍，可以通过（&lt;a href=&quot;https://rest-with-spring.gaospot.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://rest-with-spring.gaospot.com/&lt;/a&gt;）访问，内容本身放在gitbook上，访问较慢。&lt;/p&gt;
+&lt;h3 id=&quot;u53C2_u8003&quot;&gt;&lt;a href=&quot;#u53C2_u8003&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/7476afdd9248&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Gitbook写开源书籍，过一把作家瘾&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/markdown&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown 编辑器语法指南&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Gitbook_u7B80_u4ECB&quot;&gt;&lt;a href=&quot;#Gitbook_u7B80_u4ECB&quot; class=&quot;headerlink&quot; title=&quot;Gitbook简介&quot;&gt;&lt;/a&gt;Gitbook简介&lt;/h3&gt;&lt;p&gt;这两年Markdown和Github可以说非
+    
+    </summary>
+    
+    
+      <category term="个人项目" scheme="http://zone.gaospot.com/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>个人快捷计划</title>
@@ -407,7 +460,7 @@
     <link href="http://zone.gaospot.com/2016/05/21/Mysql%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/"/>
     <id>http://zone.gaospot.com/2016/05/21/Mysql备份与恢复/</id>
     <published>2016-05-21T03:35:00.000Z</published>
-    <updated>2016-05-21T04:57:00.200Z</updated>
+    <updated>2016-11-01T06:13:46.477Z</updated>
     
     <content type="html">&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里主要介绍通过mysqldump来导出数据和通过binlog导入数据的Mysql导入导出问题。&lt;/p&gt;
 &lt;h3 id=&quot;u5907_u4EFD&quot;&gt;&lt;a href=&quot;#u5907_u4EFD&quot; class=&quot;headerlink&quot; title=&quot;备份&quot;&gt;&lt;/a&gt;备份&lt;/h3&gt;&lt;p&gt;常用工具：mysqldump,  xtrabackup&lt;/p&gt;
@@ -716,62 +769,6 @@
     
     
       <category term="系统运维" scheme="http://zone.gaospot.com/tags/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>云直播（ULive）初体验</title>
-    <link href="http://zone.gaospot.com/2016/05/09/%E4%BA%91%E7%9B%B4%E6%92%AD%EF%BC%88ULive%EF%BC%89%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
-    <id>http://zone.gaospot.com/2016/05/09/云直播（ULive）初体验/</id>
-    <published>2016-05-09T09:45:00.000Z</published>
-    <updated>2016-05-09T09:49:44.250Z</updated>
-    
-    <content type="html">&lt;p&gt;这篇博客旨在通过一个简单是使用例子来初步说明ULive这个产品的使用方法，产品文档的说明主要是针对产品的，而这篇博客则主要是从用户业务的角度来做说明。&lt;/p&gt;
-&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;p&gt;这里通过obs（一个开源的直播软件）来录视频（产生直播流），当然也可以通过sdk来开发推流客户端。直播流推流到UCloud提供专门用于测试的推流地址，播放是通过支持rtmp协议串流播放的vlc（开源播放器）来做的。有其他更多需求比如说弹幕啊什么的其实是通过在播放客户端中做的，这个可以自行实现。下面通过图示来说明这个过程（图略丑，见谅：）&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%A6%82%E8%BF%B0.png&quot; alt=&quot;推流和拉流过程说明&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u51C6_u5907_u548C_u524D_u63D0_u6761_u4EF6&quot;&gt;&lt;a href=&quot;#u51C6_u5907_u548C_u524D_u63D0_u6761_u4EF6&quot; class=&quot;headerlink&quot; title=&quot;准备和前提条件&quot;&gt;&lt;/a&gt;准备和前提条件&lt;/h3&gt;&lt;p&gt;推流和播放软件：&lt;br&gt;obs和vlc&lt;/p&gt;
-&lt;p&gt;用于测试的推流和播放地址：&lt;br&gt;推流地址：rtmp://publish3.cdn.ucloud.com.cn/ucloud/流id&lt;br&gt;rtmp播放地址：rtmp://vlive3.rtmp.cdn.ucloud.com.cn/ucloud/流id&lt;br&gt;hls播放地址：&lt;a href=&quot;http://vlive3.hls.cdn.ucloud.com.cn/ucloud/流id/playlist.m3u8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://vlive3.hls.cdn.ucloud.com.cn/ucloud/流id/playlist.m3u8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;其中，流id是您可以任意指定的（仅限于英文字母、数字、下划线），比如aaa、xyz等。因为测试地址是公共的，为了不与其他客户的测试冲突，建议您使用带有自定义前缀（如公司英文名）的流id。&lt;/p&gt;
-&lt;h3 id=&quot;u89C6_u9891_u5F55_u5236_u548C_u63A8_u6D41&quot;&gt;&lt;a href=&quot;#u89C6_u9891_u5F55_u5236_u548C_u63A8_u6D41&quot; class=&quot;headerlink&quot; title=&quot;视频录制和推流&quot;&gt;&lt;/a&gt;视频录制和推流&lt;/h3&gt;&lt;p&gt;这里使用的是obs来录制视频并推流，obs的具体使用不做太多的说明，只说明直播服务器相关地方的说明。首先是点设定，弹出设定对话框，然后选择广播设定，设定FMS URL，和播放路径这两项。FMS URL填的测试推流地址：rtmp://publish3.cdn.ucloud.com.cn/ucloud/，播放路径就是Ulive所说的流id，我这里写的是gaospot。具体说明见下面的文档。&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%8E%A8%E6%B5%81.png&quot; alt=&quot;视频录制和推流&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;u64AD_u653E_u548C_u62C9_u6D41&quot;&gt;&lt;a href=&quot;#u64AD_u653E_u548C_u62C9_u6D41&quot; class=&quot;headerlink&quot; title=&quot;播放和拉流&quot;&gt;&lt;/a&gt;播放和拉流&lt;/h3&gt;&lt;p&gt;这里使用vlc来播放我们的直播，媒体-》打开网络串流。就到如下所示的对话框，这个和上面推流地址是相关的，播放地址就是推流地址加流id，我这里具体来说就是rtmp://vlive3.rtmp.cdn.ucloud.com.cn/ucloud/gaospot&lt;br&gt;&lt;img src=&quot;http://7xr7kh.com1.z0.glb.clouddn.com/%E6%8B%89%E6%B5%81.png&quot; alt=&quot;播放和拉流&quot;&gt;&lt;/p&gt;
-&lt;p&gt;了解了上面的姿势之后在看官方文档（&lt;a href=&quot;https://docs.ucloud.cn/upd-docs/ulive/index.html）的说明就能完全掌握这个产品的使用了。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.ucloud.cn/upd-docs/ulive/index.html）的说明就能完全掌握这个产品的使用了。&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这篇博客旨在通过一个简单是使用例子来初步说明ULive这个产品的使用方法，产品文档的说明主要是针对产品的，而这篇博客则主要是从用户业务的角度来做说明。&lt;/p&gt;
-&lt;h3 id=&quot;u6982_u8FF0&quot;&gt;&lt;a href=&quot;#u6982_u8FF0&quot; class=&quot;header
-    
-    </summary>
-    
-    
-      <category term="产品说明" scheme="http://zone.gaospot.com/tags/%E4%BA%A7%E5%93%81%E8%AF%B4%E6%98%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql常见问题排查</title>
-    <link href="http://zone.gaospot.com/2016/05/04/Mysql%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E9%94%99/"/>
-    <id>http://zone.gaospot.com/2016/05/04/Mysql常见问题排错/</id>
-    <published>2016-05-04T03:35:00.000Z</published>
-    <updated>2016-05-04T03:40:12.576Z</updated>
-    
-    <content type="html">&lt;p&gt;解决UDB主从同步不一致&lt;br&gt;1、: “开启super权限：update mysql.user set super_priv = ‘Y’ where user = ‘root’; flush privileges;”,&lt;br&gt;2、: “停止slave: stop slave;”,&lt;br&gt;3、: “设置跳过slave同步语句数： set global sql_slave_skip_counter = 1;”,&lt;br&gt;4、: “启动slave： start slave;”,&lt;br&gt;5、: “确认同步是否正确： show slave status G 确认”,&lt;br&gt;6、: “若同步还是出错重复第2-5步，若同步正确则结束”&lt;/p&gt;
-&lt;p&gt;数据库上可以在哪里查询最近执行较慢的sql？&lt;/p&gt;
-&lt;p&gt;1、可以通过这个命令查看：select * from mysql.slow_log where start_time &amp;gt;= ‘xxxx-xx-xx’;&lt;br&gt;2、如何查看MySQL数据库的死锁信息&lt;br&gt;3、服务器运行一天后，就开始频繁报错：Deadlock found when trying to get to lock; try restarting transaction.&lt;br&gt;4、使用终端或命令提示符登录到MySQL，输入命令：mysql -h xxxx.xxx.xxx -P 3306 -u username -p password&lt;br&gt;5、在MySQL客户端下输入命令：show engine innodb status \G;&lt;br&gt;6、在打印出来的信息中找到“LATEST DETECTED DEADLOCK”一节内容&lt;br&gt;7、分析其中的内容，我们就可以知道最近导致死锁的事务有哪些.&lt;/p&gt;
-&lt;p&gt;Mysql 5.6内存问题&lt;/p&gt;
-&lt;p&gt;mysql5.6版本的，内存少于3G的，内存使用率100%一般是正常情况，可以尝试设置performance_schema=0，重启&lt;br&gt;原因：&lt;br&gt;5.6版本本来就比较消耗内存，用户的内存配置又低，可以尝试修改performance_schema=0，并降低缓冲池大小，或建议用户增大内存。&lt;br&gt;5.6的启动内存大约就需要500M，缓冲区内存900M，当缓冲区填满以后内存就肯定在100%了，并且不会再下降 以后如果是mysql5.6，如果它的总内存在2G以内的，数据量超过900M的，都会引起内存使用超过100%并且不会再下降的情况。&lt;/p&gt;
-&lt;p&gt;如果是这样，可以：1 减少缓冲池大小 2 禁用performance_schema=0 3 增大内存  &lt;/p&gt;
-&lt;p&gt;三种方法 2-3G的内存一般会遇到&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;解决UDB主从同步不一致&lt;br&gt;1、: “开启super权限：update mysql.user set super_priv = ‘Y’ where user = ‘root’; flush privileges;”,&lt;br&gt;2、: “停止slave: stop slav
-    
-    </summary>
-    
-    
-      <category term="数据库管理" scheme="http://zone.gaospot.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
