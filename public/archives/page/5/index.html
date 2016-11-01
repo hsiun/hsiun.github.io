@@ -115,11 +115,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                47
+                50
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                15
+                16
                 <span>标签</span>
             </div>
         </div>
@@ -153,6 +153,151 @@
                 <section class="archives-wrap">
                     <div class="archives">
             
+            <article class="archive-article archive-type-summary">
+    
+    <div class="archive-article-thumbnail">
+        <a href="/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/">Unix网络编程unp.h问题以及Linux中的库</a>
+        </h1>
+    
+
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/">
+            <time datetime="2014-03-17T08:27:00.000Z" itemprop="datePublished">2014-03-17</time>
+        </a>
+    </div>
+
+
+                
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/网络编程/">网络编程</a>
+    </div>
+
+            </div>
+        </header>
+        <div class="article-entry">
+            <p>Stevens的《UNIX网络编程 卷1：套接字连网API》是一本很著名的UNIX网络编程书籍。其中使用了一个unp.h的引用，如果没有设置相应的库的话，即使引入了头文件也是没用的。所以首先要配置相应的库。基础环境：操作系统 Debian开发环境 GCC，MAKE等，首先要有c编译器，make等基础的工具。如果没有的话，可以通过下面命令安装。这个命令会安装一个工具集，其中包含了很多linux C开</p>
+            <p class="article-more-link">
+                <a href="/2014/03/17/Unix网络编程unp.h问题以及Linux中的库/#more">查看更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+        
+            <article class="archive-article archive-type-summary">
+    
+    <div class="archive-article-thumbnail">
+        <a href="/2014/01/29/C语言中的位域/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2014/01/29/C语言中的位域/">C语言中的位域</a>
+        </h1>
+    
+
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/01/29/C语言中的位域/">
+            <time datetime="2014-01-28T16:03:00.000Z" itemprop="datePublished">2014-01-29</time>
+        </a>
+    </div>
+
+
+                
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
+    </div>
+
+            </div>
+        </header>
+        <div class="article-entry">
+            <p> 在内存中存取数据的最小单位一般是字节，但是有时候并不需要一个字节来存储。例如对于只有真假两个值得一个变量来说，就只须一位就可以了。有比如说在某些情况下内存是极其宝贵的资源，比如说一些嵌入式设备，因此要格外的注意节约。C语言可以在一个结构体中以位来存储数据，这种用位为单位的成员称为位域或位段。
+ 12345 struct bit_data  &#123;    int a:2;    char c</p>
+            <p class="article-more-link">
+                <a href="/2014/01/29/C语言中的位域/#more">查看更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+        
+            <article class="archive-article archive-type-summary">
+    
+    <div class="archive-article-thumbnail">
+        <a href="/2014/01/21/gcc编译C程序的过程/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+    </div>
+    
+    <div class="archive-article-content">
+        <header class="archive-article-header">
+            
+    
+        <h1 itemprop="name">
+            <a class="archive-article-title" href="/2014/01/21/gcc编译C程序的过程/">gcc编译C程序的过程</a>
+        </h1>
+    
+
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/01/21/gcc编译C程序的过程/">
+            <time datetime="2014-01-21T15:50:00.000Z" itemprop="datePublished">2014-01-21</time>
+        </a>
+    </div>
+
+
+                
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/C语言学习/">C语言学习</a>
+    </div>
+
+            </div>
+        </header>
+        <div class="article-entry">
+            <p>我们在编译c程序的时候其过程一般点击一个图标，或者执行一个命令就完成了。但实际的过程可不是这么简单的。在使用gcc编译程序时，它就把这个过程分成了四布来完成。实际上gcc是一个编译环境包含这四步的工具，这四步分别是：(1)预处理：（Pre-Processing）(2)编译：（Compiling）(3)汇编：（Assembling）(4)链接：（Linking)       使用gcc，我们可以根据</p>
+            <p class="article-more-link">
+                <a href="/2014/01/21/gcc编译C程序的过程/#more">查看更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+        
             <article class="archive-article archive-type-summary">
     
     <div class="archive-article-thumbnail">
@@ -523,6 +668,60 @@ va_</p>
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2016/11/01/用Python写一个命令行工具调用UCloud Api/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/11/01/用Python写一个命令行工具调用UCloud Api/" class="title">用Python写一个命令行工具调用UCloud Api</a></p>
+                            <p class="item-date"><time datetime="2016-11-01T06:18:00.000Z" itemprop="datePublished">2016-11-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/01/Gitbook写书记录/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/11/01/Gitbook写书记录/" class="title">Gitbook写书</a></p>
+                            <p class="item-date"><time datetime="2016-11-01T05:35:00.000Z" itemprop="datePublished">2016-11-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/08/17/如何多使用快捷键/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/08/17/如何多使用快捷键/" class="title">个人快捷计划</a></p>
+                            <p class="item-date"><time datetime="2016-08-17T02:58:53.000Z" itemprop="datePublished">2016-08-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2016/07/28/一些思考/" class="thumbnail">
     
     
@@ -556,60 +755,6 @@ va_</p>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/24/使用Spring构建第一个RESTful服务/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/24/使用Spring构建第一个RESTful服务/" class="title">使用Spring构建第一个RESTful服务</a></p>
-                            <p class="item-date"><time datetime="2016-06-24T15:11:00.000Z" itemprop="datePublished">2016-06-24</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/13/阿里云CDN架构/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://7xr7kh.com1.z0.glb.clouddn.com/aliyun-architecture-single.png)" alt="阿里云CDN架构" class="thumbnail-image"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/13/阿里云CDN架构/" class="title">阿里云CDN架构</a></p>
-                            <p class="item-date"><time datetime="2016-06-13T07:16:00.000Z" itemprop="datePublished">2016-06-13</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2016/06/11/raspberry内核编译和模块开发/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/06/11/raspberry内核编译和模块开发/" class="title">raspberry内核编译和模块开发</a></p>
-                            <p class="item-date"><time datetime="2016-06-11T14:41:00.000Z" itemprop="datePublished">2016-06-11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -621,7 +766,7 @@ va_</p>
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -630,7 +775,7 @@ va_</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java开发/">Java开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux驱动编程/">linux驱动编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C语言学习/">C语言学习</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java开发/">Java开发</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java编程学习/">Java编程学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux学习/">Linux学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web基础/">Web基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux驱动编程/">linux驱动编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人总结/">个人总结</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人项目/">个人项目</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品说明/">产品说明</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库管理/">数据库管理</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/智能硬件/">智能硬件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统运维/">系统运维</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络编程/">网络编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维相关/">运维相关</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -639,7 +784,7 @@ va_</p>
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C语言学习/" style="font-size: 14px;">C语言学习</a> <a href="/tags/Java开发/" style="font-size: 12px;">Java开发</a> <a href="/tags/Java编程学习/" style="font-size: 12px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 14px;">Web基础</a> <a href="/tags/linux驱动编程/" style="font-size: 10px;">linux驱动编程</a> <a href="/tags/个人总结/" style="font-size: 16px;">个人总结</a> <a href="/tags/产品说明/" style="font-size: 16px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 12px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 18px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
+            <a href="/tags/C语言学习/" style="font-size: 13.33px;">C语言学习</a> <a href="/tags/Java开发/" style="font-size: 11.67px;">Java开发</a> <a href="/tags/Java编程学习/" style="font-size: 11.67px;">Java编程学习</a> <a href="/tags/Linux学习/" style="font-size: 10px;">Linux学习</a> <a href="/tags/Web基础/" style="font-size: 13.33px;">Web基础</a> <a href="/tags/linux驱动编程/" style="font-size: 10px;">linux驱动编程</a> <a href="/tags/个人总结/" style="font-size: 16.67px;">个人总结</a> <a href="/tags/个人项目/" style="font-size: 11.67px;">个人项目</a> <a href="/tags/产品说明/" style="font-size: 15px;">产品说明</a> <a href="/tags/开发工具/" style="font-size: 11.67px;">开发工具</a> <a href="/tags/数据库管理/" style="font-size: 18.33px;">数据库管理</a> <a href="/tags/智能硬件/" style="font-size: 10px;">智能硬件</a> <a href="/tags/系统运维/" style="font-size: 20px;">系统运维</a> <a href="/tags/网络编程/" style="font-size: 10px;">网络编程</a> <a href="/tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="/tags/运维相关/" style="font-size: 10px;">运维相关</a>
         </div>
     </div>
 
